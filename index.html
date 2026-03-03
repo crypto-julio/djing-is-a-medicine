@@ -16,27 +16,26 @@
 </head>
 <body>
 
+<!-- Scroll progress bar -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Custom cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+
 <!-- Fixed parallax background -->
 <div id="parallax-bg">
   <div class="hero-bg"></div>
-  <div class="hero-waves">
-    <!-- Sub-bass: 1 cycle / très longue onde, massive amplitude -->
-    <svg class="hero-wave hero-wave-1" viewBox="0 0 2880 120" preserveAspectRatio="none" fill="none" stroke="currentColor">
-      <path d="M0,60 C240,10 480,10 720,60 C960,110 1200,110 1440,60 C1680,10 1920,10 2160,60 C2400,110 2640,110 2880,60" vector-effect="non-scaling-stroke"/>
-    </svg>
-    <!-- Mid + tremolo: 3 cycles, amplitude qui varie fort/doux/fort -->
-    <svg class="hero-wave hero-wave-2" viewBox="0 0 2880 120" preserveAspectRatio="none" fill="none" stroke="currentColor">
-      <path d="M0,60 C80,28 160,28 240,60 C320,92 400,92 480,60 C560,47 640,47 720,60 C800,73 880,73 960,60 C1040,28 1120,28 1200,60 C1280,92 1360,92 1440,60 C1520,28 1600,28 1680,60 C1760,92 1840,92 1920,60 C2000,47 2080,47 2160,60 C2240,73 2320,73 2400,60 C2480,28 2560,28 2640,60 C2720,92 2800,92 2880,60" vector-effect="non-scaling-stroke"/>
-    </svg>
-    <!-- High freq: 8 cycles rapides, petite amplitude, shimmer -->
-    <svg class="hero-wave hero-wave-3" viewBox="0 0 2880 120" preserveAspectRatio="none" fill="none" stroke="currentColor">
-      <path d="M0,60 C60,38 120,38 180,60 C240,82 300,82 360,60 C420,38 480,38 540,60 C600,82 660,82 720,60 C780,38 840,38 900,60 C960,82 1020,82 1080,60 C1140,38 1200,38 1260,60 C1320,82 1380,82 1440,60 C1500,38 1560,38 1620,60 C1680,82 1740,82 1800,60 C1860,38 1920,38 1980,60 C2040,82 2100,82 2160,60 C2220,38 2280,38 2340,60 C2400,82 2460,82 2520,60 C2580,38 2640,38 2700,60 C2760,82 2820,82 2880,60" vector-effect="non-scaling-stroke"/>
-    </svg>
-    <!-- Complex: waveform audio irrégulier, pics asymétriques -->
-    <svg class="hero-wave hero-wave-4" viewBox="0 0 2880 120" preserveAspectRatio="none" fill="none" stroke="currentColor">
-      <path d="M0,60 C50,38 120,16 200,48 C280,80 340,98 440,72 C540,46 580,14 680,42 C780,70 860,92 960,60 C1020,28 1080,18 1160,52 C1240,86 1300,100 1380,74 C1420,64 1430,60 1440,60 C1490,38 1560,16 1640,48 C1720,80 1780,98 1880,72 C1980,46 2020,14 2120,42 C2220,70 2300,92 2400,60 C2460,28 2520,18 2600,52 C2680,86 2740,100 2820,74 C2860,64 2870,60 2880,60" vector-effect="non-scaling-stroke"/>
-    </svg>
+  <div class="aurora">
+    <div class="aurora-blob aurora-blob-1"></div>
+    <div class="aurora-blob aurora-blob-2"></div>
+    <div class="aurora-blob aurora-blob-3"></div>
+    <div class="aurora-blob aurora-blob-4"></div>
+    <div class="aurora-blob aurora-blob-5"></div>
+    <div class="aurora-blob aurora-blob-6"></div>
   </div>
+  <canvas id="sound-waves-canvas"></canvas>
+  <div class="hero-mandala"></div>
 </div>
 
 <!-- ==========================================
@@ -51,7 +50,7 @@
       <li><a href="#ecstatic-dance">Ecstatic Dance</a></li>
       <li><a href="#a-propos">À propos</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="#formation" class="nav-cta">Rejoindre la formation</a></li>
+      <li><a href="#formation" class="nav-cta" data-magnetic>Rejoindre la formation</a></li>
     </ul>
     <div class="nav-hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -72,12 +71,16 @@
      SECTION 1 — HERO
      ========================================== -->
 <section class="hero" id="accueil">
-  <div class="hero-mandala"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">Formation DJ · Ecstatic Dance · DJing Holistique</div>
-    <h1 class="hero-title">DJing Is A Medicine</h1>
+    <h1 class="hero-title">
+      <span class="word" style="--i:0">DJing</span>
+      <span class="word" style="--i:1">Is</span>
+      <span class="word" style="--i:2">A</span>
+      <span class="word" style="--i:3">Medicine</span>
+    </h1>
     <p class="hero-subtitle">Deviens capable de tenir un espace bienveillant et de guider un voyage musical fluide en quelques mois, sans te perdre dans la technique ni dans le doute.</p>
-    <a href="#formation" class="hero-cta">
+    <a href="#formation" class="hero-cta" data-magnetic>
       Découvrir la formation
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
@@ -91,7 +94,14 @@
 <!-- Wave separator -->
 <div class="wave-separator">
   <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-    <path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z" fill="#E5DCD2"/>
+    <path fill="#E5DCD2" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z">
+      <animate attributeName="d" dur="8s" repeatCount="indefinite" values="
+        M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z;
+        M0,50 C300,20 600,70 900,30 C1150,10 1350,60 1440,45 L1440,80 L0,80 Z;
+        M0,35 C400,75 750,10 1050,50 C1200,65 1350,35 1440,40 L1440,80 L0,80 Z;
+        M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z
+      "/>
+    </path>
   </svg>
 </div>
 
@@ -134,7 +144,14 @@
 <!-- Wave separator — Approche → Parcours (top-fill: opaque fades into dark) -->
 <div class="wave-separator">
   <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-    <path d="M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z" fill="#E5DCD2"/>
+    <path fill="#E5DCD2" d="M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z">
+      <animate attributeName="d" dur="10s" repeatCount="indefinite" values="
+        M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z;
+        M0,30 C300,70 540,10 780,50 C1020,70 1260,15 1440,35 L1440,0 L0,0 Z;
+        M0,50 C200,5 440,75 680,35 C920,5 1160,70 1440,45 L1440,0 L0,0 Z;
+        M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z
+      "/>
+    </path>
   </svg>
 </div>
 
@@ -162,7 +179,7 @@
     </div>
 
     <div class="pour-qui-cta reveal">
-      <a href="#formation" class="btn-primary">
+      <a href="#formation" class="btn-primary" data-magnetic>
         Découvrir la formation DJ Holistique
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
@@ -173,7 +190,14 @@
 <!-- Wave separator — Parcours → Témoignages (bottom-fill: dark into opaque) -->
 <div class="wave-separator">
   <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-    <path d="M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z" fill="#E5DCD2"/>
+    <path fill="#E5DCD2" d="M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z">
+      <animate attributeName="d" dur="9s" repeatCount="indefinite" values="
+        M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z;
+        M0,40 C220,15 400,70 600,35 C780,10 950,65 1120,45 C1280,30 1380,55 1440,40 L1440,80 L0,80 Z;
+        M0,55 C150,75 330,25 500,55 C680,75 860,15 1040,45 C1220,62 1360,38 1440,50 L1440,80 L0,80 Z;
+        M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z
+      "/>
+    </path>
   </svg>
 </div>
 
@@ -236,7 +260,14 @@
 <!-- Wave separator — Témoignages → Agenda (top-fill: opaque fades into dark) -->
 <div class="wave-separator">
   <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-    <path d="M0,35 C360,65 540,15 900,45 C1080,60 1260,25 1440,40 L1440,0 L0,0 Z" fill="#E5DCD2"/>
+    <path fill="#E5DCD2" d="M0,35 C360,65 540,15 900,45 C1080,60 1260,25 1440,40 L1440,0 L0,0 Z">
+      <animate attributeName="d" dur="11s" repeatCount="indefinite" values="
+        M0,35 C360,65 540,15 900,45 C1080,60 1260,25 1440,40 L1440,0 L0,0 Z;
+        M0,45 C280,20 500,65 820,30 C1020,15 1220,60 1440,35 L1440,0 L0,0 Z;
+        M0,30 C320,70 580,10 860,50 C1060,65 1300,20 1440,42 L1440,0 L0,0 Z;
+        M0,35 C360,65 540,15 900,45 C1080,60 1260,25 1440,40 L1440,0 L0,0 Z
+      "/>
+    </path>
   </svg>
 </div>
 
@@ -289,7 +320,14 @@
 <!-- Wave separator — Agenda → Newsletter (bottom-fill: dark into opaque) -->
 <div class="wave-separator">
   <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-    <path d="M0,30 C360,70 720,10 1080,50 C1260,65 1380,40 1440,30 L1440,80 L0,80 Z" fill="#E5DCD2"/>
+    <path fill="#E5DCD2" d="M0,30 C360,70 720,10 1080,50 C1260,65 1380,40 1440,30 L1440,80 L0,80 Z">
+      <animate attributeName="d" dur="9s" repeatCount="indefinite" values="
+        M0,30 C360,70 720,10 1080,50 C1260,65 1380,40 1440,30 L1440,80 L0,80 Z;
+        M0,45 C300,15 660,65 1020,30 C1200,15 1350,55 1440,40 L1440,80 L0,80 Z;
+        M0,35 C380,75 740,5 1100,55 C1280,70 1400,30 1440,35 L1440,80 L0,80 Z;
+        M0,30 C360,70 720,10 1080,50 C1260,65 1380,40 1440,30 L1440,80 L0,80 Z
+      "/>
+    </path>
   </svg>
 </div>
 
@@ -361,6 +399,168 @@
 
 <script>
 // ==========================================
+// SOUND WAVES — 3 flowing frequency waves
+// ==========================================
+(function() {
+  const canvas = document.getElementById('sound-waves-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  let W, H;
+  function resize() {
+    const dpr = window.devicePixelRatio || 1;
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // 3 waves: bass, mid, high
+  const waves = [
+    {
+      // BASS — lente, massive, profonde
+      y: 0.28,                     // position verticale (% de H)
+      color: [196, 122, 46],       // amber
+      amplitude: 55,               // hauteur max de l'onde
+      frequency: 0.003,            // fréquence spatiale (peaks par px)
+      speed: 0.008,                // vitesse de défilement
+      lineWidth: 3,
+      glow: 25,
+      opacity: 0.5,
+      // Respiration lente de l'amplitude
+      breathSpeed: 0.003,
+      breathDepth: 0.4,            // l'amplitude varie de 60% à 100%
+      // Harmonique secondaire
+      harmFreq: 0.0008,
+      harmAmp: 25,
+      phase: 0,
+    },
+    {
+      // MID — rythme moyen, pulse
+      y: 0.5,
+      color: [139, 58, 122],       // magenta
+      amplitude: 35,
+      frequency: 0.007,
+      speed: 0.015,
+      lineWidth: 2,
+      glow: 18,
+      opacity: 0.45,
+      breathSpeed: 0.005,
+      breathDepth: 0.35,
+      harmFreq: 0.002,
+      harmAmp: 15,
+      phase: 0,
+    },
+    {
+      // HIGH — rapide, fine, shimmer
+      y: 0.72,
+      color: [30, 160, 200],       // teal/cyan
+      amplitude: 18,
+      frequency: 0.015,
+      speed: 0.025,
+      lineWidth: 1.2,
+      glow: 12,
+      opacity: 0.4,
+      breathSpeed: 0.008,
+      breathDepth: 0.3,
+      harmFreq: 0.004,
+      harmAmp: 8,
+      phase: 0,
+    },
+  ];
+
+  let time = 0;
+  const STEP = 4; // résolution : 1 point tous les 4px
+
+  function drawWave(wave) {
+    const baseY = H * wave.y;
+    const [cr, cg, cb] = wave.color;
+
+    // Respiration : l'amplitude pulse lentement
+    const breath = 1 - wave.breathDepth + wave.breathDepth * (0.5 + 0.5 * Math.sin(time * wave.breathSpeed));
+    const amp = wave.amplitude * breath;
+    const harmAmp = wave.harmAmp * breath;
+
+    // Glow
+    ctx.shadowBlur = wave.glow;
+    ctx.shadowColor = `rgba(${cr}, ${cg}, ${cb}, ${wave.opacity * 0.5})`;
+    ctx.strokeStyle = `rgba(${cr}, ${cg}, ${cb}, ${wave.opacity})`;
+    ctx.lineWidth = wave.lineWidth;
+
+    ctx.beginPath();
+    for (let x = 0; x <= W; x += STEP) {
+      // Onde principale + harmonique lente pour variation organique
+      const y = baseY
+        + Math.sin(x * wave.frequency + wave.phase) * amp
+        + Math.sin(x * wave.harmFreq + wave.phase * 0.6) * harmAmp;
+
+      if (x === 0) {
+        ctx.moveTo(x, y);
+      } else {
+        ctx.lineTo(x, y);
+      }
+    }
+    ctx.stroke();
+
+    // Reset shadow
+    ctx.shadowBlur = 0;
+
+    // Deuxième passe plus fine et lumineuse (core lumineux)
+    ctx.strokeStyle = `rgba(${cr}, ${cg}, ${cb}, ${wave.opacity * 0.3})`;
+    ctx.lineWidth = wave.lineWidth * 2.5;
+    ctx.shadowBlur = wave.glow * 2;
+    ctx.shadowColor = `rgba(${cr}, ${cg}, ${cb}, ${wave.opacity * 0.25})`;
+
+    ctx.beginPath();
+    for (let x = 0; x <= W; x += STEP) {
+      const y = baseY
+        + Math.sin(x * wave.frequency + wave.phase) * amp
+        + Math.sin(x * wave.harmFreq + wave.phase * 0.6) * harmAmp;
+
+      if (x === 0) {
+        ctx.moveTo(x, y);
+      } else {
+        ctx.lineTo(x, y);
+      }
+    }
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, W, H);
+
+    for (const wave of waves) {
+      wave.phase += wave.speed;
+      drawWave(wave);
+    }
+
+    time++;
+    if (!prefersReduced) {
+      requestAnimationFrame(animate);
+    }
+  }
+
+  if (prefersReduced) {
+    // Static render
+    for (const wave of waves) {
+      wave.phase = Math.random() * Math.PI * 2;
+    }
+    time = 100;
+    ctx.clearRect(0, 0, W, H);
+    for (const wave of waves) drawWave(wave);
+  } else {
+    animate();
+  }
+})();
+</script>
+
+<script>
+// ==========================================
 // SCROLL REVEAL
 // ==========================================
 const observer = new IntersectionObserver((entries) => {
@@ -377,6 +577,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 // NAV SCROLL BEHAVIOR
 // ==========================================
 const nav = document.getElementById('nav');
+const scrollProgress = document.getElementById('scrollProgress');
 let lastScroll = 0;
 window.addEventListener('scroll', () => {
   const y = window.scrollY;
@@ -384,6 +585,11 @@ window.addEventListener('scroll', () => {
     nav.classList.add('scrolled');
   } else {
     nav.classList.remove('scrolled');
+  }
+  // Scroll progress bar
+  const docH = document.documentElement.scrollHeight - window.innerHeight;
+  if (scrollProgress && docH > 0) {
+    scrollProgress.style.width = (y / docH * 100) + '%';
   }
   lastScroll = y;
 }, { passive: true });
@@ -420,6 +626,124 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+// ==========================================
+// 3D TILT on cards
+// ==========================================
+(function() {
+  if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
+
+  const TILT_MAX = 8; // degrees
+  const cards = document.querySelectorAll('.pillar, .level-card, .date-card, .testimonial-card');
+
+  cards.forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width;  // 0→1
+      const y = (e.clientY - rect.top) / rect.height;   // 0→1
+      const rotateY = (x - 0.5) * TILT_MAX * 2;  // -8 to +8
+      const rotateX = (0.5 - y) * TILT_MAX * 2;  // -8 to +8
+
+      card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      card.style.transition = 'transform 0.1s ease-out';
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+      card.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+    });
+  });
+})();
+
+// ==========================================
+// CUSTOM CURSOR + MAGNETIC BUTTONS
+// ==========================================
+(function() {
+  // Skip on touch devices
+  if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
+
+  const cursor = document.getElementById('cursor');
+  const glow = document.getElementById('cursorGlow');
+  if (!cursor || !glow) return;
+
+  let mx = -100, my = -100; // mouse position
+  let cx = -100, cy = -100; // cursor position (smoothed)
+  let gx = -100, gy = -100; // glow position (more smoothed)
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX;
+    my = e.clientY;
+  });
+
+  // Hide when mouse leaves window
+  document.addEventListener('mouseleave', () => {
+    cursor.style.opacity = '0';
+    glow.style.opacity = '0';
+  });
+  document.addEventListener('mouseenter', () => {
+    cursor.style.opacity = '1';
+    glow.style.opacity = '1';
+  });
+
+  // Smooth follow with lerp
+  function lerp(a, b, t) { return a + (b - a) * t; }
+
+  function tick() {
+    cx = lerp(cx, mx, 0.2);
+    cy = lerp(cy, my, 0.2);
+    gx = lerp(gx, mx, 0.08);
+    gy = lerp(gy, my, 0.08);
+
+    cursor.style.left = cx + 'px';
+    cursor.style.top = cy + 'px';
+    glow.style.left = gx + 'px';
+    glow.style.top = gy + 'px';
+
+    requestAnimationFrame(tick);
+  }
+  tick();
+
+  // Hover detection on interactive elements
+  const interactives = 'a, button, [data-magnetic], .pillar-card, .level-card, .date-card, .testimonial-card';
+
+  document.addEventListener('mouseover', e => {
+    if (e.target.closest(interactives)) {
+      cursor.classList.add('hover');
+      glow.classList.add('hover');
+    }
+  });
+  document.addEventListener('mouseout', e => {
+    if (e.target.closest(interactives)) {
+      cursor.classList.remove('hover');
+      glow.classList.remove('hover');
+    }
+  });
+
+  // ==========================================
+  // MAGNETIC EFFECT on [data-magnetic]
+  // ==========================================
+  const magnetics = document.querySelectorAll('[data-magnetic]');
+  const MAGNETIC_STRENGTH = 0.35;
+  const MAGNETIC_DISTANCE = 80; // px trigger zone around the button
+
+  magnetics.forEach(el => {
+    el.addEventListener('mousemove', e => {
+      const rect = el.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const deltaX = e.clientX - centerX;
+      const deltaY = e.clientY - centerY;
+
+      el.style.transform = `translate(${deltaX * MAGNETIC_STRENGTH}px, ${deltaY * MAGNETIC_STRENGTH}px)`;
+      el.style.transition = 'transform 0.2s ease-out';
+    });
+
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = '';
+      el.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+    });
+  });
+})();
 </script>
 </body>
 </html>
