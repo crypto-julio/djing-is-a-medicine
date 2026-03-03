@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJing Is A Medicine — Formation DJ Ecstatic Dance & DJing Holistique</title>
+<meta name="description" content="Le DJing comme voie sensible pour créer des espaces sécurisés et des voyages musicaux qui font du bien. Formation DJ Ecstatic Dance par Ëotim.">
+<meta property="og:title" content="DJing Is A Medicine — Formation DJ Holistique">
+<meta property="og:description" content="Deviens capable de tenir un espace bienveillant et de guider un voyage musical fluide.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="font" href="fonts/Decalotype-Bold.woff" type="font/woff" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Fixed parallax background -->
+<div id="parallax-bg">
+  <div class="hero-bg"></div>
+  <div class="hero-waves">
+    <!-- Sub-bass: 1 cycle / très longue onde, massive amplitude -->
+    <svg class="hero-wave hero-wave-1" viewBox="0 0 2880 120" preserveAspectRatio="none" fill="none" stroke="currentColor">
+      <path d="M0,60 C240,10 480,10 720,60 C960,110 1200,110 1440,60 C1680,10 1920,10 2160,60 C2400,110 2640,110 2880,60" vector-effect="non-scaling-stroke"/>
+    </svg>
+    <!-- Mid + tremolo: 3 cycles, amplitude qui varie fort/doux/fort -->
+    <svg class="hero-wave hero-wave-2" viewBox="0 0 2880 120" preserveAspectRatio="none" fill="none" stroke="currentColor">
+      <path d="M0,60 C80,28 160,28 240,60 C320,92 400,92 480,60 C560,47 640,47 720,60 C800,73 880,73 960,60 C1040,28 1120,28 1200,60 C1280,92 1360,92 1440,60 C1520,28 1600,28 1680,60 C1760,92 1840,92 1920,60 C2000,47 2080,47 2160,60 C2240,73 2320,73 2400,60 C2480,28 2560,28 2640,60 C2720,92 2800,92 2880,60" vector-effect="non-scaling-stroke"/>
+    </svg>
+    <!-- High freq: 8 cycles rapides, petite amplitude, shimmer -->
+    <svg class="hero-wave hero-wave-3" viewBox="0 0 2880 120" preserveAspectRatio="none" fill="none" stroke="currentColor">
+      <path d="M0,60 C60,38 120,38 180,60 C240,82 300,82 360,60 C420,38 480,38 540,60 C600,82 660,82 720,60 C780,38 840,38 900,60 C960,82 1020,82 1080,60 C1140,38 1200,38 1260,60 C1320,82 1380,82 1440,60 C1500,38 1560,38 1620,60 C1680,82 1740,82 1800,60 C1860,38 1920,38 1980,60 C2040,82 2100,82 2160,60 C2220,38 2280,38 2340,60 C2400,82 2460,82 2520,60 C2580,38 2640,38 2700,60 C2760,82 2820,82 2880,60" vector-effect="non-scaling-stroke"/>
+    </svg>
+    <!-- Complex: waveform audio irrégulier, pics asymétriques -->
+    <svg class="hero-wave hero-wave-4" viewBox="0 0 2880 120" preserveAspectRatio="none" fill="none" stroke="currentColor">
+      <path d="M0,60 C50,38 120,16 200,48 C280,80 340,98 440,72 C540,46 580,14 680,42 C780,70 860,92 960,60 C1020,28 1080,18 1160,52 C1240,86 1300,100 1380,74 C1420,64 1430,60 1440,60 C1490,38 1560,16 1640,48 C1720,80 1780,98 1880,72 C1980,46 2020,14 2120,42 C2220,70 2300,92 2400,60 C2460,28 2520,18 2600,52 C2680,86 2740,100 2820,74 C2860,64 2870,60 2880,60" vector-effect="non-scaling-stroke"/>
+    </svg>
+  </div>
+</div>
+
+<!-- ==========================================
+     NAVIGATION
+     ========================================== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">DJing Is A Medicine</a>
+    <ul class="nav-links">
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#formation">Formation</a></li>
+      <li><a href="#ecstatic-dance">Ecstatic Dance</a></li>
+      <li><a href="#a-propos">À propos</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#formation" class="nav-cta">Rejoindre la formation</a></li>
+    </ul>
+    <div class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="mobileMenu">
+  <a href="#accueil" onclick="closeMobile()">Accueil</a>
+  <a href="#formation" onclick="closeMobile()">Formation</a>
+  <a href="#ecstatic-dance" onclick="closeMobile()">Ecstatic Dance</a>
+  <a href="#a-propos" onclick="closeMobile()">À propos</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+  <a href="#formation" class="btn-primary" onclick="closeMobile()" style="margin-top:1rem;">Rejoindre la formation</a>
+</div>
+
+<!-- ==========================================
+     SECTION 1 — HERO
+     ========================================== -->
+<section class="hero" id="accueil">
+  <div class="hero-mandala"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Formation DJ · Ecstatic Dance · DJing Holistique</div>
+    <h1 class="hero-title">DJing Is A Medicine</h1>
+    <p class="hero-subtitle">Deviens capable de tenir un espace bienveillant et de guider un voyage musical fluide en quelques mois, sans te perdre dans la technique ni dans le doute.</p>
+    <a href="#formation" class="hero-cta">
+      Découvrir la formation
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+  <div class="hero-scroll">
+    <span>Découvrir</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- Wave separator -->
+<div class="wave-separator">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+    <path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z" fill="#E5DCD2"/>
+  </svg>
+</div>
+
+<!-- ==========================================
+     SECTION 2 — PHILOSOPHIE
+     ========================================== -->
+<section class="philosophy" id="philosophie">
+  <div class="container">
+    <div class="philosophy-intro reveal">
+      <div class="section-label">L'approche</div>
+      <h2 class="section-title">Une approche vivante du DJing</h2>
+      <p class="section-text">Le DJing est une pratique complète : la technique soutient la présence. La présence donne sens à la musique. Ensemble, elles transforment l'apprentissage en expérience transformatrice.</p>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar pillar-1 reveal reveal-delay-1">
+        <div class="pillar-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+        </div>
+        <h3 class="pillar-title">Devenir DJ</h3>
+        <div class="pillar-subtitle">Structure & Technique</div>
+        <p class="pillar-text">Tu apprends à mixer avec une méthode progressive et claire. La technique devient simple, incarnée et au service du voyage.</p>
+      </div>
+      <div class="pillar pillar-2 reveal reveal-delay-2">
+        <div class="pillar-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3 class="pillar-title">Soutenir des espaces sécurisés</h3>
+        <div class="pillar-subtitle">Posture & Présence</div>
+        <p class="pillar-text">Tu développes une posture stable pour soutenir un espace en présence. Le DJing devient un acte de soin et de responsabilité.</p>
+      </div>
+    </div>
+
+    <div class="quote-band reveal">
+      <p class="quote-text">Posture + technique + collectif.<br>C'est l'alliance des trois qui transforme et permet.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Wave separator — Approche → Parcours (top-fill: opaque fades into dark) -->
+<div class="wave-separator">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+    <path d="M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z" fill="#E5DCD2"/>
+  </svg>
+</div>
+
+<!-- ==========================================
+     SECTION 3 — POUR QUI
+     ========================================== -->
+<section class="pour-qui" id="pour-qui">
+  <div class="container">
+    <div class="pour-qui-header reveal">
+      <div class="section-label">Les parcours</div>
+      <h2 class="section-title">Est-ce que c'est pour toi ?</h2>
+    </div>
+
+    <div class="levels">
+      <div class="level-card level-ronde reveal reveal-delay-1">
+        <div class="level-badge">Débutant</div>
+        <h3 class="level-title">Niveau Ronde</h3>
+        <p class="level-text">Tu ressens l'appel mais tu ne sais pas par où commencer. La technique te bloque et tu te dis illégitime. Tu veux un cadre clair et humain pour apprendre sans pression. Tu sens le besoin d'être soutenu par le collectif.</p>
+      </div>
+      <div class="level-card level-blanche reveal reveal-delay-2">
+        <div class="level-badge">Intermédiaire</div>
+        <h3 class="level-title">Niveau Blanche</h3>
+        <p class="level-text">Tu as déjà commencé à proposer des espaces mais tu cherches à améliorer ta technique, structurer ton univers, affiner ta posture. Tu veux passer un cap.</p>
+      </div>
+    </div>
+
+    <div class="pour-qui-cta reveal">
+      <a href="#formation" class="btn-primary">
+        Découvrir la formation DJ Holistique
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Wave separator — Parcours → Témoignages (bottom-fill: dark into opaque) -->
+<div class="wave-separator">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+    <path d="M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z" fill="#E5DCD2"/>
+  </svg>
+</div>
+
+<!-- ==========================================
+     SECTION 4 — TEMOIGNAGES
+     ========================================== -->
+<section class="testimonials" id="temoignages">
+  <div class="container">
+    <div class="testimonials-header reveal">
+      <div class="section-label">Témoignages</div>
+      <h2 class="section-title">Ils et elles ont osé</h2>
+    </div>
+
+    <div class="testimonials-layout">
+      <div class="big-quote reveal">
+        <p class="big-quote-text">Je ne pensais pas être capable…</p>
+      </div>
+
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">"Benjamin est un formateur exceptionnel qui sait expliquer de manière claire et précise. Sa bienveillance est vraiment appréciable. Les stages qu'il organise sont de très haut niveau, et je recommande sans réserve."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JS</div>
+          <div>
+            <div class="testimonial-name">Julien S.</div>
+            <div class="testimonial-role">Participant retraite</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="video-placeholder reveal reveal-delay-2">
+        <div class="video-play">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="#2A1F30" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+        <div class="video-label">Témoignage vidéo — Retraite immersive 2025</div>
+      </div>
+
+      <div class="testimonial-card testimonial-card-full reveal reveal-delay-3">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-quote">"Je ne pensais pas que le DJing pouvait être autant un voyage intérieur. Benjamin crée un espace rare, où on apprend sans pression et où chaque session est une expérience humaine et musicale profonde."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">ML</div>
+          <div>
+            <div class="testimonial-name">Marine L.</div>
+            <div class="testimonial-role">Participante formation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonials-footer reveal">
+      <a href="#" class="btn-outline">
+        Voir les témoignages
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Wave separator — Témoignages → Agenda (top-fill: opaque fades into dark) -->
+<div class="wave-separator">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+    <path d="M0,35 C360,65 540,15 900,45 C1080,60 1260,25 1440,40 L1440,0 L0,0 Z" fill="#E5DCD2"/>
+  </svg>
+</div>
+
+<!-- ==========================================
+     SECTION 5 — PROCHAINES DATES
+     ========================================== -->
+<section class="dates" id="dates">
+  <div class="container">
+    <div class="dates-header reveal">
+      <div class="section-label">Agenda</div>
+      <h2 class="section-title">Prochaines immersions</h2>
+      <p class="section-text" style="max-width:500px;margin:0 auto;">Petit groupe. Cadre sécurisé. Expérience immersive.</p>
+    </div>
+
+    <div class="dates-grid">
+      <div class="date-card date-card-1 reveal reveal-delay-1">
+        <div class="date-card-visual">
+          <div class="date-card-badge">Places limitées</div>
+        </div>
+        <div class="date-card-body">
+          <div class="date-card-type">Retraite immersive · 5 jours</div>
+          <h3 class="date-card-title">Retraite immersive DJing & Ecstatic Dance</h3>
+          <p class="date-card-desc">Immersion complète : technique, posture, pratique collective. Un voyage de transformation en petit groupe.</p>
+          <a href="#" class="date-card-cta">
+            En savoir plus
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="date-card date-card-2 reveal reveal-delay-2">
+        <div class="date-card-visual">
+          <div class="date-card-badge">Places limitées</div>
+        </div>
+        <div class="date-card-body">
+          <div class="date-card-type">Stage · Week-end</div>
+          <h3 class="date-card-title">Les stages D.A.N.S.E.S 48</h3>
+          <p class="date-card-desc">Habiter et créer des espaces sûrs, par l'expérience. Un format court et intense pour explorer la pratique.</p>
+          <a href="#" class="date-card-cta">
+            En savoir plus
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <p class="dates-note reveal">Les dates et détails sont communiqués aux inscrits en priorité.</p>
+  </div>
+</section>
+
+<!-- Wave separator — Agenda → Newsletter (bottom-fill: dark into opaque) -->
+<div class="wave-separator">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+    <path d="M0,30 C360,70 720,10 1080,50 C1260,65 1380,40 1440,30 L1440,80 L0,80 Z" fill="#E5DCD2"/>
+  </svg>
+</div>
+
+<!-- ==========================================
+     SECTION 6 — NEWSLETTER
+     ========================================== -->
+<section class="newsletter" id="contact">
+  <div class="newsletter-bg"></div>
+  <div class="container">
+    <div class="newsletter-content">
+      <div class="section-label reveal">Premier pas</div>
+      <h2 class="newsletter-title reveal reveal-delay-1">Commencer en douceur</h2>
+      <p class="newsletter-text reveal reveal-delay-2">Reçois les replays des webinaires et les prochaines dates. Un premier pas simple pour explorer le DJing holistique et les espaces sécurisés.</p>
+      <form class="newsletter-form reveal reveal-delay-3" action="#" method="POST">
+        <div class="newsletter-row">
+          <input type="text" class="newsletter-input" placeholder="Ton prénom" name="prenom" required>
+          <input type="email" class="newsletter-input" placeholder="Ton email" name="email" required>
+        </div>
+        <button type="submit" class="newsletter-submit">Recevoir les replays</button>
+      </form>
+      <p class="newsletter-disclaimer reveal reveal-delay-4">Pas de spam. Juste du contenu utile et vivant.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     FOOTER
+     ========================================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">DJing Is A Medicine</div>
+        <p>Le DJing comme voie sensible pour créer des espaces sécurisés et des voyages musicaux.</p>
+        <div class="footer-social" style="margin-top:1rem;">
+          <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.4 19.6C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 001.94-2A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          <a href="#" aria-label="SoundCloud"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 16v-3m3 4V10m3 7V8m3 9V5m3 12V9m3 8v-5m3 5v-7"/></svg></a>
+          <a href="#" aria-label="Mixcloud"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 15V9l4 3-4 3z"/><path d="M13 15V9l4 3-4 3z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#formation">Formation</a></li>
+          <li><a href="#ecstatic-dance">Ecstatic Dance</a></li>
+          <li><a href="#a-propos">À propos</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Espace élèves</h4>
+        <ul>
+          <li><a href="#">Connexion espace élèves</a></li>
+          <li><a href="https://benjaminbossu.com">Découvre mon autre univers →</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 DJing Is A Medicine — Tous droits réservés</span>
+      <div class="footer-legal">
+        <a href="#">Mentions légales</a>
+        <a href="#">Politique de confidentialité</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ==========================================
+// SCROLL REVEAL
+// ==========================================
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ==========================================
+// NAV SCROLL BEHAVIOR
+// ==========================================
+const nav = document.getElementById('nav');
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  if (y > 80) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+  lastScroll = y;
+}, { passive: true });
+
+// ==========================================
+// MOBILE MENU
+// ==========================================
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+
+function closeMobile() {
+  hamburger.classList.remove('active');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ==========================================
+// SMOOTH ANCHOR SCROLL
+// ==========================================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (href === '#') return;
+    const target = document.querySelector(href);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
