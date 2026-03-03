@@ -677,8 +677,18 @@ img { max-width: 100%; display: block; }
   background-clip: text;
   animation:
     wordReveal 1s cubic-bezier(0.16, 1, 0.3, 1) calc(0.6s + var(--i) * 0.15s) forwards,
-    titleShimmer 8s ease-in-out calc(1.5s + var(--i) * 0.15s) infinite;
+    titleShimmer 8s ease-in-out calc(1.5s + var(--i) * 0.15s) infinite,
+    titleGlow 4s ease-in-out calc(1.8s + var(--i) * 0.15s) infinite;
   transform-origin: center bottom;
+}
+
+@keyframes titleGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(232, 200, 114, 0.15));
+  }
+  50% {
+    filter: drop-shadow(0 0 25px rgba(232, 200, 114, 0.5)) drop-shadow(0 0 60px rgba(196, 122, 46, 0.25));
+  }
 }
 
 @keyframes wordReveal {
@@ -732,6 +742,7 @@ img { max-width: 100%; display: block; }
   gap: 0.75rem;
   padding: 1rem 2.5rem;
   background: linear-gradient(135deg, var(--accent-amber), var(--accent-orange));
+  background-size: 200% 200%;
   color: #fff;
   font-family: var(--font-body);
   font-weight: 700;
@@ -741,17 +752,51 @@ img { max-width: 100%; display: block; }
   border: none;
   border-radius: 100px;
   cursor: pointer;
-  transition: all 0.5s var(--ease-flow);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 4px 30px rgba(212, 137, 63, 0.25);
   opacity: 0;
-  animation: fadeUp 1s var(--ease-out-slow) 1.2s forwards;
+  animation: fadeUp 1s var(--ease-out-slow) 1.2s forwards, ctaPulse 3s ease-in-out 2.5s infinite;
+  position: relative;
+  overflow: hidden;
 }
+/* Shine sweep overlay */
+.hero-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+  transform: skewX(-20deg);
+  transition: none;
+}
+.hero-cta:hover::before {
+  animation: ctaSweep 0.6s ease-out;
+}
+
 .hero-cta:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 50px rgba(212, 137, 63, 0.45);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow:
+    0 10px 40px rgba(212, 137, 63, 0.5),
+    0 0 30px rgba(196, 122, 46, 0.3);
+  background-position: 100% 50%;
 }
-.hero-cta svg { transition: transform 0.3s; }
-.hero-cta:hover svg { transform: translateX(4px); }
+.hero-cta:active {
+  transform: translateY(-1px) scale(0.98);
+  transition: all 0.1s;
+}
+.hero-cta svg { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+.hero-cta:hover svg { transform: translateX(6px); }
+
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: 0 4px 30px rgba(212, 137, 63, 0.25); }
+  50% { box-shadow: 0 4px 40px rgba(212, 137, 63, 0.45), 0 0 20px rgba(196, 122, 46, 0.2); }
+}
+@keyframes ctaSweep {
+  from { left: -100%; }
+  to { left: 150%; }
+}
 
 /* Scroll indicator */
 .hero-scroll {
