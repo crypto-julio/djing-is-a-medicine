@@ -120,12 +120,22 @@
 </nav>
 
 <div class="nav-mobile" id="mobileMenu">
-  <a href="#accueil" onclick="closeMobile()">Accueil</a>
-  <a href="#formation" onclick="closeMobile()">Formation</a>
-  <a href="#ecstatic-dance" onclick="closeMobile()">Ecstatic Dance</a>
-  <a href="#a-propos" onclick="closeMobile()">À propos</a>
-  <a href="#contact" onclick="closeMobile()">Contact</a>
-  <a href="#formation" class="btn-primary" onclick="closeMobile()" style="margin-top:1rem;">Rejoindre la formation</a>
+  <div class="nav-mobile-bg"></div>
+  <div class="nav-mobile-content">
+    <a href="#accueil" class="nav-mobile-link" style="--i:0" onclick="closeMobile()">Accueil</a>
+    <a href="#formation" class="nav-mobile-link" style="--i:1" onclick="closeMobile()">Formation</a>
+    <a href="#ecstatic-dance" class="nav-mobile-link" style="--i:2" onclick="closeMobile()">Ecstatic Dance</a>
+    <a href="#a-propos" class="nav-mobile-link" style="--i:3" onclick="closeMobile()">À propos</a>
+    <a href="#contact" class="nav-mobile-link" style="--i:4" onclick="closeMobile()">Contact</a>
+    <div class="nav-mobile-divider"></div>
+    <a href="#formation" class="nav-mobile-cta" style="--i:5" onclick="closeMobile()">
+      Rejoindre la formation
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    <div class="nav-mobile-footer">
+      <span>DJing Is A Medicine</span>
+    </div>
+  </div>
 </div>
 
 <!-- ==========================================
@@ -454,6 +464,7 @@
         <a href="#">Mentions légales</a>
         <a href="#">Politique de confidentialité</a>
       </div>
+      <div class="footer-credit">Créé avec amour par Julien — <a href="https://flowebia.fr" target="_blank" rel="noopener">flowebia.fr</a></div>
     </div>
   </div>
 </footer>
@@ -467,12 +478,18 @@
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isMobile = window.matchMedia('(max-width: 768px), (pointer: coarse)').matches;
+  const GLOW = isMobile ? 0.3 : 1; // reduce shadowBlur on mobile
 
   let W, H, CX, CY, R;
   function resize() {
     const dpr = window.devicePixelRatio || 1;
-    W = window.innerWidth;
-    H = window.innerHeight;
+    // Use parent container dimensions for reliable centering on mobile
+    const parent = canvas.parentElement;
+    W = parent.clientWidth || window.innerWidth;
+    H = parent.clientHeight || window.innerHeight;
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
     canvas.width = W * dpr;
     canvas.height = H * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -482,6 +499,8 @@
   }
   resize();
   window.addEventListener('resize', resize);
+  // Handle mobile orientation change & viewport resize (address bar hide/show)
+  window.addEventListener('orientationchange', () => { setTimeout(resize, 150); });
 
   // Palette
   const AMBER  = [196, 122, 46];
@@ -540,18 +559,18 @@
 
     // ---- Outer ring (amber, épais) ----
     ctx.lineWidth = 4;
-    ctx.shadowBlur = 30;
+    ctx.shadowBlur = 30 * GLOW;
     ctx.shadowColor = rgba(AMBER, 0.4);
     ctx.strokeStyle = rgba(AMBER, 0.25);
     circle(0, 0, R * 0.97);
 
     // ---- 12 Rayons (gold) ----
-    ctx.shadowBlur = 20;
+    ctx.shadowBlur = 20 * GLOW;
     ctx.shadowColor = rgba(GOLD, 0.3);
     ctx.strokeStyle = rgba(GOLD, 0.15);
     ctx.lineWidth = 3;
-    for (let i = 0; i < 12; i++) {
-      const a = (i / 12) * Math.PI * 2;
+    for (let i = 0; i < (isMobile ? 6 : 12); i++) {
+      const a = (i / (isMobile ? 6 : 12)) * Math.PI * 2;
       line(
         Math.cos(a) * R * 0.18, Math.sin(a) * R * 0.18,
         Math.cos(a) * R * 0.95, Math.sin(a) * R * 0.95
@@ -559,7 +578,7 @@
     }
 
     // ---- Fleur de Vie — 7 cercles (magenta) ----
-    ctx.shadowBlur = 25;
+    ctx.shadowBlur = 25 * GLOW;
     ctx.shadowColor = rgba(MAGENTA, 0.35);
     ctx.strokeStyle = rgba(MAGENTA, 0.22);
     ctx.lineWidth = 3.5;
@@ -571,7 +590,7 @@
     }
 
     // ---- Hexagramme (teal) ----
-    ctx.shadowBlur = 22;
+    ctx.shadowBlur = 22 * GLOW;
     ctx.shadowColor = rgba(TEAL, 0.35);
     ctx.strokeStyle = rgba(TEAL, 0.2);
     ctx.lineWidth = 3;
@@ -579,14 +598,14 @@
     polygon(0, 0, R * 0.55 * breath, 3, Math.PI / 6);
 
     // ---- Cercle intermédiaire (amber) ----
-    ctx.shadowBlur = 15;
+    ctx.shadowBlur = 15 * GLOW;
     ctx.shadowColor = rgba(AMBER, 0.25);
     ctx.strokeStyle = rgba(AMBER, 0.15);
     ctx.lineWidth = 2.5;
     circle(0, 0, R * 0.7);
 
     // ---- Center dot ----
-    ctx.shadowBlur = 30;
+    ctx.shadowBlur = 30 * GLOW;
     ctx.shadowColor = rgba(GOLD, 0.5);
     ctx.fillStyle = rgba(GOLD, 0.12);
     ctx.beginPath();
