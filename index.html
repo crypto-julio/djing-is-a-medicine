@@ -35,7 +35,68 @@
     <div class="aurora-blob aurora-blob-6"></div>
   </div>
   <canvas id="sound-waves-canvas"></canvas>
-  <div class="hero-mandala"></div>
+  <div class="hero-mandala">
+    <svg class="mandala-svg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Outer rings -->
+      <circle cx="200" cy="200" r="198" stroke="rgba(232,200,114,0.1)" stroke-width="0.5"/>
+      <circle cx="200" cy="200" r="185" stroke="rgba(232,200,114,0.06)" stroke-width="0.5"/>
+      <circle cx="200" cy="200" r="168" stroke="rgba(196,122,46,0.08)" stroke-width="0.5"/>
+      <circle cx="200" cy="200" r="148" stroke="rgba(232,200,114,0.06)" stroke-width="0.5"/>
+
+      <!-- Radiating lines — 12 rays at 30° intervals -->
+      <g class="mandala-rays" opacity="0.08" stroke="rgba(232,200,114,1)" stroke-width="0.5">
+        <line x1="200" y1="10" x2="200" y2="390"/>
+        <line x1="295" y1="27" x2="105" y2="373"/>
+        <line x1="365" y1="100" x2="35" y2="300"/>
+        <line x1="390" y1="200" x2="10" y2="200"/>
+        <line x1="365" y1="300" x2="35" y2="100"/>
+        <line x1="295" y1="373" x2="105" y2="27"/>
+      </g>
+
+      <!-- Flower of Life — layer 1 (center + 6 petals) -->
+      <g class="mandala-flower-1" opacity="0.12" stroke="rgba(232,200,114,1)" stroke-width="0.6">
+        <circle cx="200" cy="200" r="55"/>
+        <circle cx="200" cy="145" r="55"/>
+        <circle cx="247.6" cy="172.5" r="55"/>
+        <circle cx="247.6" cy="227.5" r="55"/>
+        <circle cx="200" cy="255" r="55"/>
+        <circle cx="152.4" cy="227.5" r="55"/>
+        <circle cx="152.4" cy="172.5" r="55"/>
+      </g>
+
+      <!-- Flower of Life — layer 2 (outer 6 petals) -->
+      <g class="mandala-flower-2" opacity="0.07" stroke="rgba(196,122,46,1)" stroke-width="0.5">
+        <circle cx="200" cy="90" r="55"/>
+        <circle cx="295.3" cy="145" r="55"/>
+        <circle cx="295.3" cy="255" r="55"/>
+        <circle cx="200" cy="310" r="55"/>
+        <circle cx="104.7" cy="255" r="55"/>
+        <circle cx="104.7" cy="145" r="55"/>
+      </g>
+
+      <!-- Inner hexagram (Star of David) -->
+      <g opacity="0.1" stroke="rgba(232,200,114,1)" stroke-width="0.5">
+        <polygon points="200,128 262.4,236 137.6,236"/>
+        <polygon points="200,272 137.6,164 262.4,164"/>
+      </g>
+
+      <!-- Inner rings -->
+      <circle cx="200" cy="200" r="95" stroke="rgba(232,200,114,0.08)" stroke-width="0.5"/>
+      <circle cx="200" cy="200" r="28" stroke="rgba(232,200,114,0.12)" stroke-width="0.6"/>
+      <circle cx="200" cy="200" r="8" fill="rgba(232,200,114,0.06)"/>
+
+      <!-- Seed of Life (small center flower) -->
+      <g class="mandala-seed" opacity="0.1" stroke="rgba(232,200,114,1)" stroke-width="0.5">
+        <circle cx="200" cy="200" r="22"/>
+        <circle cx="200" cy="178" r="22"/>
+        <circle cx="219" cy="189" r="22"/>
+        <circle cx="219" cy="211" r="22"/>
+        <circle cx="200" cy="222" r="22"/>
+        <circle cx="181" cy="211" r="22"/>
+        <circle cx="181" cy="189" r="22"/>
+      </g>
+    </svg>
+  </div>
 </div>
 
 <!-- ==========================================
@@ -94,7 +155,7 @@
 <!-- Wave separator -->
 <div class="wave-separator">
   <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-    <path fill="#E5DCD2" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z">
+    <path fill="#D5CBC0" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z">
       <animate attributeName="d" dur="8s" repeatCount="indefinite" values="
         M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z;
         M0,50 C300,20 600,70 900,30 C1150,10 1350,60 1440,45 L1440,80 L0,80 Z;
@@ -144,7 +205,7 @@
 <!-- Wave separator — Approche → Parcours (top-fill: opaque fades into dark) -->
 <div class="wave-separator">
   <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-    <path fill="#E5DCD2" d="M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z">
+    <path fill="#D5CBC0" d="M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z">
       <animate attributeName="d" dur="10s" repeatCount="indefinite" values="
         M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z;
         M0,30 C300,70 540,10 780,50 C1020,70 1260,15 1440,35 L1440,0 L0,0 Z;
@@ -190,7 +251,7 @@
 <!-- Wave separator — Parcours → Témoignages (bottom-fill: dark into opaque) -->
 <div class="wave-separator">
   <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-    <path fill="#E5DCD2" d="M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z">
+    <path fill="#D5CBC0" d="M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z">
       <animate attributeName="d" dur="9s" repeatCount="indefinite" values="
         M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z;
         M0,40 C220,15 400,70 600,35 C780,10 950,65 1120,45 C1280,30 1380,55 1440,40 L1440,80 L0,80 Z;
@@ -260,7 +321,7 @@
 <!-- Wave separator — Témoignages → Agenda (top-fill: opaque fades into dark) -->
 <div class="wave-separator">
   <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-    <path fill="#E5DCD2" d="M0,35 C360,65 540,15 900,45 C1080,60 1260,25 1440,40 L1440,0 L0,0 Z">
+    <path fill="#D5CBC0" d="M0,35 C360,65 540,15 900,45 C1080,60 1260,25 1440,40 L1440,0 L0,0 Z">
       <animate attributeName="d" dur="11s" repeatCount="indefinite" values="
         M0,35 C360,65 540,15 900,45 C1080,60 1260,25 1440,40 L1440,0 L0,0 Z;
         M0,45 C280,20 500,65 820,30 C1020,15 1220,60 1440,35 L1440,0 L0,0 Z;
@@ -320,7 +381,7 @@
 <!-- Wave separator — Agenda → Newsletter (bottom-fill: dark into opaque) -->
 <div class="wave-separator">
   <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-    <path fill="#E5DCD2" d="M0,30 C360,70 720,10 1080,50 C1260,65 1380,40 1440,30 L1440,80 L0,80 Z">
+    <path fill="#D5CBC0" d="M0,30 C360,70 720,10 1080,50 C1260,65 1380,40 1440,30 L1440,80 L0,80 Z">
       <animate attributeName="d" dur="9s" repeatCount="indefinite" values="
         M0,30 C360,70 720,10 1080,50 C1260,65 1380,40 1440,30 L1440,80 L0,80 Z;
         M0,45 C300,15 660,65 1020,30 C1200,15 1350,55 1440,40 L1440,80 L0,80 Z;
@@ -399,7 +460,7 @@
 
 <script>
 // ==========================================
-// SOUND WAVES — 3 flowing frequency waves
+// FULL-SCREEN MANDALA — Canvas sacred geometry
 // ==========================================
 (function() {
   const canvas = document.getElementById('sound-waves-canvas');
@@ -407,7 +468,7 @@
   const ctx = canvas.getContext('2d');
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  let W, H;
+  let W, H, CX, CY, R;
   function resize() {
     const dpr = window.devicePixelRatio || 1;
     W = window.innerWidth;
@@ -415,130 +476,132 @@
     canvas.width = W * dpr;
     canvas.height = H * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    CX = W / 2;
+    CY = H / 2;
+    R = Math.max(W, H) * 0.55; // mandala radius — oversized
   }
   resize();
   window.addEventListener('resize', resize);
 
-  // 3 waves: bass, mid, high
-  const waves = [
-    {
-      // BASS — lente, massive, profonde
-      y: 0.28,                     // position verticale (% de H)
-      color: [196, 122, 46],       // amber
-      amplitude: 55,               // hauteur max de l'onde
-      frequency: 0.003,            // fréquence spatiale (peaks par px)
-      speed: 0.008,                // vitesse de défilement
-      lineWidth: 3,
-      glow: 25,
-      opacity: 0.5,
-      // Respiration lente de l'amplitude
-      breathSpeed: 0.003,
-      breathDepth: 0.4,            // l'amplitude varie de 60% à 100%
-      // Harmonique secondaire
-      harmFreq: 0.0008,
-      harmAmp: 25,
-      phase: 0,
-    },
-    {
-      // MID — rythme moyen, pulse
-      y: 0.5,
-      color: [139, 58, 122],       // magenta
-      amplitude: 35,
-      frequency: 0.007,
-      speed: 0.015,
-      lineWidth: 2,
-      glow: 18,
-      opacity: 0.45,
-      breathSpeed: 0.005,
-      breathDepth: 0.35,
-      harmFreq: 0.002,
-      harmAmp: 15,
-      phase: 0,
-    },
-    {
-      // HIGH — rapide, fine, shimmer
-      y: 0.72,
-      color: [30, 160, 200],       // teal/cyan
-      amplitude: 18,
-      frequency: 0.015,
-      speed: 0.025,
-      lineWidth: 1.2,
-      glow: 12,
-      opacity: 0.4,
-      breathSpeed: 0.008,
-      breathDepth: 0.3,
-      harmFreq: 0.004,
-      harmAmp: 8,
-      phase: 0,
-    },
-  ];
+  // Palette
+  const AMBER  = [196, 122, 46];
+  const MAGENTA = [139, 58, 122];
+  const TEAL   = [30, 160, 200];
+  const GOLD   = [232, 200, 114];
+  const VIOLET = [107, 45, 91];
+  const FUCHSIA = [220, 50, 140];
 
-  let time = 0;
-  const STEP = 4; // résolution : 1 point tous les 4px
+  let angle = 0;
+  const SPEED = 0.0003; // radians per frame — opposite to small mandala (which goes via CSS)
 
-  function drawWave(wave) {
-    const baseY = H * wave.y;
-    const [cr, cg, cb] = wave.color;
+  function rgba(c, a) {
+    return `rgba(${c[0]},${c[1]},${c[2]},${a})`;
+  }
 
-    // Respiration : l'amplitude pulse lentement
-    const breath = 1 - wave.breathDepth + wave.breathDepth * (0.5 + 0.5 * Math.sin(time * wave.breathSpeed));
-    const amp = wave.amplitude * breath;
-    const harmAmp = wave.harmAmp * breath;
-
-    // Glow
-    ctx.shadowBlur = wave.glow;
-    ctx.shadowColor = `rgba(${cr}, ${cg}, ${cb}, ${wave.opacity * 0.5})`;
-    ctx.strokeStyle = `rgba(${cr}, ${cg}, ${cb}, ${wave.opacity})`;
-    ctx.lineWidth = wave.lineWidth;
-
+  function circle(x, y, r) {
     ctx.beginPath();
-    for (let x = 0; x <= W; x += STEP) {
-      // Onde principale + harmonique lente pour variation organique
-      const y = baseY
-        + Math.sin(x * wave.frequency + wave.phase) * amp
-        + Math.sin(x * wave.harmFreq + wave.phase * 0.6) * harmAmp;
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.stroke();
+  }
 
-      if (x === 0) {
-        ctx.moveTo(x, y);
-      } else {
-        ctx.lineTo(x, y);
-      }
+  function line(x1, y1, x2, y2) {
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.stroke();
+  }
+
+  function polygon(cx, cy, r, sides, startAngle) {
+    ctx.beginPath();
+    for (let i = 0; i <= sides; i++) {
+      const a = startAngle + (i / sides) * Math.PI * 2;
+      const x = cx + Math.cos(a) * r;
+      const y = cy + Math.sin(a) * r;
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
     }
     ctx.stroke();
+  }
 
-    // Reset shadow
-    ctx.shadowBlur = 0;
-
-    // Deuxième passe plus fine et lumineuse (core lumineux)
-    ctx.strokeStyle = `rgba(${cr}, ${cg}, ${cb}, ${wave.opacity * 0.3})`;
-    ctx.lineWidth = wave.lineWidth * 2.5;
-    ctx.shadowBlur = wave.glow * 2;
-    ctx.shadowColor = `rgba(${cr}, ${cg}, ${cb}, ${wave.opacity * 0.25})`;
-
-    ctx.beginPath();
-    for (let x = 0; x <= W; x += STEP) {
-      const y = baseY
-        + Math.sin(x * wave.frequency + wave.phase) * amp
-        + Math.sin(x * wave.harmFreq + wave.phase * 0.6) * harmAmp;
-
-      if (x === 0) {
-        ctx.moveTo(x, y);
-      } else {
-        ctx.lineTo(x, y);
-      }
+  // Flower of Life ring: n circles around center at distance d, with radius cr
+  function flowerRing(cx, cy, d, cr, n) {
+    for (let i = 0; i < n; i++) {
+      const a = (i / n) * Math.PI * 2;
+      circle(cx + Math.cos(a) * d, cy + Math.sin(a) * d, cr);
     }
-    ctx.stroke();
+  }
+
+  function drawMandala(time) {
+    ctx.save();
+    ctx.translate(CX, CY);
+    ctx.rotate(angle);
+
+    const breath = 0.95 + 0.05 * Math.sin(time * 0.001);
+
+    // ---- Outer ring (amber, épais) ----
+    ctx.lineWidth = 4;
+    ctx.shadowBlur = 30;
+    ctx.shadowColor = rgba(AMBER, 0.4);
+    ctx.strokeStyle = rgba(AMBER, 0.25);
+    circle(0, 0, R * 0.97);
+
+    // ---- 12 Rayons (gold) ----
+    ctx.shadowBlur = 20;
+    ctx.shadowColor = rgba(GOLD, 0.3);
+    ctx.strokeStyle = rgba(GOLD, 0.15);
+    ctx.lineWidth = 3;
+    for (let i = 0; i < 12; i++) {
+      const a = (i / 12) * Math.PI * 2;
+      line(
+        Math.cos(a) * R * 0.18, Math.sin(a) * R * 0.18,
+        Math.cos(a) * R * 0.95, Math.sin(a) * R * 0.95
+      );
+    }
+
+    // ---- Fleur de Vie — 7 cercles (magenta) ----
+    ctx.shadowBlur = 25;
+    ctx.shadowColor = rgba(MAGENTA, 0.35);
+    ctx.strokeStyle = rgba(MAGENTA, 0.22);
+    ctx.lineWidth = 3.5;
+    const fR = R * 0.38 * breath;
+    circle(0, 0, fR);
+    for (let i = 0; i < 6; i++) {
+      const a = (i / 6) * Math.PI * 2;
+      circle(Math.cos(a) * fR, Math.sin(a) * fR, fR);
+    }
+
+    // ---- Hexagramme (teal) ----
+    ctx.shadowBlur = 22;
+    ctx.shadowColor = rgba(TEAL, 0.35);
+    ctx.strokeStyle = rgba(TEAL, 0.2);
+    ctx.lineWidth = 3;
+    polygon(0, 0, R * 0.55 * breath, 3, -Math.PI / 2);
+    polygon(0, 0, R * 0.55 * breath, 3, Math.PI / 6);
+
+    // ---- Cercle intermédiaire (amber) ----
+    ctx.shadowBlur = 15;
+    ctx.shadowColor = rgba(AMBER, 0.25);
+    ctx.strokeStyle = rgba(AMBER, 0.15);
+    ctx.lineWidth = 2.5;
+    circle(0, 0, R * 0.7);
+
+    // ---- Center dot ----
+    ctx.shadowBlur = 30;
+    ctx.shadowColor = rgba(GOLD, 0.5);
+    ctx.fillStyle = rgba(GOLD, 0.12);
+    ctx.beginPath();
+    ctx.arc(0, 0, R * 0.025, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.restore();
     ctx.shadowBlur = 0;
   }
 
+  let time = 0;
   function animate() {
     ctx.clearRect(0, 0, W, H);
-
-    for (const wave of waves) {
-      wave.phase += wave.speed;
-      drawWave(wave);
-    }
-
+    angle += SPEED; // clockwise (small mandala SVG layers go counter-clockwise)
+    drawMandala(time);
     time++;
     if (!prefersReduced) {
       requestAnimationFrame(animate);
@@ -546,13 +609,7 @@
   }
 
   if (prefersReduced) {
-    // Static render
-    for (const wave of waves) {
-      wave.phase = Math.random() * Math.PI * 2;
-    }
-    time = 100;
-    ctx.clearRect(0, 0, W, H);
-    for (const wave of waves) drawWave(wave);
+    drawMandala(0);
   } else {
     animate();
   }

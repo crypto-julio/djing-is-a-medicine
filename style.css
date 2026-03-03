@@ -14,7 +14,7 @@
    ============================================ */
 :root {
   --bg-deep: #FAF7F2;
-  --bg-night: #E5DCD2;
+  --bg-night: #D5CBC0;
   --bg-violet: #E8E2DA;
   --accent-amber: #C47A2E;
   --accent-orange: #D4641A;
@@ -332,47 +332,79 @@ img { max-width: 100%; display: block; }
 }
 
 /* Mandala decorative element */
+/* Sacred Geometry Mandala — glassmorphic */
 .hero-mandala {
   position: absolute;
-  width: clamp(300px, 60vw, 700px);
-  height: clamp(300px, 60vw, 700px);
+  width: clamp(320px, 60vw, 700px);
+  height: clamp(320px, 60vw, 700px);
   border-radius: 50%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   transform-origin: center center;
   z-index: 3;
-  /* Glassmorphism — léger, on voit l'aurora à travers */
-  backdrop-filter: blur(8px) saturate(1.2) brightness(1.1);
-  -webkit-backdrop-filter: blur(8px) saturate(1.2) brightness(1.1);
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(232, 200, 114, 0.12);
+  /* Glassmorphism */
+  backdrop-filter: blur(6px) saturate(1.15) brightness(1.05);
+  -webkit-backdrop-filter: blur(6px) saturate(1.15) brightness(1.05);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(232, 200, 114, 0.08);
   box-shadow:
-    inset 0 0 80px rgba(255, 255, 255, 0.02),
-    0 0 60px rgba(11, 10, 16, 0.2);
+    inset 0 0 100px rgba(232, 200, 114, 0.015),
+    0 0 80px rgba(11, 10, 16, 0.15);
 }
-/* Outer ring — lent */
+
+.mandala-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Rotation layers */
+.mandala-rays {
+  transform-origin: 200px 200px;
+  animation: mandalaRotate 120s linear infinite;
+}
+.mandala-flower-1 {
+  transform-origin: 200px 200px;
+  animation: mandalaRotate 90s linear infinite reverse;
+}
+.mandala-flower-2 {
+  transform-origin: 200px 200px;
+  animation: mandalaRotate 150s linear infinite;
+}
+.mandala-seed {
+  transform-origin: 200px 200px;
+  animation: mandalaRotate 60s linear infinite reverse;
+}
+
+/* Outer sentinel ring */
 .hero-mandala::before {
   content: '';
   position: absolute;
-  inset: -8%;
+  inset: -6%;
   border-radius: 50%;
-  border: 1px solid rgba(232, 200, 114, 0.07);
-  animation: mandalaRotate 120s linear infinite;
+  border: 1px solid rgba(232, 200, 114, 0.05);
+  animation: mandalaRotate 200s linear infinite;
   transform-origin: center center;
 }
-/* Inner ring — sens inverse */
+/* Pulse ring */
 .hero-mandala::after {
   content: '';
   position: absolute;
-  inset: 15%;
+  inset: -1%;
   border-radius: 50%;
-  border: 1px solid rgba(196, 122, 46, 0.06);
-  animation: mandalaRotate 80s linear infinite reverse;
+  border: 1px solid rgba(196, 122, 46, 0.04);
+  animation: mandalaPulse 8s ease-in-out infinite;
   transform-origin: center center;
 }
+
 @keyframes mandalaRotate {
   to { transform: rotate(360deg); }
+}
+@keyframes mandalaPulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.04); opacity: 1; }
 }
 
 /* Aurora Boreale — FULL POWER */
