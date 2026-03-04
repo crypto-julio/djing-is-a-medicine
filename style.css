@@ -494,6 +494,7 @@ img { max-width: 100%; display: block; }
 }
 
 .mandala-svg {
+  display: none;
   position: absolute;
   inset: 0;
   width: 100%;
@@ -800,9 +801,9 @@ img { max-width: 100%; display: block; }
 
 .hero-eyebrow {
   font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--accent-amber);
   margin-bottom: 2rem;
