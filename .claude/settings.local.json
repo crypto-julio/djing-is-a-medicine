@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh repo create djing-is-a-medicine --public --source=. --remote=origin --push)",
+      "Bash(netlify sites:create --name djing-is-a-medicine)",
+      "Bash(netlify status)"
+    ]
+  }
+}
