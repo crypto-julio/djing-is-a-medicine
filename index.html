@@ -106,10 +106,10 @@
   <div class="nav-inner">
     <a href="/" class="nav-logo">DJing Is A Medicine</a>
     <ul class="nav-links">
-      <li><a href="#accueil">Accueil</a></li>
       <li><a href="#formation">Formation</a></li>
       <li><a href="#ecstatic-dance">Ecstatic Dance</a></li>
       <li><a href="#a-propos">À propos</a></li>
+      <li><a href="#partenaires">Partenaires</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="#formation" class="nav-cta" data-magnetic>Rejoindre la formation</a></li>
     </ul>
@@ -122,10 +122,10 @@
 <div class="nav-mobile" id="mobileMenu">
   <div class="nav-mobile-bg"></div>
   <div class="nav-mobile-content">
-    <a href="#accueil" class="nav-mobile-link" style="--i:0" onclick="closeMobile()">Accueil</a>
-    <a href="#formation" class="nav-mobile-link" style="--i:1" onclick="closeMobile()">Formation</a>
-    <a href="#ecstatic-dance" class="nav-mobile-link" style="--i:2" onclick="closeMobile()">Ecstatic Dance</a>
-    <a href="#a-propos" class="nav-mobile-link" style="--i:3" onclick="closeMobile()">À propos</a>
+    <a href="#formation" class="nav-mobile-link" style="--i:0" onclick="closeMobile()">Formation</a>
+    <a href="#ecstatic-dance" class="nav-mobile-link" style="--i:1" onclick="closeMobile()">Ecstatic Dance</a>
+    <a href="#a-propos" class="nav-mobile-link" style="--i:2" onclick="closeMobile()">À propos</a>
+    <a href="#partenaires" class="nav-mobile-link" style="--i:3" onclick="closeMobile()">Partenaires</a>
     <a href="#contact" class="nav-mobile-link" style="--i:4" onclick="closeMobile()">Contact</a>
     <div class="nav-mobile-divider"></div>
     <a href="#formation" class="nav-mobile-cta" style="--i:5" onclick="closeMobile()">
@@ -242,11 +242,6 @@
         <h3 class="level-title">Niveau Ronde</h3>
         <p class="level-text">Tu ressens l'appel mais tu ne sais pas par où commencer. La technique te bloque et tu te dis illégitime. Tu veux un cadre clair et humain pour apprendre sans pression. Tu sens le besoin d'être soutenu par le collectif.</p>
       </div>
-      <div class="level-card level-blanche reveal reveal-delay-2">
-        <div class="level-badge">Intermédiaire</div>
-        <h3 class="level-title">Niveau Blanche</h3>
-        <p class="level-text">Tu as déjà commencé à proposer des espaces mais tu cherches à améliorer ta technique, structurer ton univers, affiner ta posture. Tu veux passer un cap.</p>
-      </div>
     </div>
 
     <div class="pour-qui-cta reveal">
@@ -287,14 +282,16 @@
         <p class="big-quote-text">Je ne pensais pas être capable…</p>
       </div>
 
-      <div class="testimonial-card reveal reveal-delay-1">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-quote">"Benjamin est un formateur exceptionnel qui sait expliquer de manière claire et précise. Sa bienveillance est vraiment appréciable. Les stages qu'il organise sont de très haut niveau, et je recommande sans réserve."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">JS</div>
-          <div>
-            <div class="testimonial-name">Julien S.</div>
-            <div class="testimonial-role">Participant retraite</div>
+      <div class="testimonial-flip-wrapper reveal reveal-delay-1" id="flipCard1">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"Benjamin est un formateur exceptionnel qui sait expliquer de manière claire et précise. Sa bienveillance est vraiment appréciable. Les stages qu'il organise sont de très haut niveau, et je recommande sans réserve."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">JS</div>
+            <div>
+              <div class="testimonial-name">Julien S.</div>
+              <div class="testimonial-role">Participant retraite</div>
+            </div>
           </div>
         </div>
       </div>
@@ -306,24 +303,26 @@
         <div class="video-label">Témoignage vidéo — Retraite immersive 2025</div>
       </div>
 
-      <div class="testimonial-card testimonial-card-full reveal reveal-delay-3">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-quote">"Je ne pensais pas que le DJing pouvait être autant un voyage intérieur. Benjamin crée un espace rare, où on apprend sans pression et où chaque session est une expérience humaine et musicale profonde."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">ML</div>
-          <div>
-            <div class="testimonial-name">Marine L.</div>
-            <div class="testimonial-role">Participante formation</div>
+      <div class="testimonial-flip-wrapper testimonial-card-full reveal reveal-delay-3" id="flipCard2">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"Je ne pensais pas que le DJing pouvait être autant un voyage intérieur. Benjamin crée un espace rare, où on apprend sans pression et où chaque session est une expérience humaine et musicale profonde."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">ML</div>
+            <div>
+              <div class="testimonial-name">Marine L.</div>
+              <div class="testimonial-role">Participante formation</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
     <div class="testimonials-footer reveal">
-      <a href="#" class="btn-outline">
-        Voir les témoignages
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
+      <button class="btn-outline" id="moreTestimonials" onclick="rotateTestimonials()">
+        Voir d'autres témoignages
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+      </button>
     </div>
   </div>
 </section>
@@ -401,6 +400,7 @@
     </path>
   </svg>
 </div>
+
 
 <!-- ==========================================
      SECTION 6 — NEWSLETTER
@@ -820,6 +820,98 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
   });
 })();
+
+// === Testimonials rotation ===
+const testimonialPool = [
+  {
+    stars: '★★★★★',
+    quote: '"Benjamin est un formateur exceptionnel qui sait expliquer de manière claire et précise. Sa bienveillance est vraiment appréciable. Les stages qu\'il organise sont de très haut niveau, et je recommande sans réserve."',
+    initials: 'JS', name: 'Julien S.', role: 'Participant retraite'
+  },
+  {
+    stars: '★★★★★',
+    quote: '"Je ne pensais pas que le DJing pouvait être autant un voyage intérieur. Benjamin crée un espace rare, où on apprend sans pression et où chaque session est une expérience humaine et musicale profonde."',
+    initials: 'ML', name: 'Marine L.', role: 'Participante formation'
+  },
+  {
+    stars: '★★★★★',
+    quote: '"Un cadre bienveillant et exigeant à la fois. J\'ai appris plus en un week-end qu\'en des mois seul devant mon écran. L\'approche holistique change tout."',
+    initials: 'AC', name: 'Antoine C.', role: 'Participant stage D.A.N.S.E.S 48'
+  },
+  {
+    stars: '★★★★★',
+    quote: '"La retraite m\'a permis de me reconnecter à ce que je voulais vraiment transmettre à travers la musique. Benjamin a cette capacité rare de te guider sans t\'imposer un chemin."',
+    initials: 'SB', name: 'Sophie B.', role: 'Participante retraite'
+  },
+  {
+    stars: '★★★★★',
+    quote: '"Avant la formation, je n\'osais pas mixer devant les autres. Aujourd\'hui, je propose des sessions Ecstatic Dance dans ma ville. Le groupe m\'a porté, et Benjamin a su voir ce que je ne voyais pas encore en moi."',
+    initials: 'TM', name: 'Thomas M.', role: 'Participant formation'
+  },
+  {
+    stars: '★★★★★',
+    quote: '"Ce n\'est pas juste une formation technique, c\'est une transformation personnelle. On apprend à créer des espaces sûrs pour les autres en apprenant d\'abord à se sentir en sécurité soi-même."',
+    initials: 'LR', name: 'Léa R.', role: 'Participante retraite'
+  }
+];
+
+const bigQuotes = [
+  'Je ne pensais pas être capable…',
+  'Ça a changé ma vision de la musique…',
+  'Un avant et un après…',
+];
+let currentTestimonialIndex = 0;
+let currentBigQuoteIndex = 0;
+let isRotating = false;
+
+function flipCard(wrapper, data, delay) {
+  setTimeout(() => {
+    wrapper.classList.add('flipping');
+    // Swap content at mid-rotation (card edge-on at 90°, invisible)
+    setTimeout(() => updateCard(wrapper, data), 450);
+    // Remove class after full 360° rotation
+    setTimeout(() => {
+      wrapper.classList.remove('flipping');
+      wrapper.querySelector('.testimonial-card').style.transform = '';
+    }, 900);
+  }, delay);
+}
+
+function rotateTestimonials() {
+  if (isRotating) return;
+  isRotating = true;
+
+  const card1 = document.getElementById('flipCard1');
+  const card2 = document.getElementById('flipCard2');
+
+  currentTestimonialIndex = (currentTestimonialIndex + 2) % testimonialPool.length;
+  const nextIndex1 = currentTestimonialIndex;
+  const nextIndex2 = (currentTestimonialIndex + 1) % testimonialPool.length;
+
+  // Rotate big quote with fade
+  currentBigQuoteIndex = (currentBigQuoteIndex + 1) % bigQuotes.length;
+  const bigQuoteEl = document.querySelector('.big-quote-text');
+  bigQuoteEl.style.transition = 'opacity 0.4s';
+  bigQuoteEl.style.opacity = '0';
+  setTimeout(() => {
+    bigQuoteEl.textContent = bigQuotes[currentBigQuoteIndex];
+    bigQuoteEl.style.opacity = '1';
+  }, 400);
+
+  flipCard(card1, testimonialPool[nextIndex1], 0);
+  flipCard(card2, testimonialPool[nextIndex2], 150);
+
+  setTimeout(() => { isRotating = false; }, 1100);
+}
+
+function updateCard(wrapper, data) {
+  const card = wrapper.querySelector('.testimonial-card');
+  card.querySelector('.testimonial-stars').textContent = data.stars;
+  card.querySelector('.testimonial-quote').textContent = data.quote;
+  card.querySelector('.testimonial-avatar').textContent = data.initials;
+  card.querySelector('.testimonial-name').textContent = data.name;
+  card.querySelector('.testimonial-role').textContent = data.role;
+}
 </script>
 </body>
 </html>
