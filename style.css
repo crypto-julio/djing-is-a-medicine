@@ -1049,9 +1049,9 @@ img { max-width: 100%; display: block; }
 }
 
 .section-label {
-  font-size: 0.7rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--accent-amber);
   margin-bottom: 1rem;
@@ -1165,6 +1165,14 @@ img { max-width: 100%; display: block; }
   font-size: 0.95rem;
   color: var(--text-secondary);
   line-height: 1.7;
+}
+.pillar-duration {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-amber);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 /* Quote band */
@@ -1428,16 +1436,9 @@ img { max-width: 100%; display: block; }
   border-radius: 24px;
   overflow: hidden;
 }
-.big-quote::before {
-  content: '\201C';
-  font-family: var(--font-display);
-  font-size: 8rem;
-  color: rgba(196, 122, 46, 0.12);
-  position: absolute;
-  top: -1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  line-height: 1;
+.big-quote::before,
+.big-quote::after {
+  display: none;
 }
 .big-quote-text {
   font-family: var(--font-body);
