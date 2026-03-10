@@ -1,0 +1,748 @@
+/* ============================================
+   FORMATION PAGE — Specific styles
+   ============================================ */
+
+/* ---- SECTION 1 — POURQUOI (bg-night / opaque) ---- */
+.f-pourquoi {
+  position: relative;
+  z-index: 1;
+  padding: 6rem 0;
+  background: var(--bg-night);
+}
+
+.f-pourquoi-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 4rem;
+}
+
+.f-pourquoi-content {
+  max-width: 680px;
+  margin: 0 auto 3rem;
+}
+
+.f-pourquoi-text {
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+.f-pourquoi-text:last-child {
+  margin-bottom: 0;
+}
+
+.f-pourquoi-highlight {
+  padding: 2rem 2.5rem;
+  border-radius: 20px;
+  background:
+    radial-gradient(ellipse at top left, rgba(196, 122, 46, 0.14), transparent 60%),
+    rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(196, 122, 46, 0.18);
+  margin-top: 0.5rem;
+}
+.f-pourquoi-highlight strong {
+  color: var(--accent-amber);
+}
+
+.f-pourquoi-angle {
+  padding: 3rem 0;
+  text-align: center;
+  position: relative;
+  margin-bottom: 2rem;
+}
+.f-pourquoi-angle::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-amber), transparent);
+}
+
+@media (max-width: 768px) {
+  .f-pourquoi-highlight {
+    padding: 1.5rem 1.75rem;
+  }
+}
+
+/* ---- CTA Center (reused across sections) ---- */
+.f-cta-center {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+/* ---- SECTION 2 — POUR QUI (transparent / parallax dark) ---- */
+.f-pour-qui {
+  padding: 6rem 0;
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.f-pour-qui-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.f-pour-qui .section-title {
+  color: #F5F0E8;
+}
+
+/* Profil block */
+.f-profil {
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  padding: 2rem 2.5rem;
+  border-radius: 20px;
+  background:
+    radial-gradient(ellipse at top left, rgba(196, 122, 46, 0.15), transparent 60%),
+    rgba(11, 10, 16, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(196, 122, 46, 0.2);
+}
+
+.f-profil-badge {
+  display: inline-block;
+  padding: 0.3rem 0.9rem;
+  border-radius: 100px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(196, 122, 46, 0.9);
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.f-profil-text {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+}
+
+/* Pour qui subtitle */
+.f-pour-qui-subtitle {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.f-pour-qui-subtitle h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #F5F0E8;
+}
+
+/* Disclaimer */
+.f-disclaimer {
+  max-width: 700px;
+  margin: 2rem auto 3rem;
+  padding: 1.5rem 2rem;
+  border-radius: 16px;
+  background: rgba(11, 10, 16, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.f-disclaimer p {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* Breathing space with dancing silhouettes */
+.f-breather {
+  height: 10rem;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.dancers-strip {
+  display: flex;
+  align-items: flex-end;
+  gap: 3rem;
+  padding: 0 2rem;
+}
+
+.dancer {
+  width: 40px;
+  height: 76px;
+  transform-origin: 50% 100%;
+  will-change: transform;
+}
+
+/* Limb pivot points */
+.dancer .d-arm-l,
+.dancer .d-arm-r {
+  transform-origin: 22px 22px;
+}
+.dancer-2 .d-arm-l,
+.dancer-2 .d-arm-r {
+  transform-origin: 22px 24px;
+}
+.dancer-3 .d-arm-l,
+.dancer-3 .d-arm-r {
+  transform-origin: 22px 20px;
+}
+.dancer-5 .d-arm-l,
+.dancer-5 .d-arm-r {
+  transform-origin: 22px 21px;
+}
+.dancer .d-leg-l,
+.dancer .d-leg-r {
+  transform-origin: 22px 42px;
+}
+
+/* ---- Colors ---- */
+.dancer-1 { color: rgba(196, 122, 46, 0.55); }
+.dancer-2 { color: rgba(200, 130, 185, 0.6); }
+.dancer-3 { color: rgba(218, 165, 82, 0.55); }
+.dancer-4 { color: rgba(86, 160, 160, 0.5); }
+.dancer-5 { color: rgba(196, 88, 60, 0.5); }
+
+/* ---- Body sway (subtle) ---- */
+.dancer-1 { animation: body-sway 3s ease-in-out infinite; }
+.dancer-2 { animation: body-lean 2.6s ease-in-out infinite -0.5s; }
+.dancer-3 { animation: body-bounce 2.2s ease-in-out infinite -0.8s; }
+.dancer-4 { animation: body-sway 3.2s ease-in-out infinite -1.2s; }
+.dancer-5 { animation: body-bounce 2.8s ease-in-out infinite -0.3s; }
+
+@keyframes body-sway {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+@keyframes body-lean {
+  0%, 100% { transform: rotate(2deg) translateY(0); }
+  50% { transform: rotate(-2deg) translateY(-3px); }
+}
+@keyframes body-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* ---- Arms ---- */
+.dancer-1 .d-arm-l { animation: arm-up-l 2s ease-in-out infinite; }
+.dancer-1 .d-arm-r { animation: arm-up-r 2s ease-in-out infinite -0.3s; }
+
+.dancer-2 .d-arm-l { animation: arm-wave-l 1.6s ease-in-out infinite; }
+.dancer-2 .d-arm-r { animation: arm-wave-r 1.6s ease-in-out infinite -0.4s; }
+
+.dancer-3 .d-arm-l { animation: arm-wide-l 2.4s ease-in-out infinite; }
+.dancer-3 .d-arm-r { animation: arm-wide-r 2.4s ease-in-out infinite -0.6s; }
+
+.dancer-4 .d-arm-l { animation: arm-flow-l 2.8s ease-in-out infinite; }
+.dancer-4 .d-arm-r { animation: arm-flow-r 2.8s ease-in-out infinite -0.5s; }
+
+.dancer-5 .d-arm-l { animation: arm-up-l 1.8s ease-in-out infinite -0.2s; }
+.dancer-5 .d-arm-r { animation: arm-up-r 1.8s ease-in-out infinite -0.7s; }
+
+@keyframes arm-up-l {
+  0%, 100% { transform: rotate(-15deg); }
+  50% { transform: rotate(20deg); }
+}
+@keyframes arm-up-r {
+  0%, 100% { transform: rotate(15deg); }
+  50% { transform: rotate(-20deg); }
+}
+@keyframes arm-wave-l {
+  0%, 100% { transform: rotate(-25deg); }
+  50% { transform: rotate(10deg); }
+}
+@keyframes arm-wave-r {
+  0%, 100% { transform: rotate(10deg); }
+  50% { transform: rotate(-25deg); }
+}
+@keyframes arm-wide-l {
+  0%, 100% { transform: rotate(-10deg); }
+  30% { transform: rotate(25deg); }
+  70% { transform: rotate(-18deg); }
+}
+@keyframes arm-wide-r {
+  0%, 100% { transform: rotate(10deg); }
+  30% { transform: rotate(-25deg); }
+  70% { transform: rotate(18deg); }
+}
+@keyframes arm-flow-l {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-20deg); }
+  75% { transform: rotate(15deg); }
+}
+@keyframes arm-flow-r {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(20deg); }
+  75% { transform: rotate(-15deg); }
+}
+
+/* ---- Legs ---- */
+.dancer-1 .d-leg-l { animation: leg-step-l 2s ease-in-out infinite; }
+.dancer-1 .d-leg-r { animation: leg-step-r 2s ease-in-out infinite; }
+
+.dancer-2 .d-leg-l { animation: leg-groove-l 1.6s ease-in-out infinite; }
+.dancer-2 .d-leg-r { animation: leg-groove-r 1.6s ease-in-out infinite; }
+
+.dancer-3 .d-leg-l { animation: leg-bounce-l 2.2s ease-in-out infinite; }
+.dancer-3 .d-leg-r { animation: leg-bounce-r 2.2s ease-in-out infinite; }
+
+.dancer-4 .d-leg-l { animation: leg-step-l 2.8s ease-in-out infinite; }
+.dancer-4 .d-leg-r { animation: leg-step-r 2.8s ease-in-out infinite; }
+
+.dancer-5 .d-leg-l { animation: leg-groove-l 1.8s ease-in-out infinite; }
+.dancer-5 .d-leg-r { animation: leg-groove-r 1.8s ease-in-out infinite; }
+
+@keyframes leg-step-l {
+  0%, 100% { transform: rotate(8deg); }
+  50% { transform: rotate(-12deg); }
+}
+@keyframes leg-step-r {
+  0%, 100% { transform: rotate(-8deg); }
+  50% { transform: rotate(12deg); }
+}
+@keyframes leg-groove-l {
+  0%, 100% { transform: rotate(5deg); }
+  30% { transform: rotate(-18deg); }
+  70% { transform: rotate(10deg); }
+}
+@keyframes leg-groove-r {
+  0%, 100% { transform: rotate(-5deg); }
+  30% { transform: rotate(18deg); }
+  70% { transform: rotate(-10deg); }
+}
+@keyframes leg-bounce-l {
+  0%, 100% { transform: rotate(6deg); }
+  50% { transform: rotate(-10deg); }
+}
+@keyframes leg-bounce-r {
+  0%, 100% { transform: rotate(-6deg); }
+  50% { transform: rotate(10deg); }
+}
+
+@media (max-width: 540px) {
+  .dancers-strip {
+    gap: 1.5rem;
+  }
+  .dancer {
+    width: 32px;
+    height: 60px;
+  }
+  .f-breather {
+    height: 8rem;
+  }
+}
+
+/* ---- Magic particles ---- */
+.particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform, opacity;
+}
+
+.p1  { width: 4px; height: 4px; background: rgba(196, 122, 46, 0.7);  left: 18%; top: 30%; animation: float-1 4s ease-in-out infinite; }
+.p2  { width: 3px; height: 3px; background: rgba(200, 130, 185, 0.65); left: 30%; top: 55%; animation: float-2 3.5s ease-in-out infinite -0.8s; }
+.p3  { width: 5px; height: 5px; background: rgba(218, 165, 82, 0.6);  left: 45%; top: 20%; animation: float-3 5s ease-in-out infinite -1.5s; }
+.p4  { width: 3px; height: 3px; background: rgba(86, 160, 160, 0.6);  left: 58%; top: 60%; animation: float-1 4.2s ease-in-out infinite -2s; }
+.p5  { width: 4px; height: 4px; background: rgba(196, 88, 60, 0.6);   left: 72%; top: 35%; animation: float-2 3.8s ease-in-out infinite -0.5s; }
+.p6  { width: 3px; height: 3px; background: rgba(196, 122, 46, 0.5);  left: 82%; top: 50%; animation: float-3 4.5s ease-in-out infinite -1s; }
+.p7  { width: 2px; height: 2px; background: rgba(218, 165, 82, 0.7);  left: 25%; top: 70%; animation: float-2 3.2s ease-in-out infinite -1.8s; }
+.p8  { width: 4px; height: 4px; background: rgba(200, 130, 185, 0.5); left: 52%; top: 40%; animation: float-1 4.8s ease-in-out infinite -2.5s; }
+.p9  { width: 2px; height: 2px; background: rgba(86, 160, 160, 0.7);  left: 38%; top: 75%; animation: float-3 3.6s ease-in-out infinite -0.3s; }
+.p10 { width: 3px; height: 3px; background: rgba(196, 88, 60, 0.5);   left: 65%; top: 18%; animation: float-2 5.2s ease-in-out infinite -1.2s; }
+.p11 { width: 2px; height: 2px; background: rgba(196, 122, 46, 0.6);  left: 78%; top: 68%; animation: float-1 3.4s ease-in-out infinite -0.7s; }
+.p12 { width: 3px; height: 3px; background: rgba(218, 165, 82, 0.55); left: 12%; top: 45%; animation: float-3 4.4s ease-in-out infinite -2.2s; }
+
+@keyframes float-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+  25% { transform: translate(8px, -12px) scale(1.3); opacity: 0.9; }
+  50% { transform: translate(-4px, -20px) scale(0.8); opacity: 0.5; }
+  75% { transform: translate(6px, -8px) scale(1.2); opacity: 0.8; }
+}
+@keyframes float-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+  30% { transform: translate(-10px, -8px) scale(1.4); opacity: 0.85; }
+  60% { transform: translate(6px, -18px) scale(0.7); opacity: 0.5; }
+  85% { transform: translate(-3px, -5px) scale(1.1); opacity: 0.7; }
+}
+@keyframes float-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.35; }
+  20% { transform: translate(5px, -15px) scale(1.2); opacity: 0.8; }
+  45% { transform: translate(-8px, -6px) scale(0.9); opacity: 0.45; }
+  70% { transform: translate(10px, -22px) scale(1.5); opacity: 0.9; }
+}
+
+/* ---- SECTION — LE FORMAT (bg-night / opaque) ---- */
+.f-format-section {
+  position: relative;
+  z-index: 1;
+  padding: 6rem 0;
+  background: var(--bg-night);
+}
+
+.f-format-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 4rem;
+}
+
+/* Format grid */
+.f-format {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.f-format-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #F5F0E8;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.f-format-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.f-format-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 14px;
+  background:
+    radial-gradient(ellipse at top, rgba(196, 122, 46, 0.06), transparent 60%),
+    rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  transition: all 0.4s var(--ease-flow);
+}
+.f-format-item:hover {
+  border-color: rgba(196, 122, 46, 0.2);
+  background:
+    radial-gradient(ellipse at top, rgba(196, 122, 46, 0.1), transparent 60%),
+    rgba(255, 255, 255, 0.75);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+.f-format-item svg {
+  flex-shrink: 0;
+  color: var(--accent-amber);
+  margin-top: 2px;
+}
+.f-format-item strong {
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .f-format-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Prérequis & Après */
+.f-prerequis,
+.f-apres {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  padding: 1.5rem 2rem;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top left, rgba(196, 122, 46, 0.08), transparent 60%),
+    rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+.f-prerequis h4,
+.f-apres h4 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent-amber);
+  margin-bottom: 0.75rem;
+}
+.f-prerequis p,
+.f-apres p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ---- SECTION 3 — PROGRAMME (bg-night / opaque) ---- */
+.f-programme {
+  position: relative;
+  z-index: 1;
+  padding: 6rem 0;
+  background: var(--bg-night);
+}
+
+.f-programme-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 4rem;
+}
+
+.f-pillars-note {
+  text-align: center;
+  max-width: 650px;
+  margin: -2rem auto 4rem;
+}
+.f-pillars-note p {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--accent-amber);
+  line-height: 1.7;
+}
+
+/* Inclus grid — 4 cards */
+.f-inclus-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.f-inclus-card {
+  padding: 2rem 1.5rem;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background:
+    radial-gradient(ellipse at top, rgba(196, 122, 46, 0.08), transparent 60%),
+    rgba(255, 255, 255, 0.7);
+  transition: all 0.5s var(--ease-flow);
+  cursor: default;
+}
+.f-inclus-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  border-color: rgba(196, 122, 46, 0.2);
+}
+
+.f-inclus-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  background: rgba(196, 122, 46, 0.12);
+  color: var(--accent-amber);
+}
+
+.f-inclus-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.f-inclus-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .f-inclus-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 540px) {
+  .f-inclus-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- SECTION 4 — TEMOIGNAGES (transparent / parallax dark) ---- */
+.f-temoignages {
+  padding: 6rem 0;
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.f-temoignages-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.f-temoignages .section-title {
+  color: #F5F0E8;
+}
+
+/* Galerie grid */
+.f-galerie {
+  margin-bottom: 3rem;
+}
+
+.f-galerie-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto;
+  gap: 1rem;
+}
+
+.f-galerie-item {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.f-galerie-large {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+}
+
+.f-galerie-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at center, rgba(107, 45, 91, 0.2), transparent 70%),
+    rgba(11, 10, 16, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  transition: all 0.4s var(--ease-flow);
+  cursor: pointer;
+}
+.f-galerie-placeholder:hover {
+  border-color: rgba(196, 122, 46, 0.3);
+  background:
+    radial-gradient(ellipse at center, rgba(196, 122, 46, 0.15), transparent 70%),
+    rgba(11, 10, 16, 0.7);
+}
+.f-galerie-placeholder span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .f-galerie-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .f-galerie-large {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+}
+
+/* Video */
+.f-video {
+  max-width: 700px;
+  margin: 0 auto 4rem;
+}
+
+/* Témoignages prioritaires — 2 big cards */
+.f-temoignages-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.f-temoignage-big .testimonial-card {
+  background:
+    radial-gradient(ellipse at top left, rgba(196, 122, 46, 0.08), transparent 55%),
+    rgba(11, 10, 16, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-color: rgba(196, 122, 46, 0.2);
+}
+.f-temoignage-big .testimonial-card:hover {
+  background:
+    radial-gradient(ellipse at top left, rgba(196, 122, 46, 0.12), transparent 55%),
+    rgba(11, 10, 16, 0.7);
+  border-color: rgba(196, 122, 46, 0.35);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+.f-temoignage-big .testimonial-quote {
+  color: rgba(255, 255, 255, 0.85);
+}
+.f-temoignage-big .testimonial-name {
+  color: #F5F0E8;
+}
+.f-temoignage-big .testimonial-role {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Témoignages secondaires */
+.f-temoignages-secondary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.f-temoignage-small .testimonial-card {
+  background:
+    radial-gradient(ellipse at top left, rgba(107, 45, 91, 0.1), transparent 55%),
+    rgba(11, 10, 16, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+.f-temoignage-small .testimonial-card:hover {
+  background:
+    radial-gradient(ellipse at top left, rgba(107, 45, 91, 0.15), transparent 55%),
+    rgba(11, 10, 16, 0.55);
+  border-color: rgba(139, 58, 122, 0.3);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+.f-temoignage-small .testimonial-quote {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.95rem;
+}
+.f-temoignage-small .testimonial-name {
+  color: #F5F0E8;
+}
+.f-temoignage-small .testimonial-role {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+@media (max-width: 768px) {
+  .f-temoignages-grid,
+  .f-temoignages-secondary {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Google link */
+.f-google-link {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.f-google-link a {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-amber);
+  letter-spacing: 0.04em;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.3s;
+}
+.f-google-link a:hover {
+  color: var(--accent-gold);
+}

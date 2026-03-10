@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos — Ëotim | DJing Is A Medicine</title>
+  <meta name="description"
+    content="Découvre le parcours de Ëotim, DJ et formateur spécialisé en Ecstatic Dance. Une approche du DJing comme pratique de soin et de transformation.">
+  <meta property="og:title" content="À propos — Ëotim | DJing Is A Medicine">
+  <meta property="og:description"
+    content="DJ depuis les années 90, formateur Ecstatic Dance, facilitateur d'espaces de mouvement libre.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="preload" as="font" href="fonts/Decalotype-Bold.woff" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="a-propos.css">
+</head>
+
+<body>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Fixed parallax background -->
+  <div id="parallax-bg">
+    <div class="hero-bg"></div>
+    <div class="aurora">
+      <div class="aurora-blob aurora-blob-1"></div>
+      <div class="aurora-blob aurora-blob-2"></div>
+      <div class="aurora-blob aurora-blob-3"></div>
+      <div class="aurora-blob aurora-blob-4"></div>
+      <div class="aurora-blob aurora-blob-5"></div>
+      <div class="aurora-blob aurora-blob-6"></div>
+    </div>
+    <canvas id="sound-waves-canvas"></canvas>
+  </div>
+
+  <!-- ==========================================
+     NAVIGATION
+     ========================================== -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">DJing Is A Medicine</a>
+      <ul class="nav-links">
+        <li><a href="formation.html">Formation</a></li>
+        <li><a href="ecstatic-dance.html">Ecstatic Dance</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="index.html#partenaires">Partenaires</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="index.html#contact" class="nav-cta" data-magnetic>En savoir plus</a></li>
+      </ul>
+      <div class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="mobileMenu">
+    <div class="nav-mobile-bg"></div>
+    <div class="nav-mobile-content">
+      <a href="formation.html" class="nav-mobile-link" style="--i:0" onclick="closeMobile()">Formation</a>
+      <a href="ecstatic-dance.html" class="nav-mobile-link" style="--i:1" onclick="closeMobile()">Ecstatic Dance</a>
+      <a href="a-propos.html" class="nav-mobile-link" style="--i:2" onclick="closeMobile()">À propos</a>
+      <a href="index.html#partenaires" class="nav-mobile-link" style="--i:3" onclick="closeMobile()">Partenaires</a>
+      <a href="index.html#contact" class="nav-mobile-link" style="--i:4" onclick="closeMobile()">Contact</a>
+      <div class="nav-mobile-divider"></div>
+      <a href="index.html#contact" class="nav-mobile-cta" style="--i:5" onclick="closeMobile()">
+        En savoir plus
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
+      </a>
+      <div class="nav-mobile-footer">
+        <span>DJing Is A Medicine</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+     SECTION 1 — HERO (transparent / parallax)
+     ========================================== -->
+  <section class="hero about-hero" id="about-top">
+    <div class="hero-content">
+      <div class="hero-eyebrow">À propos</div>
+      <h1 class="hero-title">
+        <span class="word" style="--i:0">Ëotim</span>
+      </h1>
+      <p class="hero-subtitle">DJ, formateur, facilitateur</p>
+    </div>
+    <div class="hero-scroll">
+      <span>Découvrir</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Wave separator -->
+  <div class="wave-separator">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#D5CBC0" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z">
+        <animate attributeName="d" dur="8s" repeatCount="indefinite" values="
+        M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z;
+        M0,50 C300,20 600,70 900,30 C1150,10 1350,60 1440,45 L1440,80 L0,80 Z;
+        M0,35 C400,75 750,10 1050,50 C1200,65 1350,35 1440,40 L1440,80 L0,80 Z;
+        M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z
+      " />
+      </path>
+    </svg>
+  </div>
+
+  <!-- ==========================================
+     SECTION 2 — PORTRAIT (bg-night / opaque)
+     ========================================== -->
+  <section class="about-portrait" id="portrait">
+    <div class="container">
+      <div class="portrait-layout">
+        <div class="portrait-text reveal">
+          <p class="portrait-intro">Je m'appelle Benjamin, et je mixe sous le nom de <strong>Ëotim</strong>.</p>
+          <p>Je suis DJ depuis les années 90. D'abord dans les soirées et les festivals, puis progressivement vers un DJing plus conscient, tourné vers le mouvement libre, la danse contact improvisation et l'Ecstatic Dance. Ce virage n'est pas arrivé du jour au lendemain. Il s'est construit sur des années — une multitude de stages et d'immersions, des pratiques corporelles et de connaissance de soi, des centaines d'expérimentations seul et en collectif, des vies dans d'autres cultures et d'autres langues, 25 ans de voyages sur 3 continents. Et surtout, un chemin personnel de transformation qui a profondément changé ma façon de concevoir la présence, le corps, la musique et son rôle.</p>
+          <p>Aujourd'hui, je suis formateur DJ spécialisé en Ecstatic Dance, organisateur d'événements conscients et facilitateur d'espaces de mouvement libre. Je transmets avec passion une approche du DJing qui ne sépare pas la technique de la posture — parce que derrière les platines, ce qui compte autant que la technique, c'est la qualité de ta présence.</p>
+        </div>
+        <div class="portrait-image reveal reveal-delay-2">
+          <div class="portrait-frame">
+            <img src="images/Eotim-photoweb.jpg" alt="Ëotim — Benjamin Bossu, DJ et formateur Ecstatic Dance" loading="lazy">
+            <div class="portrait-shimmer"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline repères clés -->
+      <div class="timeline reveal">
+        <div class="timeline-line"></div>
+        <div class="timeline-item" data-timeline="1">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Années 90</span>
+            <p>DJ, technicien Son et informatique — intermittent du spectacle, soirées et festivals en France</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-timeline="2">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">25 ans</span>
+            <p>Voyages et immersions sur 3 continents — Europe, Amérique Latine, Asie</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-timeline="3">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Depuis 2007</span>
+            <p>Pratiquant de Qi Gong, Tai Chi, méditation et travail corporel</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-timeline="4">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Depuis 2019</span>
+            <p>Ecstatic Dance — communauté en Thaïlande, France, Espagne</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-timeline="5">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Depuis 2020</span>
+            <p>Organisateur d'événements conscients et facilitateur de contact impro</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-timeline="6">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2022</span>
+            <p>Premiers élèves DJ formés</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave separator -->
+  <div class="wave-separator">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#D5CBC0" d="M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z">
+        <animate attributeName="d" dur="10s" repeatCount="indefinite" values="
+        M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z;
+        M0,30 C300,70 540,10 780,50 C1020,70 1260,15 1440,35 L1440,0 L0,0 Z;
+        M0,50 C200,5 440,75 680,35 C920,5 1160,70 1440,45 L1440,0 L0,0 Z;
+        M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z
+      " />
+      </path>
+    </svg>
+  </div>
+
+  <!-- ==========================================
+     SECTION 3 — VISION (transparent / parallax)
+     ========================================== -->
+  <section class="about-vision" id="vision">
+    <div class="container">
+      <div class="vision-content">
+        <div class="section-label reveal">La vision</div>
+        <h2 class="section-title reveal reveal-delay-1">Le DJing comme médecine</h2>
+
+        <div class="vision-text reveal reveal-delay-2">
+          <p>Le nom <em>DJing Is A Medicine</em> n'est pas une métaphore. Je crois profondément que la musique, quand elle est portée avec conscience et intention, a un pouvoir de transformation. Pas seulement pour celle ou celui qui danse — aussi pour celle ou celui qui guide le voyage.</p>
+          <p>Ma vision de la formation est simple : on n'apprend pas à mixer dans une salle de classe. On apprend en vivant l'expérience, en se confrontant à soi-même, en écoutant son corps autant que ses oreilles. C'est pour ça que les retraites mêlent technique, mouvement, méditation et pratique collective.</p>
+          <p>Ce que je transmets, c'est un chemin. La technique DJ en est la fondation. La posture — la présence à soi, la lecture de l'énergie du groupe, la capacité à tenir un espace sécurisé — en est le cœur. Et le collectif — le groupe de participants qui apprend, partage et progresse ensemble — en est le moteur.</p>
+        </div>
+      </div>
+
+      <div class="vision-quote reveal">
+        <blockquote>
+          <p>Posture + technique + collectif.<br>C'est l'alliance des trois qui transforme et permet.</p>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave separator -->
+  <div class="wave-separator">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#D5CBC0"
+        d="M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z">
+        <animate attributeName="d" dur="9s" repeatCount="indefinite" values="
+        M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z;
+        M0,40 C220,15 400,70 600,35 C780,10 950,65 1120,45 C1280,30 1380,55 1440,40 L1440,80 L0,80 Z;
+        M0,55 C150,75 330,25 500,55 C680,75 860,15 1040,45 C1220,62 1360,38 1440,50 L1440,80 L0,80 Z;
+        M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z
+      " />
+      </path>
+    </svg>
+  </div>
+
+  <!-- ==========================================
+     SECTION 4 — ECOUTER / REGARDER / SUIVRE (bg-night / opaque)
+     ========================================== -->
+  <section class="about-media" id="media">
+    <div class="container">
+      <div class="media-header reveal">
+        <div class="section-label">Écouter, regarder, suivre</div>
+        <h2 class="section-title">L'univers musical de Ëotim</h2>
+      </div>
+
+      <div class="media-grid">
+        <!-- Bloc 1 — Voyages musicaux -->
+        <div class="media-block media-block-large reveal reveal-delay-1">
+          <div class="media-block-header">
+            <div class="media-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18V5l12-2v13" />
+                <circle cx="6" cy="18" r="3" />
+                <circle cx="18" cy="16" r="3" />
+              </svg>
+            </div>
+            <h3 class="media-block-title">Écouter les voyages musicaux</h3>
+          </div>
+          <div class="media-embed">
+            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+              src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/eotimdj&color=%23C47A2E&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+              loading="lazy"></iframe>
+          </div>
+          <div class="media-links">
+            <a href="https://soundcloud.com/eotimdj" target="_blank" rel="noopener" class="media-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M2 16v-3m3 4V10m3 7V8m3 9V5m3 12V9m3 8v-5m3 5v-7" />
+              </svg>
+              SoundCloud
+            </a>
+            <a href="https://mixcloud.com/eotim" target="_blank" rel="noopener" class="media-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M8 15V9l4 3-4 3z" />
+                <path d="M13 15V9l4 3-4 3z" />
+              </svg>
+              Mixcloud
+            </a>
+          </div>
+        </div>
+
+        <!-- Bloc 2 — Vidéo -->
+        <div class="media-block reveal reveal-delay-2">
+          <div class="media-block-header">
+            <div class="media-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="23 7 16 12 23 17 23 7" />
+                <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+              </svg>
+            </div>
+            <h3 class="media-block-title">En images</h3>
+          </div>
+          <div class="media-embed media-embed-video">
+            <div class="video-placeholder-about">
+              <div class="video-play">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="#2A1F30" stroke="none">
+                  <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
+              </div>
+              <div class="video-label">Sessions & retraites</div>
+            </div>
+          </div>
+          <div class="media-links">
+            <a href="https://youtube.com/@_BenjaminBossu" target="_blank" rel="noopener" class="media-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.4 19.6C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 001.94-2A29 29 0 0023 12a29 29 0 00-.46-5.58z" />
+                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+              </svg>
+              YouTube
+            </a>
+          </div>
+        </div>
+
+        <!-- Bloc 3 — Réseaux sociaux -->
+        <div class="media-block reveal reveal-delay-3">
+          <div class="media-block-header">
+            <div class="media-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </div>
+            <h3 class="media-block-title">Suivre Ëotim</h3>
+          </div>
+          <div class="social-grid">
+            <a href="https://instagram.com/eotim.dj" target="_blank" rel="noopener" class="social-card">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="5" />
+                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+              </svg>
+              <span>@eotim.dj</span>
+            </a>
+            <a href="https://facebook.com/benjamin.bossu.catalyseur" target="_blank" rel="noopener" class="social-card">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+              </svg>
+              <span>Benjamin Bossu</span>
+            </a>
+            <a href="https://soundcloud.com/eotimdj" target="_blank" rel="noopener" class="social-card">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M2 16v-3m3 4V10m3 7V8m3 9V5m3 12V9m3 8v-5m3 5v-7" />
+              </svg>
+              <span>eotimdj</span>
+            </a>
+            <a href="https://mixcloud.com/eotim" target="_blank" rel="noopener" class="social-card">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M8 15V9l4 3-4 3z" />
+                <path d="M13 15V9l4 3-4 3z" />
+              </svg>
+              <span>eotim</span>
+            </a>
+            <a href="https://youtube.com/@_BenjaminBossu" target="_blank" rel="noopener" class="social-card">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.4 19.6C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 001.94-2A29 29 0 0023 12a29 29 0 00-.46-5.58z" />
+                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+              </svg>
+              <span>@_BenjaminBossu</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Podcast mention -->
+      <div class="podcast-mention reveal">
+        <p>Benjamin partage aussi son parcours dans son podcast <em>Chroniques d'Une Résilience Méconnue</em>.
+          <a href="https://benjaminbossu.com" target="_blank" rel="noopener">Découvrir sur benjaminbossu.com
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7" />
+              <polyline points="7 7 17 7 17 17" />
+            </svg>
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+     FOOTER
+     ========================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">DJing Is A Medicine</div>
+          <p>Le DJing comme voie sensible pour créer des espaces sécurisés et des voyages musicaux.</p>
+          <div class="footer-social" style="margin-top:1rem;">
+            <a href="https://instagram.com/eotim.dj" aria-label="Instagram"><svg width="16" height="16"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="5" />
+                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+              </svg></a>
+            <a href="https://facebook.com/benjamin.bossu.catalyseur" aria-label="Facebook"><svg width="16" height="16"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+              </svg></a>
+            <a href="https://youtube.com/@_BenjaminBossu" aria-label="YouTube"><svg width="16" height="16"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.4 19.6C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 001.94-2A29 29 0 0023 12a29 29 0 00-.46-5.58z" />
+                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+              </svg></a>
+            <a href="https://soundcloud.com/eotimdj" aria-label="SoundCloud"><svg width="16" height="16"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M2 16v-3m3 4V10m3 7V8m3 9V5m3 12V9m3 8v-5m3 5v-7" />
+              </svg></a>
+            <a href="https://mixcloud.com/eotim" aria-label="Mixcloud"><svg width="16" height="16"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M8 15V9l4 3-4 3z" />
+                <path d="M13 15V9l4 3-4 3z" />
+              </svg></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="formation.html">Formation</a></li>
+            <li><a href="ecstatic-dance.html">Ecstatic Dance</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Espace élèves</h4>
+          <ul>
+            <li><a href="#">Connexion espace élèves</a></li>
+            <li><a href="https://benjaminbossu.com" target="_blank" rel="noopener">Découvre mon autre univers →</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 DJing Is A Medicine — Tous droits réservés</span>
+        <div class="footer-legal">
+          <a href="#">Mentions légales</a>
+          <a href="#">Politique de confidentialité</a>
+        </div>
+        <div class="footer-credit">Créé avec amour par Julien — <a href="https://flowebia.fr" target="_blank"
+            rel="noopener">flowebia.fr</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ==========================================
+    // FULL-SCREEN MANDALA — Canvas sacred geometry
+    // ==========================================
+    (function () {
+      const canvas = document.getElementById('sound-waves-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const isMobile = window.matchMedia('(max-width: 768px), (pointer: coarse)').matches;
+      const GLOW = isMobile ? 0.3 : 1;
+
+      let W, H, CX, CY, R;
+      function resize() {
+        const dpr = window.devicePixelRatio || 1;
+        const parent = canvas.parentElement;
+        W = parent.clientWidth || window.innerWidth;
+        H = parent.clientHeight || window.innerHeight;
+        canvas.style.width = W + 'px';
+        canvas.style.height = H + 'px';
+        canvas.width = W * dpr;
+        canvas.height = H * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        CX = W / 2;
+        CY = H / 2;
+        R = Math.max(W, H) * 0.55;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+      window.addEventListener('orientationchange', () => { setTimeout(resize, 150); });
+
+      const AMBER = [196, 122, 46];
+      const MAGENTA = [139, 58, 122];
+      const TEAL = [30, 160, 200];
+      const GOLD = [232, 200, 114];
+      const VIOLET = [107, 45, 91];
+      const FUCHSIA = [220, 50, 140];
+
+      let angle = 0;
+      const SPEED = 0.0003;
+
+      function rgba(c, a) { return `rgba(${c[0]},${c[1]},${c[2]},${a})`; }
+      function circle(x, y, r) { ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.stroke(); }
+      function line(x1, y1, x2, y2) { ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); }
+
+      function flowerRing(cx, cy, d, cr, n) {
+        for (let i = 0; i < n; i++) {
+          const a = (i / n) * Math.PI * 2;
+          circle(cx + Math.cos(a) * d, cy + Math.sin(a) * d, cr);
+        }
+      }
+
+      function drawMandala(time) {
+        ctx.save();
+        ctx.translate(CX, CY);
+        const breath = 0.96 + 0.04 * Math.sin(time * 0.0008);
+        const unit = R * 0.275;
+
+        ctx.save(); ctx.rotate(-angle);
+        ctx.shadowBlur = 25 * GLOW; ctx.shadowColor = rgba(AMBER, 0.35);
+        ctx.strokeStyle = rgba(AMBER, 0.18); ctx.lineWidth = 3;
+        circle(0, 0, R * 0.97);
+        ctx.lineWidth = 2; ctx.strokeStyle = rgba(AMBER, 0.1);
+        circle(0, 0, R * 0.91);
+        ctx.strokeStyle = rgba(GOLD, 0.08); circle(0, 0, R * 0.83);
+        ctx.strokeStyle = rgba(AMBER, 0.06); circle(0, 0, R * 0.73);
+        ctx.restore();
+
+        ctx.save(); ctx.rotate(angle * 2);
+        ctx.shadowBlur = 15 * GLOW; ctx.shadowColor = rgba(GOLD, 0.25);
+        ctx.strokeStyle = rgba(GOLD, 0.1); ctx.lineWidth = 2;
+        const rayN = isMobile ? 6 : 12;
+        for (let i = 0; i < rayN; i++) {
+          const a = (i / rayN) * Math.PI * 2;
+          line(0, 0, Math.cos(a) * R * 0.95, Math.sin(a) * R * 0.95);
+        }
+        ctx.restore();
+
+        ctx.save(); ctx.rotate(-angle * 1.5);
+        ctx.shadowBlur = 22 * GLOW; ctx.shadowColor = rgba(MAGENTA, 0.3);
+        ctx.strokeStyle = rgba(MAGENTA, 0.15); ctx.lineWidth = 3;
+        const d2 = unit * 2 * breath;
+        for (let i = 0; i < 6; i++) {
+          const a = (i / 6) * Math.PI * 2;
+          circle(Math.cos(a) * d2, Math.sin(a) * d2, unit);
+        }
+        ctx.restore();
+
+        ctx.save(); ctx.rotate(angle * 3);
+        ctx.shadowBlur = 22 * GLOW; ctx.shadowColor = rgba(TEAL, 0.35);
+        ctx.strokeStyle = rgba(TEAL, 0.18); ctx.lineWidth = 3.5;
+        const bigUnit = unit * 1.4;
+        const d1 = bigUnit * breath;
+        circle(0, 0, bigUnit);
+        for (let i = 0; i < 6; i++) {
+          const a = (i / 6) * Math.PI * 2;
+          circle(Math.cos(a) * d1, Math.sin(a) * d1, bigUnit);
+        }
+        ctx.restore();
+
+        ctx.save(); ctx.rotate(-angle * 2);
+        ctx.shadowBlur = 15 * GLOW; ctx.shadowColor = rgba(VIOLET, 0.25);
+        ctx.strokeStyle = rgba(VIOLET, 0.12); ctx.lineWidth = 2.5;
+        circle(0, 0, R * 0.47);
+        ctx.restore();
+
+        ctx.save(); ctx.rotate(angle * 4);
+        ctx.shadowBlur = 20 * GLOW; ctx.shadowColor = rgba(FUCHSIA, 0.35);
+        ctx.strokeStyle = rgba(FUCHSIA, 0.16); ctx.lineWidth = 2.5;
+        const sR = unit * 0.4 * breath;
+        circle(0, 0, sR);
+        for (let i = 0; i < 6; i++) {
+          const a = (i / 6) * Math.PI * 2;
+          circle(Math.cos(a) * sR, Math.sin(a) * sR, sR);
+        }
+        ctx.restore();
+
+        ctx.shadowBlur = 12 * GLOW; ctx.shadowColor = rgba(GOLD, 0.3);
+        ctx.strokeStyle = rgba(GOLD, 0.12); ctx.lineWidth = 2;
+        circle(0, 0, unit * 0.5);
+        ctx.shadowBlur = 30 * GLOW; ctx.shadowColor = rgba(FUCHSIA, 0.45);
+        ctx.fillStyle = rgba(FUCHSIA, 0.1);
+        ctx.beginPath(); ctx.arc(0, 0, R * 0.02, 0, Math.PI * 2); ctx.fill();
+
+        ctx.restore();
+        ctx.shadowBlur = 0;
+      }
+
+      let time = 0;
+      function animate() {
+        ctx.clearRect(0, 0, W, H);
+        angle += SPEED;
+        drawMandala(time);
+        time++;
+        if (!prefersReduced) requestAnimationFrame(animate);
+      }
+      if (prefersReduced) drawMandala(0); else animate();
+    })();
+  </script>
+
+  <script>
+    // ==========================================
+    // SCROLL REVEAL
+    // ==========================================
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Timeline stagger reveal
+    const timelineSection = document.querySelector('.timeline');
+    if (timelineSection) {
+      const timelineObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.querySelectorAll('.timeline-item').forEach(item => {
+              item.classList.add('visible');
+            });
+            timelineObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      timelineObserver.observe(timelineSection);
+    }
+
+    // ==========================================
+    // NAV SCROLL BEHAVIOR
+    // ==========================================
+    const nav = document.getElementById('nav');
+    const scrollProgress = document.getElementById('scrollProgress');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y > 80) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+      const docH = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollProgress && docH > 0) scrollProgress.style.width = (y / docH * 100) + '%';
+    }, { passive: true });
+
+    // ==========================================
+    // MOBILE MENU
+    // ==========================================
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    function closeMobile() {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // ==========================================
+    // SMOOTH ANCHOR SCROLL
+    // ==========================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // ==========================================
+    // CUSTOM CURSOR + MAGNETIC BUTTONS
+    // ==========================================
+    (function () {
+      if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
+      const cursor = document.getElementById('cursor');
+      const glow = document.getElementById('cursorGlow');
+      if (!cursor || !glow) return;
+
+      let mx = -100, my = -100, cx = -100, cy = -100, gx = -100, gy = -100;
+      document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+      document.addEventListener('mouseleave', () => { cursor.style.opacity = '0'; glow.style.opacity = '0'; });
+      document.addEventListener('mouseenter', () => { cursor.style.opacity = '1'; glow.style.opacity = '1'; });
+
+      function lerp(a, b, t) { return a + (b - a) * t; }
+      function tick() {
+        cx = lerp(cx, mx, 0.2); cy = lerp(cy, my, 0.2);
+        gx = lerp(gx, mx, 0.08); gy = lerp(gy, my, 0.08);
+        cursor.style.left = cx + 'px'; cursor.style.top = cy + 'px';
+        glow.style.left = gx + 'px'; glow.style.top = gy + 'px';
+        requestAnimationFrame(tick);
+      }
+      tick();
+
+      const interactives = 'a, button, [data-magnetic], .social-card, .media-block, .timeline-item';
+      document.addEventListener('mouseover', e => {
+        if (e.target.closest(interactives)) { cursor.classList.add('hover'); glow.classList.add('hover'); }
+      });
+      document.addEventListener('mouseout', e => {
+        if (e.target.closest(interactives)) { cursor.classList.remove('hover'); glow.classList.remove('hover'); }
+      });
+
+      // Magnetic effect
+      document.querySelectorAll('[data-magnetic]').forEach(btn => {
+        btn.addEventListener('mousemove', e => {
+          const rect = btn.getBoundingClientRect();
+          const dx = e.clientX - (rect.left + rect.width / 2);
+          const dy = e.clientY - (rect.top + rect.height / 2);
+          btn.style.transform = `translate(${dx * 0.25}px, ${dy * 0.25}px)`;
+        });
+        btn.addEventListener('mouseleave', () => {
+          btn.style.transform = '';
+          btn.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+        });
+      });
+    })();
+  </script>
+
+</body>
+
+</html>

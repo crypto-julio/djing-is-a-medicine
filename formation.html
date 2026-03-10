@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formation DJ Holistique — Niveau Ronde (débutant) | DJing Is A Medicine</title>
+  <meta name="description"
+    content="Formation DJ Ecstatic Dance : 5 jours de retraite immersive + 6 mois d'accompagnement. Technique DJ, posture & présence. Par Ëotim.">
+  <meta property="og:title" content="Formation DJ Holistique — Niveau Ronde | DJing Is A Medicine">
+  <meta property="og:description"
+    content="Retraite immersive de 5 jours + accompagnement sur 6 mois. Technique DJ, posture, présence et collectif.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="preload" as="font" href="fonts/Decalotype-Bold.woff" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="formation.css">
+</head>
+
+<body>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Fixed parallax background -->
+  <div id="parallax-bg">
+    <div class="hero-bg"></div>
+    <div class="aurora">
+      <div class="aurora-blob aurora-blob-1"></div>
+      <div class="aurora-blob aurora-blob-2"></div>
+      <div class="aurora-blob aurora-blob-3"></div>
+      <div class="aurora-blob aurora-blob-4"></div>
+      <div class="aurora-blob aurora-blob-5"></div>
+      <div class="aurora-blob aurora-blob-6"></div>
+    </div>
+    <canvas id="sound-waves-canvas"></canvas>
+  </div>
+
+  <!-- ==========================================
+     NAVIGATION
+     ========================================== -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">DJing Is A Medicine</a>
+      <ul class="nav-links">
+        <li><a href="formation.html">Formation</a></li>
+        <li><a href="ecstatic-dance.html">Ecstatic Dance</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="index.html#partenaires">Partenaires</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="index.html#contact" class="nav-cta" data-magnetic>En savoir plus</a></li>
+      </ul>
+      <div class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="mobileMenu">
+    <div class="nav-mobile-bg"></div>
+    <div class="nav-mobile-content">
+      <a href="formation.html" class="nav-mobile-link" style="--i:0" onclick="closeMobile()">Formation</a>
+      <a href="ecstatic-dance.html" class="nav-mobile-link" style="--i:1" onclick="closeMobile()">Ecstatic Dance</a>
+      <a href="a-propos.html" class="nav-mobile-link" style="--i:2" onclick="closeMobile()">À propos</a>
+      <a href="index.html#partenaires" class="nav-mobile-link" style="--i:3" onclick="closeMobile()">Partenaires</a>
+      <a href="index.html#contact" class="nav-mobile-link" style="--i:4" onclick="closeMobile()">Contact</a>
+      <div class="nav-mobile-divider"></div>
+      <a href="index.html#contact" class="nav-mobile-cta" style="--i:5" onclick="closeMobile()">
+        En savoir plus
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
+      </a>
+      <div class="nav-mobile-footer">
+        <span>DJing Is A Medicine</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+     SECTION 1 — HERO FORMATION (dark / transparent)
+     ========================================== -->
+  <section class="hero formation-hero" id="formation-top">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Formation · Niveau Ronde (débutant)</div>
+      <h1 class="hero-title">
+        <span class="word" style="--i:0">Crée</span>
+        <span class="word" style="--i:1">des</span>
+        <span class="word" style="--i:2">voyages</span>
+        <span class="word" style="--i:3">qui</span>
+        <span class="word" style="--i:4">transforment</span>
+      </h1>
+      <p class="hero-subtitle">5 jours de retraite immersive + 6 mois d'accompagnement. Technique DJ, posture, présence et collectif — pour devenir DJ holistique.</p>
+      <a href="#contact" class="hero-cta" data-magnetic>
+        Recevoir la brochure complète
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
+      </a>
+    </div>
+    <div class="hero-scroll">
+      <span>Découvrir</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Wave separator -->
+  <div class="wave-separator">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#D5CBC0" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z">
+        <animate attributeName="d" dur="8s" repeatCount="indefinite" values="
+        M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z;
+        M0,50 C300,20 600,70 900,30 C1150,10 1350,60 1440,45 L1440,80 L0,80 Z;
+        M0,35 C400,75 750,10 1050,50 C1200,65 1350,35 1440,40 L1440,80 L0,80 Z;
+        M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z
+      " />
+      </path>
+    </svg>
+  </div>
+
+  <!-- ==========================================
+     SECTION 2 — POURQUOI (bg-night / opaque)
+     ========================================== -->
+  <section class="f-pourquoi" id="pourquoi">
+    <div class="container">
+      <div class="f-pourquoi-header reveal">
+        <div class="section-label">L'origine</div>
+        <h2 class="section-title">Pourquoi cet accompagnement existe</h2>
+      </div>
+
+      <div class="f-pourquoi-content">
+        <p class="f-pourquoi-text reveal reveal-delay-1">En Ecstatic Dance, le·la DJ ne passe pas de la musique — iel guide un voyage. Iel tient l'espace, accompagne les transitions et soutient l'exploration intérieure de chaque danseur·euse à travers le mouvement libre.</p>
+
+        <p class="f-pourquoi-text reveal reveal-delay-2">Les formations DJ classiques enseignent la technique en oubliant l'essentiel : la posture, le cadre, la responsabilité de tenir un espace sûr et porteur. Résultat — des DJ techniquement capables, mais qui peinent à créer une expérience réellement transformatrice.</p>
+
+        <div class="f-pourquoi-highlight reveal reveal-delay-3">
+          <p class="f-pourquoi-text"><strong>DJing Is A Medicine</strong> est né pour combler cet espace. Une retraite-formation immersive de 5 jours, suivie d'un accompagnement de 6 mois minimum, qui relie technique DJ, conscience du mouvement et exploration intérieure. Tu repars avec des compétences concrètes, une posture incarnée et la capacité de créer des voyages musicaux qui font vraiment du bien.</p>
+        </div>
+      </div>
+
+      <div class="f-cta-center reveal reveal-delay-4">
+        <a href="#contact" class="btn-primary" data-magnetic>
+          Recevoir la brochure complète
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave separator — opaque fades into dark -->
+  <div class="wave-separator">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#D5CBC0" d="M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z">
+        <animate attributeName="d" dur="10s" repeatCount="indefinite" values="
+        M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z;
+        M0,30 C300,70 540,10 780,50 C1020,70 1260,15 1440,35 L1440,0 L0,0 Z;
+        M0,50 C200,5 440,75 680,35 C920,5 1160,70 1440,45 L1440,0 L0,0 Z;
+        M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z
+      " />
+      </path>
+    </svg>
+  </div>
+
+  <!-- ==========================================
+     SECTION 3 — POUR QUI (transparent / parallax dark)
+     ========================================== -->
+  <section class="f-pour-qui" id="pour-qui">
+    <div class="container">
+      <div class="f-pour-qui-header reveal">
+        <div class="section-label">Ça te parle ?</div>
+        <h2 class="section-title">Tu ressens l'appel mais tu ne sais pas par où commencer</h2>
+      </div>
+
+      <div class="f-profil reveal reveal-delay-1">
+        <div class="f-profil-badge">Profil type : débutant</div>
+        <p class="f-profil-text">Tu as peu ou pas encore de pratique sur du matériel DJ, et quelque chose en toi est pourtant attiré par la création musicale et la danse. Tu veux exprimer ce qui vibre en toi à travers le DJing, mais la technique te semble un obstacle — et parfois tu te demandes si tu es légitime et si c'est vraiment pour toi.</p>
+      </div>
+
+      <div class="f-pour-qui-subtitle reveal reveal-delay-2">
+        <h3>Ce niveau est fait pour toi si :</h3>
+      </div>
+
+      <div class="identify-grid">
+        <div class="identify-item" data-identify="1">
+          <div class="identify-icon-wrap">
+            <svg class="identify-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </div>
+          <p class="identify-text">Tu cherches un cadre clair, humain et bienveillant pour apprendre sans pression</p>
+        </div>
+        <div class="identify-item" data-identify="2">
+          <div class="identify-icon-wrap">
+            <svg class="identify-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </div>
+          <p class="identify-text">Tu veux être porté·e par un collectif et grandir ensemble</p>
+        </div>
+        <div class="identify-item" data-identify="3">
+          <div class="identify-icon-wrap">
+            <svg class="identify-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </div>
+          <p class="identify-text">Tu es prêt·e à cheminer en toi pour faire émerger ta singularité</p>
+        </div>
+        <div class="identify-item" data-identify="4">
+          <div class="identify-icon-wrap">
+            <svg class="identify-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </div>
+          <p class="identify-text">Tu veux grandir techniquement et intérieurement en même temps</p>
+        </div>
+      </div>
+
+      <div class="f-disclaimer reveal">
+        <p>Si tu cherches uniquement une formation technique, ou si l'exploration corporelle et intérieure ne t'attire pas, d'autres voies existent — et c'est tout aussi juste.</p>
+      </div>
+
+      <div class="f-cta-center reveal">
+        <a href="#contact" class="btn-primary" data-magnetic>
+          Recevoir la brochure complète
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave separator — dark into opaque -->
+  <div class="wave-separator">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#D5CBC0"
+        d="M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z">
+        <animate attributeName="d" dur="9s" repeatCount="indefinite" values="
+        M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z;
+        M0,40 C220,15 400,70 600,35 C780,10 950,65 1120,45 C1280,30 1380,55 1440,40 L1440,80 L0,80 Z;
+        M0,55 C150,75 330,25 500,55 C680,75 860,15 1040,45 C1220,62 1360,38 1440,50 L1440,80 L0,80 Z;
+        M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z
+      " />
+      </path>
+    </svg>
+  </div>
+
+  <!-- ==========================================
+     SECTION — LE FORMAT (bg-night / opaque)
+     ========================================== -->
+  <section class="f-format-section" id="format">
+    <div class="container">
+      <div class="f-format-header reveal">
+        <div class="section-label">Le format</div>
+        <h2 class="section-title">Une transformation durable</h2>
+      </div>
+
+      <div class="f-format reveal reveal-delay-1">
+        <div class="f-format-grid">
+          <div class="f-format-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            <div>
+              <strong>Accompagnement de 6 mois</strong> (minimum)
+            </div>
+          </div>
+          <div class="f-format-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+            <div>
+              <strong>Retraite immersive de 5 jours</strong> en présentiel, en petit groupe
+            </div>
+          </div>
+          <div class="f-format-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+            <div>
+              <strong>Plateforme en ligne</strong> avec plusieurs dizaines de modules et ressources
+            </div>
+          </div>
+          <div class="f-format-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+            </svg>
+            <div>
+              <strong>Suivi sur plusieurs mois</strong> : rendez-vous Zoom mensuels + groupe d'entraide
+            </div>
+          </div>
+          <div class="f-format-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3v5z"/><path d="M3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3v5z"/>
+            </svg>
+            <div>
+              <strong>Logiciel : Traktor Pro</strong> (transférable sur Rekordbox / Pioneer)
+            </div>
+          </div>
+          <div class="f-format-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+            <div>
+              <strong>Bonus et surprises</strong> — ce que tu découvriras en chemin ne se liste pas, ça se vit.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prérequis matériel -->
+      <div class="f-prerequis reveal reveal-delay-2">
+        <h4>Prérequis matériel</h4>
+        <p>Viens avec ton ordinateur, ton contrôleur DJ et ton casque audio. Si tu n'es pas encore équipé·e, tout est prévu pour t'accompagner dans le choix du matériel adapté à ton projet et à ton budget.</p>
+      </div>
+
+      <!-- Et après -->
+      <div class="f-apres reveal reveal-delay-3">
+        <h4>Et après les 6 mois de Ronde ?</h4>
+        <p>Ronde est une fondation. À l'issue de ces 6 mois, tu sais où tu en es — et tu choisis la suite : approfondir dans Ronde, ou passer à Blanche. Il y a quatre niveaux en tout, chacun une étape sur le chemin.</p>
+      </div>
+
+      <div class="f-cta-center reveal reveal-delay-4">
+        <a href="#contact" class="btn-primary" data-magnetic>
+          Recevoir la brochure complète
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave separator — opaque (format) fades into dark gap -->
+  <div class="wave-separator">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#D5CBC0" d="M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z">
+        <animate attributeName="d" dur="10s" repeatCount="indefinite" values="
+        M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z;
+        M0,30 C300,70 540,10 780,50 C1020,70 1260,15 1440,35 L1440,0 L0,0 Z;
+        M0,50 C200,5 440,75 680,35 C920,5 1160,70 1440,45 L1440,0 L0,0 Z;
+        M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z
+      " />
+      </path>
+    </svg>
+  </div>
+
+  <!-- Breathing space with dancing silhouettes -->
+  <div class="f-breather">
+    <div class="dancers-strip">
+      <!-- Dancer 1 — sway -->
+      <svg class="dancer dancer-1" viewBox="0 0 44 80" fill="none">
+        <circle cx="22" cy="8" r="6" fill="currentColor"/>
+        <line class="d-body" x1="22" y1="14" x2="22" y2="42" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+        <line class="d-arm-l" x1="22" y1="22" x2="9" y2="14" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <line class="d-arm-r" x1="22" y1="22" x2="35" y2="14" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <line class="d-leg-l" x1="22" y1="42" x2="13" y2="66" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+        <line class="d-leg-r" x1="22" y1="42" x2="31" y2="66" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+      </svg>
+      <!-- Dancer 2 — groove -->
+      <svg class="dancer dancer-2" viewBox="0 0 44 80" fill="none">
+        <circle cx="22" cy="8" r="6" fill="currentColor"/>
+        <line class="d-body" x1="22" y1="14" x2="22" y2="42" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+        <line class="d-arm-l" x1="22" y1="24" x2="8" y2="30" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <line class="d-arm-r" x1="22" y1="24" x2="36" y2="18" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <line class="d-leg-l" x1="22" y1="42" x2="12" y2="65" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+        <line class="d-leg-r" x1="22" y1="42" x2="32" y2="65" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+      </svg>
+      <!-- Dancer 3 — ecstatic -->
+      <svg class="dancer dancer-3" viewBox="0 0 44 80" fill="none">
+        <circle cx="22" cy="8" r="6" fill="currentColor"/>
+        <line class="d-body" x1="22" y1="14" x2="22" y2="42" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+        <line class="d-arm-l" x1="22" y1="20" x2="5" y2="24" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <line class="d-arm-r" x1="22" y1="20" x2="39" y2="24" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <line class="d-leg-l" x1="22" y1="42" x2="14" y2="67" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+        <line class="d-leg-r" x1="22" y1="42" x2="30" y2="67" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+      </svg>
+      <!-- Dancer 4 — flow -->
+      <svg class="dancer dancer-4" viewBox="0 0 44 80" fill="none">
+        <circle cx="22" cy="8" r="6" fill="currentColor"/>
+        <line class="d-body" x1="22" y1="14" x2="22" y2="42" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+        <line class="d-arm-l" x1="22" y1="22" x2="7" y2="16" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <line class="d-arm-r" x1="22" y1="22" x2="37" y2="30" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <line class="d-leg-l" x1="22" y1="42" x2="12" y2="64" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+        <line class="d-leg-r" x1="22" y1="42" x2="32" y2="64" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+      </svg>
+      <!-- Dancer 5 — free -->
+      <svg class="dancer dancer-5" viewBox="0 0 44 80" fill="none">
+        <circle cx="22" cy="8" r="6" fill="currentColor"/>
+        <line class="d-body" x1="22" y1="14" x2="22" y2="42" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+        <line class="d-arm-l" x1="22" y1="21" x2="9" y2="12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <line class="d-arm-r" x1="22" y1="21" x2="35" y2="12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <line class="d-leg-l" x1="22" y1="42" x2="14" y2="67" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+        <line class="d-leg-r" x1="22" y1="42" x2="30" y2="67" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <!-- Magic particles -->
+    <div class="particles">
+      <span class="particle p1"></span>
+      <span class="particle p2"></span>
+      <span class="particle p3"></span>
+      <span class="particle p4"></span>
+      <span class="particle p5"></span>
+      <span class="particle p6"></span>
+      <span class="particle p7"></span>
+      <span class="particle p8"></span>
+      <span class="particle p9"></span>
+      <span class="particle p10"></span>
+      <span class="particle p11"></span>
+      <span class="particle p12"></span>
+    </div>
+  </div>
+
+  <!-- Wave separator — dark gap fades into opaque (programme) -->
+  <div class="wave-separator">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#D5CBC0"
+        d="M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z">
+        <animate attributeName="d" dur="9s" repeatCount="indefinite" values="
+        M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z;
+        M0,40 C220,15 400,70 600,35 C780,10 950,65 1120,45 C1280,30 1380,55 1440,40 L1440,80 L0,80 Z;
+        M0,55 C150,75 330,25 500,55 C680,75 860,15 1040,45 C1220,62 1360,38 1440,50 L1440,80 L0,80 Z;
+        M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z
+      " />
+      </path>
+    </svg>
+  </div>
+
+  <!-- ==========================================
+     SECTION 4 — CE QUE TU VAS APPRENDRE (bg-night / opaque)
+     ========================================== -->
+  <section class="f-programme" id="programme">
+    <div class="container">
+      <div class="f-programme-header reveal">
+        <div class="section-label">Programme</div>
+        <h2 class="section-title">Ce que tu vas apprendre</h2>
+        <p class="section-text" style="max-width:650px;margin:0 auto;">Mixer s'apprend. Sentir, aussi. Ce programme cultive les deux — parce que l'un sans l'autre ne suffit pas à créer un vrai voyage.</p>
+      </div>
+
+      <!-- Deux piliers -->
+      <div class="pillars">
+        <div class="pillar pillar-1 reveal reveal-delay-1">
+          <div class="pillar-icon">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+              <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5z" />
+              <path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" />
+            </svg>
+          </div>
+          <h3 class="pillar-title">Technique DJ</h3>
+          <p class="pillar-text">Maîtriser ton logiciel (Traktor Pro), ton contrôleur, ta bibliothèque musicale. Comprendre les bases du mix, les structures de morceaux, le câblage. Construire des sets qui racontent un voyage.</p>
+          <div class="pillar-accent"></div>
+        </div>
+        <div class="pillar pillar-2 reveal reveal-delay-2">
+          <div class="pillar-icon">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="5" r="2" />
+              <path d="M12 7v5" />
+              <path d="M9 20l3-8 3 8" />
+              <path d="M7 12l5 2 5-2" />
+            </svg>
+          </div>
+          <h3 class="pillar-title">Posture & Présence</h3>
+          <p class="pillar-text">Développer ta capacité à ressentir l'énergie d'un groupe et à ajuster ta musique en conséquence. Méditation, Qi Gong, marches en conscience, exercices de respiration : des pratiques concrètes pour ancrer ta posture de DJ holistique.</p>
+          <div class="pillar-accent"></div>
+        </div>
+      </div>
+
+      <div class="f-pillars-note reveal">
+        <p>Ces deux piliers s'alimentent mutuellement, portés par les valeurs du mouvement libre, de l'Ecstatic Dance et de la connaissance de soi.</p>
+      </div>
+
+      <!-- 4 blocs visuels "Ce qui est inclus" -->
+      <div class="f-inclus-grid">
+        <div class="f-inclus-card reveal reveal-delay-1">
+          <div class="f-inclus-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+            </svg>
+          </div>
+          <h4 class="f-inclus-title">Apprendre</h4>
+          <p class="f-inclus-desc">Cours techniques, logiciel, matériel, livret de support exclusif</p>
+        </div>
+        <div class="f-inclus-card reveal reveal-delay-2">
+          <div class="f-inclus-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+            </svg>
+          </div>
+          <h4 class="f-inclus-title">Pratiquer</h4>
+          <p class="f-inclus-desc">Sessions sur le matériel, mise en situation réelle, mix devant le groupe</p>
+        </div>
+        <div class="f-inclus-card reveal reveal-delay-3">
+          <div class="f-inclus-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h4 class="f-inclus-title">Se ressourcer</h4>
+          <p class="f-inclus-desc">Nourriture locale et bio, jacuzzi, luminothérapie sonore</p>
+        </div>
+        <div class="f-inclus-card reveal reveal-delay-4">
+          <div class="f-inclus-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+            </svg>
+          </div>
+          <h4 class="f-inclus-title">Être accompagné</h4>
+          <p class="f-inclus-desc">Mentoring 1:1, suivi sur plusieurs mois, collectif, webinaires</p>
+        </div>
+      </div>
+
+      <div class="f-cta-center reveal">
+        <a href="#contact" class="btn-primary" data-magnetic>
+          Recevoir la brochure complète
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave separator — opaque fades into dark -->
+  <div class="wave-separator">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#D5CBC0" d="M0,35 C360,65 540,15 900,45 C1080,60 1260,25 1440,40 L1440,0 L0,0 Z">
+        <animate attributeName="d" dur="11s" repeatCount="indefinite" values="
+        M0,35 C360,65 540,15 900,45 C1080,60 1260,25 1440,40 L1440,0 L0,0 Z;
+        M0,45 C280,20 500,65 820,30 C1020,15 1220,60 1440,35 L1440,0 L0,0 Z;
+        M0,30 C320,70 580,10 860,50 C1060,65 1300,20 1440,42 L1440,0 L0,0 Z;
+        M0,35 C360,65 540,15 900,45 C1080,60 1260,25 1440,40 L1440,0 L0,0 Z
+      " />
+      </path>
+    </svg>
+  </div>
+
+  <!-- ==========================================
+     SECTION 5 — GALERIE & TEMOIGNAGES (transparent / parallax dark)
+     ========================================== -->
+  <section class="f-temoignages" id="temoignages">
+    <div class="container">
+      <div class="f-temoignages-header reveal">
+        <div class="section-label">Témoignages</div>
+        <h2 class="section-title">Ils et elles l'ont vécu</h2>
+      </div>
+
+      <!-- Galerie photos placeholder -->
+      <div class="f-galerie reveal reveal-delay-1">
+        <div class="f-galerie-grid">
+          <div class="f-galerie-item f-galerie-large">
+            <div class="f-galerie-placeholder">
+              <span>Photo retraite — groupe</span>
+            </div>
+          </div>
+          <div class="f-galerie-item">
+            <div class="f-galerie-placeholder">
+              <span>Salle de pratique</span>
+            </div>
+          </div>
+          <div class="f-galerie-item">
+            <div class="f-galerie-placeholder">
+              <span>Le lieu — Le rêve d'Ishowa</span>
+            </div>
+          </div>
+          <div class="f-galerie-item">
+            <div class="f-galerie-placeholder">
+              <span>Pratique en nature</span>
+            </div>
+          </div>
+          <div class="f-galerie-item">
+            <div class="f-galerie-placeholder">
+              <span>Matériel DJ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video after-movie placeholder -->
+      <div class="f-video reveal">
+        <div class="video-placeholder">
+          <div class="video-play">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="#2A1F30" stroke="none">
+              <polygon points="5 3 19 12 5 21 5 3" />
+            </svg>
+          </div>
+          <div class="video-label">After-movie — Retraite immersive</div>
+        </div>
+      </div>
+
+      <!-- Témoignages prioritaires -->
+      <div class="f-temoignages-grid">
+        <div class="f-temoignage-big reveal reveal-delay-1">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">"Benjamin incarne l'expérience, la maîtrise et la patience d'un DJ conscient. Sa pédagogie est solide, concrète et complète. Le niveau technique proposé est très accessible tout en respectant le rythme de chacun. S'offrir ce stage est un cadeau que je me suis fait en écoutant mon intuition, et aujourd'hui je suis devenue DJ ecstatic, avec la joie au cœur de mixer devant notre belle communauté. Et la joie ne me quitte plus."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">AG</div>
+              <div>
+                <div class="testimonial-name">Aurélie G. (Lysis)</div>
+                <div class="testimonial-role">Participante formation — devenue DJ Ecstatic</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="f-temoignage-big reveal reveal-delay-2">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">"J'ai pu développer ma pratique non seulement sur le volet technique, avec des règles essentielles du métier de DJ, mais aussi, et surtout, sur l'aspect de la posture. Les exercices qu'il propose permettent de se recentrer sur soi-même, d'être détendu dans son corps et à l'écoute des signaux que le public nous envoie. Après ce stage, je me suis senti libéré, confiant, et prêt à me lancer."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">LS</div>
+              <div>
+                <div class="testimonial-name">Loïc S.</div>
+                <div class="testimonial-role">Participant retraite</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Témoignages secondaires -->
+      <div class="f-temoignages-secondary">
+        <div class="f-temoignage-small reveal reveal-delay-3">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">"Benjamin est un véritable pédagogue holistique. Ses retraites représentent une nouvelle façon d'apprendre en assimilant un savoir-faire et en intégrant en même temps un savoir-être. En se souciant autant de la technique que de la posture, de l'intention et de l'état d'esprit du DJ dans sa pratique, les élèves sont grandement nourris."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">DD</div>
+              <div>
+                <div class="testimonial-name">Dorine D.</div>
+                <div class="testimonial-role">Participante formation</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="f-temoignage-small reveal reveal-delay-4">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">"Benjamin m'a transmis à la fois des outils concrets pour cultiver un état d'être présent et conscient derrière les platines et une connaissance approfondie du logiciel de mix Traktor. Les 6 mois de suivi après la formation m'ont permis d'organiser mes premiers événements d'Ecstatic Dance en me sentant soutenu et accompagné."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">LD</div>
+              <div>
+                <div class="testimonial-name">Léon D.</div>
+                <div class="testimonial-role">Participant formation — organise ses propres événements</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="f-google-link reveal">
+        <a href="#" target="_blank" rel="noopener">Voir tous les avis sur Google ★ Excellent</a>
+      </div>
+
+      <div class="f-cta-center reveal">
+        <a href="#contact" class="btn-primary" data-magnetic>
+          Recevoir la brochure complète
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave separator — dark into opaque -->
+  <div class="wave-separator">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#D5CBC0" d="M0,30 C360,70 720,10 1080,50 C1260,65 1380,40 1440,30 L1440,80 L0,80 Z">
+        <animate attributeName="d" dur="9s" repeatCount="indefinite" values="
+        M0,30 C360,70 720,10 1080,50 C1260,65 1380,40 1440,30 L1440,80 L0,80 Z;
+        M0,45 C300,15 660,65 1020,30 C1200,15 1350,55 1440,40 L1440,80 L0,80 Z;
+        M0,35 C380,75 740,5 1100,55 C1280,70 1400,30 1440,35 L1440,80 L0,80 Z;
+        M0,30 C360,70 720,10 1080,50 C1260,65 1380,40 1440,30 L1440,80 L0,80 Z
+      " />
+      </path>
+    </svg>
+  </div>
+
+  <!-- ==========================================
+     SECTION CTA FINALE — FORMULAIRE (bg-night / opaque)
+     ========================================== -->
+  <section class="newsletter" id="contact">
+    <div class="newsletter-bg"></div>
+    <div class="container">
+      <div class="newsletter-content">
+        <div class="section-label reveal">Premier pas</div>
+        <h2 class="newsletter-title reveal reveal-delay-1">Envie d'en savoir plus ?</h2>
+        <p class="newsletter-text reveal reveal-delay-2">Remplis le formulaire et reçois gratuitement :</p>
+
+        <div class="rewards reveal reveal-delay-2">
+          <div class="reward-card">
+            <div class="reward-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+                <polyline points="10 9 9 9 8 9" />
+              </svg>
+            </div>
+            <div class="reward-info">
+              <span class="reward-label">La brochure PDF</span>
+              <span class="reward-desc">Présentation de l'accompagnement</span>
+            </div>
+          </div>
+          <div class="reward-card">
+            <div class="reward-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="23 7 16 12 23 17 23 7" />
+                <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+              </svg>
+            </div>
+            <div class="reward-info">
+              <span class="reward-label">Deux replays pour démarrer</span>
+              <span class="reward-desc">Le choix du matériel DJ et les bases informatiques essentielles, disponibles dès
+                réception</span>
+            </div>
+          </div>
+        </div>
+
+        <form class="newsletter-form reveal reveal-delay-3" id="contactForm" novalidate>
+          <div class="newsletter-row">
+            <input type="text" class="newsletter-input" placeholder="Ton prénom" name="first_name" required>
+            <input type="text" class="newsletter-input" placeholder="Ton nom" name="last_name" required>
+          </div>
+          <div class="newsletter-row">
+            <input type="email" class="newsletter-input" placeholder="Ton email" name="email" required>
+            <input type="tel" class="newsletter-input" placeholder="Ton téléphone" name="phone" required>
+          </div>
+          <div class="newsletter-row">
+            <select class="newsletter-input newsletter-select" name="ed_experience" required>
+              <option value="" disabled selected>As-tu déjà tenu un espace Ecstatic Dance ?</option>
+              <option value="jamais">Jamais</option>
+              <option value="une_fois">Une fois</option>
+              <option value="souvent">Souvent</option>
+            </select>
+            <select class="newsletter-input newsletter-select" name="dj_experience" required>
+              <option value="" disabled selected>As-tu déjà mixé ?</option>
+              <option value="jamais">Jamais</option>
+              <option value="un_peu">Un peu</option>
+              <option value="souvent">Souvent</option>
+            </select>
+          </div>
+          <textarea class="newsletter-input newsletter-textarea" name="motivation"
+            placeholder="Qu'est-ce qui te motive à l'idée de faire cette formation ?" rows="3" required></textarea>
+          <button type="submit" class="newsletter-submit" id="contactSubmit">Recevoir la brochure et les
+            replays</button>
+          <p class="newsletter-form-status" id="formStatus"></p>
+        </form>
+        <p class="newsletter-disclaimer reveal reveal-delay-4">Pas de spam. Tes données restent confidentielles.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+     FOOTER
+     ========================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">DJing Is A Medicine</div>
+          <p>Le DJing comme voie sensible pour créer des espaces sécurisés et des voyages musicaux.</p>
+          <div class="footer-social" style="margin-top:1rem;">
+            <a href="https://instagram.com/eotim.dj" aria-label="Instagram"><svg width="16" height="16"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="5" />
+                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+              </svg></a>
+            <a href="https://facebook.com/benjamin.bossu.catalyseur" aria-label="Facebook"><svg width="16" height="16"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+              </svg></a>
+            <a href="https://youtube.com/@_BenjaminBossu" aria-label="YouTube"><svg width="16" height="16"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.4 19.6C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 001.94-2A29 29 0 0023 12a29 29 0 00-.46-5.58z" />
+                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+              </svg></a>
+            <a href="https://soundcloud.com/eotimdj" aria-label="SoundCloud"><svg width="16" height="16"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M2 16v-3m3 4V10m3 7V8m3 9V5m3 12V9m3 8v-5m3 5v-7" />
+              </svg></a>
+            <a href="https://mixcloud.com/eotim" aria-label="Mixcloud"><svg width="16" height="16"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M8 15V9l4 3-4 3z" />
+                <path d="M13 15V9l4 3-4 3z" />
+              </svg></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="formation.html">Formation</a></li>
+            <li><a href="ecstatic-dance.html">Ecstatic Dance</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Espace élèves</h4>
+          <ul>
+            <li><a href="#">Connexion espace élèves</a></li>
+            <li><a href="https://benjaminbossu.com" target="_blank" rel="noopener">Découvre mon autre univers →</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 DJing Is A Medicine — Tous droits réservés</span>
+        <div class="footer-legal">
+          <a href="#">Mentions légales</a>
+          <a href="#">Politique de confidentialité</a>
+        </div>
+        <div class="footer-credit">Créé avec amour par Julien — <a href="https://flowebia.fr" target="_blank"
+            rel="noopener">flowebia.fr</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+     SCRIPTS
+     ========================================== -->
+  <script>
+    // Canvas mandala (same as homepage)
+    (function () {
+      const canvas = document.getElementById('sound-waves-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const isMobile = window.matchMedia('(max-width: 768px), (pointer: coarse)').matches;
+      const GLOW = isMobile ? 0.3 : 1;
+
+      let W, H, CX, CY, R;
+      function resize() {
+        const dpr = window.devicePixelRatio || 1;
+        const parent = canvas.parentElement;
+        W = parent.clientWidth || window.innerWidth;
+        H = parent.clientHeight || window.innerHeight;
+        canvas.style.width = W + 'px';
+        canvas.style.height = H + 'px';
+        canvas.width = W * dpr;
+        canvas.height = H * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        CX = W / 2;
+        CY = H / 2;
+        R = Math.max(W, H) * 0.55;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+      window.addEventListener('orientationchange', () => { setTimeout(resize, 150); });
+
+      const AMBER = [196, 122, 46], MAGENTA = [139, 58, 122], TEAL = [30, 160, 200];
+      const GOLD = [232, 200, 114], VIOLET = [107, 45, 91], FUCHSIA = [220, 50, 140];
+      let angle = 0;
+      const SPEED = 0.0003;
+
+      function rgba(c, a) { return `rgba(${c[0]},${c[1]},${c[2]},${a})`; }
+      function circle(x, y, r) { ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.stroke(); }
+      function line(x1, y1, x2, y2) { ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); }
+
+      function drawMandala(time) {
+        ctx.save();
+        ctx.translate(CX, CY);
+        const breath = 0.96 + 0.04 * Math.sin(time * 0.0008);
+        const unit = R * 0.275;
+
+        ctx.save(); ctx.rotate(-angle);
+        ctx.shadowBlur = 25 * GLOW; ctx.shadowColor = rgba(AMBER, 0.35);
+        ctx.strokeStyle = rgba(AMBER, 0.18); ctx.lineWidth = 3; circle(0, 0, R * 0.97);
+        ctx.lineWidth = 2; ctx.strokeStyle = rgba(AMBER, 0.1); circle(0, 0, R * 0.91);
+        ctx.strokeStyle = rgba(GOLD, 0.08); circle(0, 0, R * 0.83);
+        ctx.strokeStyle = rgba(AMBER, 0.06); circle(0, 0, R * 0.73);
+        ctx.restore();
+
+        ctx.save(); ctx.rotate(angle * 2);
+        ctx.shadowBlur = 15 * GLOW; ctx.shadowColor = rgba(GOLD, 0.25);
+        ctx.strokeStyle = rgba(GOLD, 0.1); ctx.lineWidth = 2;
+        const rayN = isMobile ? 6 : 12;
+        for (let i = 0; i < rayN; i++) { const a = (i / rayN) * Math.PI * 2; line(0, 0, Math.cos(a) * R * 0.95, Math.sin(a) * R * 0.95); }
+        ctx.restore();
+
+        ctx.save(); ctx.rotate(-angle * 1.5);
+        ctx.shadowBlur = 22 * GLOW; ctx.shadowColor = rgba(MAGENTA, 0.3);
+        ctx.strokeStyle = rgba(MAGENTA, 0.15); ctx.lineWidth = 3;
+        const d2 = unit * 2 * breath;
+        for (let i = 0; i < 6; i++) { const a = (i / 6) * Math.PI * 2; circle(Math.cos(a) * d2, Math.sin(a) * d2, unit); }
+        ctx.restore();
+
+        ctx.save(); ctx.rotate(angle * 3);
+        ctx.shadowBlur = 22 * GLOW; ctx.shadowColor = rgba(TEAL, 0.35);
+        ctx.strokeStyle = rgba(TEAL, 0.18); ctx.lineWidth = 3.5;
+        const bigUnit = unit * 1.4, d1 = bigUnit * breath;
+        circle(0, 0, bigUnit);
+        for (let i = 0; i < 6; i++) { const a = (i / 6) * Math.PI * 2; circle(Math.cos(a) * d1, Math.sin(a) * d1, bigUnit); }
+        ctx.restore();
+
+        ctx.save(); ctx.rotate(-angle * 2);
+        ctx.shadowBlur = 15 * GLOW; ctx.shadowColor = rgba(VIOLET, 0.25);
+        ctx.strokeStyle = rgba(VIOLET, 0.12); ctx.lineWidth = 2.5; circle(0, 0, R * 0.47);
+        ctx.restore();
+
+        ctx.save(); ctx.rotate(angle * 4);
+        ctx.shadowBlur = 20 * GLOW; ctx.shadowColor = rgba(FUCHSIA, 0.35);
+        ctx.strokeStyle = rgba(FUCHSIA, 0.16); ctx.lineWidth = 2.5;
+        const sR = unit * 0.4 * breath; circle(0, 0, sR);
+        for (let i = 0; i < 6; i++) { const a = (i / 6) * Math.PI * 2; circle(Math.cos(a) * sR, Math.sin(a) * sR, sR); }
+        ctx.restore();
+
+        ctx.shadowBlur = 12 * GLOW; ctx.shadowColor = rgba(GOLD, 0.3);
+        ctx.strokeStyle = rgba(GOLD, 0.12); ctx.lineWidth = 2; circle(0, 0, unit * 0.5);
+        ctx.shadowBlur = 30 * GLOW; ctx.shadowColor = rgba(FUCHSIA, 0.45);
+        ctx.fillStyle = rgba(FUCHSIA, 0.1);
+        ctx.beginPath(); ctx.arc(0, 0, R * 0.02, 0, Math.PI * 2); ctx.fill();
+        ctx.restore();
+        ctx.shadowBlur = 0;
+      }
+
+      let time = 0;
+      function animate() {
+        ctx.clearRect(0, 0, W, H);
+        angle += SPEED;
+        drawMandala(time);
+        time++;
+        if (!prefersReduced) requestAnimationFrame(animate);
+      }
+      if (prefersReduced) drawMandala(0); else animate();
+    })();
+  </script>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Identify grid stagger
+    const identifyGrid = document.querySelector('.identify-grid');
+    if (identifyGrid) {
+      const gridObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.querySelectorAll('.identify-item').forEach(item => item.classList.add('visible'));
+            gridObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      gridObserver.observe(identifyGrid);
+    }
+
+    // Nav scroll
+    const nav = document.getElementById('nav');
+    const scrollProgress = document.getElementById('scrollProgress');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y > 80) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
+      const docH = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollProgress && docH > 0) scrollProgress.style.width = (y / docH * 100) + '%';
+    }, { passive: true });
+
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+    function closeMobile() {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        const target = document.querySelector(href);
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+
+    // 3D tilt
+    (function () {
+      if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
+      const TILT_MAX = 8;
+      const cards = document.querySelectorAll('.identify-item, .testimonial-card, .f-inclus-card');
+      cards.forEach(card => {
+        card.addEventListener('mousemove', e => {
+          const rect = card.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width;
+          const y = (e.clientY - rect.top) / rect.height;
+          card.style.transform = `perspective(800px) rotateX(${(0.5 - y) * TILT_MAX * 2}deg) rotateY(${(x - 0.5) * TILT_MAX * 2}deg) translateY(-4px)`;
+          card.style.transition = 'transform 0.1s ease-out';
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+          card.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+        });
+      });
+    })();
+
+    // Custom cursor + magnetic
+    (function () {
+      if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
+      const cursor = document.getElementById('cursor');
+      const glow = document.getElementById('cursorGlow');
+      if (!cursor || !glow) return;
+      let mx = -100, my = -100, cx = -100, cy = -100, gx = -100, gy = -100;
+      document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+      document.addEventListener('mouseleave', () => { cursor.style.opacity = '0'; glow.style.opacity = '0'; });
+      document.addEventListener('mouseenter', () => { cursor.style.opacity = '1'; glow.style.opacity = '1'; });
+      function lerp(a, b, t) { return a + (b - a) * t; }
+      function tick() {
+        cx = lerp(cx, mx, 0.2); cy = lerp(cy, my, 0.2);
+        gx = lerp(gx, mx, 0.08); gy = lerp(gy, my, 0.08);
+        cursor.style.left = cx + 'px'; cursor.style.top = cy + 'px';
+        glow.style.left = gx + 'px'; glow.style.top = gy + 'px';
+        requestAnimationFrame(tick);
+      }
+      tick();
+      const interactives = 'a, button, [data-magnetic], .identify-item, .testimonial-card, .f-inclus-card';
+      document.addEventListener('mouseover', e => { if (e.target.closest(interactives)) { cursor.classList.add('hover'); glow.classList.add('hover'); } });
+      document.addEventListener('mouseout', e => { if (e.target.closest(interactives)) { cursor.classList.remove('hover'); glow.classList.remove('hover'); } });
+      document.querySelectorAll('[data-magnetic]').forEach(el => {
+        el.addEventListener('mousemove', e => {
+          const rect = el.getBoundingClientRect();
+          el.style.transform = `translate(${(e.clientX - rect.left - rect.width / 2) * 0.35}px, ${(e.clientY - rect.top - rect.height / 2) * 0.35}px)`;
+          el.style.transition = 'transform 0.2s ease-out';
+        });
+        el.addEventListener('mouseleave', () => { el.style.transform = ''; el.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)'; });
+      });
+    })();
+  </script>
+
+  <script>
+    // Contact form (same as homepage)
+    const SYSTEME_IO_API_KEY = 'SYSTEME_IO_API_KEY';
+    const contactForm = document.getElementById('contactForm');
+    const contactSubmit = document.getElementById('contactSubmit');
+    const formStatus = document.getElementById('formStatus');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        formStatus.textContent = '';
+        formStatus.className = 'newsletter-form-status';
+        const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData.entries());
+        if (!data.first_name || !data.last_name || !data.email || !data.phone || !data.ed_experience || !data.dj_experience || !data.motivation) {
+          formStatus.textContent = 'Merci de remplir tous les champs obligatoires.';
+          formStatus.classList.add('error');
+          return;
+        }
+        const originalText = contactSubmit.textContent;
+        contactSubmit.disabled = true;
+        contactSubmit.textContent = 'Envoi en cours…';
+        try {
+          const response = await fetch('https://api.systeme.io/api/contacts', {
+            method: 'POST',
+            headers: { 'X-API-Key': SYSTEME_IO_API_KEY, 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email: data.email, firstName: data.first_name, lastName: data.last_name, phoneNumber: data.phone,
+              fields: [
+                { slug: 'ed_experience', value: data.ed_experience || '' },
+                { slug: 'dj_experience', value: data.dj_experience || '' },
+                { slug: 'motivation', value: data.motivation || '' },
+              ],
+            }),
+          });
+          if (response.ok || response.status === 201) {
+            formStatus.textContent = 'Merci ! Tu vas recevoir la brochure par email.';
+            formStatus.classList.add('success');
+            contactForm.reset();
+          } else {
+            const errorData = await response.json().catch(() => null);
+            formStatus.textContent = errorData?.message || 'Une erreur est survenue. Réessaie dans quelques instants.';
+            formStatus.classList.add('error');
+          }
+        } catch (err) {
+          formStatus.textContent = 'Erreur de connexion. Vérifie ta connexion internet et réessaie.';
+          formStatus.classList.add('error');
+        } finally {
+          contactSubmit.disabled = false;
+          contactSubmit.textContent = originalText;
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>

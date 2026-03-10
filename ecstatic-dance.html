@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ecstatic Dance : qu'est-ce que c'est ? Principes, déroulé et mouvement mondial | DJing Is A Medicine</title>
+  <meta name="description"
+    content="Découvre l'Ecstatic Dance : une pratique de danse libre sans jugement, guidée par un DJ. Principes fondamentaux, déroulé d'une session, et comment devenir DJ d'Ecstatic Dance.">
+  <meta property="og:title" content="Ecstatic Dance : qu'est-ce que c'est ? | DJing Is A Medicine">
+  <meta property="og:description"
+    content="Découvre l'Ecstatic Dance : une pratique de danse libre sans jugement, guidée par un DJ. Principes fondamentaux, déroulé d'une session, et comment devenir DJ d'Ecstatic Dance.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="preload" as="font" href="fonts/Decalotype-Bold.woff" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="ecstatic-dance.css">
+</head>
+
+<body>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Fixed parallax background -->
+  <div id="parallax-bg">
+    <div class="hero-bg"></div>
+    <div class="aurora">
+      <div class="aurora-blob aurora-blob-1"></div>
+      <div class="aurora-blob aurora-blob-2"></div>
+      <div class="aurora-blob aurora-blob-3"></div>
+      <div class="aurora-blob aurora-blob-4"></div>
+      <div class="aurora-blob aurora-blob-5"></div>
+      <div class="aurora-blob aurora-blob-6"></div>
+    </div>
+    <canvas id="sound-waves-canvas"></canvas>
+    <div class="hero-mandala">
+      <svg class="mandala-svg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="200" cy="200" r="198" stroke="rgba(232,200,114,0.1)" stroke-width="0.5" />
+        <circle cx="200" cy="200" r="185" stroke="rgba(232,200,114,0.06)" stroke-width="0.5" />
+        <circle cx="200" cy="200" r="168" stroke="rgba(196,122,46,0.08)" stroke-width="0.5" />
+        <circle cx="200" cy="200" r="148" stroke="rgba(232,200,114,0.06)" stroke-width="0.5" />
+        <g class="mandala-rays" opacity="0.08" stroke="rgba(232,200,114,1)" stroke-width="0.5">
+          <line x1="200" y1="10" x2="200" y2="390" />
+          <line x1="295" y1="27" x2="105" y2="373" />
+          <line x1="365" y1="100" x2="35" y2="300" />
+          <line x1="390" y1="200" x2="10" y2="200" />
+          <line x1="365" y1="300" x2="35" y2="100" />
+          <line x1="295" y1="373" x2="105" y2="27" />
+        </g>
+        <g class="mandala-flower-1" opacity="0.12" stroke="rgba(232,200,114,1)" stroke-width="0.6">
+          <circle cx="200" cy="200" r="55" />
+          <circle cx="200" cy="145" r="55" />
+          <circle cx="247.6" cy="172.5" r="55" />
+          <circle cx="247.6" cy="227.5" r="55" />
+          <circle cx="200" cy="255" r="55" />
+          <circle cx="152.4" cy="227.5" r="55" />
+          <circle cx="152.4" cy="172.5" r="55" />
+        </g>
+        <g class="mandala-flower-2" opacity="0.07" stroke="rgba(196,122,46,1)" stroke-width="0.5">
+          <circle cx="200" cy="90" r="55" />
+          <circle cx="295.3" cy="145" r="55" />
+          <circle cx="295.3" cy="255" r="55" />
+          <circle cx="200" cy="310" r="55" />
+          <circle cx="104.7" cy="255" r="55" />
+          <circle cx="104.7" cy="145" r="55" />
+        </g>
+        <g opacity="0.1" stroke="rgba(232,200,114,1)" stroke-width="0.5">
+          <polygon points="200,128 262.4,236 137.6,236" />
+          <polygon points="200,272 137.6,164 262.4,164" />
+        </g>
+        <circle cx="200" cy="200" r="95" stroke="rgba(232,200,114,0.08)" stroke-width="0.5" />
+        <circle cx="200" cy="200" r="28" stroke="rgba(232,200,114,0.12)" stroke-width="0.6" />
+        <circle cx="200" cy="200" r="8" fill="rgba(232,200,114,0.06)" />
+        <g class="mandala-seed" opacity="0.1" stroke="rgba(232,200,114,1)" stroke-width="0.5">
+          <circle cx="200" cy="200" r="22" />
+          <circle cx="200" cy="178" r="22" />
+          <circle cx="219" cy="189" r="22" />
+          <circle cx="219" cy="211" r="22" />
+          <circle cx="200" cy="222" r="22" />
+          <circle cx="181" cy="211" r="22" />
+          <circle cx="181" cy="189" r="22" />
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ==========================================
+     NAVIGATION
+     ========================================== -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">DJing Is A Medicine</a>
+      <ul class="nav-links">
+        <li><a href="formation.html">Formation</a></li>
+        <li><a href="ecstatic-dance.html">Ecstatic Dance</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="index.html#partenaires">Partenaires</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="index.html#contact" class="nav-cta" data-magnetic>En savoir plus</a></li>
+      </ul>
+      <div class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="mobileMenu">
+    <div class="nav-mobile-bg"></div>
+    <div class="nav-mobile-content">
+      <a href="formation.html" class="nav-mobile-link" style="--i:0" onclick="closeMobile()">Formation</a>
+      <a href="ecstatic-dance.html" class="nav-mobile-link" style="--i:1" onclick="closeMobile()">Ecstatic Dance</a>
+      <a href="a-propos.html" class="nav-mobile-link" style="--i:2" onclick="closeMobile()">À propos</a>
+      <a href="index.html#partenaires" class="nav-mobile-link" style="--i:3" onclick="closeMobile()">Partenaires</a>
+      <a href="index.html#contact" class="nav-mobile-link" style="--i:4" onclick="closeMobile()">Contact</a>
+      <div class="nav-mobile-divider"></div>
+      <a href="index.html#contact" class="nav-mobile-cta" style="--i:5" onclick="closeMobile()">
+        En savoir plus
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
+      </a>
+      <div class="nav-mobile-footer">
+        <span>DJing Is A Medicine</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+     SECTION 1 — HERO (transparent — parallax)
+     ========================================== -->
+  <section class="hero ed-hero" id="ecstatic-dance">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Danse libre &middot; Mouvement conscient &middot; Voyage musical</div>
+      <h1 class="hero-title">
+        <span class="word" style="--i:0">Qu'est-ce</span>
+        <span class="word" style="--i:1">que</span>
+        <span class="word" style="--i:2">l'Ecstatic</span>
+        <span class="word" style="--i:3">Dance ?</span>
+      </h1>
+      <p class="hero-subtitle">Une pratique de mouvement libre guidée par la musique, où chacun&middot;e peut s'exprimer sans jugement ni chorégraphie imposée.</p>
+      <a href="#principes" class="hero-cta" data-magnetic>
+        Découvrir
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19" />
+          <polyline points="19 12 12 19 5 12" />
+        </svg>
+      </a>
+    </div>
+    <div class="hero-scroll">
+      <span>Explorer</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Wave separator -->
+  <div class="wave-separator">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#D5CBC0" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z">
+        <animate attributeName="d" dur="8s" repeatCount="indefinite" values="
+        M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z;
+        M0,50 C300,20 600,70 900,30 C1150,10 1350,60 1440,45 L1440,80 L0,80 Z;
+        M0,35 C400,75 750,10 1050,50 C1200,65 1350,35 1440,40 L1440,80 L0,80 Z;
+        M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z
+      " />
+      </path>
+    </svg>
+  </div>
+
+  <!-- ==========================================
+     SECTION 1bis — CONTENU PRINCIPAL (bg-night)
+     ========================================== -->
+  <section class="ed-content" id="contenu">
+    <div class="container">
+
+      <!-- Bloc intro -->
+      <div class="ed-intro reveal">
+        <p class="ed-lead">L'Ecstatic Dance est un espace de danse libre où chacun&middot;e peut s'exprimer sans jugement ni chorégraphie imposée. Aucun pas à apprendre, aucune bonne ou mauvaise façon de bouger. Tu arrives, tu écoutes, tu laisses ton corps répondre à la musique.</p>
+        <p class="section-text">C'est une pratique à la fois intime et collective. Chaque mouvement est le tien — une exploration de tes émotions et de ta présence. Mais l'espace est partagé : la piste devient une toile vivante où les récits de chacun&middot;e se tissent.</p>
+        <p class="section-text">Au cœur de chaque session, un&middot;e DJ guide le voyage musical. Pas un DJing de performance, mais de présence et d'écoute — une capacité à sentir l'espace, lire les corps, proposer la juste profondeur. Une posture de facilitation qui demande finesse et soin, pour co-créer un espace sûr où le mouvement libre peut pleinement exister.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Wave separator — bg-night into transparent -->
+  <div class="wave-separator">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#D5CBC0" d="M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z">
+        <animate attributeName="d" dur="10s" repeatCount="indefinite" values="
+        M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z;
+        M0,30 C300,70 540,10 780,50 C1020,70 1260,15 1440,35 L1440,0 L0,0 Z;
+        M0,50 C200,5 440,75 680,35 C920,5 1160,70 1440,45 L1440,0 L0,0 Z;
+        M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z
+      " />
+      </path>
+    </svg>
+  </div>
+
+  <!-- ==========================================
+     SECTION — MOUVEMENT MONDIAL (transparent — parallax)
+     ========================================== -->
+  <section class="ed-mondial" id="mondial">
+    <div class="container">
+      <div class="ed-two-col reveal">
+        <div class="ed-col-text">
+          <h2 class="ed-h2">Un mouvement mondial</h2>
+          <p class="section-text">La danse libre traverse les cultures et les époques. Communautés et traditions du monde entier la pratiquent depuis toujours, lors de rassemblements, de cérémonies et de rituels. Le terme "Ecstatic Dance" tel qu'on le connaît aujourd'hui a été formalisé au début des années 2000, et depuis, le mouvement n'a cessé de se répandre à travers le monde.</p>
+          <p class="section-text">Des sessions ont lieu aujourd'hui sur tous les continents — en salle, en pleine nature, en festival, en retraite. Chaque communauté locale s'approprie le format tout en s'appuyant sur un socle de valeurs communes.</p>
+        </div>
+        <div class="ed-col-visual">
+          <div class="ed-globe-scene">
+            <svg viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" class="ed-globe-svg">
+
+              <!-- Outer energy ring -->
+              <circle cx="160" cy="160" r="155" stroke="rgba(196,122,46,0.08)" stroke-width="0.5" class="ed-ring-outer" />
+              <circle cx="160" cy="160" r="145" stroke="rgba(214,36,110,0.06)" stroke-width="0.3" stroke-dasharray="4 8" class="ed-ring-dash" />
+
+              <!-- Globe wireframe — rotating group -->
+              <g class="ed-globe-wireframe">
+                <circle cx="160" cy="160" r="85" stroke="rgba(196,122,46,0.25)" stroke-width="0.8" />
+                <ellipse cx="160" cy="160" rx="55" ry="85" stroke="rgba(196,122,46,0.15)" stroke-width="0.6" />
+                <ellipse cx="160" cy="160" rx="25" ry="85" stroke="rgba(196,122,46,0.1)" stroke-width="0.5" />
+                <line x1="75" y1="160" x2="245" y2="160" stroke="rgba(196,122,46,0.1)" stroke-width="0.5" />
+                <ellipse cx="160" cy="125" rx="75" ry="7" stroke="rgba(196,122,46,0.08)" stroke-width="0.4" />
+                <ellipse cx="160" cy="195" rx="75" ry="7" stroke="rgba(196,122,46,0.08)" stroke-width="0.4" />
+              </g>
+
+              <!-- Community dots with pulse rings -->
+              <g class="ed-communities">
+                <!-- Europe — pulse + dot -->
+                <circle cx="145" cy="115" r="4" fill="none" stroke="rgba(214,36,110,0.4)" stroke-width="0.6">
+                  <animate attributeName="r" dur="3s" repeatCount="indefinite" values="4;18;4" />
+                  <animate attributeName="opacity" dur="3s" repeatCount="indefinite" values="0.5;0;0.5" />
+                </circle>
+                <circle cx="145" cy="115" r="3.5" fill="rgba(214,36,110,0.8)" class="ed-dot">
+                  <animate attributeName="r" dur="3s" repeatCount="indefinite" values="3;4;3" />
+                </circle>
+
+                <!-- South America -->
+                <circle cx="115" cy="185" r="4" fill="none" stroke="rgba(214,36,110,0.35)" stroke-width="0.5">
+                  <animate attributeName="r" dur="3.5s" begin="1s" repeatCount="indefinite" values="4;16;4" />
+                  <animate attributeName="opacity" dur="3.5s" begin="1s" repeatCount="indefinite" values="0.4;0;0.4" />
+                </circle>
+                <circle cx="115" cy="185" r="3" fill="rgba(214,36,110,0.7)" class="ed-dot">
+                  <animate attributeName="r" dur="3.5s" repeatCount="indefinite" values="2.5;3.5;2.5" />
+                </circle>
+
+                <!-- North America -->
+                <circle cx="105" cy="130" r="4" fill="none" stroke="rgba(214,36,110,0.3)" stroke-width="0.5">
+                  <animate attributeName="r" dur="4s" begin="0.7s" repeatCount="indefinite" values="4;14;4" />
+                  <animate attributeName="opacity" dur="4s" begin="0.7s" repeatCount="indefinite" values="0.4;0;0.4" />
+                </circle>
+                <circle cx="105" cy="130" r="3" fill="rgba(214,36,110,0.65)" class="ed-dot">
+                  <animate attributeName="r" dur="4s" repeatCount="indefinite" values="2.5;3.5;2.5" />
+                </circle>
+
+                <!-- Southeast Asia -->
+                <circle cx="200" cy="155" r="4" fill="none" stroke="rgba(214,36,110,0.4)" stroke-width="0.6">
+                  <animate attributeName="r" dur="2.8s" begin="1.3s" repeatCount="indefinite" values="4;18;4" />
+                  <animate attributeName="opacity" dur="2.8s" begin="1.3s" repeatCount="indefinite" values="0.5;0;0.5" />
+                </circle>
+                <circle cx="200" cy="155" r="3.5" fill="rgba(214,36,110,0.75)" class="ed-dot">
+                  <animate attributeName="r" dur="2.8s" repeatCount="indefinite" values="3;4;3" />
+                </circle>
+
+                <!-- Australia -->
+                <circle cx="210" cy="195" r="4" fill="none" stroke="rgba(214,36,110,0.3)" stroke-width="0.4">
+                  <animate attributeName="r" dur="3.2s" begin="2s" repeatCount="indefinite" values="4;12;4" />
+                  <animate attributeName="opacity" dur="3.2s" begin="2s" repeatCount="indefinite" values="0.35;0;0.35" />
+                </circle>
+                <circle cx="210" cy="195" r="2.5" fill="rgba(214,36,110,0.6)" class="ed-dot">
+                  <animate attributeName="r" dur="3.2s" repeatCount="indefinite" values="2;3;2" />
+                </circle>
+
+                <!-- Africa -->
+                <circle cx="163" cy="170" r="4" fill="none" stroke="rgba(214,36,110,0.3)" stroke-width="0.4">
+                  <animate attributeName="r" dur="3.8s" begin="0.4s" repeatCount="indefinite" values="4;12;4" />
+                  <animate attributeName="opacity" dur="3.8s" begin="0.4s" repeatCount="indefinite" values="0.35;0;0.35" />
+                </circle>
+                <circle cx="163" cy="170" r="2.5" fill="rgba(214,36,110,0.6)" class="ed-dot">
+                  <animate attributeName="r" dur="3.8s" repeatCount="indefinite" values="2;3;2" />
+                </circle>
+
+                <!-- Connection arcs between communities -->
+                <path d="M145,115 Q130,150 115,185" stroke="rgba(214,36,110,0.12)" stroke-width="0.5" fill="none" class="ed-connection" style="--conn-delay:0s" />
+                <path d="M145,115 Q175,130 200,155" stroke="rgba(214,36,110,0.12)" stroke-width="0.5" fill="none" class="ed-connection" style="--conn-delay:0.8s" />
+                <path d="M200,155 Q205,175 210,195" stroke="rgba(214,36,110,0.12)" stroke-width="0.5" fill="none" class="ed-connection" style="--conn-delay:1.6s" />
+                <path d="M105,130 Q125,120 145,115" stroke="rgba(214,36,110,0.12)" stroke-width="0.5" fill="none" class="ed-connection" style="--conn-delay:2.4s" />
+              </g>
+
+              <!-- Dancing figures — abstract flowing silhouettes around the globe -->
+              <!-- Dancer 1 — top right, arms raised, flowing -->
+              <g class="ed-dancer ed-dancer-1" transform="translate(245, 85)">
+                <path d="M0,28 Q2,20 0,12 Q-1,8 0,4 Q1,0 0,-2" stroke="rgba(232,200,114,0.5)" stroke-width="1.2" fill="none" stroke-linecap="round">
+                  <animate attributeName="d" dur="4s" repeatCount="indefinite" values="
+                    M0,28 Q2,20 0,12 Q-1,8 0,4 Q1,0 0,-2;
+                    M0,28 Q-2,20 1,12 Q2,8 -1,4 Q-2,0 1,-2;
+                    M0,28 Q3,20 -1,12 Q-2,8 1,4 Q2,0 -1,-2;
+                    M0,28 Q2,20 0,12 Q-1,8 0,4 Q1,0 0,-2
+                  " />
+                </path>
+                <!-- Arms -->
+                <path d="M0,12 Q-8,4 -14,-2" stroke="rgba(232,200,114,0.4)" stroke-width="1" fill="none" stroke-linecap="round">
+                  <animate attributeName="d" dur="4s" repeatCount="indefinite" values="
+                    M0,12 Q-8,4 -14,-2;
+                    M0,12 Q-10,6 -16,2;
+                    M0,12 Q-6,2 -12,-4;
+                    M0,12 Q-8,4 -14,-2
+                  " />
+                </path>
+                <path d="M0,12 Q8,4 14,-2" stroke="rgba(232,200,114,0.4)" stroke-width="1" fill="none" stroke-linecap="round">
+                  <animate attributeName="d" dur="4s" repeatCount="indefinite" values="
+                    M0,12 Q8,4 14,-2;
+                    M0,12 Q6,2 12,-4;
+                    M0,12 Q10,6 16,2;
+                    M0,12 Q8,4 14,-2
+                  " />
+                </path>
+                <!-- Head -->
+                <circle cx="0" cy="-5" r="3" fill="rgba(232,200,114,0.25)" stroke="rgba(232,200,114,0.4)" stroke-width="0.6">
+                  <animate attributeName="cy" dur="4s" repeatCount="indefinite" values="-5;-6;-4;-5" />
+                </circle>
+                <!-- Legs -->
+                <path d="M0,28 Q-3,34 -5,42" stroke="rgba(232,200,114,0.4)" stroke-width="0.9" fill="none" stroke-linecap="round">
+                  <animate attributeName="d" dur="4s" repeatCount="indefinite" values="
+                    M0,28 Q-3,34 -5,42;
+                    M0,28 Q-1,35 2,43;
+                    M0,28 Q-5,33 -8,40;
+                    M0,28 Q-3,34 -5,42
+                  " />
+                </path>
+                <path d="M0,28 Q3,34 5,42" stroke="rgba(232,200,114,0.4)" stroke-width="0.9" fill="none" stroke-linecap="round">
+                  <animate attributeName="d" dur="4s" repeatCount="indefinite" values="
+                    M0,28 Q3,34 5,42;
+                    M0,28 Q5,33 8,40;
+                    M0,28 Q1,35 -2,43;
+                    M0,28 Q3,34 5,42
+                  " />
+                </path>
+              </g>
+
+              <!-- Dancer 2 — bottom left, spinning feel -->
+              <g class="ed-dancer ed-dancer-2" transform="translate(65, 220)">
+                <path d="M0,26 Q-3,18 1,10 Q2,6 0,2" stroke="rgba(214,36,110,0.45)" stroke-width="1.2" fill="none" stroke-linecap="round">
+                  <animate attributeName="d" dur="5s" repeatCount="indefinite" values="
+                    M0,26 Q-3,18 1,10 Q2,6 0,2;
+                    M0,26 Q4,18 -2,10 Q-3,6 1,2;
+                    M0,26 Q-2,18 2,10 Q3,6 -1,2;
+                    M0,26 Q-3,18 1,10 Q2,6 0,2
+                  " />
+                </path>
+                <path d="M0,10 Q-10,8 -16,14" stroke="rgba(214,36,110,0.35)" stroke-width="0.9" fill="none" stroke-linecap="round">
+                  <animate attributeName="d" dur="5s" repeatCount="indefinite" values="
+                    M0,10 Q-10,8 -16,14;
+                    M0,10 Q-12,4 -18,8;
+                    M0,10 Q-8,12 -14,18;
+                    M0,10 Q-10,8 -16,14
+                  " />
+                </path>
+                <path d="M0,10 Q10,6 16,0" stroke="rgba(214,36,110,0.35)" stroke-width="0.9" fill="none" stroke-linecap="round">
+                  <animate attributeName="d" dur="5s" repeatCount="indefinite" values="
+                    M0,10 Q10,6 16,0;
+                    M0,10 Q12,10 18,6;
+                    M0,10 Q8,2 14,-4;
+                    M0,10 Q10,6 16,0
+                  " />
+                </path>
+                <circle cx="0" cy="-1" r="2.8" fill="rgba(214,36,110,0.2)" stroke="rgba(214,36,110,0.35)" stroke-width="0.6">
+                  <animate attributeName="cx" dur="5s" repeatCount="indefinite" values="0;1;-1;0" />
+                </circle>
+                <!-- Legs -->
+                <path d="M0,26 Q-4,32 -6,40" stroke="rgba(214,36,110,0.35)" stroke-width="0.9" fill="none" stroke-linecap="round">
+                  <animate attributeName="d" dur="5s" repeatCount="indefinite" values="
+                    M0,26 Q-4,32 -6,40;
+                    M0,26 Q-1,33 3,41;
+                    M0,26 Q-6,31 -9,38;
+                    M0,26 Q-4,32 -6,40
+                  " />
+                </path>
+                <path d="M0,26 Q4,32 6,40" stroke="rgba(214,36,110,0.35)" stroke-width="0.9" fill="none" stroke-linecap="round">
+                  <animate attributeName="d" dur="5s" repeatCount="indefinite" values="
+                    M0,26 Q4,32 6,40;
+                    M0,26 Q6,31 9,38;
+                    M0,26 Q1,33 -3,41;
+                    M0,26 Q4,32 6,40
+                  " />
+                </path>
+              </g>
+
+              <!-- Dancer 3 — right side, grounded flow -->
+              <g class="ed-dancer ed-dancer-3" transform="translate(265, 195)">
+                <path d="M0,24 Q1,16 -1,8 Q0,4 0,0" stroke="rgba(196,122,46,0.45)" stroke-width="1.1" fill="none" stroke-linecap="round">
+                  <animate attributeName="d" dur="6s" repeatCount="indefinite" values="
+                    M0,24 Q1,16 -1,8 Q0,4 0,0;
+                    M0,24 Q-2,16 2,8 Q1,4 -1,0;
+                    M0,24 Q3,16 -2,8 Q-1,4 1,0;
+                    M0,24 Q1,16 -1,8 Q0,4 0,0
+                  " />
+                </path>
+                <path d="M-1,8 Q-10,2 -12,-6" stroke="rgba(196,122,46,0.35)" stroke-width="0.8" fill="none" stroke-linecap="round">
+                  <animate attributeName="d" dur="6s" repeatCount="indefinite" values="
+                    M-1,8 Q-10,2 -12,-6;
+                    M-1,8 Q-8,6 -14,-2;
+                    M-1,8 Q-12,-2 -10,-8;
+                    M-1,8 Q-10,2 -12,-6
+                  " />
+                </path>
+                <path d="M-1,8 Q8,4 12,-4" stroke="rgba(196,122,46,0.35)" stroke-width="0.8" fill="none" stroke-linecap="round">
+                  <animate attributeName="d" dur="6s" repeatCount="indefinite" values="
+                    M-1,8 Q8,4 12,-4;
+                    M-1,8 Q10,0 14,2;
+                    M-1,8 Q6,8 10,-6;
+                    M-1,8 Q8,4 12,-4
+                  " />
+                </path>
+                <circle cx="0" cy="-3" r="2.5" fill="rgba(196,122,46,0.2)" stroke="rgba(196,122,46,0.4)" stroke-width="0.5">
+                  <animate attributeName="cy" dur="6s" repeatCount="indefinite" values="-3;-4;-2;-3" />
+                </circle>
+                <!-- Legs -->
+                <path d="M0,24 Q-3,30 -4,38" stroke="rgba(196,122,46,0.35)" stroke-width="0.8" fill="none" stroke-linecap="round">
+                  <animate attributeName="d" dur="6s" repeatCount="indefinite" values="
+                    M0,24 Q-3,30 -4,38;
+                    M0,24 Q0,31 3,39;
+                    M0,24 Q-5,29 -7,36;
+                    M0,24 Q-3,30 -4,38
+                  " />
+                </path>
+                <path d="M0,24 Q3,30 4,38" stroke="rgba(196,122,46,0.35)" stroke-width="0.8" fill="none" stroke-linecap="round">
+                  <animate attributeName="d" dur="6s" repeatCount="indefinite" values="
+                    M0,24 Q3,30 4,38;
+                    M0,24 Q5,29 7,36;
+                    M0,24 Q0,31 -3,39;
+                    M0,24 Q3,30 4,38
+                  " />
+                </path>
+              </g>
+
+              <!-- Dancer 4 — top left, reaching upward -->
+              <g class="ed-dancer ed-dancer-4" transform="translate(60, 100)">
+                <path d="M0,22 Q-1,14 1,6 Q0,2 0,-2" stroke="rgba(139,58,122,0.4)" stroke-width="1" fill="none" stroke-linecap="round">
+                  <animate attributeName="d" dur="4.5s" repeatCount="indefinite" values="
+                    M0,22 Q-1,14 1,6 Q0,2 0,-2;
+                    M0,22 Q2,14 -1,6 Q-1,2 1,-2;
+                    M0,22 Q-2,14 2,6 Q1,2 -1,-2;
+                    M0,22 Q-1,14 1,6 Q0,2 0,-2
+                  " />
+                </path>
+                <path d="M0,6 Q-6,-2 -4,-12" stroke="rgba(139,58,122,0.3)" stroke-width="0.8" fill="none" stroke-linecap="round">
+                  <animate attributeName="d" dur="4.5s" repeatCount="indefinite" values="
+                    M0,6 Q-6,-2 -4,-12;
+                    M0,6 Q-8,0 -6,-10;
+                    M0,6 Q-4,-4 -2,-14;
+                    M0,6 Q-6,-2 -4,-12
+                  " />
+                </path>
+                <path d="M0,6 Q6,-2 4,-12" stroke="rgba(139,58,122,0.3)" stroke-width="0.8" fill="none" stroke-linecap="round">
+                  <animate attributeName="d" dur="4.5s" repeatCount="indefinite" values="
+                    M0,6 Q6,-2 4,-12;
+                    M0,6 Q4,-4 2,-14;
+                    M0,6 Q8,0 6,-10;
+                    M0,6 Q6,-2 4,-12
+                  " />
+                </path>
+                <circle cx="0" cy="-5" r="2.5" fill="rgba(139,58,122,0.2)" stroke="rgba(139,58,122,0.35)" stroke-width="0.5">
+                  <animate attributeName="cy" dur="4.5s" repeatCount="indefinite" values="-5;-7;-5;-5" />
+                </circle>
+                <!-- Legs -->
+                <path d="M0,22 Q-2,28 -4,36" stroke="rgba(139,58,122,0.3)" stroke-width="0.8" fill="none" stroke-linecap="round">
+                  <animate attributeName="d" dur="4.5s" repeatCount="indefinite" values="
+                    M0,22 Q-2,28 -4,36;
+                    M0,22 Q1,29 3,37;
+                    M0,22 Q-4,27 -6,34;
+                    M0,22 Q-2,28 -4,36
+                  " />
+                </path>
+                <path d="M0,22 Q2,28 4,36" stroke="rgba(139,58,122,0.3)" stroke-width="0.8" fill="none" stroke-linecap="round">
+                  <animate attributeName="d" dur="4.5s" repeatCount="indefinite" values="
+                    M0,22 Q2,28 4,36;
+                    M0,22 Q4,27 6,34;
+                    M0,22 Q-1,29 -3,37;
+                    M0,22 Q2,28 4,36
+                  " />
+                </path>
+              </g>
+
+              <!-- Dancer 5 — bottom center, low and grounded -->
+              <g class="ed-dancer ed-dancer-5" transform="translate(160, 275)">
+                <path d="M0,16 Q2,10 -1,4 Q0,1 0,-2" stroke="rgba(30,160,200,0.4)" stroke-width="1" fill="none" stroke-linecap="round">
+                  <animate attributeName="d" dur="5.5s" repeatCount="indefinite" values="
+                    M0,16 Q2,10 -1,4 Q0,1 0,-2;
+                    M0,16 Q-3,10 2,4 Q1,1 -1,-2;
+                    M0,16 Q3,10 -2,4 Q-1,1 1,-2;
+                    M0,16 Q2,10 -1,4 Q0,1 0,-2
+                  " />
+                </path>
+                <path d="M0,4 Q-12,0 -16,-4" stroke="rgba(30,160,200,0.3)" stroke-width="0.8" fill="none" stroke-linecap="round">
+                  <animate attributeName="d" dur="5.5s" repeatCount="indefinite" values="
+                    M0,4 Q-12,0 -16,-4;
+                    M0,4 Q-10,4 -14,0;
+                    M0,4 Q-14,-2 -18,-6;
+                    M0,4 Q-12,0 -16,-4
+                  " />
+                </path>
+                <path d="M0,4 Q12,0 16,-4" stroke="rgba(30,160,200,0.3)" stroke-width="0.8" fill="none" stroke-linecap="round">
+                  <animate attributeName="d" dur="5.5s" repeatCount="indefinite" values="
+                    M0,4 Q12,0 16,-4;
+                    M0,4 Q14,-2 18,-6;
+                    M0,4 Q10,4 14,0;
+                    M0,4 Q12,0 16,-4
+                  " />
+                </path>
+                <circle cx="0" cy="-5" r="2.5" fill="rgba(30,160,200,0.2)" stroke="rgba(30,160,200,0.35)" stroke-width="0.5" />
+                <!-- Legs -->
+                <path d="M0,16 Q-3,22 -5,30" stroke="rgba(30,160,200,0.3)" stroke-width="0.8" fill="none" stroke-linecap="round">
+                  <animate attributeName="d" dur="5.5s" repeatCount="indefinite" values="
+                    M0,16 Q-3,22 -5,30;
+                    M0,16 Q0,23 2,31;
+                    M0,16 Q-5,21 -7,28;
+                    M0,16 Q-3,22 -5,30
+                  " />
+                </path>
+                <path d="M0,16 Q3,22 5,30" stroke="rgba(30,160,200,0.3)" stroke-width="0.8" fill="none" stroke-linecap="round">
+                  <animate attributeName="d" dur="5.5s" repeatCount="indefinite" values="
+                    M0,16 Q3,22 5,30;
+                    M0,16 Q5,21 7,28;
+                    M0,16 Q0,23 -2,31;
+                    M0,16 Q3,22 5,30
+                  " />
+                </path>
+              </g>
+
+              <!-- Orbiting energy particle -->
+              <circle r="2" fill="rgba(232,200,114,0.6)" class="ed-orbit-particle">
+                <animateMotion dur="12s" repeatCount="indefinite" path="M160,75 A85,85 0 1,1 159.9,75" />
+                <animate attributeName="opacity" dur="12s" repeatCount="indefinite" values="0.2;0.8;0.2;0.6;0.2" />
+                <animate attributeName="r" dur="12s" repeatCount="indefinite" values="1.5;2.5;1.5;2;1.5" />
+              </circle>
+              <circle r="1.5" fill="rgba(214,36,110,0.5)" class="ed-orbit-particle-2">
+                <animateMotion dur="18s" repeatCount="indefinite" path="M160,55 A105,105 0 1,0 160.1,55" />
+                <animate attributeName="opacity" dur="18s" repeatCount="indefinite" values="0.15;0.6;0.15;0.4;0.15" />
+              </circle>
+
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave separator — transparent into bg-night -->
+  <div class="wave-separator">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#D5CBC0" d="M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z">
+        <animate attributeName="d" dur="9s" repeatCount="indefinite" values="
+        M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z;
+        M0,40 C220,15 400,70 600,35 C780,10 950,65 1120,45 C1280,30 1380,55 1440,40 L1440,80 L0,80 Z;
+        M0,55 C150,75 330,25 500,55 C680,75 860,15 1040,45 C1220,62 1360,38 1440,50 L1440,80 L0,80 Z;
+        M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z
+      " />
+      </path>
+    </svg>
+  </div>
+
+  <!-- ==========================================
+     SECTION — EXPRESSIONS (bg-night / opaque)
+     ========================================== -->
+  <section class="ed-content ed-expressions-section" id="expressions">
+    <div class="container">
+
+      <!-- Bloc deux expressions -->
+      <div class="ed-expressions reveal">
+        <h2 class="ed-h2">Trois expressions d'un même élan</h2>
+        <p class="section-text" style="max-width:750px;margin:0 auto 3rem;text-align:center;">L'Ecstatic Dance se décline aujourd'hui sous des formes variées. Trois grandes orientations méritent d'être distinguées.</p>
+
+        <div class="ed-expr-grid">
+          <div class="ed-expr-card ed-expr-celebration">
+            <div class="ed-expr-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+              </svg>
+            </div>
+            <h3 class="ed-expr-title">Clubbing conscient</h3>
+            <p class="ed-expr-text">Une proposition festive et accessible, dans un cadre plus flexible. La musique y est moins variée, portée davantage vers la célébration que vers le voyage intérieur, et peut s'affranchir d'une structure de vague. Un espace de joie et de célébration collective.</p>
+          </div>
+          <div class="ed-expr-card ed-expr-profondeur">
+            <div class="ed-expr-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10"/>
+                <path d="M12 2c3 3.5 5 7.5 5 10s-2 6.5-5 10"/>
+                <path d="M2 12h20"/>
+              </svg>
+            </div>
+            <h3 class="ed-expr-title">Espace de profondeur</h3>
+            <p class="ed-expr-text">Soutenu par une ou plusieurs vagues musicales, il permet d'accueillir toutes les émotions et tous les processus intérieurs. Le cadre est exigeant pour celles et ceux qui le portent, et plus sécurisant pour les participant&middot;es. La musique, très variée, invite à traverser un large spectre d'états pour permettre un véritable voyage de soi.</p>
+          </div>
+          <div class="ed-expr-card ed-expr-silent">
+            <div class="ed-expr-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+                <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+              </svg>
+            </div>
+            <h3 class="ed-expr-title">Silent Ecstatic Dance</h3>
+            <p class="ed-expr-text">Les participant&middot;es portent des casques audio sans fil. Le son est transmis directement dans les oreilles — idéal pour danser en pleine nature : plage, forêt, montagne. De l'extérieur, des corps dansent en silence. De l'intérieur, un voyage musical intime et immersif.</p>
+          </div>
+        </div>
+
+        <div class="ed-expr-note reveal">
+          <p class="section-text">Ces deux formes sont justes, chacune à sa façon. Ce qui compte, c'est de nommer cette intention clairement — un soin envers celles et ceux qui viennent.</p>
+        </div>
+
+        <div class="ed-hybrides reveal">
+          <p class="section-text">Au-delà de ces deux orientations, l'Ecstatic Dance a essaimé en une multitude de formes hybrides — Fiestatic, Forestatic, Funkystatic, Solstatic, Beachstatic, Nakedstatic... Chaque variation puise dans l'essence du mouvement libre pour l'habiller d'un contexte, d'une ambiance, d'un terrain particulier. La créativité des communautés ne cesse d'en inventer de nouvelles.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Wave separator -->
+  <div class="wave-separator">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#D5CBC0" d="M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z">
+        <animate attributeName="d" dur="10s" repeatCount="indefinite" values="
+        M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z;
+        M0,30 C300,70 540,10 780,50 C1020,70 1260,15 1440,35 L1440,0 L0,0 Z;
+        M0,50 C200,5 440,75 680,35 C920,5 1160,70 1440,45 L1440,0 L0,0 Z;
+        M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z
+      " />
+      </path>
+    </svg>
+  </div>
+
+  <!-- ==========================================
+     SECTION 2 — PRINCIPES (transparent — parallax)
+     ========================================== -->
+  <section class="ed-principes" id="principes">
+    <div class="container">
+      <div class="ed-principes-header reveal">
+        <div class="section-label">Les fondamentaux</div>
+        <h2 class="section-title">Les 8 principes fondamentaux</h2>
+        <p class="section-text" style="max-width:650px;margin:0 auto;">Chaque session d'Ecstatic Dance repose sur un cadre simple. Ces principes créent l'espace de sécurité et de liberté qui rend l'expérience possible.</p>
+      </div>
+
+      <div class="ed-principes-grid">
+        <div class="ed-principe-card" data-principe="1">
+          <div class="ed-principe-num">01</div>
+          <div class="ed-principe-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <h3 class="ed-principe-title">Être soi</h3>
+          <p class="ed-principe-text">Tu es libre. Danse, chante, reste immobile, allonge-toi. Il n'y a pas de bonne ou de mauvaise façon d'être — seulement la tienne.</p>
+        </div>
+
+        <div class="ed-principe-card" data-principe="2">
+          <div class="ed-principe-num">02</div>
+          <div class="ed-principe-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="5" r="2"/>
+              <path d="M12 7v5"/>
+              <path d="M9 20l3-8 3 8"/>
+              <path d="M7 12l5 2 5-2"/>
+            </svg>
+          </div>
+          <h3 class="ed-principe-title">Être dans le corps</h3>
+          <p class="ed-principe-text">Les mots se mettent en retrait, le corps prend le relais. Ce silence est ce qui protège et approfondit le voyage de chacun&middot;e.</p>
+        </div>
+
+        <div class="ed-principe-card" data-principe="3">
+          <div class="ed-principe-num">03</div>
+          <div class="ed-principe-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/>
+              <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/>
+              <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/>
+              <line x1="2" y1="2" x2="22" y2="22"/>
+            </svg>
+          </div>
+          <h3 class="ed-principe-title">Pas de substances</h3>
+          <p class="ed-principe-text">Venir pleinement conscient&middot;e, avec ce que tu es — ici et maintenant. Ni alcool, ni drogues. L'expérience n'en a pas besoin.</p>
+        </div>
+
+        <div class="ed-principe-card" data-principe="4">
+          <div class="ed-principe-num">04</div>
+          <div class="ed-principe-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3 class="ed-principe-title">Consentement</h3>
+          <p class="ed-principe-text">Si ce n'est pas un oui clair, c'est un non. Avant tout contact, on demande. L'espace de l'autre est sacré autant que le sien.</p>
+        </div>
+
+        <div class="ed-principe-card" data-principe="5">
+          <div class="ed-principe-num">05</div>
+          <div class="ed-principe-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+              <line x1="9" y1="9" x2="9.01" y2="9"/>
+              <line x1="15" y1="9" x2="15.01" y2="9"/>
+            </svg>
+          </div>
+          <h3 class="ed-principe-title">Sans jugement</h3>
+          <p class="ed-principe-text">Plus on danse, moins on est dans la tête. Moins on est dans la tête, plus on se laisse tranquille — soi et les autres.</p>
+        </div>
+
+        <div class="ed-principe-card" data-principe="6">
+          <div class="ed-principe-num">06</div>
+          <div class="ed-principe-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+              <line x1="12" y1="18" x2="12.01" y2="18"/>
+              <line x1="2" y1="2" x2="22" y2="22" stroke="rgba(214,36,110,0.8)" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3 class="ed-principe-title">Téléphone éteint</h3>
+          <p class="ed-principe-text">Pas de photos, pas de vidéos dans l'espace de danse. Ce qui se vit ici reste ici.</p>
+        </div>
+
+        <div class="ed-principe-card" data-principe="7">
+          <div class="ed-principe-num">07</div>
+          <div class="ed-principe-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 20c0-2 2-4 6-4s6 2 6 4"/>
+              <path d="M10 16c-3 0-5-1-5-3s2-4 5-4 5 1 5 4-2 3-5 3z"/>
+              <line x1="10" y1="16" x2="10" y2="22"/>
+            </svg>
+          </div>
+          <h3 class="ed-principe-title">Pieds nus</h3>
+          <p class="ed-principe-text">Pour sentir le sol, activer la proprioception et laisser le corps se connecter pleinement à ce qui le porte.</p>
+        </div>
+
+        <div class="ed-principe-card" data-principe="8">
+          <div class="ed-principe-num">08</div>
+          <div class="ed-principe-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3 class="ed-principe-title">Communauté</h3>
+          <p class="ed-principe-text">L'espace est sacré. La présence, l'intention et l'écoute de chacun&middot;e en sont les gardien&middot;nes. Ensemble, on communie.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave separator -->
+  <div class="wave-separator">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#D5CBC0" d="M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z">
+        <animate attributeName="d" dur="9s" repeatCount="indefinite" values="
+        M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z;
+        M0,40 C220,15 400,70 600,35 C780,10 950,65 1120,45 C1280,30 1380,55 1440,40 L1440,80 L0,80 Z;
+        M0,55 C150,75 330,25 500,55 C680,75 860,15 1040,45 C1220,62 1360,38 1440,50 L1440,80 L0,80 Z;
+        M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z
+      " />
+      </path>
+    </svg>
+  </div>
+
+  <!-- ==========================================
+     SECTION 3 — DÉROULÉ (bg-night)
+     ========================================== -->
+  <section class="ed-deroulement" id="deroulement">
+    <div class="container">
+      <div class="ed-deroulement-header reveal">
+        <div class="section-label">Le voyage</div>
+        <h2 class="section-title">Déroulé d'une session type</h2>
+        <p class="section-text" style="max-width:650px;margin:0 auto;">Chaque session est unique, mais la plupart suivent une structure similaire. Ce cadre permet au voyage de se déployer progressivement — de l'arrivée calme jusqu'à l'intensité de la danse, puis le retour au silence.</p>
+      </div>
+
+      <div class="ed-timeline">
+        <div class="ed-timeline-line"></div>
+
+        <div class="ed-timeline-item reveal" data-step="1">
+          <div class="ed-timeline-dot">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            </svg>
+          </div>
+          <div class="ed-timeline-content">
+            <div class="ed-timeline-heading">
+              <div class="ed-timeline-num">1</div>
+              <h3 class="ed-timeline-title">Arrivée</h3>
+            </div>
+            <p class="ed-timeline-text">L'arrivée est un sas de transition entre le monde extérieur et l'espace de danse. On dépose ses affaires, on retire ses chaussures, on prend le temps de se poser.</p>
+          </div>
+        </div>
+
+        <div class="ed-timeline-item reveal" data-step="2">
+          <div class="ed-timeline-dot">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </div>
+          <div class="ed-timeline-content">
+            <div class="ed-timeline-heading">
+              <div class="ed-timeline-num">2</div>
+              <h3 class="ed-timeline-title">Cercle d'ouverture</h3>
+            </div>
+            <p class="ed-timeline-text">Le&middot;la facilitateur&middot;ice réunit le groupe. On rappelle les principes, on pose l'intention collective. C'est le moment où l'espace commun se co-crée.</p>
+          </div>
+        </div>
+
+        <div class="ed-timeline-item reveal" data-step="3">
+          <div class="ed-timeline-dot">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+            </svg>
+          </div>
+          <div class="ed-timeline-content">
+            <div class="ed-timeline-heading">
+              <div class="ed-timeline-num">3</div>
+              <h3 class="ed-timeline-title">Échauffement corporel</h3>
+            </div>
+            <p class="ed-timeline-text">Exercices doux pour se reconnecter au corps : étirements, respiration, mouvement lent. Le mental commence à se mettre en retrait.</p>
+          </div>
+        </div>
+
+        <div class="ed-timeline-item ed-timeline-peak reveal" data-step="4">
+          <div class="ed-timeline-dot">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18V5l12-2v13"/>
+              <circle cx="6" cy="18" r="3"/>
+              <circle cx="18" cy="16" r="3"/>
+            </svg>
+          </div>
+          <div class="ed-timeline-content">
+            <div class="ed-timeline-heading">
+              <div class="ed-timeline-num">4</div>
+              <h3 class="ed-timeline-title">DJ Set <span class="ed-timeline-duration">~2h</span></h3>
+            </div>
+            <p class="ed-timeline-text">Le voyage musical commence. Le&middot;la DJ guide l'énergie, en général : montée progressive, pic d'intensité, redescente douce. Une vague sonore qui invite au mouvement libre.</p>
+          </div>
+        </div>
+
+        <div class="ed-timeline-item reveal" data-step="5">
+          <div class="ed-timeline-dot">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 16v-3m3 4V10m3 7V8m3 9V5m3 12V9m3 8v-5m3 5v-7"/>
+            </svg>
+          </div>
+          <div class="ed-timeline-content">
+            <div class="ed-timeline-heading">
+              <div class="ed-timeline-num">5</div>
+              <h3 class="ed-timeline-title">Sound Healing</h3>
+            </div>
+            <p class="ed-timeline-text">Après la danse, des sons organiques (bols chantants, gongs, instruments acoustiques) pour accompagner l'intégration. Le corps se repose, le voyage continue en douceur.</p>
+          </div>
+        </div>
+
+        <div class="ed-timeline-item reveal" data-step="6">
+          <div class="ed-timeline-dot">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <div class="ed-timeline-content">
+            <div class="ed-timeline-heading">
+              <div class="ed-timeline-num">6</div>
+              <h3 class="ed-timeline-title">Cercle de clôture</h3>
+            </div>
+            <p class="ed-timeline-text">Le groupe se retrouve pour clore l'espace ensemble. Parfois en silence, parfois avec des mots. On accueille ce qui s'est vécu.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="ed-formats-note reveal">Les formats varient selon les communautés et les facilitateur&middot;ices : en salle, en pleine nature, en festival, en retraite. Certaines sessions durent 3 heures, d'autres une journée entière. Le cadre s'adapte, l'essentiel demeure.</p>
+    </div>
+  </section>
+
+  <!-- ==========================================
+     SECTION 5 — ÉCOUTER LES VOYAGES (bg-night)
+     ========================================== -->
+  <section class="ed-ecoute" id="ecoute">
+    <div class="container">
+      <div class="ed-ecoute-content reveal">
+        <div class="section-label">Écoute</div>
+        <h2 class="section-title">Écoute un voyage musical</h2>
+        <p class="section-text" style="max-width:700px;margin:0 auto 3rem;">Depuis plusieurs années, Ëotim crée des voyages musicaux uniques pour des sessions d'Ecstatic Dance, en tant qu'organisateur, facilitateur et DJ invité dans de nombreuses communautés.</p>
+      </div>
+
+      <div class="ed-soundcloud reveal reveal-delay-1">
+        <iframe
+          width="100%"
+          height="450"
+          scrolling="no"
+          frameborder="no"
+          allow="autoplay"
+          src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/eotimdj&color=%23C47A2E&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+          loading="lazy"
+        ></iframe>
+      </div>
+
+      <div class="ed-ecoute-link reveal reveal-delay-2">
+        <a href="https://soundcloud.com/eotimdj" target="_blank" rel="noopener" class="btn-outline">
+          Écouter tous les voyages sur SoundCloud
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave separator -->
+  <div class="wave-separator">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#D5CBC0" d="M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z">
+        <animate attributeName="d" dur="10s" repeatCount="indefinite" values="
+        M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z;
+        M0,30 C300,70 540,10 780,50 C1020,70 1260,15 1440,35 L1440,0 L0,0 Z;
+        M0,50 C200,5 440,75 680,35 C920,5 1160,70 1440,45 L1440,0 L0,0 Z;
+        M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z
+      " />
+      </path>
+    </svg>
+  </div>
+
+  <!-- ==========================================
+     SECTION 6 — CTA FORMATION (transparent — parallax)
+     ========================================== -->
+  <section class="ed-cta" id="formation-cta">
+    <div class="container">
+      <div class="ed-cta-content reveal">
+        <h2 class="ed-cta-title">Et si tu guidais le voyage ?</h2>
+        <p class="ed-cta-text">Tu viens de découvrir ce qu'est l'Ecstatic Dance. Derrière chaque session, il y a un DJ qui crée le voyage musical, qui lit l'énergie du groupe et qui tient l'espace. Si tu ressens l'appel d'apprendre ce rôle — technique, posture et présence — la formation <a href="index.html">DJing Is A Medicine</a> et les weekends D.A.N.S.E.S 48 sont faits pour ça.</p>
+        <div class="ed-cta-buttons">
+          <a href="formation.html" class="btn-primary" data-magnetic>
+            Découvrir la formation DJ Ecstatic Dance
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+          <a href="index.html#contact" class="btn-secondary" data-magnetic>
+            Recevoir la brochure et les replays gratuits
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave separator -->
+  <div class="wave-separator">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="var(--bg-deep)" d="M0,30 C360,70 720,10 1080,50 C1260,65 1380,40 1440,30 L1440,80 L0,80 Z">
+        <animate attributeName="d" dur="9s" repeatCount="indefinite" values="
+        M0,30 C360,70 720,10 1080,50 C1260,65 1380,40 1440,30 L1440,80 L0,80 Z;
+        M0,45 C300,15 660,65 1020,30 C1200,15 1350,55 1440,40 L1440,80 L0,80 Z;
+        M0,35 C380,75 740,5 1100,55 C1280,70 1400,30 1440,35 L1440,80 L0,80 Z;
+        M0,30 C360,70 720,10 1080,50 C1260,65 1380,40 1440,30 L1440,80 L0,80 Z
+      " />
+      </path>
+    </svg>
+  </div>
+
+  <!-- ==========================================
+     FOOTER
+     ========================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">DJing Is A Medicine</div>
+          <p>Le DJing comme voie sensible pour créer des espaces sécurisés et des voyages musicaux.</p>
+          <div class="footer-social" style="margin-top:1rem;">
+            <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="5" />
+                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+              </svg></a>
+            <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.5">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+              </svg></a>
+            <a href="https://www.youtube.com/@_BenjaminBossu" target="_blank" rel="noopener" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.5">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.4 19.6C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 001.94-2A29 29 0 0023 12a29 29 0 00-.46-5.58z" />
+                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+              </svg></a>
+            <a href="https://soundcloud.com/eotimdj" target="_blank" rel="noopener" aria-label="SoundCloud"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.5">
+                <path d="M2 16v-3m3 4V10m3 7V8m3 9V5m3 12V9m3 8v-5m3 5v-7" />
+              </svg></a>
+            <a href="https://ecstaticdance.org/dj/eiutim/" target="_blank" rel="noopener" aria-label="Ecstatic Dance"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M2 12h20" />
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+              </svg></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="formation.html">Formation</a></li>
+            <li><a href="ecstatic-dance.html">Ecstatic Dance</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Espace élèves</h4>
+          <ul>
+            <li><a href="#">Connexion espace élèves</a></li>
+            <li><a href="https://benjaminbossu.com">Découvre mon autre univers &rarr;</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 DJing Is A Medicine — Tous droits réservés</span>
+        <div class="footer-legal">
+          <a href="#">Mentions légales</a>
+          <a href="#">Politique de confidentialité</a>
+        </div>
+        <div class="footer-credit">Créé avec amour par Julien — <a href="https://flowebia.fr" target="_blank"
+            rel="noopener">flowebia.fr</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+     SCRIPTS — Mandala canvas + UI
+     ========================================== -->
+  <script>
+    // ==========================================
+    // FULL-SCREEN MANDALA — Canvas sacred geometry
+    // ==========================================
+    (function () {
+      const canvas = document.getElementById('sound-waves-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const isMobile = window.matchMedia('(max-width: 768px), (pointer: coarse)').matches;
+      const GLOW = isMobile ? 0.3 : 1;
+
+      let W, H, CX, CY, R;
+      function resize() {
+        const dpr = window.devicePixelRatio || 1;
+        const parent = canvas.parentElement;
+        W = parent.clientWidth || window.innerWidth;
+        H = parent.clientHeight || window.innerHeight;
+        canvas.style.width = W + 'px';
+        canvas.style.height = H + 'px';
+        canvas.width = W * dpr;
+        canvas.height = H * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        CX = W / 2;
+        CY = H / 2;
+        R = Math.max(W, H) * 0.55;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+      window.addEventListener('orientationchange', () => { setTimeout(resize, 150); });
+
+      const AMBER = [196, 122, 46];
+      const MAGENTA = [139, 58, 122];
+      const TEAL = [30, 160, 200];
+      const GOLD = [232, 200, 114];
+      const VIOLET = [107, 45, 91];
+      const FUCHSIA = [220, 50, 140];
+
+      let angle = 0;
+      const SPEED = 0.0003;
+
+      function rgba(c, a) { return `rgba(${c[0]},${c[1]},${c[2]},${a})`; }
+      function circle(x, y, r) { ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.stroke(); }
+      function line(x1, y1, x2, y2) { ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); }
+
+      function drawMandala(time) {
+        ctx.save();
+        ctx.translate(CX, CY);
+        const breath = 0.96 + 0.04 * Math.sin(time * 0.0008);
+        const unit = R * 0.275;
+
+        ctx.save(); ctx.rotate(-angle);
+        ctx.shadowBlur = 25 * GLOW; ctx.shadowColor = rgba(AMBER, 0.35);
+        ctx.strokeStyle = rgba(AMBER, 0.18); ctx.lineWidth = 3; circle(0, 0, R * 0.97);
+        ctx.lineWidth = 2; ctx.strokeStyle = rgba(AMBER, 0.1); circle(0, 0, R * 0.91);
+        ctx.strokeStyle = rgba(GOLD, 0.08); circle(0, 0, R * 0.83);
+        ctx.strokeStyle = rgba(AMBER, 0.06); circle(0, 0, R * 0.73);
+        ctx.restore();
+
+        ctx.save(); ctx.rotate(angle * 2);
+        ctx.shadowBlur = 15 * GLOW; ctx.shadowColor = rgba(GOLD, 0.25);
+        ctx.strokeStyle = rgba(GOLD, 0.1); ctx.lineWidth = 2;
+        const rayN = isMobile ? 6 : 12;
+        for (let i = 0; i < rayN; i++) { const a = (i / rayN) * Math.PI * 2; line(0, 0, Math.cos(a) * R * 0.95, Math.sin(a) * R * 0.95); }
+        ctx.restore();
+
+        ctx.save(); ctx.rotate(-angle * 1.5);
+        ctx.shadowBlur = 22 * GLOW; ctx.shadowColor = rgba(MAGENTA, 0.3);
+        ctx.strokeStyle = rgba(MAGENTA, 0.15); ctx.lineWidth = 3;
+        const d2 = unit * 2 * breath;
+        for (let i = 0; i < 6; i++) { const a = (i / 6) * Math.PI * 2; circle(Math.cos(a) * d2, Math.sin(a) * d2, unit); }
+        ctx.restore();
+
+        ctx.save(); ctx.rotate(angle * 3);
+        ctx.shadowBlur = 22 * GLOW; ctx.shadowColor = rgba(TEAL, 0.35);
+        ctx.strokeStyle = rgba(TEAL, 0.18); ctx.lineWidth = 3.5;
+        const bigUnit = unit * 1.4; const d1 = bigUnit * breath;
+        circle(0, 0, bigUnit);
+        for (let i = 0; i < 6; i++) { const a = (i / 6) * Math.PI * 2; circle(Math.cos(a) * d1, Math.sin(a) * d1, bigUnit); }
+        ctx.restore();
+
+        ctx.save(); ctx.rotate(-angle * 2);
+        ctx.shadowBlur = 15 * GLOW; ctx.shadowColor = rgba(VIOLET, 0.25);
+        ctx.strokeStyle = rgba(VIOLET, 0.12); ctx.lineWidth = 2.5; circle(0, 0, R * 0.47);
+        ctx.restore();
+
+        ctx.save(); ctx.rotate(angle * 4);
+        ctx.shadowBlur = 20 * GLOW; ctx.shadowColor = rgba(FUCHSIA, 0.35);
+        ctx.strokeStyle = rgba(FUCHSIA, 0.16); ctx.lineWidth = 2.5;
+        const sR = unit * 0.4 * breath; circle(0, 0, sR);
+        for (let i = 0; i < 6; i++) { const a = (i / 6) * Math.PI * 2; circle(Math.cos(a) * sR, Math.sin(a) * sR, sR); }
+        ctx.restore();
+
+        ctx.shadowBlur = 12 * GLOW; ctx.shadowColor = rgba(GOLD, 0.3);
+        ctx.strokeStyle = rgba(GOLD, 0.12); ctx.lineWidth = 2; circle(0, 0, unit * 0.5);
+        ctx.shadowBlur = 30 * GLOW; ctx.shadowColor = rgba(FUCHSIA, 0.45);
+        ctx.fillStyle = rgba(FUCHSIA, 0.1); ctx.beginPath(); ctx.arc(0, 0, R * 0.02, 0, Math.PI * 2); ctx.fill();
+        ctx.restore(); ctx.shadowBlur = 0;
+      }
+
+      let time = 0;
+      function animate() { ctx.clearRect(0, 0, W, H); angle += SPEED; drawMandala(time); time++; if (!prefersReduced) requestAnimationFrame(animate); }
+      if (prefersReduced) drawMandala(0); else animate();
+    })();
+  </script>
+
+  <script>
+    // ==========================================
+    // SCROLL REVEAL
+    // ==========================================
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Principes grid stagger
+    const principesGrid = document.querySelector('.ed-principes-grid');
+    if (principesGrid) {
+      const gridObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.querySelectorAll('.ed-principe-card').forEach(card => card.classList.add('visible'));
+            gridObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      gridObserver.observe(principesGrid);
+    }
+
+    // ==========================================
+    // NAV SCROLL BEHAVIOR
+    // ==========================================
+    const nav = document.getElementById('nav');
+    const scrollProgress = document.getElementById('scrollProgress');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y > 80) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
+      const docH = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollProgress && docH > 0) scrollProgress.style.width = (y / docH * 100) + '%';
+    }, { passive: true });
+
+    // ==========================================
+    // MOBILE MENU
+    // ==========================================
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+    function closeMobile() {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // ==========================================
+    // SMOOTH ANCHOR SCROLL
+    // ==========================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        const target = document.querySelector(href);
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+
+    // ==========================================
+    // 3D TILT on cards
+    // ==========================================
+    (function () {
+      if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
+      const TILT_MAX = 8;
+      const cards = document.querySelectorAll('.ed-principe-card, .ed-expr-card, .ed-timeline-content');
+      cards.forEach(card => {
+        card.addEventListener('mousemove', e => {
+          const rect = card.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width;
+          const y = (e.clientY - rect.top) / rect.height;
+          const rotateY = (x - 0.5) * TILT_MAX * 2;
+          const rotateX = (0.5 - y) * TILT_MAX * 2;
+          card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+          card.style.transition = 'transform 0.1s ease-out';
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+          card.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+        });
+      });
+    })();
+
+    // ==========================================
+    // CUSTOM CURSOR + MAGNETIC BUTTONS
+    // ==========================================
+    (function () {
+      if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
+      const cursor = document.getElementById('cursor');
+      const glow = document.getElementById('cursorGlow');
+      if (!cursor || !glow) return;
+      let mx = -100, my = -100, cx = -100, cy = -100, gx = -100, gy = -100;
+      document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+      document.addEventListener('mouseleave', () => { cursor.style.opacity = '0'; glow.style.opacity = '0'; });
+      document.addEventListener('mouseenter', () => { cursor.style.opacity = '1'; glow.style.opacity = '1'; });
+      function lerp(a, b, t) { return a + (b - a) * t; }
+      function tick() {
+        cx = lerp(cx, mx, 0.2); cy = lerp(cy, my, 0.2);
+        gx = lerp(gx, mx, 0.08); gy = lerp(gy, my, 0.08);
+        cursor.style.left = cx + 'px'; cursor.style.top = cy + 'px';
+        glow.style.left = gx + 'px'; glow.style.top = gy + 'px';
+        requestAnimationFrame(tick);
+      }
+      tick();
+      const interactives = 'a, button, [data-magnetic], .ed-principe-card, .ed-expr-card, .ed-timeline-content';
+      document.addEventListener('mouseover', e => { if (e.target.closest(interactives)) { cursor.classList.add('hover'); glow.classList.add('hover'); } });
+      document.addEventListener('mouseout', e => { if (e.target.closest(interactives)) { cursor.classList.remove('hover'); glow.classList.remove('hover'); } });
+
+      const magnetics = document.querySelectorAll('[data-magnetic]');
+      magnetics.forEach(el => {
+        el.addEventListener('mousemove', e => {
+          const rect = el.getBoundingClientRect();
+          const deltaX = e.clientX - (rect.left + rect.width / 2);
+          const deltaY = e.clientY - (rect.top + rect.height / 2);
+          el.style.transform = `translate(${deltaX * 0.35}px, ${deltaY * 0.35}px)`;
+          el.style.transition = 'transform 0.2s ease-out';
+        });
+        el.addEventListener('mouseleave', () => {
+          el.style.transform = '';
+          el.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+        });
+      });
+    })();
+  </script>
+</body>
+
+</html>
