@@ -50,12 +50,19 @@ export async function handler(event) {
     return { statusCode: 502, headers: jsonHeaders, body: JSON.stringify({ error: 'Erreur Systeme.io', detail: res.body }) };
   }
 
-  // Tag newsletter
-  if (b.newsletter_chk && b.newsletter_chk !== 'false' && contact && contact.id) {
-    const tags = await systeme('GET', '/tags?query=newsletter');
-    const tag = (tags.body.items || []).find(t => t.name.toLowerCase() === 'newsletter');
-    if (tag) {
-      await systeme('POST', `/contacts/${contact.id}/tags`, { tagId: tag.id });
+  // Tags
+  if (contact && contact.id) {
+    const tagsToAssign = ['formsite'];
+    if (b.newsletter_chk && b.newsletter_chk !== 'false') tagsToAssign.push('newsletter');
+
+    const tagsRes = await systeme('GET', '/tags');
+    const allTags = tagsRes.body.items || [];
+
+    for (const name of tagsToAssign) {
+      const tag = allTags.find(t => t.name.toLowerCase() === name.toLowerCase());
+      if (tag) {
+        await systeme('POST', `/contacts/${contact.id}/tags`, { tagId: tag.id });
+      }
     }
   }
 

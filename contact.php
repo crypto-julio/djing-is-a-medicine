@@ -66,15 +66,21 @@ if ($res['status'] === 201 || $res['status'] === 200) {
     exit;
 }
 
-// ── Tag newsletter ─────────────────────────────────────────────────────────
-if (!empty($body['newsletter_chk']) && $body['newsletter_chk'] !== 'false' && !empty($contact['id'])) {
-    $tags = systeme('GET', '/tags?query=newsletter');
-    $tag  = null;
-    foreach ($tags['body']['items'] ?? [] as $t) {
-        if (strtolower($t['name']) === 'newsletter') { $tag = $t; break; }
+// ── Tags ───────────────────────────────────────────────────────────────────
+if (!empty($contact['id'])) {
+    $tagsToAssign = ['formsite'];
+    if (!empty($body['newsletter_chk']) && $body['newsletter_chk'] !== 'false') {
+        $tagsToAssign[] = 'newsletter';
     }
-    if ($tag) {
-        systeme('POST', '/contacts/' . $contact['id'] . '/tags', ['tagId' => $tag['id']]);
+
+    $allTags = systeme('GET', '/tags');
+    foreach ($tagsToAssign as $name) {
+        foreach ($allTags['body']['items'] ?? [] as $t) {
+            if (strtolower($t['name']) === strtolower($name)) {
+                systeme('POST', '/contacts/' . $contact['id'] . '/tags', ['tagId' => $t['id']]);
+                break;
+            }
+        }
     }
 }
 
