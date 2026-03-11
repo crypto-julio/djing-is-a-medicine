@@ -2065,38 +2065,50 @@ img { max-width: 100%; display: block; }
 
 .motivation-field {
   margin-bottom: 1rem;
+  text-align: center;
 }
 .motivation-label {
   font-size: 0.9rem;
   color: var(--text-body);
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.75rem;
 }
 .motivation-scale {
   display: flex;
-  gap: 0.4rem;
-  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
 }
 .motivation-btn {
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  border: 2px solid rgba(255,255,255,0.2);
-  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.05);
   color: var(--text-body);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
 }
 .motivation-btn:hover {
   border-color: var(--accent-fuchsia);
   color: var(--accent-fuchsia);
+  background: rgba(var(--accent-fuchsia-rgb, 200,50,150), 0.1);
 }
 .motivation-btn.active {
   background: var(--accent-fuchsia);
   border-color: var(--accent-fuchsia);
   color: #fff;
   transform: scale(1.15);
+  box-shadow: 0 0 12px rgba(var(--accent-fuchsia-rgb, 200,50,150), 0.4);
+}
+@media (max-width: 540px) {
+  .motivation-btn { width: 32px; height: 32px; font-size: 0.75rem; }
+  .motivation-scale { gap: 0.35rem; }
 }
 
 .newsletter-disclaimer {
