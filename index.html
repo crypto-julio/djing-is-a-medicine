@@ -1196,62 +1196,21 @@
 
   <script>
     // ==========================================
-    // CONTACT FORM → contact.php (LWS) ou direct Systeme.io (Netlify/autres)
+    // CONTACT FORM → contact.php (LWS) ou Netlify Function (Netlify)
     // ==========================================
-    const SYSTEME_IO_API_KEY = 'dlkosuwvs2hsn8enp6ed7bzvoyctsef2po65nwk0hpogw8b9vw6pz3ik09i5s299';
-    const SYSTEME_API = 'https://api.systeme.io/api';
-
     const contactForm = document.getElementById('contactForm');
     const contactSubmit = document.getElementById('contactSubmit');
     const formStatus = document.getElementById('formStatus');
 
-    async function submitToSystemeIO(payload) {
-      const fields = [
-        { slug: 'first_name',    value: payload.first_name },
-        { slug: 'last_name',     value: payload.last_name },
-        { slug: 'phone_number',  value: payload.phone_number },
-        { slug: 'levelDJ',       value: payload.levelDJ },
-        { slug: 'levelEspaces',  value: payload.levelEspaces },
-        { slug: 'originUser',    value: payload.originUser },
-        { slug: 'subject',       value: payload.subject },
-        { slug: 'messageUser',   value: payload.messageUser },
-        { slug: 'newsletter_chk', value: payload.newsletter_chk },
-      ];
-      const headers = { 'X-API-Key': SYSTEME_IO_API_KEY, 'Content-Type': 'application/json' };
-      let contact;
-      const res = await fetch(`${SYSTEME_API}/contacts`, {
-        method: 'POST', headers,
-        body: JSON.stringify({ email: payload.email, locale: 'fr', fields }),
+    async function sendToProxy(url, payload) {
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
       });
-      if (res.status === 422) {
-        const list = await fetch(`${SYSTEME_API}/contacts?email=${encodeURIComponent(payload.email)}`, { headers });
-        const listData = await list.json();
-        const existing = listData.items && listData.items[0];
-        if (existing) {
-          const upd = await fetch(`${SYSTEME_API}/contacts/${existing.id}`, {
-            method: 'PATCH',
-            headers: { 'X-API-Key': SYSTEME_IO_API_KEY, 'Content-Type': 'application/merge-patch+json' },
-            body: JSON.stringify({ locale: 'fr', fields }),
-          });
-          contact = await upd.json();
-          if (!contact.id) contact.id = existing.id;
-        }
-      } else if (res.ok || res.status === 201) {
-        contact = await res.json();
-      } else {
-        throw new Error('Erreur API Systeme.io');
-      }
-      if (payload.newsletter_chk === 'true' && contact && contact.id) {
-        const tags = await fetch(`${SYSTEME_API}/tags?query=newsletter`, { headers });
-        const tagsData = await tags.json();
-        const tag = (tagsData.items || []).find(t => t.name.toLowerCase() === 'newsletter');
-        if (tag) {
-          await fetch(`${SYSTEME_API}/contacts/${contact.id}/tags`, {
-            method: 'POST', headers,
-            body: JSON.stringify({ tagId: tag.id }),
-          });
-        }
-      }
+      const ct = res.headers.get('Content-Type') || '';
+      if (res.ok && ct.includes('application/json')) return true;
+      throw new Error('Proxy error');
     }
 
     if (contactForm) {
@@ -1288,23 +1247,12 @@
         };
 
         try {
-          // Essai via contact.php (hébergement PHP type LWS)
-          let usedPhp = false;
           try {
-            const phpRes = await fetch('/contact.php', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(payload),
-            });
-            const ct = phpRes.headers.get('Content-Type') || '';
-            if (phpRes.ok && ct.includes('application/json')) {
-              usedPhp = true;
-            }
-          } catch (_) { /* contact.php indisponible */ }
-
-          // Fallback : appel direct (Netlify ou hébergement statique)
-          if (!usedPhp) {
-            await submitToSystemeIO(payload);
+            // 1. Essai contact.php (LWS)
+            await sendToProxy('/contact.php', payload);
+          } catch (_) {
+            // 2. Fallback Netlify Function
+            await sendToProxy('/.netlify/functions/contact', payload);
           }
 
           formStatus.textContent = 'Merci ! Tu vas recevoir la brochure par email.';
