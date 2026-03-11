@@ -565,6 +565,7 @@
         </div>
 
         <form class="newsletter-form reveal reveal-delay-3" id="contactForm" novalidate>
+          <input type="hidden" name="locale" value="fr">
           <div class="newsletter-row">
             <input type="text" class="newsletter-input" placeholder="Ton prénom" name="first_name" required>
             <input type="text" class="newsletter-input" placeholder="Ton nom" name="last_name" required>
@@ -574,21 +575,43 @@
             <input type="tel" class="newsletter-input" placeholder="Ton téléphone" name="phone" required>
           </div>
           <div class="newsletter-row">
-            <select class="newsletter-input newsletter-select" name="ed_experience" required>
-              <option value="" disabled selected>As-tu déjà tenu un espace Ecstatic Dance ?</option>
-              <option value="jamais">Jamais</option>
-              <option value="une_fois">Une fois</option>
-              <option value="souvent">Souvent</option>
-            </select>
-            <select class="newsletter-input newsletter-select" name="dj_experience" required>
+            <select class="newsletter-input newsletter-select" name="levelDJ" required>
               <option value="" disabled selected>As-tu déjà mixé ?</option>
               <option value="jamais">Jamais</option>
-              <option value="un_peu">Un peu</option>
+              <option value="un peu">Un peu</option>
+              <option value="souvent">Souvent</option>
+            </select>
+            <select class="newsletter-input newsletter-select" name="levelEspaces" required>
+              <option value="" disabled selected>As-tu déjà tenu un espace de danse libre ?</option>
+              <option value="jamais">Jamais</option>
+              <option value="un peu">Un peu</option>
               <option value="souvent">Souvent</option>
             </select>
           </div>
-          <textarea class="newsletter-input newsletter-textarea" name="motivation"
-            placeholder="Qu'est-ce qui te motive à l'idée de faire cette formation ?" rows="3" required></textarea>
+          <div class="newsletter-row">
+            <select class="newsletter-input newsletter-select" name="originUser" required>
+              <option value="" disabled selected>Comment as-tu trouvé ton chemin jusqu'ici ?</option>
+              <option value="bouche-a-oreille">Bouche-à-oreille / Recommandation</option>
+              <option value="reseaux-sociaux">Réseaux sociaux (Instagram, Facebook…)</option>
+              <option value="recherche-internet">Recherche internet / Site web</option>
+              <option value="evenement">Événement / Retraite / Atelier</option>
+              <option value="podcast">Podcast / Vidéo / Article</option>
+            </select>
+            <select class="newsletter-input newsletter-select" name="subject" required>
+              <option value="" disabled selected>Sujet</option>
+              <option value="information-generale">Information générale</option>
+              <option value="dj-holistique">DJ holistique</option>
+              <option value="danses-48">D.A.N.S.E.S 48</option>
+              <option value="devenir-partenaire">Devenir partenaire</option>
+              <option value="autre">Autre</option>
+            </select>
+          </div>
+          <textarea class="newsletter-input newsletter-textarea" name="messageUser"
+            placeholder="Ton intention / message" rows="3" required></textarea>
+          <label class="newsletter-checkbox-label">
+            <input type="checkbox" name="newsletter_chk" value="true" checked>
+            <span>Tu es ok pour recevoir la newsletter</span>
+          </label>
           <button type="submit" class="newsletter-submit" id="contactSubmit">Recevoir la brochure et les
             replays</button>
           <p class="newsletter-form-status" id="formStatus"></p>
@@ -1173,13 +1196,63 @@
 
   <script>
     // ==========================================
-    // CONTACT FORM → SYSTEME.IO API
+    // CONTACT FORM → contact.php (LWS) ou direct Systeme.io (Netlify/autres)
     // ==========================================
-    const SYSTEME_IO_API_KEY = 'SYSTEME_IO_API_KEY'; // TODO: remplacer par ta vraie clé API
+    const SYSTEME_IO_API_KEY = 'dlkosuwvs2hsn8enp6ed7bzvoyctsef2po65nwk0hpogw8b9vw6pz3ik09i5s299';
+    const SYSTEME_API = 'https://api.systeme.io/api';
 
     const contactForm = document.getElementById('contactForm');
     const contactSubmit = document.getElementById('contactSubmit');
     const formStatus = document.getElementById('formStatus');
+
+    async function submitToSystemeIO(payload) {
+      const fields = [
+        { slug: 'first_name',    value: payload.first_name },
+        { slug: 'last_name',     value: payload.last_name },
+        { slug: 'phone_number',  value: payload.phone_number },
+        { slug: 'levelDJ',       value: payload.levelDJ },
+        { slug: 'levelEspaces',  value: payload.levelEspaces },
+        { slug: 'originUser',    value: payload.originUser },
+        { slug: 'subject',       value: payload.subject },
+        { slug: 'messageUser',   value: payload.messageUser },
+        { slug: 'newsletter_chk', value: payload.newsletter_chk },
+      ];
+      const headers = { 'X-API-Key': SYSTEME_IO_API_KEY, 'Content-Type': 'application/json' };
+      let contact;
+      const res = await fetch(`${SYSTEME_API}/contacts`, {
+        method: 'POST', headers,
+        body: JSON.stringify({ email: payload.email, locale: 'fr', fields }),
+      });
+      if (res.status === 422) {
+        const list = await fetch(`${SYSTEME_API}/contacts?email=${encodeURIComponent(payload.email)}`, { headers });
+        const listData = await list.json();
+        const existing = listData.items && listData.items[0];
+        if (existing) {
+          const upd = await fetch(`${SYSTEME_API}/contacts/${existing.id}`, {
+            method: 'PATCH',
+            headers: { 'X-API-Key': SYSTEME_IO_API_KEY, 'Content-Type': 'application/merge-patch+json' },
+            body: JSON.stringify({ locale: 'fr', fields }),
+          });
+          contact = await upd.json();
+          if (!contact.id) contact.id = existing.id;
+        }
+      } else if (res.ok || res.status === 201) {
+        contact = await res.json();
+      } else {
+        throw new Error('Erreur API Systeme.io');
+      }
+      if (payload.newsletter_chk === 'true' && contact && contact.id) {
+        const tags = await fetch(`${SYSTEME_API}/tags?query=newsletter`, { headers });
+        const tagsData = await tags.json();
+        const tag = (tagsData.items || []).find(t => t.name.toLowerCase() === 'newsletter');
+        if (tag) {
+          await fetch(`${SYSTEME_API}/contacts/${contact.id}/tags`, {
+            method: 'POST', headers,
+            body: JSON.stringify({ tagId: tag.id }),
+          });
+        }
+      }
+    }
 
     if (contactForm) {
       contactForm.addEventListener('submit', async (e) => {
@@ -1187,51 +1260,56 @@
         formStatus.textContent = '';
         formStatus.className = 'newsletter-form-status';
 
-        // Validation basique
         const formData = new FormData(contactForm);
         const data = Object.fromEntries(formData.entries());
 
-        if (!data.first_name || !data.last_name || !data.email || !data.phone || !data.ed_experience || !data.dj_experience || !data.motivation) {
+        if (!data.first_name || !data.last_name || !data.email || !data.phone ||
+            !data.levelDJ || !data.levelEspaces || !data.originUser || !data.subject || !data.messageUser) {
           formStatus.textContent = 'Merci de remplir tous les champs obligatoires.';
           formStatus.classList.add('error');
           return;
         }
 
-        // État loading
         const originalText = contactSubmit.textContent;
         contactSubmit.disabled = true;
         contactSubmit.textContent = 'Envoi en cours…';
 
-        try {
-          const response = await fetch('https://api.systeme.io/api/contacts', {
-            method: 'POST',
-            headers: {
-              'X-API-Key': SYSTEME_IO_API_KEY,
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              email: data.email,
-              firstName: data.first_name,
-              lastName: data.last_name,
-              phoneNumber: data.phone,
-              fields: [
-                { slug: 'ed_experience', value: data.ed_experience || '' },
-                { slug: 'dj_experience', value: data.dj_experience || '' },
-                { slug: 'motivation', value: data.motivation || '' },
-              ],
-            }),
-          });
+        const payload = {
+          email: data.email,
+          first_name: data.first_name,
+          last_name: data.last_name,
+          phone_number: data.phone,
+          levelDJ: data.levelDJ,
+          levelEspaces: data.levelEspaces,
+          originUser: data.originUser,
+          subject: data.subject,
+          messageUser: data.messageUser,
+          newsletter_chk: data.newsletter_chk ? 'true' : 'false',
+        };
 
-          if (response.ok || response.status === 201) {
-            formStatus.textContent = 'Merci ! Tu vas recevoir la brochure par email.';
-            formStatus.classList.add('success');
-            contactForm.reset();
-          } else {
-            const errorData = await response.json().catch(() => null);
-            const msg = errorData?.message || 'Une erreur est survenue. Réessaie dans quelques instants.';
-            formStatus.textContent = msg;
-            formStatus.classList.add('error');
+        try {
+          // Essai via contact.php (hébergement PHP type LWS)
+          let usedPhp = false;
+          try {
+            const phpRes = await fetch('/contact.php', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload),
+            });
+            const ct = phpRes.headers.get('Content-Type') || '';
+            if (phpRes.ok && ct.includes('application/json')) {
+              usedPhp = true;
+            }
+          } catch (_) { /* contact.php indisponible */ }
+
+          // Fallback : appel direct (Netlify ou hébergement statique)
+          if (!usedPhp) {
+            await submitToSystemeIO(payload);
           }
+
+          formStatus.textContent = 'Merci ! Tu vas recevoir la brochure par email.';
+          formStatus.classList.add('success');
+          contactForm.reset();
         } catch (err) {
           formStatus.textContent = 'Erreur de connexion. Vérifie ta connexion internet et réessaie.';
           formStatus.classList.add('error');
