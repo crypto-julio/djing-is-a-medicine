@@ -2047,6 +2047,22 @@ img { max-width: 100%; display: block; }
   transform: translateY(-2px);
 }
 
+.newsletter-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-body);
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+.newsletter-checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent-fuchsia);
+  cursor: pointer;
+}
+
 .newsletter-disclaimer {
   font-size: 0.75rem;
   color: var(--text-muted);
