@@ -573,6 +573,7 @@
           <div class="newsletter-row">
             <input type="email" class="newsletter-input" placeholder="Ton email" name="email" required>
             <input type="tel" class="newsletter-input" placeholder="Ton téléphone" name="phone" required>
+            <input type="text" class="newsletter-input" placeholder="Ta ville" name="city" required>
           </div>
           <div class="newsletter-row">
             <select class="newsletter-input newsletter-select" name="levelDJ" required>
@@ -1222,7 +1223,7 @@
         const formData = new FormData(contactForm);
         const data = Object.fromEntries(formData.entries());
 
-        if (!data.first_name || !data.last_name || !data.email || !data.phone ||
+        if (!data.first_name || !data.last_name || !data.email || !data.phone || !data.city ||
             !data.levelDJ || !data.levelEspaces || !data.originUser || !data.subject || !data.messageUser) {
           formStatus.textContent = 'Merci de remplir tous les champs obligatoires.';
           formStatus.classList.add('error');
@@ -1238,6 +1239,7 @@
           first_name: data.first_name,
           last_name: data.last_name,
           phone_number: data.phone,
+          city: data.city,
           levelDJ: data.levelDJ,
           levelEspaces: data.levelEspaces,
           originUser: data.originUser,

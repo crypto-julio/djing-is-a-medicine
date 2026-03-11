@@ -37,7 +37,7 @@ function systeme(string $method, string $path, array $data = [], string $content
 
 // ── Construire les champs ──────────────────────────────────────────────────
 $fields = [];
-$allFieldKeys = ['first_name', 'last_name', 'phone_number', 'levelDJ', 'levelEspaces', 'originUser', 'subject', 'messageUser', 'newsletter_chk'];
+$allFieldKeys = ['first_name', 'last_name', 'phone_number', 'city', 'levelDJ', 'levelEspaces', 'originUser', 'subject', 'messageUser', 'newsletter_chk'];
 foreach ($allFieldKeys as $key) {
     if (isset($body[$key])) {
         $fields[] = ['slug' => $key, 'value' => (string) $body[$key]];
