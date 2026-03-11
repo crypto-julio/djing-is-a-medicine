@@ -13,13 +13,15 @@ async function systeme(method, path, data, contentType = 'application/json') {
 }
 
 export async function handler(event) {
+  const jsonHeaders = { 'Content-Type': 'application/json' };
+
   if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, body: JSON.stringify({ error: 'Method not allowed' }) };
+    return { statusCode: 405, headers: jsonHeaders, body: JSON.stringify({ error: 'Method not allowed' }) };
   }
 
   const b = JSON.parse(event.body || '{}');
   if (!b.email) {
-    return { statusCode: 400, body: JSON.stringify({ error: 'Email requis' }) };
+    return { statusCode: 400, headers: jsonHeaders, body: JSON.stringify({ error: 'Email requis' }) };
   }
 
   const fields = ['levelDJ', 'levelEspaces', 'originUser', 'subject', 'messageUser', 'newsletter_chk']
@@ -51,7 +53,7 @@ export async function handler(event) {
       if (!contact.id) contact.id = existing.id;
     }
   } else {
-    return { statusCode: 502, body: JSON.stringify({ error: 'Erreur Systeme.io', detail: res.body }) };
+    return { statusCode: 502, headers: jsonHeaders, body: JSON.stringify({ error: 'Erreur Systeme.io', detail: res.body }) };
   }
 
   // Tag newsletter
@@ -63,5 +65,5 @@ export async function handler(event) {
     }
   }
 
-  return { statusCode: 200, body: JSON.stringify({ success: true }) };
+  return { statusCode: 200, headers: jsonHeaders, body: JSON.stringify({ success: true }) };
 }
