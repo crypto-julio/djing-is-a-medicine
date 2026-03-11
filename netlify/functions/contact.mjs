@@ -24,14 +24,11 @@ export async function handler(event) {
     return { statusCode: 400, headers: jsonHeaders, body: JSON.stringify({ error: 'Email requis' }) };
   }
 
-  const fields = ['levelDJ', 'levelEspaces', 'originUser', 'subject', 'messageUser', 'newsletter_chk']
+  const allFields = ['first_name', 'last_name', 'phone_number', 'levelDJ', 'levelEspaces', 'originUser', 'subject', 'messageUser', 'newsletter_chk']
     .filter(k => b[k])
     .map(k => ({ slug: k, value: String(b[k]) }));
 
-  const payload = { email: b.email, locale: 'fr', fields };
-  if (b.first_name)   payload.firstName   = b.first_name;
-  if (b.last_name)    payload.lastName    = b.last_name;
-  if (b.phone_number) payload.phoneNumber = b.phone_number;
+  const payload = { email: b.email, locale: 'fr', fields: allFields };
 
   // Créer le contact
   let res = await systeme('POST', '/contacts', payload);
@@ -44,10 +41,7 @@ export async function handler(event) {
     const list = await systeme('GET', `/contacts?email=${encodeURIComponent(b.email)}`);
     const existing = list.body.items && list.body.items[0];
     if (existing) {
-      const updatePayload = { locale: 'fr', fields };
-      if (b.first_name)   updatePayload.firstName   = b.first_name;
-      if (b.last_name)    updatePayload.lastName    = b.last_name;
-      if (b.phone_number) updatePayload.phoneNumber = b.phone_number;
+      const updatePayload = { locale: 'fr', fields: allFields };
       const upd = await systeme('PATCH', `/contacts/${existing.id}`, updatePayload, 'application/merge-patch+json');
       contact = upd.body;
       if (!contact.id) contact.id = existing.id;
