@@ -24,7 +24,7 @@ export async function handler(event) {
     return { statusCode: 400, headers: jsonHeaders, body: JSON.stringify({ error: 'Email requis' }) };
   }
 
-  const allFields = ['first_name', 'last_name', 'phone_number', 'city', 'levelDJ', 'levelEspaces', 'originUser', 'subject', 'messageUser', 'newsletter_chk']
+  const allFields = ['first_name', 'last_name', 'phone_number', 'city', 'levelDJ', 'levelEspaces', 'originUser', 'subject', 'motivation_usr', 'messageUser', 'newsletter_chk']
     .filter(k => b[k])
     .map(k => ({ slug: k, value: String(b[k]) }));
 

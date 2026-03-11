@@ -573,8 +573,8 @@
           <div class="newsletter-row">
             <input type="email" class="newsletter-input" placeholder="Ton email" name="email" required>
             <input type="tel" class="newsletter-input" placeholder="Ton téléphone" name="phone" required>
-            <input type="text" class="newsletter-input" placeholder="Ta ville" name="city" required>
           </div>
+          <input type="text" class="newsletter-input" placeholder="Ta ville" name="city" required>
           <div class="newsletter-row">
             <select class="newsletter-input newsletter-select" name="levelDJ" required>
               <option value="" disabled selected>As-tu déjà mixé ?</option>
@@ -601,11 +601,27 @@
             <select class="newsletter-input newsletter-select" name="subject" required>
               <option value="" disabled selected>Sujet</option>
               <option value="information-generale">Information générale</option>
-              <option value="dj-holistique">DJ holistique</option>
+              <option value="dj-holistique">Retraite formation DJ holistique</option>
               <option value="danses-48">D.A.N.S.E.S 48</option>
               <option value="devenir-partenaire">Devenir partenaire</option>
               <option value="autre">Autre</option>
             </select>
+          </div>
+          <div class="motivation-field" id="motivationField" style="display:none;">
+            <p class="motivation-label">De 1 à 10, quel est ton degré de motivation à l'idée de faire la formation DJ Holistique ?</p>
+            <div class="motivation-scale">
+              <input type="hidden" name="motivationDJ" id="motivationDJ" value="">
+              <button type="button" class="motivation-btn" data-value="1">1</button>
+              <button type="button" class="motivation-btn" data-value="2">2</button>
+              <button type="button" class="motivation-btn" data-value="3">3</button>
+              <button type="button" class="motivation-btn" data-value="4">4</button>
+              <button type="button" class="motivation-btn" data-value="5">5</button>
+              <button type="button" class="motivation-btn" data-value="6">6</button>
+              <button type="button" class="motivation-btn" data-value="7">7</button>
+              <button type="button" class="motivation-btn" data-value="8">8</button>
+              <button type="button" class="motivation-btn" data-value="9">9</button>
+              <button type="button" class="motivation-btn" data-value="10">10</button>
+            </div>
           </div>
           <textarea class="newsletter-input newsletter-textarea" name="messageUser"
             placeholder="Ton intention / message" rows="3" required></textarea>
@@ -1214,6 +1230,26 @@
       throw new Error('Proxy error');
     }
 
+    // Motivation DJ : affichage conditionnel + sélection
+    const subjectSelect = contactForm && contactForm.querySelector('[name="subject"]');
+    const motivationField = document.getElementById('motivationField');
+    const motivationInput = document.getElementById('motivationDJ');
+
+    if (subjectSelect && motivationField) {
+      subjectSelect.addEventListener('change', () => {
+        motivationField.style.display = subjectSelect.value === 'dj-holistique' ? 'block' : 'none';
+        if (subjectSelect.value !== 'dj-holistique') motivationInput.value = '';
+      });
+    }
+
+    document.querySelectorAll('.motivation-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.motivation-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        motivationInput.value = btn.dataset.value;
+      });
+    });
+
     if (contactForm) {
       contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -1226,6 +1262,12 @@
         if (!data.first_name || !data.last_name || !data.email || !data.phone || !data.city ||
             !data.levelDJ || !data.levelEspaces || !data.originUser || !data.subject || !data.messageUser) {
           formStatus.textContent = 'Merci de remplir tous les champs obligatoires.';
+          formStatus.classList.add('error');
+          return;
+        }
+
+        if (data.subject === 'dj-holistique' && !data.motivationDJ) {
+          formStatus.textContent = 'Merci d\'indiquer ton degré de motivation.';
           formStatus.classList.add('error');
           return;
         }
@@ -1247,6 +1289,7 @@
           messageUser: data.messageUser,
           newsletter_chk: data.newsletter_chk ? 'true' : 'false',
         };
+        if (data.motivationDJ) payload.motivation_usr = data.motivationDJ;
 
         try {
           try {
