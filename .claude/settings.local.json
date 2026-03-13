@@ -3,7 +3,10 @@
     "allow": [
       "Bash(gh repo create djing-is-a-medicine --public --source=. --remote=origin --push)",
       "Bash(netlify sites:create --name djing-is-a-medicine)",
-      "Bash(netlify status)"
+      "Bash(netlify status)",
+      "Bash(git push:*)",
+      "WebFetch(domain:aide.systeme.io)",
+      "Bash(grep -rn \"font-family\\\\|@import\" /c/Users/ktzgu/Desktop/djing-is-a-medicine/*.css)"
     ]
   }
 }

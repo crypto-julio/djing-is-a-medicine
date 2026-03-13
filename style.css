@@ -3,7 +3,8 @@
    ============================================ */
 @font-face {
   font-family: 'Decalotype';
-  src: url('fonts/Decalotype-Bold.woff') format('woff');
+  src: url('fonts/Decalotype-Bold.woff2') format('woff2'),
+       url('fonts/Decalotype-Bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -455,6 +456,7 @@ img { max-width: 100%; display: block; }
   inset: -50%;
   width: 200%;
   height: 200%;
+  will-change: transform;
   background:
     radial-gradient(ellipse at 20% 50%, #6B2D5B 0%, transparent 50%),
     radial-gradient(ellipse at 80% 20%, #1B4B6B 0%, transparent 40%),
@@ -483,6 +485,7 @@ img { max-width: 100%; display: block; }
   transform: translate(-50%, -50%);
   transform-origin: center center;
   z-index: 3;
+  will-change: transform;
   /* Glassmorphism */
   backdrop-filter: blur(6px) saturate(1.15) brightness(1.05);
   -webkit-backdrop-filter: blur(6px) saturate(1.15) brightness(1.05);
@@ -570,7 +573,7 @@ img { max-width: 100%; display: block; }
   top: -20%;
   left: -20%;
   background: radial-gradient(ellipse at 40% 50%, rgba(196, 122, 46, 0.8) 0%, rgba(212, 100, 26, 0.5) 30%, rgba(184, 152, 48, 0.2) 60%, transparent 80%);
-  filter: blur(60px);
+  filter: blur(30px);
   mix-blend-mode: screen;
   animation: auroraFloat1 20s ease-in-out infinite;
 }
@@ -582,7 +585,7 @@ img { max-width: 100%; display: block; }
   top: 10%;
   right: -25%;
   background: radial-gradient(ellipse at 60% 40%, rgba(139, 58, 122, 0.75) 0%, rgba(107, 45, 91, 0.45) 35%, rgba(180, 60, 160, 0.15) 60%, transparent 80%);
-  filter: blur(50px);
+  filter: blur(25px);
   mix-blend-mode: screen;
   animation: auroraFloat2 25s ease-in-out infinite;
 }
@@ -594,45 +597,9 @@ img { max-width: 100%; display: block; }
   bottom: -15%;
   left: 5%;
   background: radial-gradient(ellipse at 50% 60%, rgba(30, 160, 200, 0.7) 0%, rgba(30, 96, 128, 0.45) 35%, rgba(42, 107, 138, 0.15) 60%, transparent 80%);
-  filter: blur(55px);
+  filter: blur(28px);
   mix-blend-mode: screen;
   animation: auroraFloat3 22s ease-in-out infinite;
-}
-
-/* Blob 4 — Or lumineux, accent chaud central */
-.aurora-blob-4 {
-  width: 60vw;
-  height: 55vh;
-  top: 25%;
-  left: 20%;
-  background: radial-gradient(ellipse at 45% 50%, rgba(232, 200, 114, 0.65) 0%, rgba(196, 122, 46, 0.35) 35%, rgba(212, 100, 26, 0.1) 60%, transparent 80%);
-  filter: blur(65px);
-  mix-blend-mode: screen;
-  animation: auroraFloat4 30s ease-in-out infinite;
-}
-
-/* Blob 5 — Rose/Fuchsia vif, couche additionnelle */
-.aurora-blob-5 {
-  width: 65vw;
-  height: 60vh;
-  top: -5%;
-  right: 5%;
-  background: radial-gradient(ellipse at 55% 45%, rgba(220, 50, 140, 0.5) 0%, rgba(160, 40, 120, 0.3) 40%, transparent 75%);
-  filter: blur(70px);
-  mix-blend-mode: screen;
-  animation: auroraFloat5 27s ease-in-out infinite;
-}
-
-/* Blob 6 — Bleu profond/indigo, profondeur */
-.aurora-blob-6 {
-  width: 75vw;
-  height: 65vh;
-  bottom: 0%;
-  right: -10%;
-  background: radial-gradient(ellipse at 50% 55%, rgba(40, 20, 120, 0.6) 0%, rgba(60, 30, 160, 0.3) 40%, transparent 75%);
-  filter: blur(60px);
-  mix-blend-mode: screen;
-  animation: auroraFloat6 33s ease-in-out infinite;
 }
 
 @keyframes auroraFloat1 {
@@ -700,74 +667,34 @@ img { max-width: 100%; display: block; }
   }
 }
 
-@keyframes auroraFloat4 {
-  0%, 100% {
-    transform: translate(0, 0) scale(1) rotate(0deg);
-    opacity: 0.5;
-  }
-  30% {
-    transform: translate(-12vw, 15vh) scale(1.35) rotate(-5deg);
-    opacity: 0.85;
-  }
-  55% {
-    transform: translate(8vw, -8vh) scale(1.1) rotate(6deg);
-    opacity: 0.65;
-  }
-  80% {
-    transform: translate(-5vw, 8vh) scale(1.25) rotate(-3deg);
-    opacity: 0.8;
-  }
-}
-
-@keyframes auroraFloat5 {
-  0%, 100% {
-    transform: translate(0, 0) scale(1) rotate(0deg);
-    opacity: 0.45;
-  }
-  20% {
-    transform: translate(12vw, 8vh) scale(1.2) rotate(4deg);
-    opacity: 0.75;
-  }
-  45% {
-    transform: translate(-8vw, 18vh) scale(1.35) rotate(-6deg);
-    opacity: 0.55;
-  }
-  70% {
-    transform: translate(5vw, -5vh) scale(1.15) rotate(3deg);
-    opacity: 0.8;
-  }
-}
-
-@keyframes auroraFloat6 {
-  0%, 100% {
-    transform: translate(0, 0) scale(1) rotate(0deg);
-    opacity: 0.5;
-  }
-  25% {
-    transform: translate(-15vw, -10vh) scale(1.3) rotate(-4deg);
-    opacity: 0.8;
-  }
-  50% {
-    transform: translate(10vw, -15vh) scale(1.15) rotate(5deg);
-    opacity: 0.6;
-  }
-  75% {
-    transform: translate(-5vw, 8vh) scale(1.25) rotate(-3deg);
-    opacity: 0.75;
-  }
-}
 
 @media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
   .aurora-blob {
     animation: none !important;
     opacity: 0.4;
   }
+  .hero-bg { animation: none !important; }
+  .hero-mandala::before,
+  .hero-mandala::after { animation: none !important; }
+  .mandala-rays,
+  .mandala-flower-1,
+  .mandala-flower-2,
+  .mandala-seed { animation: none !important; }
   .hero-title .word {
     animation: wordReveal 0.5s ease forwards !important;
     filter: none !important;
   }
   .hero-cta { animation: fadeUp 0.5s ease forwards !important; }
-  .reveal { transition-duration: 0.01s !important; }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition-duration: 0.01s !important;
+  }
   .identify-item {
     opacity: 1 !important;
     transform: none !important;
@@ -775,12 +702,15 @@ img { max-width: 100%; display: block; }
     transition-duration: 0.01s !important;
   }
   .wave-separator svg animate { animation-play-state: paused; }
+  .portrait-frame { animation: none !important; }
+  .portrait-frame::before,
+  .portrait-frame::after { animation: none !important; }
+  .scroll-progress { transition: none !important; }
 }
 
 /* Mobile performance — reduce heavy effects */
 @media (max-width: 768px) {
-  .aurora-blob { filter: blur(30px); }
-  .aurora-blob-4, .aurora-blob-5, .aurora-blob-6 { display: none; }
+  .aurora-blob { filter: blur(18px); }
   .hero-mandala {
     backdrop-filter: blur(4px) saturate(1.1);
     -webkit-backdrop-filter: blur(4px) saturate(1.1);
