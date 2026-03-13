@@ -115,29 +115,21 @@ a.partenaire-card:hover::before {
   margin-bottom: 1.25rem;
 }
 
-.partenaire-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--accent-amber);
-  padding: 0.4rem 1rem;
-  border-radius: 999px;
-  background: rgba(196, 122, 46, 0.08);
-  transition: background 0.3s ease, color 0.3s ease;
+
+/* --- Photo en bas de carte --- */
+.partenaire-card--photo {
+  padding-bottom: 0;
 }
 
-a.partenaire-card:hover .partenaire-link {
-  background: rgba(196, 122, 46, 0.15);
-  color: var(--accent-orange);
-}
-
-.partenaire-link-pending {
-  color: var(--text-muted, #999);
-  font-style: italic;
-  font-weight: 400;
-  background: rgba(0, 0, 0, 0.03);
+.partenaire-photo {
+  align-self: stretch;
+  margin: 1.5rem -2rem 0;
+  width: auto;
+  min-width: calc(100% + 4rem);
+  height: auto;
+  object-fit: cover;
+  border-radius: 0 0 calc(1.5rem - 1px) calc(1.5rem - 1px);
+  display: block;
 }
 
 /* --- CTA Devenir partenaire (transparent / parallax) --- */
@@ -186,6 +178,15 @@ a.partenaire-card:hover .partenaire-link {
 
   .partenaire-card {
     padding: 2rem 1.5rem 1.75rem;
+  }
+
+  .partenaire-card--photo {
+    padding-bottom: 0;
+  }
+
+  .partenaire-photo {
+    min-width: calc(100% + 3rem);
+    margin: 1.5rem -1.5rem 0;
   }
 }
 

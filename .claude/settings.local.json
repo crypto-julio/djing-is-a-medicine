@@ -6,7 +6,8 @@
       "Bash(netlify status)",
       "Bash(git push:*)",
       "WebFetch(domain:aide.systeme.io)",
-      "Bash(grep -rn \"font-family\\\\|@import\" /c/Users/ktzgu/Desktop/djing-is-a-medicine/*.css)"
+      "Bash(grep -rn \"font-family\\\\|@import\" /c/Users/ktzgu/Desktop/djing-is-a-medicine/*.css)",
+      "WebFetch(domain:france.omwater.me)"
     ]
   }
 }

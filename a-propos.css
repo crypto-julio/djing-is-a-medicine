@@ -301,13 +301,7 @@
   filter: blur(0);
 }
 
-.timeline-item[data-timeline="1"] { transition: all 0.7s var(--ease-out-slow) 0.05s; }
-.timeline-item[data-timeline="2"] { transition: all 0.7s var(--ease-out-slow) 0.15s; }
-.timeline-item[data-timeline="3"] { transition: all 0.7s var(--ease-out-slow) 0.25s; }
-.timeline-item[data-timeline="4"] { transition: all 0.7s var(--ease-out-slow) 0.35s; }
-.timeline-item[data-timeline="5"] { transition: all 0.7s var(--ease-out-slow) 0.45s; }
-.timeline-item[data-timeline="6"] { transition: all 0.7s var(--ease-out-slow) 0.55s; }
-.timeline-item[data-timeline="7"] { transition: all 0.7s var(--ease-out-slow) 0.65s; }
+.timeline-item { transition: all 0.8s var(--ease-out-slow); }
 
 .timeline-item:last-child {
   padding-bottom: 0;

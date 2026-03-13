@@ -5,15 +5,14 @@ var revealObserver = new IntersectionObserver(function (entries) {
   entries.forEach(function (entry) {
     if (entry.isIntersecting) entry.target.classList.add('visible');
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+}, { threshold: 0.15, rootMargin: '0px 0px -120px 0px' });
 
 document.querySelectorAll('.reveal').forEach(function (el) { revealObserver.observe(el); });
 
 // Grid stagger reveals — observe grids, trigger all children at once
 var gridSelectors = [
   { grid: '.identify-grid', items: '.identify-item' },
-  { grid: '.ed-principes-grid', items: '.ed-principe-card' },
-  { grid: '.timeline', items: '.timeline-item' }
+  { grid: '.ed-principes-grid', items: '.ed-principe-card' }
 ];
 gridSelectors.forEach(function (cfg) {
   var grid = document.querySelector(cfg.grid);
@@ -27,8 +26,22 @@ gridSelectors.forEach(function (cfg) {
         gridObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.15, rootMargin: '0px 0px -100px 0px' });
   gridObserver.observe(grid);
+});
+
+// Timeline items — observe each individually for scroll-driven reveal
+var timelineObserver = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      timelineObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3, rootMargin: '0px 0px -100px 0px' });
+
+document.querySelectorAll('.timeline-item').forEach(function (el) {
+  timelineObserver.observe(el);
 });
 
 // ==========================================
