@@ -47,15 +47,25 @@
     var formData = new FormData(contactForm);
     var data = Object.fromEntries(formData.entries());
 
-    if (!data.first_name || !data.last_name || !data.email || !data.phone || !data.city ||
-        !data.levelDJ || !data.levelEspaces || !data.originUser || !data.subject || !data.messageUser) {
+    // Champs toujours requis
+    if (!data.first_name || !data.last_name || !data.email || !data.phone || !data.subject || !data.messageUser) {
       formStatus.textContent = 'Merci de remplir tous les champs obligatoires.';
       formStatus.classList.add('error');
       return;
     }
 
+    // Champs du formulaire complet (index + formation)
+    var isFullForm = !!contactForm.querySelector('[name="city"]');
+    if (isFullForm) {
+      if (!data.city || !data.levelDJ || !data.levelEspaces || !data.originUser) {
+        formStatus.textContent = 'Merci de remplir tous les champs obligatoires.';
+        formStatus.classList.add('error');
+        return;
+      }
+    }
+
     if (data.subject === 'dj-holistique' && !data.motivationDJ) {
-      formStatus.textContent = "Merci d'indiquer ton degre de motivation.";
+      formStatus.textContent = "Merci d'indiquer ton degré de motivation.";
       formStatus.classList.add('error');
       return;
     }
@@ -69,20 +79,22 @@
       first_name: data.first_name,
       last_name: data.last_name,
       phone_number: data.phone,
-      city: data.city,
-      levelDJ: data.levelDJ,
-      levelEspaces: data.levelEspaces,
-      originUser: data.originUser,
       subject: data.subject,
       messageUser: data.messageUser,
       newsletter_chk: data.newsletter_chk ? 'true' : 'false',
     };
+    if (data.city) payload.city = data.city;
+    if (data.levelDJ) payload.levelDJ = data.levelDJ;
+    if (data.levelEspaces) payload.levelEspaces = data.levelEspaces;
+    if (data.originUser) payload.originUser = data.originUser;
     if (data.motivationDJ) payload.motivation_usr = data.motivationDJ;
 
     sendToProxy('/contact.php', payload).catch(function () {
       return sendToProxy('/.netlify/functions/contact', payload);
     }).then(function () {
-      formStatus.textContent = 'Merci ! Tu vas recevoir la brochure par email.';
+      formStatus.textContent = isFullForm
+        ? 'Merci ! Tu vas recevoir la brochure par email.'
+        : 'Merci ! On te répond très vite.';
       formStatus.classList.add('success');
       contactForm.reset();
     }).catch(function () {

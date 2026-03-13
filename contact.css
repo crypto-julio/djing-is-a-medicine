@@ -1,0 +1,198 @@
+/* ============================================
+   PAGE CONTACT
+   ============================================ */
+
+/* --- Hero --- */
+.contact-hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Form section (opaque) --- */
+.contact-form-section {
+  background: var(--bg-night);
+  padding: 5rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-form-section .newsletter-content {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* --- Socials section (transparent / parallax) --- */
+.contact-socials {
+  padding: 6rem 0;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-socials .section-label {
+  color: var(--accent-amber);
+}
+
+.contact-socials .section-title {
+  color: #F5F0E8;
+  margin-bottom: 3rem;
+}
+
+.socials-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.social-link-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(42, 31, 48, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(196, 122, 46, 0.15);
+  border-radius: 1rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.social-link-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(196, 122, 46, 0.3);
+  box-shadow: 0 8px 32px rgba(196, 122, 46, 0.1);
+}
+
+.social-link-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  background: rgba(196, 122, 46, 0.1);
+  color: var(--accent-amber);
+}
+
+.social-link-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.social-link-name {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #F5F0E8;
+}
+
+.social-link-desc {
+  font-size: 0.85rem;
+  color: rgba(245, 240, 232, 0.6);
+  margin-top: 0.15rem;
+}
+
+/* --- Espace élèves (opaque) --- */
+.contact-eleves {
+  background: var(--bg-night);
+  padding: 5rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+.eleves-card {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 3rem 2.5rem;
+  background: rgba(250, 247, 242, 0.4);
+  border: 1px solid rgba(196, 122, 46, 0.15);
+  border-radius: 1.5rem;
+}
+
+.eleves-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(196, 122, 46, 0.1);
+  color: var(--accent-amber);
+  margin-bottom: 1.5rem;
+}
+
+.eleves-title {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.eleves-text {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.eleves-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2rem;
+  background: var(--accent-amber);
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.eleves-btn:hover {
+  background: var(--accent-orange);
+  transform: translateY(-2px);
+}
+
+.eleves-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.eleves-btn:hover svg {
+  transform: translateX(4px);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .socials-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 400px;
+  }
+
+  .contact-hero {
+    min-height: 50vh;
+  }
+
+  .eleves-card {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .socials-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

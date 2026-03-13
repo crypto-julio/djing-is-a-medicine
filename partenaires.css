@@ -1,0 +1,196 @@
+/* ============================================
+   PAGE PARTENAIRES
+   ============================================ */
+
+/* --- Hero --- */
+.partenaires-hero {
+  min-height: 65vh;
+}
+
+/* --- Grille partenaires (opaque) --- */
+.partenaires-section {
+  background: var(--bg-night);
+  padding: 5rem 0 6rem;
+  position: relative;
+  z-index: 2;
+}
+
+.partenaires-intro {
+  max-width: 700px;
+  margin: 0 auto 3.5rem;
+  text-align: center;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.partenaires-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* --- Partenaire card --- */
+.partenaire-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2.5rem 2rem 2rem;
+  background: #FAF7F2;
+  border: 1px solid rgba(196, 122, 46, 0.12);
+  border-radius: 1.5rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.partenaire-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-amber), var(--accent-orange));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+a.partenaire-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(196, 122, 46, 0.25);
+  box-shadow: 0 16px 48px rgba(42, 31, 48, 0.1), 0 4px 12px rgba(196, 122, 46, 0.08);
+}
+
+a.partenaire-card:hover::before {
+  opacity: 1;
+}
+
+/* --- Logo --- */
+.partenaire-logo {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 0.25rem;
+}
+
+.partenaire-logo-placeholder {
+  width: 72px;
+  height: 72px;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, rgba(196, 122, 46, 0.12), rgba(107, 45, 91, 0.08));
+  color: var(--accent-amber);
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+/* --- Content --- */
+.partenaire-name {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.partenaire-desc {
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  flex: 1;
+  margin-bottom: 1.25rem;
+}
+
+.partenaire-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-amber);
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  background: rgba(196, 122, 46, 0.08);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+a.partenaire-card:hover .partenaire-link {
+  background: rgba(196, 122, 46, 0.15);
+  color: var(--accent-orange);
+}
+
+.partenaire-link-pending {
+  color: var(--text-muted, #999);
+  font-style: italic;
+  font-weight: 400;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+/* --- CTA Devenir partenaire (transparent / parallax) --- */
+.partenaires-cta {
+  padding: 7rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+.partenaires-cta-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.partenaires-cta .section-label {
+  color: var(--accent-amber);
+}
+
+.partenaires-cta .section-title {
+  color: #F5F0E8;
+  margin-bottom: 1.25rem;
+}
+
+.partenaires-cta-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(245, 240, 232, 0.7);
+  margin-bottom: 2.5rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .partenaires-grid {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+  }
+
+  .partenaires-hero {
+    min-height: 55vh;
+  }
+
+  .partenaires-cta {
+    padding: 5rem 0;
+  }
+
+  .partenaire-card {
+    padding: 2rem 1.5rem 1.75rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .partenaires-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

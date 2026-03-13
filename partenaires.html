@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partenaires — DJing Is A Medicine</title>
+  <meta name="description"
+    content="Découvre les partenaires qui accompagnent l'aventure DJing Is A Medicine : OmWater, PSIO, Mixed In Key, Temple Sauvage et plus.">
+  <meta property="og:title" content="Partenaires — DJing Is A Medicine">
+  <meta property="og:description" content="Ils accompagnent l'aventure DJing Is A Medicine.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=Outfit:wght@400;600&display=swap"
+    rel="stylesheet">
+  <link rel="preload" as="font" href="fonts/Decalotype-Bold.woff2" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="partenaires.css">
+</head>
+
+<body>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Fixed parallax background -->
+  <div id="parallax-bg">
+    <div class="hero-bg"></div>
+    <div class="aurora">
+      <div class="aurora-blob aurora-blob-1"></div>
+      <div class="aurora-blob aurora-blob-2"></div>
+      <div class="aurora-blob aurora-blob-3"></div>
+    </div>
+    <canvas id="sound-waves-canvas"></canvas>
+  </div>
+
+  <!-- ==========================================
+     NAVIGATION
+     ========================================== -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">DJing Is A Medicine</a>
+      <ul class="nav-links">
+        <li><a href="formation.html">Formation</a></li>
+        <li><a href="ecstatic-dance.html">Ecstatic Dance</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="partenaires.html">Partenaires</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="nav-cta" data-magnetic>En savoir plus</a></li>
+      </ul>
+      <div class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="mobileMenu">
+    <div class="nav-mobile-bg"></div>
+    <div class="nav-mobile-content">
+      <a href="formation.html" class="nav-mobile-link" style="--i:0" onclick="closeMobile()">Formation</a>
+      <a href="ecstatic-dance.html" class="nav-mobile-link" style="--i:1" onclick="closeMobile()">Ecstatic Dance</a>
+      <a href="a-propos.html" class="nav-mobile-link" style="--i:2" onclick="closeMobile()">À propos</a>
+      <a href="partenaires.html" class="nav-mobile-link" style="--i:3" onclick="closeMobile()">Partenaires</a>
+      <a href="contact.html" class="nav-mobile-link" style="--i:4" onclick="closeMobile()">Contact</a>
+      <div class="nav-mobile-divider"></div>
+      <a href="contact.html" class="nav-mobile-cta" style="--i:5" onclick="closeMobile()">
+        En savoir plus
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
+      </a>
+      <div class="nav-mobile-footer">
+        <span>DJing Is A Medicine</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+     SECTION 1 — HERO (transparent / parallax)
+     ========================================== -->
+  <section class="hero partenaires-hero" id="partenaires-top">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Partenaires</div>
+      <h1 class="hero-title">
+        <span class="word" style="--i:0">Ils</span>
+        <span class="word" style="--i:1">accompagnent</span>
+        <span class="word" style="--i:2">l'aventure</span>
+      </h1>
+      <p class="hero-subtitle">DJing Is A Medicine s'entoure de partenaires qui partagent une vision commune : créer des espaces de transformation par la musique, le corps et la conscience.</p>
+    </div>
+    <div class="hero-scroll">
+      <span>Découvrir</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Wave separator -->
+  <div class="wave-separator">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#D5CBC0" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z">
+        <animate attributeName="d" dur="8s" repeatCount="indefinite" values="
+        M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z;
+        M0,50 C300,20 600,70 900,30 C1150,10 1350,60 1440,45 L1440,80 L0,80 Z;
+        M0,35 C400,75 750,10 1050,50 C1200,65 1350,35 1440,40 L1440,80 L0,80 Z;
+        M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z
+      " />
+      </path>
+    </svg>
+  </div>
+
+  <!-- ==========================================
+     SECTION 2 — INTRO + GRILLE PARTENAIRES (bg-night / opaque)
+     ========================================== -->
+  <section class="partenaires-section" id="grille">
+    <div class="container">
+      <div class="partenaires-intro reveal">
+        <p>Chacun à sa manière contribue à enrichir l'expérience des formations et des événements.</p>
+      </div>
+
+      <div class="partenaires-grid">
+
+        <a href="https://templesauvage.fr" target="_blank" rel="noopener" class="partenaire-card reveal">
+          <img src="images/partenaires/temple-sauvage-logo.png" alt="Temple Sauvage" class="partenaire-logo" loading="lazy">
+          <h3 class="partenaire-name">Temple Sauvage</h3>
+          <p class="partenaire-desc">Cacao et délices vibratoires par Roxanne. Stand présent lors des événements et festivals Ecstatic Dance pour accompagner les danseurs avec des boissons au cacao, reconnu pour ses propriétés d'ancrage et d'ouverture.</p>
+          <span class="partenaire-link">templesauvage.fr →</span>
+        </a>
+
+        <a href="https://omwater.be" target="_blank" rel="noopener" class="partenaire-card reveal">
+          <img src="images/partenaires/omwater-logo.jpg" alt="OmWater" class="partenaire-logo" loading="lazy">
+          <h3 class="partenaire-name">OmWater</h3>
+          <p class="partenaire-desc">Bouteilles d'eau vibrantes, conçues avec intention. Présentes lors des retraites et formations pour accompagner l'hydratation en conscience.</p>
+          <span class="partenaire-link">omwater.be →</span>
+        </a>
+
+        <a href="https://www.resalib.fr/praticien/108608-yaelle-bi-assira-psycho-energeticien-sotteville-les-rouen" target="_blank" rel="noopener" class="partenaire-card reveal">
+          <div class="partenaire-logo-placeholder">YB</div>
+          <h3 class="partenaire-name">Yaëlle Bi-Assira</h3>
+          <p class="partenaire-desc">Psycho-énergéticienne. Elle intervient lors des retraites pour offrir des soins individuels et accompagner les participants dans leur processus de transformation.</p>
+          <span class="partenaire-link">resalib.fr →</span>
+        </a>
+
+        <div class="partenaire-card reveal">
+          <div class="partenaire-logo-placeholder">MI</div>
+          <h3 class="partenaire-name">Mission Indigo</h3>
+          <p class="partenaire-desc">Description à venir — en attente de confirmation par Benjamin.</p>
+          <span class="partenaire-link partenaire-link-pending">Lien à venir</span>
+        </div>
+
+        <a href="https://psio.com" target="_blank" rel="noopener" class="partenaire-card reveal">
+          <img src="images/partenaires/psio-logo.png" alt="PSIO" class="partenaire-logo" loading="lazy">
+          <h3 class="partenaire-name">PSIO</h3>
+          <p class="partenaire-desc">Lunettes de luminothérapie et relaxation combinées. Utilisées pendant les formations pour favoriser la récupération, la détente profonde et l'intégration des apprentissages.</p>
+          <span class="partenaire-link">psio.com →</span>
+        </a>
+
+        <div class="partenaire-card reveal">
+          <div class="partenaire-logo-placeholder">CG</div>
+          <h3 class="partenaire-name">Corsair Group</h3>
+          <p class="partenaire-desc">Description à clarifier avec Benjamin — distributeur PSIO ou partenaire distinct.</p>
+          <span class="partenaire-link partenaire-link-pending">Lien à venir</span>
+        </div>
+
+        <a href="https://mixedinkey.com" target="_blank" rel="noopener" class="partenaire-card reveal">
+          <img src="images/partenaires/mixed-in-key.webp" alt="Mixed In Key" class="partenaire-logo" loading="lazy">
+          <h3 class="partenaire-name">Mixed In Key</h3>
+          <p class="partenaire-desc">Logiciel de référence pour le mix harmonique, utilisé et recommandé dans les formations DIAM. Permet aux élèves de maîtriser le harmonic mixing dès le début de leur parcours.</p>
+          <span class="partenaire-link">mixedinkey.com →</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave separator -->
+  <div class="wave-separator wave-separator-reverse">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#D5CBC0" d="M0,40 C360,0 720,80 1080,40 C1260,20 1380,30 1440,40 L1440,0 L0,0 Z">
+        <animate attributeName="d" dur="8s" repeatCount="indefinite" values="
+        M0,40 C360,0 720,80 1080,40 C1260,20 1380,30 1440,40 L1440,0 L0,0 Z;
+        M0,30 C300,60 600,10 900,50 C1150,70 1350,20 1440,35 L1440,0 L0,0 Z;
+        M0,45 C400,5 750,70 1050,30 C1200,15 1350,45 1440,40 L1440,0 L0,0 Z;
+        M0,40 C360,0 720,80 1080,40 C1260,20 1380,30 1440,40 L1440,0 L0,0 Z
+      " />
+      </path>
+    </svg>
+  </div>
+
+  <!-- ==========================================
+     SECTION 3 — CTA DEVENIR PARTENAIRE (transparent / parallax)
+     ========================================== -->
+  <section class="partenaires-cta" id="devenir-partenaire">
+    <div class="container">
+      <div class="partenaires-cta-content reveal">
+        <div class="section-label">Rejoins l'aventure</div>
+        <h2 class="section-title">Devenir partenaire</h2>
+        <p class="partenaires-cta-text">Tu représentes une marque, un projet ou une pratique alignée avec la philosophie DJing Is A Medicine ? Parlons-en.</p>
+        <a href="contact.html?sujet=devenir-partenaire" class="hero-cta" data-magnetic>
+          Proposer un partenariat
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+     FOOTER
+     ========================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">DJing Is A Medicine</div>
+          <p>Le DJing comme voie sensible pour créer des espaces sécurisés et des voyages musicaux.</p>
+          <div class="footer-social" style="margin-top:1rem;">
+            <a href="https://www.instagram.com/eotim_music/" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="5" />
+                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+              </svg></a>
+            <a href="https://www.facebook.com/eotim.music" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.5">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+              </svg></a>
+            <a href="https://www.youtube.com/@eotim" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.5">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.4 19.6C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 001.94-2A29 29 0 0023 12a29 29 0 00-.46-5.58z" />
+                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+              </svg></a>
+            <a href="https://soundcloud.com/eotim" aria-label="SoundCloud"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.5">
+                <path d="M2 16v-3m3 4V10m3 7V8m3 9V5m3 12V9m3 8v-5m3 5v-7" />
+              </svg></a>
+            <a href="https://www.mixcloud.com/eotim/" aria-label="Mixcloud"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M8 15V9l4 3-4 3z" />
+                <path d="M13 15V9l4 3-4 3z" />
+              </svg></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="formation.html">Formation</a></li>
+            <li><a href="ecstatic-dance.html">Ecstatic Dance</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="partenaires.html">Partenaires</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Espace élèves</h4>
+          <ul>
+            <li><a href="https://membres.benjaminbossu.com" target="_blank" rel="noopener">Connexion espace élèves</a></li>
+            <li><a href="https://benjaminbossu.com">Découvre mon autre univers →</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 DJing Is A Medicine — Tous droits réservés</span>
+        <div class="footer-legal">
+          <a href="#">Mentions légales</a>
+          <a href="#">Politique de confidentialité</a>
+        </div>
+        <div class="footer-credit">Créé avec amour par Julien — <a href="https://flowebia.fr" target="_blank"
+            rel="noopener">flowebia.fr</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/mandala.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+
+</html>

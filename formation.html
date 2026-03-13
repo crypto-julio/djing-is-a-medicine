@@ -51,9 +51,9 @@
         <li><a href="formation.html">Formation</a></li>
         <li><a href="ecstatic-dance.html">Ecstatic Dance</a></li>
         <li><a href="a-propos.html">À propos</a></li>
-        <li><a href="index.html#partenaires">Partenaires</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-        <li><a href="index.html#contact" class="nav-cta" data-magnetic>En savoir plus</a></li>
+        <li><a href="partenaires.html">Partenaires</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="nav-cta" data-magnetic>En savoir plus</a></li>
       </ul>
       <div class="nav-hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -67,10 +67,10 @@
       <a href="formation.html" class="nav-mobile-link" style="--i:0" onclick="closeMobile()">Formation</a>
       <a href="ecstatic-dance.html" class="nav-mobile-link" style="--i:1" onclick="closeMobile()">Ecstatic Dance</a>
       <a href="a-propos.html" class="nav-mobile-link" style="--i:2" onclick="closeMobile()">À propos</a>
-      <a href="index.html#partenaires" class="nav-mobile-link" style="--i:3" onclick="closeMobile()">Partenaires</a>
-      <a href="index.html#contact" class="nav-mobile-link" style="--i:4" onclick="closeMobile()">Contact</a>
+      <a href="partenaires.html" class="nav-mobile-link" style="--i:3" onclick="closeMobile()">Partenaires</a>
+      <a href="contact.html" class="nav-mobile-link" style="--i:4" onclick="closeMobile()">Contact</a>
       <div class="nav-mobile-divider"></div>
-      <a href="index.html#contact" class="nav-mobile-cta" style="--i:5" onclick="closeMobile()">
+      <a href="contact.html" class="nav-mobile-cta" style="--i:5" onclick="closeMobile()">
         En savoir plus
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
           stroke-linecap="round" stroke-linejoin="round">
@@ -570,52 +570,16 @@
         <h2 class="section-title">Ils et elles l'ont vécu</h2>
       </div>
 
-      <!-- Galerie photos placeholder -->
-      <div class="f-galerie reveal reveal-delay-1">
-        <div class="f-galerie-grid">
-          <div class="f-galerie-item f-galerie-large">
-            <div class="f-galerie-placeholder">
-              <span>Photo retraite — groupe</span>
-            </div>
-          </div>
-          <div class="f-galerie-item">
-            <div class="f-galerie-placeholder">
-              <span>Salle de pratique</span>
-            </div>
-          </div>
-          <div class="f-galerie-item">
-            <div class="f-galerie-placeholder">
-              <span>Le lieu — Le rêve d'Ishowa</span>
-            </div>
-          </div>
-          <div class="f-galerie-item">
-            <div class="f-galerie-placeholder">
-              <span>Pratique en nature</span>
-            </div>
-          </div>
-          <div class="f-galerie-item">
-            <div class="f-galerie-placeholder">
-              <span>Matériel DJ</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Video after-movie placeholder -->
+      <!-- Video témoignages -->
       <div class="f-video reveal">
-        <div class="video-placeholder">
-          <div class="video-play">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="#2A1F30" stroke="none">
-              <polygon points="5 3 19 12 5 21 5 3" />
-            </svg>
-          </div>
-          <div class="video-label">After-movie — Retraite immersive</div>
+        <div class="video-embed">
+          <iframe src="https://www.youtube-nocookie.com/embed/2ZgzxR7KHdo?rel=0" title="Témoignages — Retraite formation DJ holistique" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
       </div>
 
-      <!-- Témoignages prioritaires -->
-      <div class="f-temoignages-grid">
-        <div class="f-temoignage-big reveal reveal-delay-1">
+      <!-- Témoignage 1 : texte gauche, photo droite -->
+      <div class="f-mix-row reveal">
+        <div class="f-mix-testimonial">
           <div class="testimonial-card">
             <div class="testimonial-stars">★★★★★</div>
             <p class="testimonial-quote">"Benjamin incarne l'expérience, la maîtrise et la patience d'un DJ conscient. Sa pédagogie est solide, concrète et complète. Le niveau technique proposé est très accessible tout en respectant le rythme de chacun. S'offrir ce stage est un cadeau que je me suis fait en écoutant mon intuition, et aujourd'hui je suis devenue DJ ecstatic, avec la joie au cœur de mixer devant notre belle communauté. Et la joie ne me quitte plus."</p>
@@ -628,7 +592,14 @@
             </div>
           </div>
         </div>
-        <div class="f-temoignage-big reveal reveal-delay-2">
+        <div class="f-mix-photo">
+          <img src="images/retraite/Groupe-formation-ecstaticdance.jpg" alt="Groupe de la formation Ecstatic Dance" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Témoignage 2 : photo gauche, texte droite -->
+      <div class="f-mix-row f-mix-row-reverse reveal">
+        <div class="f-mix-testimonial">
           <div class="testimonial-card">
             <div class="testimonial-stars">★★★★★</div>
             <p class="testimonial-quote">"J'ai pu développer ma pratique non seulement sur le volet technique, avec des règles essentielles du métier de DJ, mais aussi, et surtout, sur l'aspect de la posture. Les exercices qu'il propose permettent de se recentrer sur soi-même, d'être détendu dans son corps et à l'écoute des signaux que le public nous envoie. Après ce stage, je me suis senti libéré, confiant, et prêt à me lancer."</p>
@@ -641,11 +612,14 @@
             </div>
           </div>
         </div>
+        <div class="f-mix-photo">
+          <img src="images/retraite/techniqueDj.jpg" alt="Technique DJ en formation" loading="lazy">
+        </div>
       </div>
 
-      <!-- Témoignages secondaires -->
-      <div class="f-temoignages-secondary">
-        <div class="f-temoignage-small reveal reveal-delay-3">
+      <!-- Témoignage 3 : texte gauche, photo droite -->
+      <div class="f-mix-row reveal">
+        <div class="f-mix-testimonial">
           <div class="testimonial-card">
             <div class="testimonial-stars">★★★★★</div>
             <p class="testimonial-quote">"Benjamin est un véritable pédagogue holistique. Ses retraites représentent une nouvelle façon d'apprendre en assimilant un savoir-faire et en intégrant en même temps un savoir-être. En se souciant autant de la technique que de la posture, de l'intention et de l'état d'esprit du DJ dans sa pratique, les élèves sont grandement nourris."</p>
@@ -658,7 +632,14 @@
             </div>
           </div>
         </div>
-        <div class="f-temoignage-small reveal reveal-delay-4">
+        <div class="f-mix-photo">
+          <img src="images/retraite/traktorpro3.jpg" alt="Pratique sur Traktor Pro 3" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Témoignage 4 : photo gauche, texte droite -->
+      <div class="f-mix-row f-mix-row-reverse reveal">
+        <div class="f-mix-testimonial">
           <div class="testimonial-card">
             <div class="testimonial-stars">★★★★★</div>
             <p class="testimonial-quote">"Benjamin m'a transmis à la fois des outils concrets pour cultiver un état d'être présent et conscient derrière les platines et une connaissance approfondie du logiciel de mix Traktor. Les 6 mois de suivi après la formation m'ont permis d'organiser mes premiers événements d'Ecstatic Dance en me sentant soutenu et accompagné."</p>
@@ -670,6 +651,19 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="f-mix-photo">
+          <img src="images/retraite/ecstatic-dance-warmup.jpg" alt="Warm-up Ecstatic Dance" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Photos restantes -->
+      <div class="f-photos-extra reveal">
+        <div class="f-mix-photo">
+          <img src="images/retraite/Eiutim-ecstatic.jpg" alt="Ëotim en session Ecstatic Dance" loading="lazy">
+        </div>
+        <div class="f-mix-photo">
+          <img src="images/retraite/Evenementecstaticdance.jpg" alt="Événement Ecstatic Dance" loading="lazy">
         </div>
       </div>
 
@@ -783,11 +777,8 @@
             </select>
             <select class="newsletter-input newsletter-select" name="subject" required>
               <option value="" disabled selected>Sujet</option>
-              <option value="information-generale">Information générale</option>
               <option value="dj-holistique">Retraite formation DJ holistique</option>
               <option value="danses-48">D.A.N.S.E.S 48</option>
-              <option value="devenir-partenaire">Devenir partenaire</option>
-              <option value="autre">Autre</option>
             </select>
           </div>
           <div class="motivation-field" id="motivationField" style="display:none;">
@@ -865,13 +856,14 @@
             <li><a href="formation.html">Formation</a></li>
             <li><a href="ecstatic-dance.html">Ecstatic Dance</a></li>
             <li><a href="a-propos.html">À propos</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="partenaires.html">Partenaires</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
         <div class="footer-links">
           <h4>Espace élèves</h4>
           <ul>
-            <li><a href="#">Connexion espace élèves</a></li>
+            <li><a href="https://membres.benjaminbossu.com" target="_blank" rel="noopener">Connexion espace élèves</a></li>
             <li><a href="https://benjaminbossu.com" target="_blank" rel="noopener">Découvre mon autre univers →</a></li>
           </ul>
         </div>
@@ -889,11 +881,39 @@
   </footer>
 
   <!-- ==========================================
+     SIDE NAV — Navigation sticky sections
+     ========================================== -->
+  <!-- Desktop: mini carte latérale | Mobile: barre compacte bas -->
+  <nav class="sidenav" id="sideNav" aria-label="Navigation sections">
+    <!-- Desktop dots -->
+    <div class="sidenav-dots">
+      <a href="#formation-top" class="sidenav-dot active" data-section="formation-top" data-label="Accueil"></a>
+      <a href="#pourquoi" class="sidenav-dot" data-section="pourquoi" data-label="Pourquoi"></a>
+      <a href="#pour-qui" class="sidenav-dot" data-section="pour-qui" data-label="Pour qui"></a>
+      <a href="#format" class="sidenav-dot" data-section="format" data-label="Le format"></a>
+      <a href="#programme" class="sidenav-dot" data-section="programme" data-label="Programme"></a>
+      <a href="#temoignages" class="sidenav-dot" data-section="temoignages" data-label="Témoignages"></a>
+      <a href="#contact" class="sidenav-dot" data-section="contact" data-label="S'inscrire"></a>
+    </div>
+    <!-- Mobile compact bar -->
+    <div class="sidenav-mobile">
+      <button class="sidenav-arrow sidenav-prev" id="sidenavPrev" aria-label="Section précédente">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <span class="sidenav-current" id="sidenavCurrent">Accueil</span>
+      <button class="sidenav-arrow sidenav-next" id="sidenavNext" aria-label="Section suivante">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==========================================
      SCRIPTS
      ========================================== -->
   <script src="js/mandala.js" defer></script>
   <script src="js/main.js" defer></script>
   <script src="js/contact.js" defer></script>
+  <script src="js/formation-nav.js" defer></script>
 </body>
 
 </html>

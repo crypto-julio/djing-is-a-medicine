@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — DJing Is A Medicine</title>
+  <meta name="description"
+    content="Une question, un projet, un partenariat ? Contacte Ëotim et l'équipe DJing Is A Medicine.">
+  <meta property="og:title" content="Contact — DJing Is A Medicine">
+  <meta property="og:description" content="Écris-nous. On te répond personnellement.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=Outfit:wght@400;600&display=swap"
+    rel="stylesheet">
+  <link rel="preload" as="font" href="fonts/Decalotype-Bold.woff2" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="contact.css">
+</head>
+
+<body>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Fixed parallax background -->
+  <div id="parallax-bg">
+    <div class="hero-bg"></div>
+    <div class="aurora">
+      <div class="aurora-blob aurora-blob-1"></div>
+      <div class="aurora-blob aurora-blob-2"></div>
+      <div class="aurora-blob aurora-blob-3"></div>
+    </div>
+    <canvas id="sound-waves-canvas"></canvas>
+  </div>
+
+  <!-- ==========================================
+     NAVIGATION
+     ========================================== -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">DJing Is A Medicine</a>
+      <ul class="nav-links">
+        <li><a href="formation.html">Formation</a></li>
+        <li><a href="ecstatic-dance.html">Ecstatic Dance</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="partenaires.html">Partenaires</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="nav-cta" data-magnetic>En savoir plus</a></li>
+      </ul>
+      <div class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="mobileMenu">
+    <div class="nav-mobile-bg"></div>
+    <div class="nav-mobile-content">
+      <a href="formation.html" class="nav-mobile-link" style="--i:0" onclick="closeMobile()">Formation</a>
+      <a href="ecstatic-dance.html" class="nav-mobile-link" style="--i:1" onclick="closeMobile()">Ecstatic Dance</a>
+      <a href="a-propos.html" class="nav-mobile-link" style="--i:2" onclick="closeMobile()">À propos</a>
+      <a href="partenaires.html" class="nav-mobile-link" style="--i:3" onclick="closeMobile()">Partenaires</a>
+      <a href="contact.html" class="nav-mobile-link" style="--i:4" onclick="closeMobile()">Contact</a>
+      <div class="nav-mobile-divider"></div>
+      <a href="contact.html" class="nav-mobile-cta" style="--i:5" onclick="closeMobile()">
+        En savoir plus
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
+      </a>
+      <div class="nav-mobile-footer">
+        <span>DJing Is A Medicine</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+     SECTION 1 — HERO + FORMULAIRE (transparent / parallax)
+     ========================================== -->
+  <section class="hero contact-hero" id="contact-top">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Contact</div>
+      <h1 class="hero-title">
+        <span class="word" style="--i:0">Une</span>
+        <span class="word" style="--i:1">question ?</span>
+        <span class="word" style="--i:2">Un</span>
+        <span class="word" style="--i:3">projet ?</span>
+        <span class="word" style="--i:4">Écris-nous.</span>
+      </h1>
+      <p class="hero-subtitle">Que tu sois intéressé·e par la formation, un événement ou un partenariat, on te répond personnellement.</p>
+    </div>
+  </section>
+
+  <!-- Wave separator -->
+  <div class="wave-separator">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#D5CBC0" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z">
+        <animate attributeName="d" dur="8s" repeatCount="indefinite" values="
+        M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z;
+        M0,50 C300,20 600,70 900,30 C1150,10 1350,60 1440,45 L1440,80 L0,80 Z;
+        M0,35 C400,75 750,10 1050,50 C1200,65 1350,35 1440,40 L1440,80 L0,80 Z;
+        M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z
+      " />
+      </path>
+    </svg>
+  </div>
+
+  <!-- ==========================================
+     SECTION — FORMULAIRE (bg-night / opaque)
+     ========================================== -->
+  <section class="contact-form-section" id="contact-form">
+    <div class="container">
+      <div class="newsletter-content">
+        <form class="newsletter-form reveal" id="contactForm" novalidate>
+          <input type="hidden" name="locale" value="fr">
+          <div class="newsletter-row">
+            <input type="text" class="newsletter-input" placeholder="Ton prénom" name="first_name" required>
+            <input type="text" class="newsletter-input" placeholder="Ton nom" name="last_name" required>
+          </div>
+          <div class="newsletter-row">
+            <input type="email" class="newsletter-input" placeholder="Ton email" name="email" required>
+            <input type="tel" class="newsletter-input" placeholder="Ton téléphone" name="phone" required>
+          </div>
+          <select class="newsletter-input newsletter-select" name="subject" required>
+            <option value="" disabled selected>Sujet</option>
+            <option value="devenir-partenaire">Devenir partenaire</option>
+            <option value="information-generale">Information générale</option>
+          </select>
+          <textarea class="newsletter-input newsletter-textarea" name="messageUser"
+            placeholder="Ton message" rows="4" required></textarea>
+          <label class="newsletter-checkbox-label">
+            <input type="checkbox" name="newsletter_chk" value="true" checked>
+            <span>Tu es ok pour recevoir la newsletter</span>
+          </label>
+          <button type="submit" class="newsletter-submit" id="contactSubmit">Envoyer</button>
+          <p class="newsletter-form-status" id="formStatus"></p>
+        </form>
+        <p class="newsletter-disclaimer reveal reveal-delay-1">Pas de spam. Tes données restent confidentielles.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave separator -->
+  <div class="wave-separator wave-separator-reverse">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#D5CBC0" d="M0,40 C360,0 720,80 1080,40 C1260,20 1380,30 1440,40 L1440,0 L0,0 Z">
+        <animate attributeName="d" dur="8s" repeatCount="indefinite" values="
+        M0,40 C360,0 720,80 1080,40 C1260,20 1380,30 1440,40 L1440,0 L0,0 Z;
+        M0,30 C300,60 600,10 900,50 C1150,70 1350,20 1440,35 L1440,0 L0,0 Z;
+        M0,45 C400,5 750,70 1050,30 C1200,15 1350,45 1440,40 L1440,0 L0,0 Z;
+        M0,40 C360,0 720,80 1080,40 C1260,20 1380,30 1440,40 L1440,0 L0,0 Z
+      " />
+      </path>
+    </svg>
+  </div>
+
+  <!-- ==========================================
+     SECTION — RÉSEAUX SOCIAUX (transparent / parallax)
+     ========================================== -->
+  <section class="contact-socials" id="reseaux">
+    <div class="container">
+      <div class="section-label reveal">Réseaux</div>
+      <h2 class="section-title reveal reveal-delay-1">Retrouve Ëotim sur les réseaux</h2>
+
+      <div class="socials-grid reveal reveal-delay-2">
+        <a href="https://www.instagram.com/eotim.dj" target="_blank" rel="noopener" class="social-link-card">
+          <div class="social-link-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="5" />
+              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+            </svg>
+          </div>
+          <span class="social-link-name">Instagram</span>
+        </a>
+
+        <a href="https://www.facebook.com/benjamin.bossu.catalyseur" target="_blank" rel="noopener" class="social-link-card">
+          <div class="social-link-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+            </svg>
+          </div>
+          <span class="social-link-name">Facebook</span>
+        </a>
+
+        <a href="https://www.youtube.com/@_BenjaminBossu" target="_blank" rel="noopener" class="social-link-card">
+          <div class="social-link-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.4 19.6C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 001.94-2A29 29 0 0023 12a29 29 0 00-.46-5.58z" />
+              <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+            </svg>
+          </div>
+          <span class="social-link-name">YouTube</span>
+        </a>
+
+        <a href="https://www.mixcloud.com/eotim/" target="_blank" rel="noopener" class="social-link-card">
+          <div class="social-link-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M8 15V9l4 3-4 3z" />
+              <path d="M13 15V9l4 3-4 3z" />
+            </svg>
+          </div>
+          <span class="social-link-name">Mixcloud</span>
+        </a>
+
+        <a href="https://soundcloud.com/eotimdj" target="_blank" rel="noopener" class="social-link-card">
+          <div class="social-link-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M2 16v-3m3 4V10m3 7V8m3 9V5m3 12V9m3 8v-5m3 5v-7" />
+            </svg>
+          </div>
+          <span class="social-link-name">SoundCloud</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave separator -->
+  <div class="wave-separator">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#D5CBC0" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z">
+        <animate attributeName="d" dur="8s" repeatCount="indefinite" values="
+        M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z;
+        M0,50 C300,20 600,70 900,30 C1150,10 1350,60 1440,45 L1440,80 L0,80 Z;
+        M0,35 C400,75 750,10 1050,50 C1200,65 1350,35 1440,40 L1440,80 L0,80 Z;
+        M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z
+      " />
+      </path>
+    </svg>
+  </div>
+
+  <!-- ==========================================
+     SECTION — ESPACE ÉLÈVES (bg-night / opaque)
+     ========================================== -->
+  <section class="contact-eleves" id="espace-eleves">
+    <div class="container">
+      <div class="eleves-card reveal">
+        <div class="eleves-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 14l9-5-9-5-9 5 9 5z" />
+            <path d="M12 14l6.16-3.422A12.083 12.083 0 0121 17.5c0 1.5-4.03 3.5-9 3.5s-9-2-9-3.5a12.083 12.083 0 012.84-6.922L12 14z" />
+            <line x1="3" y1="9" x2="3" y2="17" />
+          </svg>
+        </div>
+        <h2 class="eleves-title">Tu es déjà inscrit·e à la formation ?</h2>
+        <p class="eleves-text">Accède à ton espace personnel pour retrouver tes cours, replays et ressources.</p>
+        <a href="https://membres.benjaminbossu.com" target="_blank" rel="noopener" class="eleves-btn" data-magnetic>
+          Connexion espace élèves
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+     FOOTER
+     ========================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">DJing Is A Medicine</div>
+          <p>Le DJing comme voie sensible pour créer des espaces sécurisés et des voyages musicaux.</p>
+          <div class="footer-social" style="margin-top:1rem;">
+            <a href="https://www.instagram.com/eotim_music/" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="5" />
+                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+              </svg></a>
+            <a href="https://www.facebook.com/eotim.music" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.5">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+              </svg></a>
+            <a href="https://www.youtube.com/@eotim" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.5">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.4 19.6C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 001.94-2A29 29 0 0023 12a29 29 0 00-.46-5.58z" />
+                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+              </svg></a>
+            <a href="https://soundcloud.com/eotim" aria-label="SoundCloud"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.5">
+                <path d="M2 16v-3m3 4V10m3 7V8m3 9V5m3 12V9m3 8v-5m3 5v-7" />
+              </svg></a>
+            <a href="https://www.mixcloud.com/eotim/" aria-label="Mixcloud"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M8 15V9l4 3-4 3z" />
+                <path d="M13 15V9l4 3-4 3z" />
+              </svg></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="formation.html">Formation</a></li>
+            <li><a href="ecstatic-dance.html">Ecstatic Dance</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="partenaires.html">Partenaires</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Espace élèves</h4>
+          <ul>
+            <li><a href="https://membres.benjaminbossu.com" target="_blank" rel="noopener">Connexion espace élèves</a></li>
+            <li><a href="https://benjaminbossu.com">Découvre mon autre univers →</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 DJing Is A Medicine — Tous droits réservés</span>
+        <div class="footer-legal">
+          <a href="#">Mentions légales</a>
+          <a href="#">Politique de confidentialité</a>
+        </div>
+        <div class="footer-credit">Créé avec amour par Julien — <a href="https://flowebia.fr" target="_blank"
+            rel="noopener">flowebia.fr</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/mandala.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/contact.js" defer></script>
+
+  <script>
+    // Pre-select subject from URL param (e.g. ?sujet=devenir-partenaire)
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var sujet = params.get('sujet');
+      if (sujet) {
+        var select = document.querySelector('select[name="subject"]');
+        if (select) {
+          for (var i = 0; i < select.options.length; i++) {
+            if (select.options[i].value === sujet) {
+              select.selectedIndex = i;
+              break;
+            }
+          }
+        }
+      }
+    })();
+  </script>
+</body>
+
+</html>
