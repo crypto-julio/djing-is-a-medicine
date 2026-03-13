@@ -162,12 +162,180 @@
   to { stroke-dashoffset: 0; }
 }
 
-/* Dancers — glow */
-.ed-dancer-1 { filter: drop-shadow(0 0 6px rgba(232, 200, 114, 0.15)); }
-.ed-dancer-2 { filter: drop-shadow(0 0 6px rgba(214, 36, 110, 0.15)); }
-.ed-dancer-3 { filter: drop-shadow(0 0 6px rgba(196, 122, 46, 0.15)); }
-.ed-dancer-4 { filter: drop-shadow(0 0 6px rgba(139, 58, 122, 0.15)); }
-.ed-dancer-5 { filter: drop-shadow(0 0 6px rgba(30, 160, 200, 0.15)); }
+/* ---- Globe orbiting stick-figure dancers ---- */
+.ed-globe-dancers {
+  animation: edDancersOrbit 50s linear infinite;
+  transform-origin: 160px 160px;
+}
+
+@keyframes edDancersOrbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Dancer pivot — feet anchored at bottom of local coord space */
+.ed-gd {
+  transform-origin: 22px 67px;
+}
+
+/* Colors per dancer type */
+.ed-gd-1 { color: rgba(232, 200, 114, 0.7); filter: drop-shadow(0 0 8px rgba(232, 200, 114, 0.3)); }
+.ed-gd-2 { color: rgba(214, 36, 110, 0.6); filter: drop-shadow(0 0 8px rgba(214, 36, 110, 0.25)); }
+.ed-gd-3 { color: rgba(196, 122, 46, 0.65); filter: drop-shadow(0 0 8px rgba(196, 122, 46, 0.25)); }
+.ed-gd-4 { color: rgba(139, 58, 122, 0.6); filter: drop-shadow(0 0 8px rgba(139, 58, 122, 0.25)); }
+.ed-gd-5 { color: rgba(30, 160, 200, 0.6); filter: drop-shadow(0 0 8px rgba(30, 160, 200, 0.25)); }
+
+/* ---- Floor / dance animations (jump, hop, sway, drift) ---- */
+/* translateY negative = jump outward from globe surface */
+.ed-floor-1  { animation: ed-floor-jump 2.4s cubic-bezier(.36,0,.66,1) infinite 0s; }
+.ed-floor-2  { animation: ed-floor-sway 3.0s ease-in-out infinite 0.4s; }
+.ed-floor-3  { animation: ed-floor-hop  1.6s cubic-bezier(.22,.68,.36,1) infinite 0.7s; }
+.ed-floor-4  { animation: ed-floor-drift 4.0s ease-in-out infinite 0.2s; }
+.ed-floor-5  { animation: ed-floor-jump 2.0s cubic-bezier(.36,0,.66,1) infinite 1.0s; }
+.ed-floor-6  { animation: ed-floor-sway 2.6s ease-in-out infinite 0.6s; }
+.ed-floor-7  { animation: ed-floor-hop  1.8s cubic-bezier(.22,.68,.36,1) infinite 0.3s; }
+.ed-floor-8  { animation: ed-floor-drift 3.5s ease-in-out infinite 0.9s; }
+.ed-floor-9  { animation: ed-floor-jump 2.2s cubic-bezier(.36,0,.66,1) infinite 0.5s; }
+.ed-floor-10 { animation: ed-floor-sway 2.8s ease-in-out infinite 0.1s; }
+
+/* Jump — sharp upward burst, gravity fall */
+@keyframes ed-floor-jump {
+  0%, 100% { transform: translateY(0) scaleY(1); }
+  8%       { transform: translateY(0) scaleY(0.85) scaleX(1.1); }
+  15%      { transform: translateY(-22px) scaleY(1.1) scaleX(0.95); }
+  40%      { transform: translateY(-26px) scaleY(1.05); }
+  70%      { transform: translateY(-4px) scaleY(1); }
+  85%      { transform: translateY(0) scaleY(0.9) scaleX(1.05); }
+}
+
+/* Hop — small quick bounces with lateral sway */
+@keyframes ed-floor-hop {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  20%      { transform: translateY(-10px) translateX(3px); }
+  30%      { transform: translateY(0) translateX(4px); }
+  50%      { transform: translateY(-8px) translateX(1px); }
+  60%      { transform: translateY(0) translateX(-2px); }
+  80%      { transform: translateY(-12px) translateX(-4px); }
+  90%      { transform: translateY(0) translateX(-2px); }
+}
+
+/* Sway — grounded weight shift */
+@keyframes ed-floor-sway {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  25%      { transform: translateX(6px) rotate(3deg); }
+  50%      { transform: translateX(-4px) rotate(-2deg); }
+  75%      { transform: translateX(8px) rotate(2deg); }
+}
+
+/* Drift — slow lateral walk with bounce */
+@keyframes ed-floor-drift {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  15%      { transform: translateX(10px) translateY(-3px); }
+  30%      { transform: translateX(14px) translateY(0); }
+  50%      { transform: translateX(6px) translateY(-5px); }
+  70%      { transform: translateX(-8px) translateY(0); }
+  85%      { transform: translateX(-12px) translateY(-2px); }
+}
+
+/* Limb pivot points */
+.ed-gd .d-arm-l,
+.ed-gd .d-arm-r { transform-origin: 22px 22px; }
+.ed-gd-2 .d-arm-l,
+.ed-gd-2 .d-arm-r { transform-origin: 22px 24px; }
+.ed-gd-3 .d-arm-l,
+.ed-gd-3 .d-arm-r { transform-origin: 22px 20px; }
+.ed-gd-5 .d-arm-l,
+.ed-gd-5 .d-arm-r { transform-origin: 22px 21px; }
+.ed-gd .d-leg-l,
+.ed-gd .d-leg-r { transform-origin: 22px 42px; }
+
+/* Arm animations */
+.ed-gd-1 .d-arm-l { animation: ed-arm-up-l 2s ease-in-out infinite; }
+.ed-gd-1 .d-arm-r { animation: ed-arm-up-r 2s ease-in-out infinite -0.3s; }
+.ed-gd-2 .d-arm-l { animation: ed-arm-wave-l 1.6s ease-in-out infinite; }
+.ed-gd-2 .d-arm-r { animation: ed-arm-wave-r 1.6s ease-in-out infinite -0.4s; }
+.ed-gd-3 .d-arm-l { animation: ed-arm-wide-l 2.4s ease-in-out infinite; }
+.ed-gd-3 .d-arm-r { animation: ed-arm-wide-r 2.4s ease-in-out infinite -0.6s; }
+.ed-gd-4 .d-arm-l { animation: ed-arm-flow-l 2.8s ease-in-out infinite; }
+.ed-gd-4 .d-arm-r { animation: ed-arm-flow-r 2.8s ease-in-out infinite -0.5s; }
+.ed-gd-5 .d-arm-l { animation: ed-arm-up-l 1.8s ease-in-out infinite -0.2s; }
+.ed-gd-5 .d-arm-r { animation: ed-arm-up-r 1.8s ease-in-out infinite -0.7s; }
+
+@keyframes ed-arm-up-l {
+  0%, 100% { transform: rotate(-15deg); }
+  50% { transform: rotate(20deg); }
+}
+@keyframes ed-arm-up-r {
+  0%, 100% { transform: rotate(15deg); }
+  50% { transform: rotate(-20deg); }
+}
+@keyframes ed-arm-wave-l {
+  0%, 100% { transform: rotate(-25deg); }
+  50% { transform: rotate(10deg); }
+}
+@keyframes ed-arm-wave-r {
+  0%, 100% { transform: rotate(10deg); }
+  50% { transform: rotate(-25deg); }
+}
+@keyframes ed-arm-wide-l {
+  0%, 100% { transform: rotate(-10deg); }
+  30% { transform: rotate(25deg); }
+  70% { transform: rotate(-18deg); }
+}
+@keyframes ed-arm-wide-r {
+  0%, 100% { transform: rotate(10deg); }
+  30% { transform: rotate(-25deg); }
+  70% { transform: rotate(18deg); }
+}
+@keyframes ed-arm-flow-l {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-20deg); }
+  75% { transform: rotate(15deg); }
+}
+@keyframes ed-arm-flow-r {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(20deg); }
+  75% { transform: rotate(-15deg); }
+}
+
+/* Leg animations */
+.ed-gd-1 .d-leg-l { animation: ed-leg-step-l 2s ease-in-out infinite; }
+.ed-gd-1 .d-leg-r { animation: ed-leg-step-r 2s ease-in-out infinite; }
+.ed-gd-2 .d-leg-l { animation: ed-leg-groove-l 1.6s ease-in-out infinite; }
+.ed-gd-2 .d-leg-r { animation: ed-leg-groove-r 1.6s ease-in-out infinite; }
+.ed-gd-3 .d-leg-l { animation: ed-leg-bounce-l 2.2s ease-in-out infinite; }
+.ed-gd-3 .d-leg-r { animation: ed-leg-bounce-r 2.2s ease-in-out infinite; }
+.ed-gd-4 .d-leg-l { animation: ed-leg-step-l 2.8s ease-in-out infinite; }
+.ed-gd-4 .d-leg-r { animation: ed-leg-step-r 2.8s ease-in-out infinite; }
+.ed-gd-5 .d-leg-l { animation: ed-leg-groove-l 1.8s ease-in-out infinite; }
+.ed-gd-5 .d-leg-r { animation: ed-leg-groove-r 1.8s ease-in-out infinite; }
+
+@keyframes ed-leg-step-l {
+  0%, 100% { transform: rotate(8deg); }
+  50% { transform: rotate(-12deg); }
+}
+@keyframes ed-leg-step-r {
+  0%, 100% { transform: rotate(-8deg); }
+  50% { transform: rotate(12deg); }
+}
+@keyframes ed-leg-groove-l {
+  0%, 100% { transform: rotate(5deg); }
+  30% { transform: rotate(-18deg); }
+  70% { transform: rotate(10deg); }
+}
+@keyframes ed-leg-groove-r {
+  0%, 100% { transform: rotate(-5deg); }
+  30% { transform: rotate(18deg); }
+  70% { transform: rotate(-10deg); }
+}
+@keyframes ed-leg-bounce-l {
+  0%, 100% { transform: rotate(6deg); }
+  50% { transform: rotate(-10deg); }
+}
+@keyframes ed-leg-bounce-r {
+  0%, 100% { transform: rotate(-6deg); }
+  50% { transform: rotate(10deg); }
+}
 
 /* Orbit particles glow */
 .ed-orbit-particle {
@@ -760,7 +928,13 @@
 @media (prefers-reduced-motion: reduce) {
   .ed-globe-wireframe,
   .ed-ring-dash,
-  .ed-globe-scene {
+  .ed-globe-scene,
+  .ed-globe-dancers,
+  .ed-gd,
+  .ed-gd .d-arm-l,
+  .ed-gd .d-arm-r,
+  .ed-gd .d-leg-l,
+  .ed-gd .d-leg-r {
     animation: none;
   }
 }
