@@ -134,7 +134,33 @@
         </div>
       </div>
 
-      <!-- Timeline repères clés -->
+    </div>
+  </section>
+
+  <!-- Wave separator (opaque → transparent) -->
+  <div class="wave-separator">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#D5CBC0" d="M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z">
+        <animate attributeName="d" dur="10s" repeatCount="indefinite" values="
+        M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z;
+        M0,30 C300,70 540,10 780,50 C1020,70 1260,15 1440,35 L1440,0 L0,0 Z;
+        M0,50 C200,5 440,75 680,35 C920,5 1160,70 1440,45 L1440,0 L0,0 Z;
+        M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z
+      " />
+      </path>
+    </svg>
+  </div>
+
+  <!-- ==========================================
+     SECTION 3 — CHRONOLOGIE (transparent / parallax)
+     ========================================== -->
+  <section class="about-timeline" id="chronologie">
+    <div class="container">
+      <div class="timeline-header reveal">
+        <div class="section-label">Repères</div>
+        <h2 class="section-title">Le chemin parcouru</h2>
+      </div>
+
       <div class="timeline reveal">
         <div class="timeline-line"></div>
         <div class="timeline-item" data-timeline="1">
@@ -183,22 +209,23 @@
     </div>
   </section>
 
-  <!-- Wave separator -->
+  <!-- Wave separator (transparent → opaque) -->
   <div class="wave-separator">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-      <path fill="#D5CBC0" d="M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z">
-        <animate attributeName="d" dur="10s" repeatCount="indefinite" values="
-        M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z;
-        M0,30 C300,70 540,10 780,50 C1020,70 1260,15 1440,35 L1440,0 L0,0 Z;
-        M0,50 C200,5 440,75 680,35 C920,5 1160,70 1440,45 L1440,0 L0,0 Z;
-        M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z
+      <path fill="#D5CBC0"
+        d="M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z">
+        <animate attributeName="d" dur="9s" repeatCount="indefinite" values="
+        M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z;
+        M0,40 C220,15 400,70 600,35 C780,10 950,65 1120,45 C1280,30 1380,55 1440,40 L1440,80 L0,80 Z;
+        M0,55 C150,75 330,25 500,55 C680,75 860,15 1040,45 C1220,62 1360,38 1440,50 L1440,80 L0,80 Z;
+        M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z
       " />
       </path>
     </svg>
   </div>
 
   <!-- ==========================================
-     SECTION 3 — VISION (transparent / parallax)
+     SECTION 4 — VISION (bg-night / opaque)
      ========================================== -->
   <section class="about-vision" id="vision">
     <div class="container">
@@ -215,29 +242,28 @@
 
       <div class="vision-quote reveal">
         <blockquote>
-          <p>Posture + technique + collectif.<br>C'est l'alliance des trois qui transforme et permet.</p>
+          <p>On n'apprend pas que par la tête,<br>On apprend aussi par le corps.</p>
         </blockquote>
       </div>
     </div>
   </section>
 
-  <!-- Wave separator -->
+  <!-- Wave separator (opaque → transparent) -->
   <div class="wave-separator">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-      <path fill="#D5CBC0"
-        d="M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z">
-        <animate attributeName="d" dur="9s" repeatCount="indefinite" values="
-        M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z;
-        M0,40 C220,15 400,70 600,35 C780,10 950,65 1120,45 C1280,30 1380,55 1440,40 L1440,80 L0,80 Z;
-        M0,55 C150,75 330,25 500,55 C680,75 860,15 1040,45 C1220,62 1360,38 1440,50 L1440,80 L0,80 Z;
-        M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z
+      <path fill="#D5CBC0" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,0 L0,0 Z">
+        <animate attributeName="d" dur="8s" repeatCount="indefinite" values="
+        M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,0 L0,0 Z;
+        M0,50 C300,20 600,70 900,30 C1150,10 1350,60 1440,45 L1440,0 L0,0 Z;
+        M0,35 C400,75 750,10 1050,50 C1200,65 1350,35 1440,40 L1440,0 L0,0 Z;
+        M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,0 L0,0 Z
       " />
       </path>
     </svg>
   </div>
 
   <!-- ==========================================
-     SECTION 4 — ECOUTER / REGARDER / SUIVRE (bg-night / opaque)
+     SECTION 5 — ECOUTER / REGARDER / SUIVRE (transparent / parallax)
      ========================================== -->
   <section class="about-media" id="media">
     <div class="container">

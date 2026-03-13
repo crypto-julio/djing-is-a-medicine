@@ -375,18 +375,25 @@
 .ed-principe-card[data-principe="7"] { transition: opacity 0.7s var(--ease-out-slow) 0.47s, transform 0.7s var(--ease-out-slow) 0.47s, filter 0.7s var(--ease-out-slow) 0.47s, border-color 0.5s, box-shadow 0.5s; }
 .ed-principe-card[data-principe="8"] { transition: opacity 0.7s var(--ease-out-slow) 0.54s, transform 0.7s var(--ease-out-slow) 0.54s, filter 0.7s var(--ease-out-slow) 0.54s, border-color 0.5s, box-shadow 0.5s; }
 
+.ed-principe-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+}
+
 .ed-principe-num {
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 700;
-  color: rgba(196, 122, 46, 0.25);
+  color: rgba(196, 122, 46, 0.35);
   line-height: 1;
-  margin-bottom: 0.75rem;
+  flex-shrink: 0;
 }
 
 .ed-principe-icon {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -394,8 +401,13 @@
   background: rgba(139, 58, 122, 0.2);
   border: 1px solid rgba(196, 104, 178, 0.25);
   color: #C468B2;
-  margin-bottom: 1rem;
+  flex-shrink: 0;
   transition: all 0.4s;
+}
+
+.ed-principe-icon svg {
+  width: 20px;
+  height: 20px;
 }
 
 .ed-principe-card:hover .ed-principe-icon {
@@ -406,11 +418,11 @@
 
 .ed-principe-title {
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #F5F0E8;
-  margin-bottom: 0.6rem;
   letter-spacing: 0.01em;
+  line-height: 1.2;
 }
 
 .ed-principe-text {
