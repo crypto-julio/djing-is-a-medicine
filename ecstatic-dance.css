@@ -87,6 +87,7 @@
   position: relative;
   animation: globeSceneFloat 10s ease-in-out infinite;
   border-radius: 50%;
+  overflow: visible;
   background: radial-gradient(circle at 45% 40%,
     rgba(20, 12, 28, 0.85) 0%,
     rgba(15, 10, 22, 0.9) 40%,
@@ -162,10 +163,12 @@
   to { stroke-dashoffset: 0; }
 }
 
-/* ---- Globe orbiting stick-figure dancers ---- */
+/* ---- Globe orbiting stick-figure dancers (HTML overlay) ---- */
 .ed-globe-dancers {
+  position: absolute;
+  inset: 0;
   animation: edDancersOrbit 50s linear infinite;
-  transform-origin: 160px 160px;
+  pointer-events: none;
 }
 
 @keyframes edDancersOrbit {
@@ -173,9 +176,22 @@
   to { transform: rotate(360deg); }
 }
 
-/* Dancer pivot — feet anchored at bottom of local coord space */
+/* Spur — invisible arm from center, rotated by --a */
+.ed-gd-spur {
+  position: absolute;
+  inset: 0;
+  transform: rotate(var(--a, 0deg));
+}
+
+/* Each dancer SVG — positioned at globe surface, feet touching */
 .ed-gd {
-  transform-origin: 22px 67px;
+  position: absolute;
+  width: 11%;
+  height: 20%;
+  left: calc(50% - 5.5%);
+  bottom: calc(50% + 26.5625%);
+  transform-origin: 50% 100%;
+  overflow: visible;
 }
 
 /* Colors per dancer type */
