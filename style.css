@@ -1084,6 +1084,15 @@ img { max-width: 100%; display: block; }
   transform: scale(1.05);
 }
 
+.pillar-icon {
+  padding: 1.5rem 2.5rem 0;
+  margin-bottom: 1rem;
+  color: var(--accent-amber);
+}
+.pillar-2 .pillar-icon {
+  color: var(--accent-teal);
+}
+
 .pillar-title {
   font-family: var(--font-display);
   font-size: 1.5rem;
@@ -1115,6 +1124,7 @@ img { max-width: 100%; display: block; }
   color: var(--accent-amber);
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  padding: 0 2.5rem;
 }
 .pillar-2 .pillar-duration { color: var(--accent-teal); }
 
@@ -2159,14 +2169,14 @@ img { max-width: 100%; display: block; }
 
 .footer-bottom {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding-top: 2rem;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
   font-size: 0.75rem;
   color: var(--text-muted);
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.5rem 2rem;
 }
 .footer-bottom a {
   color: var(--text-muted);

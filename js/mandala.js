@@ -102,8 +102,8 @@
     circle(0, 0, R * 0.47);
     ctx.restore();
 
-    // Seed of Life (fuchsia) — clockwise
-    ctx.save(); ctx.rotate(angle * 4);
+    // Seed of Life (fuchsia) — counter-clockwise (opposite to teal)
+    ctx.save(); ctx.rotate(-angle * 4);
     ctx.shadowBlur = 20 * GLOW; ctx.shadowColor = rgba(FUCHSIA, 0.35);
     ctx.strokeStyle = rgba(FUCHSIA, 0.16); ctx.lineWidth = 2.5;
     var sR = unit * 0.4 * breath;
