@@ -1,3 +1,13 @@
+# ============================================================
+# ROBOTS.TXT — Instructions pour les moteurs de recherche
+# ============================================================
+#
+# Ce fichier dit à Google, Bing, etc. quelles pages ils peuvent
+# explorer. Le guide de mise à jour est bloqué (page interne).
+#
+# NE PAS MODIFIER sauf pour bloquer/débloquer une page.
+# ============================================================
+
 User-agent: *
 Allow: /
 Disallow: /GUIDE-MISE-A-JOUR.html

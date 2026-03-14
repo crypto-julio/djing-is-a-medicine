@@ -1,4 +1,22 @@
 <?php
+/*
+  ============================================================
+  CONTACT.PHP — Proxy serveur pour le formulaire de contact
+  ============================================================
+
+  CE FICHIER :
+    - Reçoit les données du formulaire (contact.html → js/contact.js → ici)
+    - Crée ou met à jour un contact dans Systeme.io via l'API
+    - Assigne des tags automatiquement (formsite, newsletter, PDF_formation, Atelier)
+
+  HÉBERGEMENT :
+    - Ce fichier tourne sur un serveur PHP (LWS)
+    - C'est le endpoint PRINCIPAL du formulaire
+    - Si ce serveur tombe, js/contact.js bascule sur contact.mjs (Netlify)
+
+  NE PAS MODIFIER sans comprendre l'API Systeme.io.
+  ============================================================
+*/
 // Proxy Systeme.io — clé API stockée côté serveur
 define('SYSTEME_API_KEY', 'dlkosuwvs2hsn8enp6ed7bzvoyctsef2po65nwk0hpogw8b9vw6pz3ik09i5s299');
 define('SYSTEME_API',     'https://api.systeme.io/api');
@@ -71,6 +89,14 @@ if (!empty($contact['id'])) {
     $tagsToAssign = ['formsite'];
     if (!empty($body['newsletter_chk']) && $body['newsletter_chk'] !== 'false') {
         $tagsToAssign[] = 'newsletter';
+    }
+    // Tag conditionnel selon le sujet
+    if (!empty($body['subject'])) {
+        if ($body['subject'] === 'dj-holistique') {
+            $tagsToAssign[] = 'PDF_formation';
+        } elseif ($body['subject'] === 'danses-48') {
+            $tagsToAssign[] = 'Atelier';
+        }
     }
 
     $allTags = systeme('GET', '/tags');

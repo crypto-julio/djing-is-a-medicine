@@ -1,3 +1,13 @@
+# ============================================================
+# LLMS.TXT — Résumé du site pour les intelligences artificielles
+# ============================================================
+#
+# Ce fichier est lu par ChatGPT, Perplexity, Gemini, etc.
+# Il leur permet de comprendre et citer correctement le site.
+#
+# QUAND MODIFIER : si tu ajoutes une page ou changes les infos de contact.
+# ============================================================
+
 # DJing Is A Medicine
 
 > Le DJing comme voie sensible pour créer des espaces sécurisés et des voyages musicaux qui font du bien.

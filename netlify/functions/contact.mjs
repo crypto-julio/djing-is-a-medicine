@@ -1,3 +1,20 @@
+/*
+  ============================================================
+  CONTACT.MJS — Fonction Netlify (fallback du formulaire)
+  ============================================================
+
+  CE FICHIER :
+    - Même rôle que contact.php mais hébergé sur Netlify Functions
+    - Sert de SECOURS si le serveur PHP (LWS) ne répond pas
+    - js/contact.js essaie d'abord contact.php, puis bascule ici
+
+  FLUX : contact.html → js/contact.js → contact.php (LWS)
+                                       ↘ contact.mjs (Netlify, fallback)
+                                       → API Systeme.io
+
+  NE PAS MODIFIER sans comprendre l'API Systeme.io.
+  ============================================================
+*/
 const API_KEY = 'dlkosuwvs2hsn8enp6ed7bzvoyctsef2po65nwk0hpogw8b9vw6pz3ik09i5s299';
 const API = 'https://api.systeme.io/api';
 
@@ -81,6 +98,9 @@ export async function handler(event) {
   if (contact && contact.id) {
     const tagsToAssign = ['formsite'];
     if (b.newsletter_chk && b.newsletter_chk !== 'false') tagsToAssign.push('newsletter');
+    // Tag conditionnel selon le sujet
+    if (b.subject === 'dj-holistique') tagsToAssign.push('PDF_formation');
+    else if (b.subject === 'danses-48') tagsToAssign.push('Atelier');
 
     const tagsRes = await systeme('GET', '/tags');
     const allTags = tagsRes.body.items || [];

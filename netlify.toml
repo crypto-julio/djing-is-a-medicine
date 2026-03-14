@@ -1,3 +1,13 @@
+# ============================================================
+# NETLIFY.TOML — Configuration de déploiement Netlify
+# ============================================================
+#
+# Benjamin, ce fichier configure comment Netlify déploie le site.
+# Il active la compression CSS/JS/images automatiquement.
+#
+# NE PAS MODIFIER — demande à Julien.
+# ============================================================
+
 [functions]
   directory = "netlify/functions"
 

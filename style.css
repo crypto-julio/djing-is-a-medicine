@@ -1,3 +1,32 @@
+/*
+  ============================================================
+  STYLE.CSS — Styles globaux du site
+  ============================================================
+
+  Benjamin, ce fichier contient TOUS les styles partagés par
+  toutes les pages du site.
+
+  CE QU'ON Y TROUVE :
+    - Les polices (Decalotype, Outfit, Fredoka)
+    - Les couleurs du site (variables CSS en haut)
+    - Le menu de navigation + le footer
+    - Le hero, les boutons, les cartes, les animations
+    - Le responsive (mobile / tablette / desktop)
+
+  POUR CHANGER UNE COULEUR :
+    - Modifie les variables dans ":root" ci-dessous
+    - Ex: --accent-amber change la couleur dorée principale
+
+  POUR CHANGER UN STYLE DE PAGE SPÉCIFIQUE :
+    - Chaque page a son propre fichier CSS :
+      formation.css, ecstatic-dance.css, a-propos.css,
+      contact.css, partenaires.css
+
+  NE PAS MODIFIER les animations ou le responsive
+  sans bien comprendre le CSS — demande à Julien.
+  ============================================================
+*/
+
 /* ============================================
    FONT FACE
    ============================================ */

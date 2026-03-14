@@ -1,3 +1,12 @@
+<!--
+  SITEMAP.XML — Plan du site pour les moteurs de recherche
+
+  Ce fichier liste toutes les pages publiques du site.
+  Google et Bing l'utilisent pour savoir quoi explorer.
+
+  QUAND MODIFIER : si tu ajoutes ou supprimes une page du site.
+  Pour chaque page, change la date <lastmod> quand tu la mets à jour.
+-->
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
