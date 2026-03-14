@@ -1,5 +1,14 @@
 // ==========================================
-// FORMATION — Sticky section navigator
+// formation-nav.js — Points de navigation latéraux (page Formation)
+// ==========================================
+//
+// Ce fichier gère les petits points de navigation sur le côté
+// de la page formation.html. Ils indiquent la section en cours
+// et permettent de naviguer entre les sections.
+//
+// NE PAS MODIFIER ce fichier — il est technique et fragile.
+// En cas de besoin, demande à Julien.
+//
 // ==========================================
 (function () {
   var sideNav = document.getElementById('sideNav');

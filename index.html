@@ -1,9 +1,36 @@
+<!--
+  ============================================================
+  PAGE D'ACCUEIL — index.html
+  ============================================================
+
+  STRUCTURE DE CETTE PAGE :
+  1. Hero (titre principal + CTA)
+  2. Philosophie (vision + 2 piliers : DJ Holistique & D.A.N.S.E.S 48)
+  3. Pour qui (grille d'identification "Tu es là car...")
+  4. Témoignages (rotation automatique — voir le script en bas de page)
+  5. Prochaines dates (2 cartes : retraite + cycle D.A.N.S.E.S)
+  6. Newsletter / formulaire de contact (formulaire complet → Systeme.io)
+
+  POUR MODIFIER :
+  - Les textes : cherche le commentaire de la section (ex: "SECTION 2 — PHILOSOPHIE")
+  - Les témoignages : modifie le tableau "testimonialPool" dans le <script> en bas
+  - Le menu / footer : modifie _includes/nav.html ou _includes/footer.html puis lance "node build.js"
+  - Le formulaire : les champs sont dans la SECTION 6, les options des <select> sont modifiables
+
+  NE PAS TOUCHER :
+  - Le mandala SVG (géométrie calculée)
+  - Les wave-separator SVG (transitions animées entre sections)
+  - Les marqueurs <!-- NAV:START/END --> et <!-- FOOTER:START/END --> (utilisés par build.js)
+  ============================================================
+-->
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO : modifie ces balises pour changer ce qui apparaît sur Google et les réseaux sociaux -->
   <title>DJing Is A Medicine — Formation DJ Ecstatic Dance & DJing Holistique</title>
   <meta name="description"
     content="Le DJing comme voie sensible pour créer des espaces sécurisés et des voyages musicaux qui font du bien. Formation DJ Ecstatic Dance par Ëotim.">
@@ -12,6 +39,7 @@
     content="Deviens capable de tenir un espace bienveillant et de guider un voyage musical fluide.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://djingisamedicine.com/images/index/index-hero-1.jpg">
+
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -106,6 +134,7 @@
     </div>
   </div>
 
+  <!-- NAV:START -->
   <!-- ==========================================
      NAVIGATION
      ========================================== -->
@@ -148,6 +177,8 @@
       </div>
     </div>
   </div>
+
+  <!-- NAV:END -->
 
   <!-- ==========================================
      SECTION 1 — HERO
@@ -621,6 +652,7 @@
     </div>
   </section>
 
+  <!-- FOOTER:START -->
   <!-- ==========================================
      FOOTER
      ========================================== -->
@@ -689,12 +721,24 @@
     </div>
   </footer>
 
+  <!-- FOOTER:END -->
+
   <script src="js/mandala.js" defer></script>
 
   <script src="js/main.js" defer></script>
 
   <script>
-    // === Testimonials rotation ===
+    // ============================================================
+    // TÉMOIGNAGES — Rotation automatique sur la page d'accueil
+    //
+    // POUR AJOUTER UN TÉMOIGNAGE :
+    // Copie un bloc { stars, quote, initials, name, role } ci-dessous.
+    // Attention : les apostrophes dans "quote" doivent être échappées → \'
+    // Exemple : 'j\'ai adoré' et non 'j'ai adoré'
+    //
+    // POUR MODIFIER LES "BIG QUOTES" :
+    // Modifie le tableau "bigQuotes" plus bas (les grandes citations qui tournent)
+    // ============================================================
     const testimonialPool = [
       {
         stars: '★★★★★',

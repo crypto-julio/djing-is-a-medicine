@@ -17,11 +17,6 @@
     pre { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; overflow-x: auto; margin: 1rem 0; font-size: 0.85em; line-height: 1.5; }
     pre code { background: none; padding: 0; }
     .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1rem 0; }
-    .tag { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 0.8em; margin-right: 0.3rem; }
-    .tag-html { background: #2a3540; color: #7ec8e8; }
-    .tag-css { background: #2a2540; color: #b89ae8; }
-    .tag-js { background: #3a3520; color: #e8c872; }
-    .tag-important { background: #3a2020; color: #e87272; }
     .warning { border-left: 4px solid var(--red); padding: 1rem; background: rgba(232,114,114,0.08); border-radius: 0 8px 8px 0; margin: 1rem 0; }
     .tip { border-left: 4px solid var(--green); padding: 1rem; background: rgba(126,200,154,0.08); border-radius: 0 8px 8px 0; margin: 1rem 0; }
     .toc { list-style: none; padding: 0; }
@@ -49,19 +44,18 @@
 <ol class="toc">
   <li><a href="#structure">1. Structure du projet</a></li>
   <li><a href="#pages">2. Pages du site — vue d'ensemble</a></li>
-  <li><a href="#navigation">3. Navigation (menu)</a></li>
+  <li><a href="#navigation">3. Navigation et footer (menu)</a></li>
   <li><a href="#textes">4. Modifier les textes</a></li>
   <li><a href="#images">5. Modifier / ajouter des images</a></li>
   <li><a href="#temoignages">6. Témoignages</a></li>
   <li><a href="#dates">7. Dates et agenda</a></li>
   <li><a href="#partenaires">8. Partenaires</a></li>
   <li><a href="#formulaire">9. Formulaire de contact</a></li>
-  <li><a href="#footer">10. Footer (pied de page)</a></li>
-  <li><a href="#seo">11. SEO (titres, descriptions)</a></li>
-  <li><a href="#css">12. Couleurs et styles (CSS)</a></li>
-  <li><a href="#js">13. JavaScript — ce qu'il faut savoir</a></li>
-  <li><a href="#deploiement">14. Déploiement (Netlify)</a></li>
-  <li><a href="#ne-pas-toucher">15. Zones à ne pas toucher</a></li>
+  <li><a href="#seo">10. SEO (titres, descriptions)</a></li>
+  <li><a href="#css">11. Couleurs et styles (CSS)</a></li>
+  <li><a href="#js">12. JavaScript — ce qu'il faut savoir</a></li>
+  <li><a href="#deploiement">13. Déploiement</a></li>
+  <li><a href="#ne-pas-toucher">14. Zones à ne pas toucher</a></li>
 </ol>
 
 <!-- ===== 1. STRUCTURE ===== -->
@@ -69,44 +63,53 @@
 
 <pre><code>djing-is-a-medicine/
 │
-├── index.html              ← Page d'accueil
-├── formation.html          ← Page Formation DJ Holistique
-├── ecstatic-dance.html     ← Page Ecstatic Dance (guide complet)
-├── a-propos.html           ← Page À propos (bio Ëotim)
-├── partenaires.html        ← Page Partenaires
-├── contact.html            ← Page Contact (formulaire simplifié)
+├── index.html                  ← Page d'accueil
+├── formation.html              ← Page Formation DJ Holistique
+├── ecstatic-dance.html         ← Page Ecstatic Dance (guide complet)
+├── a-propos.html               ← Page À propos (bio Ëotim)
+├── partenaires.html            ← Page Partenaires
+├── contact.html                ← Page Contact (formulaire simplifié)
+├── mentions-legales.html       ← Mentions légales
+├── politique-confidentialite.html ← Politique de confidentialité
 │
-├── style.css               ← CSS principal (partagé par toutes les pages)
-├── formation.css           ← CSS spécifique à formation.html
-├── ecstatic-dance.css      ← CSS spécifique à ecstatic-dance.html
-├── a-propos.css            ← CSS spécifique à a-propos.html
-├── partenaires.css         ← CSS spécifique à partenaires.html
-├── contact.css             ← CSS spécifique à contact.html
+├── _includes/                  ← SOURCE DE VÉRITÉ pour nav et footer
+│   ├── nav.html                ← Menu unique (desktop + mobile)
+│   └── footer.html             ← Footer unique (liens, réseaux, copyright)
+│
+├── build.js                    ← Script qui injecte nav/footer dans les 6 pages
+│
+├── style.css                   ← CSS principal (partagé par toutes les pages)
+├── formation.css               ← CSS spécifique à formation.html
+├── ecstatic-dance.css          ← CSS spécifique à ecstatic-dance.html
+├── a-propos.css                ← CSS spécifique à a-propos.html
+├── partenaires.css             ← CSS spécifique à partenaires.html
+├── contact.css                 ← CSS spécifique à contact.html
 │
 ├── js/
-│   ├── main.js             ← Animations, menu, curseur (toutes pages)
-│   ├── mandala.js          ← Animation mandala canvas (toutes pages)
-│   ├── contact.js          ← Logique d'envoi du formulaire
-│   └── formation-nav.js    ← Navigation latérale (page formation)
+│   ├── main.js                 ← Animations, menu, curseur (toutes pages)
+│   ├── mandala.js              ← Animation mandala canvas (toutes pages)
+│   ├── contact.js              ← Logique d'envoi du formulaire
+│   └── formation-nav.js        ← Navigation latérale (page formation)
 │
 ├── fonts/
-│   └── Decalotype-Bold.*   ← Police personnalisée
+│   └── Decalotype-Bold.*       ← Police personnalisée
 │
 ├── images/
-│   ├── index/              ← Images de la page d'accueil
-│   ├── formation/          ← Images formation + témoignages
-│   ├── ecstatic-dance/     ← Images page Ecstatic Dance
-│   ├── a-propos/           ← Portrait de Benjamin
-│   └── partenaires/        ← Photos des partenaires
+│   ├── index/                  ← Images de la page d'accueil
+│   ├── formation/              ← Images formation + avatars témoignages
+│   ├── ecstatic-dance/         ← Images page Ecstatic Dance
+│   ├── a-propos/               ← Portrait de Benjamin
+│   └── partenaires/            ← Photos des partenaires
 │
-├── contact.php             ← Proxy vers Systeme.io (hébergement PHP/LWS)
+├── favicon.svg                 ← Icône du site (onglet navigateur)
+├── contact.php                 ← Proxy vers Systeme.io (hébergement LWS)
 ├── netlify/functions/
-│   └── contact.mjs         ← Même proxy mais pour Netlify (fallback)
+│   └── contact.mjs             ← Même proxy mais pour Netlify (fallback)
 │
-└── netlify.toml            ← Configuration déploiement Netlify</code></pre>
+└── netlify.toml                ← Configuration déploiement Netlify</code></pre>
 
 <div class="tip">
-  <strong>Règle simple :</strong> chaque page HTML a son fichier CSS du même nom + charge <code>style.css</code> (le CSS commun). Pas de framework, pas de build — tu modifies un fichier, tu enregistres, c'est en ligne après un push git.
+  <strong>Règle simple :</strong> chaque page HTML a son fichier CSS du même nom + charge <code>style.css</code> (le CSS commun). Le menu et le footer sont gérés par le système <code>_includes/</code> + <code>build.js</code>.
 </div>
 
 <!-- ===== 2. PAGES ===== -->
@@ -122,14 +125,41 @@
   <tr><td><strong>Contact</strong></td><td><code>contact.html</code> + <code>contact.css</code></td><td>Formulaire simple, réseaux sociaux, lien espace élèves</td></tr>
 </table>
 
-<!-- ===== 3. NAVIGATION ===== -->
-<h2 id="navigation">3. Navigation (menu)</h2>
+<!-- ===== 3. NAVIGATION ET FOOTER ===== -->
+<h2 id="navigation">3. Navigation et footer (menu)</h2>
 
-<p>Le menu est <strong>dupliqué dans chaque page HTML</strong> (il n'y a pas de composant partagé). Si tu ajoutes ou renommes un lien, il faut le faire dans <strong>les 6 fichiers HTML</strong>.</p>
+<div class="card">
+  <strong>Le menu et le footer sont gérés depuis un seul endroit.</strong> Plus besoin de modifier 6 fichiers — tu modifies un seul fichier, tu lances le script, et toutes les pages sont mises à jour.
+</div>
 
-<h3>Où trouver le menu</h3>
-<p>Cherche le commentaire <code>&lt;!-- NAVIGATION --&gt;</code> dans chaque fichier. Le menu a deux parties :</p>
+<h3>Comment ça marche</h3>
+<p>Le menu vit dans <code>_includes/nav.html</code> et le footer dans <code>_includes/footer.html</code>. Ces deux fichiers sont la <strong>source de vérité unique</strong>. Le script <code>build.js</code> injecte leur contenu dans les 6 pages HTML du site.</p>
 
+<h3>Pour modifier le menu ou le footer</h3>
+<ol>
+  <li>Ouvre <code>_includes/nav.html</code> (pour le menu) ou <code>_includes/footer.html</code> (pour le footer)</li>
+  <li>Fais ta modification</li>
+  <li>Lance la commande : <code>node build.js</code></li>
+  <li>C'est fait — les 6 pages sont mises à jour automatiquement</li>
+</ol>
+
+<pre><code># Depuis le dossier du projet :
+node build.js
+
+# Résultat :
+#   OK    index.html (2 bloc(s) mis à jour)
+#   OK    formation.html (2 bloc(s) mis à jour)
+#   OK    ecstatic-dance.html (2 bloc(s) mis à jour)
+#   OK    a-propos.html (2 bloc(s) mis à jour)
+#   OK    partenaires.html (2 bloc(s) mis à jour)
+#   OK    contact.html (2 bloc(s) mis à jour)</code></pre>
+
+<div class="warning">
+  <strong>Ne modifie JAMAIS le menu ou le footer directement dans les fichiers HTML des pages</strong> (index.html, formation.html, etc.). Tes changements seraient écrasés au prochain <code>node build.js</code>. Modifie toujours dans <code>_includes/</code>.
+</div>
+
+<h3>Structure du menu (<code>_includes/nav.html</code>)</h3>
+<p>Le fichier contient deux parties :</p>
 <pre><code>&lt;!-- 1. Menu desktop --&gt;
 &lt;nav class="nav" id="nav"&gt;
   &lt;ul class="nav-links"&gt;
@@ -145,9 +175,25 @@
   ...
 &lt;/div&gt;</code></pre>
 
-<div class="warning">
-  <strong>Attention :</strong> Le menu desktop ET le menu mobile doivent être modifiés en parallèle. Et ceci dans chaque fichier HTML. Sinon un lien fonctionnera sur desktop mais pas sur mobile (ou inversement).
+<div class="tip">
+  <strong>Pense à modifier les deux parties</strong> (desktop + mobile) quand tu ajoutes ou renommes un lien. Elles sont dans le même fichier <code>_includes/nav.html</code>.
 </div>
+
+<h3>Éléments du footer (<code>_includes/footer.html</code>)</h3>
+<ul>
+  <li><strong>Liens de navigation :</strong> même liste que le menu principal</li>
+  <li><strong>Liens réseaux sociaux :</strong> Instagram, Facebook, YouTube, SoundCloud, Mixcloud</li>
+  <li><strong>Espace élèves :</strong> lien vers <code>https://membres.benjaminbossu.com</code></li>
+  <li><strong>Année copyright :</strong> <code>© 2026 DJing Is A Medicine</code></li>
+  <li><strong>Mentions légales / Politique de confidentialité :</strong> liens vers <code>mentions-legales.html</code> et <code>politique-confidentialite.html</code></li>
+</ul>
+
+<h3>Comment le build.js fonctionne (pour info)</h3>
+<p>Dans chaque fichier HTML, le menu est entouré de marqueurs :</p>
+<pre><code>&lt;!-- NAV:START --&gt;
+  ... le menu est ici ...
+&lt;!-- NAV:END --&gt;</code></pre>
+<p>Le script remplace tout ce qui est entre <code>NAV:START</code> et <code>NAV:END</code> par le contenu de <code>_includes/nav.html</code>. Pareil pour <code>FOOTER:START</code> / <code>FOOTER:END</code>.</p>
 
 <!-- ===== 4. TEXTES ===== -->
 <h2 id="textes">4. Modifier les textes</h2>
@@ -168,7 +214,7 @@
 &lt;/section&gt;</code></pre>
 
 <div class="tip">
-  <strong>Pour modifier un texte :</strong> ouvre le fichier HTML, cherche la phrase avec Ctrl+F, modifie-la, enregistre. C'est tout.
+  <strong>Pour modifier un texte :</strong> ouvre le fichier HTML, cherche la phrase avec Ctrl+F, modifie-la, enregistre. C'est tout. Pas besoin de lancer <code>build.js</code> pour les textes — seulement pour le menu et le footer.
 </div>
 
 <h3>Classes CSS utiles à connaître</h3>
@@ -327,8 +373,8 @@
 <h3>Où vont les données ?</h3>
 <p>Les formulaires envoient les données à <strong>Systeme.io</strong> via un proxy :</p>
 <ol>
-  <li>D'abord vers <code>/contact.php</code> (si hébergé sur LWS ou serveur PHP)</li>
-  <li>En fallback, vers <code>/.netlify/functions/contact</code> (si hébergé sur Netlify)</li>
+  <li>D'abord vers <code>/contact.php</code> (sur LWS, serveur PHP)</li>
+  <li>En fallback, vers <code>/.netlify/functions/contact</code> (sur Netlify)</li>
 </ol>
 <p>Le contact est créé ou mis à jour dans Systeme.io, et des tags (<code>formsite</code>, <code>newsletter</code>) lui sont assignés.</p>
 
@@ -348,33 +394,16 @@
 <h3>Le champ "motivation" conditionnel</h3>
 <p>Quand le sujet "DJ holistique" est sélectionné, un champ supplémentaire apparaît (échelle de 1 à 10). C'est géré par <code>js/contact.js</code> — pas besoin d'y toucher sauf si tu veux modifier l'échelle.</p>
 
-<!-- ===== 10. FOOTER ===== -->
-<h2 id="footer">10. Footer (pied de page)</h2>
-
-<p>Le footer est <strong>dupliqué dans chaque fichier HTML</strong> (comme la navigation). Cherche <code>&lt;!-- FOOTER --&gt;</code>.</p>
-
-<h3>Éléments modifiables</h3>
-<ul>
-  <li><strong>Liens de navigation :</strong> même liste que le menu principal</li>
-  <li><strong>Liens réseaux sociaux :</strong> modifier les <code>href</code> des icônes (Instagram, Facebook, YouTube, SoundCloud, Mixcloud)</li>
-  <li><strong>Espace élèves :</strong> lien vers <code>https://membres.benjaminbossu.com</code></li>
-  <li><strong>Année copyright :</strong> <code>© 2026 DJing Is A Medicine</code></li>
-  <li><strong>Mentions légales / Politique de confidentialité :</strong> actuellement les liens pointent vers <code>#</code> (à remplir)</li>
-</ul>
-
-<div class="warning">
-  <strong>Rappel :</strong> Toute modification du footer doit être faite dans les <strong>6 fichiers HTML</strong>.
-</div>
-
-<!-- ===== 11. SEO ===== -->
-<h2 id="seo">11. SEO (titres, descriptions)</h2>
+<!-- ===== 10. SEO ===== -->
+<h2 id="seo">10. SEO (titres, descriptions)</h2>
 
 <p>Chaque page a ses balises SEO dans le <code>&lt;head&gt;</code> :</p>
 
 <pre><code>&lt;title&gt;Formation DJ Holistique — Niveau Ronde | DJing Is A Medicine&lt;/title&gt;
 &lt;meta name="description" content="Formation DJ Ecstatic Dance : ..."&gt;
 &lt;meta property="og:title" content="Formation DJ Holistique..."&gt;
-&lt;meta property="og:description" content="Retraite immersive de 5 jours..."&gt;</code></pre>
+&lt;meta property="og:description" content="Retraite immersive de 5 jours..."&gt;
+&lt;meta property="og:image" content="https://djingisamedicine.com/images/index/index-hero-1.jpg"&gt;</code></pre>
 
 <table>
   <tr><th>Balise</th><th>Rôle</th><th>Longueur idéale</th></tr>
@@ -382,10 +411,15 @@
   <tr><td><code>meta description</code></td><td>Description sous le titre sur Google</td><td>120-160 caractères</td></tr>
   <tr><td><code>og:title</code></td><td>Titre quand le lien est partagé (Facebook, WhatsApp...)</td><td>50-60 caractères</td></tr>
   <tr><td><code>og:description</code></td><td>Description du partage social</td><td>120-160 caractères</td></tr>
+  <tr><td><code>og:image</code></td><td>Vignette quand le lien est partagé sur les réseaux</td><td>Image 1200x630px idéalement</td></tr>
 </table>
 
-<!-- ===== 12. CSS ===== -->
-<h2 id="css">12. Couleurs et styles (CSS)</h2>
+<div class="tip">
+  <strong>Favicon :</strong> le fichier <code>favicon.svg</code> à la racine est l'icône qui s'affiche dans l'onglet du navigateur. Pour le changer, remplace ce fichier.
+</div>
+
+<!-- ===== 11. CSS ===== -->
+<h2 id="css">11. Couleurs et styles (CSS)</h2>
 
 <h3>Palette de couleurs principale</h3>
 <p>Les couleurs sont définies dans <code>style.css</code>. Voici les principales :</p>
@@ -413,8 +447,8 @@
 </ul>
 <p>Les séparateurs en vague (<code>wave-separator</code>) font la transition entre les deux.</p>
 
-<!-- ===== 13. JS ===== -->
-<h2 id="js">13. JavaScript — ce qu'il faut savoir</h2>
+<!-- ===== 12. JS ===== -->
+<h2 id="js">12. JavaScript — ce qu'il faut savoir</h2>
 
 <p>Tu n'as normalement <strong>pas besoin de toucher aux fichiers JS</strong>. Voici quand même ce que chacun fait :</p>
 
@@ -432,15 +466,20 @@
 &lt;div class="reveal reveal-delay-1"&gt;Apparaît 0.1s après&lt;/div&gt;
 &lt;div class="reveal reveal-delay-2"&gt;Apparaît 0.2s après&lt;/div&gt;</code></pre>
 
-<!-- ===== 14. DEPLOIEMENT ===== -->
-<h2 id="deploiement">14. Déploiement (Netlify)</h2>
+<!-- ===== 13. DEPLOIEMENT ===== -->
+<h2 id="deploiement">13. Déploiement</h2>
 
-<p>Le site est hébergé sur <strong>Netlify</strong>. Le déploiement est automatique :</p>
+<h3>Hébergement</h3>
+<ul>
+  <li><strong>LWS</strong> : hébergement principal de Benjamin (PHP + fichiers statiques)</li>
+  <li><strong>Netlify</strong> : maquette de démo (déploiement automatique depuis GitHub)</li>
+</ul>
 
+<h3>Workflow de mise à jour</h3>
 <ol>
-  <li>Tu modifies tes fichiers</li>
-  <li>Tu fais un <code>git commit</code> + <code>git push</code></li>
-  <li>Netlify détecte le push et déploie automatiquement</li>
+  <li>Modifier les fichiers (textes dans le HTML, ou menu/footer dans <code>_includes/</code>)</li>
+  <li>Si menu/footer modifié : lancer <code>node build.js</code></li>
+  <li>Uploader les fichiers sur LWS (FTP) ou push sur GitHub pour Netlify</li>
 </ol>
 
 <h3>Commandes git de base</h3>
@@ -453,22 +492,21 @@ git add index.html formation.html
 # Créer un commit
 git commit -m "Mise à jour des textes accueil et formation"
 
-# Envoyer sur le serveur
+# Envoyer sur le serveur (Netlify se déploie automatiquement)
 git push</code></pre>
 
-<h3>Configuration Netlify</h3>
-<p>Le fichier <code>netlify.toml</code> gère la minification automatique du CSS, JS et la compression des images. Pas besoin d'y toucher.</p>
-
-<!-- ===== 15. NE PAS TOUCHER ===== -->
-<h2 id="ne-pas-toucher">15. Zones à ne pas toucher</h2>
+<!-- ===== 14. NE PAS TOUCHER ===== -->
+<h2 id="ne-pas-toucher">14. Zones à ne pas toucher</h2>
 
 <div class="warning">
   <strong>Ne modifie pas ces éléments</strong> sauf si tu sais ce que tu fais :
 </div>
 
 <ul>
-  <li><strong>Le mandala SVG</strong> dans le hero de <code>index.html</code> (lignes 42-101) — géométrie sacrée calculée précisément</li>
+  <li><strong>Le mandala SVG</strong> dans le hero de <code>index.html</code> — géométrie sacrée calculée précisément</li>
   <li><strong>Les wave-separators</strong> — les <code>&lt;svg&gt;</code> avec animations sont calibrés pour les transitions entre sections</li>
+  <li><strong>Les marqueurs <code>&lt;!-- NAV:START --&gt;</code> / <code>&lt;!-- NAV:END --&gt;</code></strong> et <code>&lt;!-- FOOTER:START --&gt;</code> / <code>&lt;!-- FOOTER:END --&gt;</code> — utilisés par <code>build.js</code></li>
+  <li><strong><code>build.js</code></strong> — le script de build, ne pas modifier sauf pour ajouter une page</li>
   <li><strong><code>js/mandala.js</code></strong> — l'animation Canvas est optimisée (IntersectionObserver, pause hors écran...)</li>
   <li><strong><code>js/main.js</code></strong> — les interactions (curseur, tilt 3D, menu) sont connectées entre elles</li>
   <li><strong><code>contact.php</code></strong> et <strong><code>netlify/functions/contact.mjs</code></strong> — contiennent la clé API Systeme.io</li>
@@ -487,7 +525,7 @@ git push</code></pre>
     <li>Ouvrir le bon fichier HTML</li>
     <li>Ctrl+F pour trouver le texte</li>
     <li>Modifier, enregistrer</li>
-    <li>git add → commit → push</li>
+    <li>Upload FTP ou git push</li>
   </ol>
 </div>
 
@@ -496,7 +534,7 @@ git push</code></pre>
   <ol>
     <li>Mettre la nouvelle image dans le bon dossier <code>images/</code></li>
     <li>Même nom = rien d'autre à faire. Nouveau nom = modifier le <code>src</code> dans le HTML</li>
-    <li>git add → commit → push</li>
+    <li>Upload FTP ou git push</li>
   </ol>
 </div>
 
@@ -506,7 +544,7 @@ git push</code></pre>
     <li><strong>Accueil :</strong> ajouter un objet dans <code>testimonialPool</code> (JS en bas de index.html)</li>
     <li><strong>Formation :</strong> dupliquer un bloc <code>.testimonial-card</code> dans le HTML</li>
     <li>Ajouter la photo avatar dans <code>images/formation/</code></li>
-    <li>git add → commit → push</li>
+    <li>Upload FTP ou git push</li>
   </ol>
 </div>
 
@@ -516,21 +554,21 @@ git push</code></pre>
     <li>Copier un bloc <code>.partenaire-card</code> dans <code>partenaires.html</code></li>
     <li>Modifier nom, description, lien, image</li>
     <li>Photo dans <code>images/partenaires/</code></li>
-    <li>git add → commit → push</li>
+    <li>Upload FTP ou git push</li>
   </ol>
 </div>
 
 <div class="card">
-  <h3>Je veux modifier le menu</h3>
+  <h3>Je veux modifier le menu ou le footer</h3>
   <ol>
-    <li>Modifier le menu desktop ET mobile dans <strong>les 6 fichiers HTML</strong></li>
-    <li>Idem pour le footer si besoin</li>
-    <li>git add → commit → push</li>
+    <li>Modifier <code>_includes/nav.html</code> (menu) ou <code>_includes/footer.html</code> (footer)</li>
+    <li>Lancer <code>node build.js</code></li>
+    <li>Upload FTP ou git push</li>
   </ol>
 </div>
 
 <hr style="border-color: var(--border); margin: 3rem 0;">
-<p style="color: var(--muted); text-align: center;">Documentation créée le 14 mars 2026 — Créé par Julien (<a href="https://flowebia.fr">flowebia.fr</a>)</p>
+<p style="color: var(--muted); text-align: center;">Documentation mise à jour le 14 mars 2026 — Créé par Julien (<a href="https://flowebia.fr">flowebia.fr</a>)</p>
 
 </body>
 </html>

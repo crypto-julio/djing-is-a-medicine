@@ -1,0 +1,62 @@
+  <!-- ==========================================
+     NAVIGATION — SOURCE UNIQUE pour toutes les pages
+     ==========================================
+
+     Ce fichier est la RÉFÉRENCE pour le menu de navigation.
+     Il est injecté automatiquement dans toutes les pages du site.
+
+     Pour appliquer tes modifications :
+       1. Modifie ce fichier
+       2. Lance la commande : node build.js
+
+     Contenu :
+       - Menu desktop (la balise <nav>)
+       - Menu mobile (la balise <div class="nav-mobile">)
+
+     IMPORTANT :
+       - Si tu ajoutes ou renommes un lien, fais-le aux DEUX endroits
+         (desktop ET mobile) pour qu'ils restent synchronisés.
+       - Tu peux modifier les textes des liens et les href.
+       - Ne change PAS les classes CSS ni les IDs (nav, hamburger,
+         mobileMenu, etc.) — le JavaScript en a besoin.
+
+     ========================================== -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">DJing Is A Medicine</a>
+      <ul class="nav-links">
+        <li><a href="formation.html">Formation</a></li>
+        <li><a href="ecstatic-dance.html">Ecstatic Dance</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="partenaires.html">Partenaires</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="nav-cta" data-magnetic>En savoir plus</a></li>
+      </ul>
+      <div class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="mobileMenu">
+    <div class="nav-mobile-bg"></div>
+    <div class="nav-mobile-content">
+      <a href="formation.html" class="nav-mobile-link" style="--i:0" onclick="closeMobile()">Formation</a>
+      <a href="ecstatic-dance.html" class="nav-mobile-link" style="--i:1" onclick="closeMobile()">Ecstatic Dance</a>
+      <a href="a-propos.html" class="nav-mobile-link" style="--i:2" onclick="closeMobile()">À propos</a>
+      <a href="partenaires.html" class="nav-mobile-link" style="--i:3" onclick="closeMobile()">Partenaires</a>
+      <a href="contact.html" class="nav-mobile-link" style="--i:4" onclick="closeMobile()">Contact</a>
+      <div class="nav-mobile-divider"></div>
+      <a href="contact.html" class="nav-mobile-cta" style="--i:5" onclick="closeMobile()">
+        En savoir plus
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
+      </a>
+      <div class="nav-mobile-footer">
+        <span>DJing Is A Medicine</span>
+      </div>
+    </div>
+  </div>

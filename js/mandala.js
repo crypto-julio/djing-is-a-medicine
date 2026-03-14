@@ -1,6 +1,15 @@
 // ==========================================
-// FULL-SCREEN MANDALA — Canvas sacred geometry
-// Optimized: IntersectionObserver pauses when off-screen
+// mandala.js — Mandala animé (géométrie sacrée) en arrière-plan
+// ==========================================
+//
+// Ce fichier dessine le mandala animé (cercles, fleur de vie)
+// visible en fond de la page d'accueil.
+// Il se met en pause automatiquement quand il n'est pas visible
+// à l'écran ou quand l'onglet est en arrière-plan (performance).
+//
+// NE PAS MODIFIER ce fichier — il est technique et fragile.
+// En cas de besoin, demande à Julien.
+//
 // ==========================================
 (function () {
   const canvas = document.getElementById('sound-waves-canvas');

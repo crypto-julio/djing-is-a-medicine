@@ -1,9 +1,48 @@
+<!--
+  ============================================================
+  PAGE : Guide complet de l'Ecstatic Dance
+  ============================================================
+
+  Benjamin, voici comment cette page est organisée :
+
+  STRUCTURE / SECTIONS (dans l'ordre) :
+    1. HERO ................. Titre + accroche
+    2. DEFINITION ........... Qu'est-ce que l'Ecstatic Dance
+    3. PRINCIPES ............ Grille de cartes (principes fondamentaux)
+    4. DEROULE .............. Timeline d'une session type
+    5. GLOBE ................ Animation HTML des danseurs (stick figures)
+    6. EXPRESSIONS .......... Les expressions de la danse
+    7. DEVENIR DJ ED ........ Section pour devenir DJ d'Ecstatic Dance
+    8. FAQ .................. Questions / réponses
+    9. CTA .................. Appel à l'action final
+
+  CE QUE TU PEUX MODIFIER :
+    - Tous les textes (titres, paragraphes, descriptions)
+    - Les principes : modifie les cartes (cherche "principle-card")
+    - Le déroulé timeline : modifie les étapes (cherche "timeline-item")
+    - La FAQ : modifie les questions/réponses (cherche "faq-item")
+    - Le CTA final : modifie le texte et le lien du bouton
+
+  CE QU'IL NE FAUT PAS TOUCHER :
+    - L'animation du globe (les stick figures en HTML/CSS) —
+      c'est du code complexe, toute modif peut tout casser
+    - Les wave separators (SVG animés entre les sections)
+    - Les marqueurs NAV:START/NAV:END et FOOTER:START/FOOTER:END
+      (le menu et le footer sont gérés par _includes/ + build.js)
+
+  FICHIERS LIÉS :
+    - style.css .............. Styles globaux du site
+    - ecstatic-dance.css ..... Styles spécifiques à cette page
+    - js/main.js ............. Scripts globaux
+  ============================================================
+-->
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO : modifie ces balises pour changer ce qui apparaît sur Google et les réseaux sociaux -->
   <title>Ecstatic Dance : qu'est-ce que c'est ? Principes, déroulé et mouvement mondial | DJing Is A Medicine</title>
   <meta name="description"
     content="Découvre l'Ecstatic Dance : une pratique de danse libre sans jugement, guidée par un DJ. Principes fondamentaux, déroulé d'une session, et comment devenir DJ d'Ecstatic Dance.">
@@ -94,6 +133,7 @@
     </div>
   </div>
 
+  <!-- NAV:START -->
   <!-- ==========================================
      NAVIGATION
      ========================================== -->
@@ -136,6 +176,8 @@
       </div>
     </div>
   </div>
+
+  <!-- NAV:END -->
 
   <!-- ==========================================
      SECTION 1 — HERO (transparent — parallax)
@@ -845,6 +887,7 @@
     </svg>
   </div>
 
+  <!-- FOOTER:START -->
   <!-- ==========================================
      FOOTER
      ========================================== -->
@@ -897,12 +940,12 @@
           <h4>Espace élèves</h4>
           <ul>
             <li><a href="https://membres.benjaminbossu.com" target="_blank" rel="noopener">Connexion espace élèves</a></li>
-            <li><a href="https://benjaminbossu.com">Découvre mon autre univers &rarr;</a></li>
+            <li><a href="https://benjaminbossu.com">Découvre mon autre univers →</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; 2026 DJing Is A Medicine — Tous droits réservés</span>
+        <span>© 2026 DJing Is A Medicine — Tous droits réservés</span>
         <div class="footer-legal">
           <a href="mentions-legales.html">Mentions légales</a>
           <a href="politique-confidentialite.html">Politique de confidentialité</a>
@@ -912,6 +955,8 @@
       </div>
     </div>
   </footer>
+
+  <!-- FOOTER:END -->
 
   <!-- ==========================================
      SCRIPTS — Mandala canvas + UI

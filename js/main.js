@@ -1,4 +1,21 @@
 // ==========================================
+// main.js — Interactions visuelles du site
+// ==========================================
+//
+// Ce fichier gère TOUTES les animations et interactions visuelles :
+//   - Apparition des éléments au scroll (scroll reveal)
+//   - Comportement du menu au scroll (transparence, barre de progression)
+//   - Menu mobile (ouverture / fermeture)
+//   - Défilement fluide vers les ancres (#)
+//   - Effet 3D au survol des cartes (tilt)
+//   - Curseur personnalisé + effet magnétique sur les boutons
+//
+// NE PAS MODIFIER ce fichier — il est technique et fragile.
+// En cas de besoin, demande à Julien.
+//
+// ==========================================
+
+// ==========================================
 // SCROLL REVEAL (IntersectionObserver)
 // ==========================================
 var revealObserver = new IntersectionObserver(function (entries) {

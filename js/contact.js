@@ -1,5 +1,14 @@
 // ==========================================
-// CONTACT FORM -> contact.php (LWS) ou Netlify Function
+// contact.js — Envoi du formulaire de contact vers Systeme.io
+// ==========================================
+//
+// Ce fichier gère la soumission du formulaire de contact.
+// Il envoie les données d'abord via contact.php (hébergement LWS),
+// et si ça échoue, il utilise une fonction Netlify en secours.
+//
+// NE PAS MODIFIER ce fichier — il est technique et fragile.
+// En cas de besoin, demande à Julien.
+//
 // ==========================================
 (function () {
   var contactForm = document.getElementById('contactForm');

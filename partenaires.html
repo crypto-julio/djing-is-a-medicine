@@ -1,9 +1,39 @@
+<!--
+  ============================================================
+  PAGE : PARTENAIRES
+  ============================================================
+  Présente les partenaires qui accompagnent DJing Is A Medicine.
+
+  STRUCTURE :
+    1. Hero            — titre + sous-titre de la page
+    2. Grille          — cartes partenaires (avec ou sans photo)
+    3. CTA             — "Devenir partenaire" (lien vers contact.html?sujet=devenir-partenaire)
+
+  CE QUE TU PEUX MODIFIER :
+    - Texte hero : lignes ~99-104 (titre) et ~104 (sous-titre)
+    - Partenaires : dans <div class="partenaires-grid"> (~ligne 135)
+      - Changer nom, description, lien, photo de chaque partenaire
+      - AJOUTER un partenaire avec photo : copie un bloc <a class="partenaire-card partenaire-card--photo">
+        et change le href, le <h3>, le <p> et le src de l'<img>
+      - AJOUTER un partenaire sans photo : copie un bloc <a class="partenaire-card"> (sans --photo)
+        avec un <div class="partenaire-logo-placeholder"> contenant les initiales
+      - SUPPRIMER un partenaire : supprime le bloc <a class="partenaire-card"> ou <div class="partenaire-card"> entier
+    - CTA "Devenir partenaire" : texte ~ligne 209
+
+  NE PAS TOUCHER :
+    - Les wave-separator (SVG animees entre les sections)
+    - Le bloc NAV:START ... NAV:END (navigation commune)
+    - Le bloc FOOTER:START ... FOOTER:END (pied de page commun)
+    - Les fichiers CSS/JS references en bas
+  ============================================================
+-->
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO : modifie ces balises pour changer ce qui apparait sur Google et les reseaux sociaux -->
   <title>Partenaires — DJing Is A Medicine</title>
   <meta name="description"
     content="Découvre les partenaires qui accompagnent l'aventure DJing Is A Medicine : OmWater, PSIO, Mixed In Key, Temple Sauvage et plus.">
@@ -44,6 +74,7 @@
     <canvas id="sound-waves-canvas"></canvas>
   </div>
 
+  <!-- NAV:START -->
   <!-- ==========================================
      NAVIGATION
      ========================================== -->
@@ -86,6 +117,8 @@
       </div>
     </div>
   </div>
+
+  <!-- NAV:END -->
 
   <!-- ==========================================
      SECTION 1 — HERO (transparent / parallax)
@@ -216,6 +249,7 @@
     </div>
   </section>
 
+  <!-- FOOTER:START -->
   <!-- ==========================================
      FOOTER
      ========================================== -->
@@ -283,6 +317,8 @@
       </div>
     </div>
   </footer>
+
+  <!-- FOOTER:END -->
 
   <script src="js/mandala.js" defer></script>
   <script src="js/main.js" defer></script>

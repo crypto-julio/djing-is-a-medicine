@@ -22,7 +22,12 @@
       "Bash(mv \"partenaires/temple sauvage.webp\" \"partenaires/partenaires-1.webp\")",
       "Bash(mv \"partenaires/om water.jpg\" \"partenaires/partenaires-2.jpg\")",
       "Bash(mv \"partenaires/psio-3-catal.jpg\" \"partenaires/partenaires-3.jpg\")",
-      "Bash(mv \"partenaires/MixedInKey_8_Screenshot.jpg\" \"partenaires/partenaires-4.jpg\")"
+      "Bash(mv \"partenaires/MixedInKey_8_Screenshot.jpg\" \"partenaires/partenaires-4.jpg\")",
+      "Bash(node build.js)",
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Bash(sed -n '/<!-- NAV:START -->/,/<!-- NAV:END -->/p' \"$f\")",
+      "Bash(done)"
     ]
   }
 }

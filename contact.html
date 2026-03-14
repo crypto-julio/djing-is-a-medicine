@@ -1,9 +1,44 @@
+<!--
+  ============================================================
+  PAGE : CONTACT
+  ============================================================
+  Formulaire de contact simplifie + reseaux sociaux + acces espace eleves.
+
+  STRUCTURE :
+    1. Hero             — titre + sous-titre
+    2. Formulaire       — prenom, nom, email, telephone, sujet, message, newsletter
+    3. Reseaux sociaux  — grille de liens (Instagram, Facebook, YouTube, Mixcloud, SoundCloud)
+    4. Espace eleves    — carte avec lien vers membres.benjaminbossu.com
+
+  CE QUE TU PEUX MODIFIER :
+    - Texte hero : lignes ~99-106 (titre et sous-titre)
+    - Options du formulaire (select "Sujet") : ligne ~141
+      Ajoute ou modifie les <option value="...">Label</option>
+    - Liens reseaux sociaux : dans <div class="socials-grid"> (~ligne 181)
+      Change les href des <a> pour mettre a jour les URLs
+      (les icones du footer sont separees, elles sont dans FOOTER:START)
+    - Texte espace eleves : lignes ~263-265
+    - Lien espace eleves : ligne ~265 (href)
+
+  URL PARAMS :
+    - ?sujet=devenir-partenaire pre-selectionne le sujet dans le formulaire
+      (script en bas de page, ~ligne 354)
+
+  NE PAS TOUCHER :
+    - Les wave-separator (SVG animees entre les sections)
+    - Le bloc NAV:START ... NAV:END (navigation commune)
+    - Le bloc FOOTER:START ... FOOTER:END (pied de page commun)
+    - La logique d'envoi du formulaire (js/contact.js)
+    - Le script de pre-selection du sujet en bas de page
+  ============================================================
+-->
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO : modifie ces balises pour changer ce qui apparait sur Google et les reseaux sociaux -->
   <title>Contact — DJing Is A Medicine</title>
   <meta name="description"
     content="Une question, un projet, un partenariat ? Contacte Ëotim et l'équipe DJing Is A Medicine.">
@@ -44,6 +79,7 @@
     <canvas id="sound-waves-canvas"></canvas>
   </div>
 
+  <!-- NAV:START -->
   <!-- ==========================================
      NAVIGATION
      ========================================== -->
@@ -86,6 +122,8 @@
       </div>
     </div>
   </div>
+
+  <!-- NAV:END -->
 
   <!-- ==========================================
      SECTION 1 — HERO + FORMULAIRE (transparent / parallax)
@@ -271,6 +309,7 @@
     </div>
   </section>
 
+  <!-- FOOTER:START -->
   <!-- ==========================================
      FOOTER
      ========================================== -->
@@ -338,6 +377,8 @@
       </div>
     </div>
   </footer>
+
+  <!-- FOOTER:END -->
 
   <script src="js/mandala.js" defer></script>
   <script src="js/main.js" defer></script>
