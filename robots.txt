@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /GUIDE-MISE-A-JOUR.html
+
+Sitemap: https://djingisamedicine.com/sitemap.xml
