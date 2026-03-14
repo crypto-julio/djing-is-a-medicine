@@ -11,6 +11,8 @@
   <meta property="og:description"
     content="Retraite immersive de 5 jours + accompagnement sur 6 mois. Technique DJ, posture, présence et collectif.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://djingisamedicine.com/images/index/index-hero-1.jpg">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -22,6 +24,8 @@
 </head>
 
 <body>
+
+  <a href="#formation-top" class="skip-link">Aller au contenu principal</a>
 
   <!-- Scroll progress bar -->
   <div class="scroll-progress" id="scrollProgress"></div>
@@ -114,7 +118,7 @@
   </section>
 
   <!-- Wave separator -->
-  <div class="wave-separator">
+  <div class="wave-separator" aria-hidden="true">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
       <path fill="#D5CBC0" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z">
         <animate attributeName="d" dur="8s" repeatCount="indefinite" values="
@@ -151,7 +155,7 @@
   </section>
 
   <!-- Wave separator — opaque fades into dark -->
-  <div class="wave-separator">
+  <div class="wave-separator" aria-hidden="true">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
       <path fill="#D5CBC0" d="M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z">
         <animate attributeName="d" dur="10s" repeatCount="indefinite" values="
@@ -221,7 +225,7 @@
   </section>
 
   <!-- Wave separator — dark into opaque -->
-  <div class="wave-separator">
+  <div class="wave-separator" aria-hidden="true">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
       <path fill="#D5CBC0"
         d="M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z">
@@ -288,11 +292,18 @@
 
       <p class="f-format-bonus reveal reveal-delay-2">✦ Et des bonus et surprises — ce que tu découvriras en chemin ne se liste pas, ça se vit.</p>
 
+      <div class="f-format-photos reveal reveal-delay-3">
+        <img src="images/formation/formation-format-1.jpg" alt="Formation DJ en immersion" loading="lazy">
+        <img src="images/formation/formation-format-2.jpg" alt="Groupe en formation DJ holistique" loading="lazy">
+        <img src="images/formation/formation-format-3.jpg" alt="Pratique en retraite formation" loading="lazy">
+        <img src="images/formation/formation-format-4.jpg" alt="Formation Ecstatic Dance en groupe" loading="lazy">
+      </div>
+
     </div>
   </section>
 
   <!-- Wave separator — opaque (format) fades into dark gap -->
-  <div class="wave-separator">
+  <div class="wave-separator" aria-hidden="true">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
       <path fill="#D5CBC0" d="M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z">
         <animate attributeName="d" dur="10s" repeatCount="indefinite" values="
@@ -437,7 +448,7 @@
   </div>
 
   <!-- Wave separator — dark gap fades into opaque (programme) -->
-  <div class="wave-separator">
+  <div class="wave-separator" aria-hidden="true">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
       <path fill="#D5CBC0"
         d="M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z">
@@ -466,7 +477,7 @@
       <div class="pillars">
         <div class="pillar pillar-1 reveal reveal-delay-1">
           <div class="pillar-photo">
-            <img src="images/retraite/techniqueDj.jpg" alt="Technique DJ en formation" loading="lazy">
+            <img src="images/formation/formation-programme-1.jpg" alt="Technique DJ en formation" loading="lazy">
           </div>
           <h3 class="pillar-title">Technique DJ</h3>
           <p class="pillar-text">Maîtriser ton logiciel (Traktor Pro), ton contrôleur, ta bibliothèque musicale. Comprendre les bases du mix, les structures de morceaux, le câblage. Construire des sets qui racontent un voyage.</p>
@@ -474,7 +485,7 @@
         </div>
         <div class="pillar pillar-2 reveal reveal-delay-2">
           <div class="pillar-photo">
-            <img src="images/retraite/Eiutim-ecstatic.jpg" alt="Posture et présence en Ecstatic Dance" loading="lazy">
+            <img src="images/formation/formation-programme-2.jpg" alt="Posture et présence en Ecstatic Dance" loading="lazy">
           </div>
           <h3 class="pillar-title">Posture & Présence</h3>
           <p class="pillar-text">Développer ta capacité à ressentir l'énergie d'un groupe et à ajuster ta musique en conséquence. Méditation, Qi Gong, marches en conscience, exercices de respiration : des pratiques concrètes pour ancrer ta posture de DJ holistique.</p>
@@ -501,7 +512,7 @@
   </section>
 
   <!-- Wave separator — opaque fades into dark -->
-  <div class="wave-separator">
+  <div class="wave-separator" aria-hidden="true">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
       <path fill="#D5CBC0" d="M0,35 C360,65 540,15 900,45 C1080,60 1260,25 1440,40 L1440,0 L0,0 Z">
         <animate attributeName="d" dur="11s" repeatCount="indefinite" values="
@@ -547,7 +558,7 @@
           </div>
         </div>
         <div class="f-mix-photo">
-          <img src="images/retraite/Groupe-formation-ecstaticdance.jpg" alt="Groupe de la formation Ecstatic Dance" loading="lazy">
+          <img src="images/formation/temoignage-aurelie.jpg" alt="Aurélie G. (Lysis) — Participante formation" loading="lazy">
         </div>
       </div>
 
@@ -567,7 +578,7 @@
           </div>
         </div>
         <div class="f-mix-photo">
-          <img src="images/retraite/techniqueDj.jpg" alt="Technique DJ en formation" loading="lazy">
+          <img src="images/formation/temoignage-loic.jpg" alt="Loïc S. — Participant retraite" loading="lazy">
         </div>
       </div>
 
@@ -587,7 +598,7 @@
           </div>
         </div>
         <div class="f-mix-photo">
-          <img src="images/retraite/traktorpro3.jpg" alt="Pratique sur Traktor Pro 3" loading="lazy">
+          <img src="images/formation/temoignage-dorine.jpg" alt="Dorine D. — Participante formation" loading="lazy">
         </div>
       </div>
 
@@ -607,17 +618,7 @@
           </div>
         </div>
         <div class="f-mix-photo">
-          <img src="images/retraite/ecstatic-dance-warmup.jpg" alt="Warm-up Ecstatic Dance" loading="lazy">
-        </div>
-      </div>
-
-      <!-- Photos restantes -->
-      <div class="f-photos-extra reveal">
-        <div class="f-mix-photo">
-          <img src="images/retraite/Eiutim-ecstatic.jpg" alt="Ëotim en session Ecstatic Dance" loading="lazy">
-        </div>
-        <div class="f-mix-photo">
-          <img src="images/retraite/Evenementecstaticdance.jpg" alt="Événement Ecstatic Dance" loading="lazy">
+          <img src="images/formation/temoignage-leon.jpg" alt="Léon D. — Participant formation" loading="lazy">
         </div>
       </div>
 
@@ -628,7 +629,7 @@
   </section>
 
   <!-- Wave separator — dark into opaque -->
-  <div class="wave-separator">
+  <div class="wave-separator" aria-hidden="true">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
       <path fill="#D5CBC0" d="M0,30 C360,70 720,10 1080,50 C1260,65 1380,40 1440,30 L1440,80 L0,80 Z">
         <animate attributeName="d" dur="9s" repeatCount="indefinite" values="
@@ -814,8 +815,8 @@
       <div class="footer-bottom">
         <span>© 2026 DJing Is A Medicine — Tous droits réservés</span>
         <div class="footer-legal">
-          <a href="#">Mentions légales</a>
-          <a href="#">Politique de confidentialité</a>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="politique-confidentialite.html">Politique de confidentialité</a>
         </div>
         <div class="footer-credit">Créé avec amour par Julien — <a href="https://flowebia.fr" target="_blank"
             rel="noopener">flowebia.fr</a></div>

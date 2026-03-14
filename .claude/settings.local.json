@@ -7,7 +7,22 @@
       "Bash(git push:*)",
       "WebFetch(domain:aide.systeme.io)",
       "Bash(grep -rn \"font-family\\\\|@import\" /c/Users/ktzgu/Desktop/djing-is-a-medicine/*.css)",
-      "WebFetch(domain:france.omwater.me)"
+      "WebFetch(domain:france.omwater.me)",
+      "Bash(mv \"Djing.jpg\" \"index-hero-1.jpg\")",
+      "Bash(mv \"Danses48.jpg\" \"index-hero-2.jpg\")",
+      "Bash(mv \"Eotim-photoweb.jpg\" \"apropos-portrait-1.jpg\")",
+      "Bash(mv \"ecstatic-dance/Eiutim-ecstatic.jpg\" \"ecstatic-dance/formation-programme-2.jpg\")",
+      "Bash(mv \"formation/techniqueDj.jpg\" \"formation/formation-programme-1.jpg\")",
+      "Bash(mv \"formation/P1230505.JPG\" \"formation/formation-temoignage-1.jpg\")",
+      "Bash(mv \"formation/Groupe-formation-ecstaticdance.jpg\" \"formation/formation-temoignage-2.jpg\")",
+      "Bash(mv \"formation/IMG_5447.JPG\" \"formation/formation-temoignage-3.jpg\")",
+      "Bash(mv \"formation/traktorpro3.jpg\" \"formation/formation-temoignage-4.jpg\")",
+      "Bash(mv \"formation/G0040950.JPG\" \"formation/formation-temoignage-5.jpg\")",
+      "Bash(mv \"formation/IMG_20240816_163038.jpg\" \"formation/formation-temoignage-6.jpg\")",
+      "Bash(mv \"partenaires/temple sauvage.webp\" \"partenaires/partenaires-1.webp\")",
+      "Bash(mv \"partenaires/om water.jpg\" \"partenaires/partenaires-2.jpg\")",
+      "Bash(mv \"partenaires/psio-3-catal.jpg\" \"partenaires/partenaires-3.jpg\")",
+      "Bash(mv \"partenaires/MixedInKey_8_Screenshot.jpg\" \"partenaires/partenaires-4.jpg\")"
     ]
   }
 }

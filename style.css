@@ -54,6 +54,27 @@ body {
 }
 
 /* ============================================
+   SKIP LINK (accessibility)
+   ============================================ */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent-amber);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0 0 8px 8px;
+  z-index: 100000;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* ============================================
    CUSTOM CURSOR
    ============================================ */
 .cursor {
@@ -1393,15 +1414,17 @@ img { max-width: 100%; display: block; }
 
 /* Testimonials layout - masonry mixte */
 .testimonials-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
   margin-bottom: 3rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Full-width quote card */
 .big-quote {
-  grid-column: 1 / -1;
   text-align: center;
   padding: 3rem;
   position: relative;
@@ -1501,6 +1524,12 @@ img { max-width: 100%; display: block; }
   font-weight: 700;
   font-size: 0.8rem;
   color: #fff;
+}
+.testimonial-avatar-img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 .testimonial-name {
   font-weight: 600;
@@ -1632,7 +1661,7 @@ img { max-width: 100%; display: block; }
 }
 
 @media (max-width: 768px) {
-  .testimonials-layout { grid-template-columns: 1fr; }
+  .testimonials-layout { max-width: none; }
   .testimonial-card-full { max-width: none; }
 }
 
@@ -1711,7 +1740,7 @@ img { max-width: 100%; display: block; }
     radial-gradient(circle at 25% 30%, rgba(232, 114, 26, 0.25), transparent 50%),
     radial-gradient(circle at 75% 60%, rgba(107, 45, 91, 0.2), transparent 50%),
     linear-gradient(135deg, rgba(139, 58, 122, 0.15) 0%, rgba(196, 122, 46, 0.1) 40%, rgba(27, 75, 107, 0.15) 100%),
-    url('images/Djing.jpg');
+    url('images/index/index-hero-1.jpg');
 }
 .date-card-2 {
   max-width: 85%;
@@ -1722,7 +1751,7 @@ img { max-width: 100%; display: block; }
     radial-gradient(circle at 75% 30%, rgba(30, 96, 128, 0.25), transparent 50%),
     radial-gradient(circle at 25% 60%, rgba(107, 45, 91, 0.2), transparent 50%),
     linear-gradient(135deg, rgba(27, 75, 107, 0.15) 0%, rgba(30, 96, 128, 0.1) 40%, rgba(139, 58, 122, 0.15) 100%),
-    url('images/Danses48.jpg');
+    url('images/index/index-hero-2.jpg');
 }
 .date-card-visual::after {
   content: '';

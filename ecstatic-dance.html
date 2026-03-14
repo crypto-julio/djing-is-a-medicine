@@ -11,6 +11,8 @@
   <meta property="og:description"
     content="Découvre l'Ecstatic Dance : une pratique de danse libre sans jugement, guidée par un DJ. Principes fondamentaux, déroulé d'une session, et comment devenir DJ d'Ecstatic Dance.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://djingisamedicine.com/images/index/index-hero-1.jpg">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -22,6 +24,8 @@
 </head>
 
 <body>
+
+  <a href="#ecstatic-dance" class="skip-link">Aller au contenu principal</a>
 
   <!-- Scroll progress bar -->
   <div class="scroll-progress" id="scrollProgress"></div>
@@ -162,7 +166,7 @@
   </section>
 
   <!-- Wave separator -->
-  <div class="wave-separator">
+  <div class="wave-separator" aria-hidden="true">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
       <path fill="#D5CBC0" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z">
         <animate attributeName="d" dur="8s" repeatCount="indefinite" values="
@@ -192,7 +196,7 @@
   </section>
 
   <!-- Wave separator — bg-night into transparent -->
-  <div class="wave-separator">
+  <div class="wave-separator" aria-hidden="true">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
       <path fill="#D5CBC0" d="M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z">
         <animate attributeName="d" dur="10s" repeatCount="indefinite" values="
@@ -421,7 +425,7 @@
   </section>
 
   <!-- Wave separator — transparent into bg-night -->
-  <div class="wave-separator">
+  <div class="wave-separator" aria-hidden="true">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
       <path fill="#D5CBC0" d="M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z">
         <animate attributeName="d" dur="9s" repeatCount="indefinite" values="
@@ -447,40 +451,20 @@
 
         <div class="ed-expr-grid">
           <div class="ed-expr-card ed-expr-celebration">
-            <div class="ed-expr-icon">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-              </svg>
-            </div>
+            <img class="ed-expr-img" src="images/ecstatic-dance/ecstatic-1.jpg" alt="Clubbing conscient" loading="lazy">
             <h3 class="ed-expr-title">Clubbing conscient</h3>
             <p class="ed-expr-text">Une proposition festive et accessible, dans un cadre plus flexible. La musique y est moins variée, portée davantage vers la célébration que vers le voyage intérieur, et peut s'affranchir d'une structure de vague. Un espace de joie et de célébration collective.</p>
           </div>
           <div class="ed-expr-card ed-expr-profondeur">
-            <div class="ed-expr-icon">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10"/>
-                <path d="M12 2c3 3.5 5 7.5 5 10s-2 6.5-5 10"/>
-                <path d="M2 12h20"/>
-              </svg>
-            </div>
+            <img class="ed-expr-img" src="images/ecstatic-dance/ecstatic-2.jpg" alt="Espace de profondeur" loading="lazy">
             <h3 class="ed-expr-title">Espace de profondeur</h3>
             <p class="ed-expr-text">Soutenu par une ou plusieurs vagues musicales, il permet d'accueillir toutes les émotions et tous les processus intérieurs. Le cadre est exigeant pour celles et ceux qui le portent, et plus sécurisant pour les participant&middot;es. La musique, très variée, invite à traverser un large spectre d'états pour permettre un véritable voyage de soi.</p>
           </div>
           <div class="ed-expr-card ed-expr-silent">
-            <div class="ed-expr-icon">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
-                <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
-              </svg>
-            </div>
+            <img class="ed-expr-img" src="images/ecstatic-dance/ecstatic-3.jpg" alt="Silent Ecstatic Dance" loading="lazy">
             <h3 class="ed-expr-title">Silent Ecstatic Dance</h3>
             <p class="ed-expr-text">Les participant&middot;es portent des casques audio sans fil. Le son est transmis directement dans les oreilles — idéal pour danser en pleine nature : plage, forêt, montagne. De l'extérieur, des corps dansent en silence. De l'intérieur, un voyage musical intime et immersif.</p>
           </div>
-        </div>
-
-        <div class="ed-expr-note reveal">
-          <p class="section-text">Ces deux formes sont justes, chacune à sa façon. Ce qui compte, c'est de nommer cette intention clairement — un soin envers celles et ceux qui viennent.</p>
         </div>
 
         <div class="ed-hybrides reveal">
@@ -492,7 +476,7 @@
   </section>
 
   <!-- Wave separator -->
-  <div class="wave-separator">
+  <div class="wave-separator" aria-hidden="true">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
       <path fill="#D5CBC0" d="M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z">
         <animate attributeName="d" dur="10s" repeatCount="indefinite" values="
@@ -644,7 +628,7 @@
   </section>
 
   <!-- Wave separator -->
-  <div class="wave-separator">
+  <div class="wave-separator" aria-hidden="true">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
       <path fill="#D5CBC0" d="M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z">
         <animate attributeName="d" dur="9s" repeatCount="indefinite" values="
@@ -809,7 +793,7 @@
   </section>
 
   <!-- Wave separator -->
-  <div class="wave-separator">
+  <div class="wave-separator" aria-hidden="true">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
       <path fill="#D5CBC0" d="M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z">
         <animate attributeName="d" dur="10s" repeatCount="indefinite" values="
@@ -848,7 +832,7 @@
   </section>
 
   <!-- Wave separator -->
-  <div class="wave-separator">
+  <div class="wave-separator" aria-hidden="true">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
       <path fill="var(--bg-deep)" d="M0,30 C360,70 720,10 1080,50 C1260,65 1380,40 1440,30 L1440,80 L0,80 Z">
         <animate attributeName="d" dur="9s" repeatCount="indefinite" values="
@@ -871,13 +855,13 @@
           <div class="footer-logo">DJing Is A Medicine</div>
           <p>Le DJing comme voie sensible pour créer des espaces sécurisés et des voyages musicaux.</p>
           <div class="footer-social" style="margin-top:1rem;">
-            <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+            <a href="https://www.instagram.com/eotim.dj" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="1.5">
                 <rect x="2" y="2" width="20" height="20" rx="5" />
                 <circle cx="12" cy="12" r="5" />
                 <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
               </svg></a>
-            <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+            <a href="https://www.facebook.com/benjamin.bossu.catalyseur" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="1.5">
                 <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
               </svg></a>
@@ -891,11 +875,11 @@
                 stroke="currentColor" stroke-width="1.5">
                 <path d="M2 16v-3m3 4V10m3 7V8m3 9V5m3 12V9m3 8v-5m3 5v-7" />
               </svg></a>
-            <a href="https://ecstaticdance.org/dj/eiutim/" target="_blank" rel="noopener" aria-label="Ecstatic Dance"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+            <a href="https://www.mixcloud.com/eotim/" target="_blank" rel="noopener" aria-label="Mixcloud"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="1.5">
                 <circle cx="12" cy="12" r="10" />
-                <path d="M2 12h20" />
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                <path d="M8 15V9l4 3-4 3z" />
+                <path d="M13 15V9l4 3-4 3z" />
               </svg></a>
           </div>
         </div>
@@ -920,8 +904,8 @@
       <div class="footer-bottom">
         <span>&copy; 2026 DJing Is A Medicine — Tous droits réservés</span>
         <div class="footer-legal">
-          <a href="#">Mentions légales</a>
-          <a href="#">Politique de confidentialité</a>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="politique-confidentialite.html">Politique de confidentialité</a>
         </div>
         <div class="footer-credit">Créé avec amour par Julien — <a href="https://flowebia.fr" target="_blank"
             rel="noopener">flowebia.fr</a></div>

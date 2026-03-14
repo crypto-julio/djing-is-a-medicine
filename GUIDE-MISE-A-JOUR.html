@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guide de mise à jour — DJing Is A Medicine</title>
+  <style>
+    :root { --bg: #1a1520; --card: #231e2a; --border: #3a3040; --gold: #e8c872; --amber: #c47a2e; --text: #d5cbc0; --muted: #9a8f85; --green: #7ec89a; --red: #e87272; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; padding: 2rem; max-width: 960px; margin: 0 auto; }
+    h1 { color: var(--gold); font-size: 2rem; margin-bottom: 0.5rem; }
+    h2 { color: var(--gold); font-size: 1.5rem; margin: 2.5rem 0 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+    h3 { color: var(--amber); font-size: 1.15rem; margin: 1.5rem 0 0.5rem; }
+    p, li { margin-bottom: 0.5rem; }
+    ul, ol { padding-left: 1.5rem; }
+    code { background: var(--card); color: var(--gold); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; overflow-x: auto; margin: 1rem 0; font-size: 0.85em; line-height: 1.5; }
+    pre code { background: none; padding: 0; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1rem 0; }
+    .tag { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 0.8em; margin-right: 0.3rem; }
+    .tag-html { background: #2a3540; color: #7ec8e8; }
+    .tag-css { background: #2a2540; color: #b89ae8; }
+    .tag-js { background: #3a3520; color: #e8c872; }
+    .tag-important { background: #3a2020; color: #e87272; }
+    .warning { border-left: 4px solid var(--red); padding: 1rem; background: rgba(232,114,114,0.08); border-radius: 0 8px 8px 0; margin: 1rem 0; }
+    .tip { border-left: 4px solid var(--green); padding: 1rem; background: rgba(126,200,154,0.08); border-radius: 0 8px 8px 0; margin: 1rem 0; }
+    .toc { list-style: none; padding: 0; }
+    .toc li { padding: 0.3rem 0; }
+    .toc a { color: var(--amber); text-decoration: none; }
+    .toc a:hover { text-decoration: underline; }
+    a { color: var(--amber); }
+    table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem 0.75rem; text-align: left; }
+    th { background: var(--card); color: var(--gold); }
+    .subtitle { color: var(--muted); font-size: 1rem; margin-bottom: 2rem; }
+  </style>
+</head>
+<body>
+
+<h1>Guide de mise à jour du site</h1>
+<p class="subtitle">DJing Is A Medicine — Documentation pour Benjamin</p>
+
+<div class="card">
+  <strong>Ce guide est fait pour toi.</strong> Tu es à l'aise avec le HTML — ce document te donne toutes les clés pour modifier les textes, images, témoignages, dates et contenus du site sans risquer de casser quoi que ce soit.
+</div>
+
+<!-- ===== TABLE DES MATIÈRES ===== -->
+<h2 id="sommaire">Sommaire</h2>
+<ol class="toc">
+  <li><a href="#structure">1. Structure du projet</a></li>
+  <li><a href="#pages">2. Pages du site — vue d'ensemble</a></li>
+  <li><a href="#navigation">3. Navigation (menu)</a></li>
+  <li><a href="#textes">4. Modifier les textes</a></li>
+  <li><a href="#images">5. Modifier / ajouter des images</a></li>
+  <li><a href="#temoignages">6. Témoignages</a></li>
+  <li><a href="#dates">7. Dates et agenda</a></li>
+  <li><a href="#partenaires">8. Partenaires</a></li>
+  <li><a href="#formulaire">9. Formulaire de contact</a></li>
+  <li><a href="#footer">10. Footer (pied de page)</a></li>
+  <li><a href="#seo">11. SEO (titres, descriptions)</a></li>
+  <li><a href="#css">12. Couleurs et styles (CSS)</a></li>
+  <li><a href="#js">13. JavaScript — ce qu'il faut savoir</a></li>
+  <li><a href="#deploiement">14. Déploiement (Netlify)</a></li>
+  <li><a href="#ne-pas-toucher">15. Zones à ne pas toucher</a></li>
+</ol>
+
+<!-- ===== 1. STRUCTURE ===== -->
+<h2 id="structure">1. Structure du projet</h2>
+
+<pre><code>djing-is-a-medicine/
+│
+├── index.html              ← Page d'accueil
+├── formation.html          ← Page Formation DJ Holistique
+├── ecstatic-dance.html     ← Page Ecstatic Dance (guide complet)
+├── a-propos.html           ← Page À propos (bio Ëotim)
+├── partenaires.html        ← Page Partenaires
+├── contact.html            ← Page Contact (formulaire simplifié)
+│
+├── style.css               ← CSS principal (partagé par toutes les pages)
+├── formation.css           ← CSS spécifique à formation.html
+├── ecstatic-dance.css      ← CSS spécifique à ecstatic-dance.html
+├── a-propos.css            ← CSS spécifique à a-propos.html
+├── partenaires.css         ← CSS spécifique à partenaires.html
+├── contact.css             ← CSS spécifique à contact.html
+│
+├── js/
+│   ├── main.js             ← Animations, menu, curseur (toutes pages)
+│   ├── mandala.js          ← Animation mandala canvas (toutes pages)
+│   ├── contact.js          ← Logique d'envoi du formulaire
+│   └── formation-nav.js    ← Navigation latérale (page formation)
+│
+├── fonts/
+│   └── Decalotype-Bold.*   ← Police personnalisée
+│
+├── images/
+│   ├── index/              ← Images de la page d'accueil
+│   ├── formation/          ← Images formation + témoignages
+│   ├── ecstatic-dance/     ← Images page Ecstatic Dance
+│   ├── a-propos/           ← Portrait de Benjamin
+│   └── partenaires/        ← Photos des partenaires
+│
+├── contact.php             ← Proxy vers Systeme.io (hébergement PHP/LWS)
+├── netlify/functions/
+│   └── contact.mjs         ← Même proxy mais pour Netlify (fallback)
+│
+└── netlify.toml            ← Configuration déploiement Netlify</code></pre>
+
+<div class="tip">
+  <strong>Règle simple :</strong> chaque page HTML a son fichier CSS du même nom + charge <code>style.css</code> (le CSS commun). Pas de framework, pas de build — tu modifies un fichier, tu enregistres, c'est en ligne après un push git.
+</div>
+
+<!-- ===== 2. PAGES ===== -->
+<h2 id="pages">2. Pages du site — vue d'ensemble</h2>
+
+<table>
+  <tr><th>Page</th><th>Fichiers</th><th>Contenu principal</th></tr>
+  <tr><td><strong>Accueil</strong></td><td><code>index.html</code> + <code>style.css</code></td><td>Hero, philosophie (2 piliers), "Pour qui", témoignages (rotation auto), dates, formulaire newsletter</td></tr>
+  <tr><td><strong>Formation</strong></td><td><code>formation.html</code> + <code>formation.css</code></td><td>Programme détaillé, formats (retraite + D.A.N.S.E.S 48), inclus/exclus, témoignages, FAQ, formulaire</td></tr>
+  <tr><td><strong>Ecstatic Dance</strong></td><td><code>ecstatic-dance.html</code> + <code>ecstatic-dance.css</code></td><td>Guide complet ED : définition, principes, déroulé, globe des danseurs, devenir DJ ED</td></tr>
+  <tr><td><strong>À propos</strong></td><td><code>a-propos.html</code> + <code>a-propos.css</code></td><td>Bio de Benjamin/Ëotim, chronologie, vision, liens réseaux/musique</td></tr>
+  <tr><td><strong>Partenaires</strong></td><td><code>partenaires.html</code> + <code>partenaires.css</code></td><td>Grille de partenaires (avec/sans photo), CTA devenir partenaire</td></tr>
+  <tr><td><strong>Contact</strong></td><td><code>contact.html</code> + <code>contact.css</code></td><td>Formulaire simple, réseaux sociaux, lien espace élèves</td></tr>
+</table>
+
+<!-- ===== 3. NAVIGATION ===== -->
+<h2 id="navigation">3. Navigation (menu)</h2>
+
+<p>Le menu est <strong>dupliqué dans chaque page HTML</strong> (il n'y a pas de composant partagé). Si tu ajoutes ou renommes un lien, il faut le faire dans <strong>les 6 fichiers HTML</strong>.</p>
+
+<h3>Où trouver le menu</h3>
+<p>Cherche le commentaire <code>&lt;!-- NAVIGATION --&gt;</code> dans chaque fichier. Le menu a deux parties :</p>
+
+<pre><code>&lt;!-- 1. Menu desktop --&gt;
+&lt;nav class="nav" id="nav"&gt;
+  &lt;ul class="nav-links"&gt;
+    &lt;li&gt;&lt;a href="formation.html"&gt;Formation&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="ecstatic-dance.html"&gt;Ecstatic Dance&lt;/a&gt;&lt;/li&gt;
+    ...
+  &lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;!-- 2. Menu mobile (juste en dessous) --&gt;
+&lt;div class="nav-mobile" id="mobileMenu"&gt;
+  &lt;a href="formation.html" class="nav-mobile-link"&gt;Formation&lt;/a&gt;
+  ...
+&lt;/div&gt;</code></pre>
+
+<div class="warning">
+  <strong>Attention :</strong> Le menu desktop ET le menu mobile doivent être modifiés en parallèle. Et ceci dans chaque fichier HTML. Sinon un lien fonctionnera sur desktop mais pas sur mobile (ou inversement).
+</div>
+
+<!-- ===== 4. TEXTES ===== -->
+<h2 id="textes">4. Modifier les textes</h2>
+
+<p>Les textes sont directement dans le HTML. Pour les retrouver facilement, chaque section est précédée d'un commentaire clair :</p>
+
+<pre><code>&lt;!-- ==========================================
+   SECTION 2 — PHILOSOPHIE
+   ========================================== --&gt;</code></pre>
+
+<h3>Structure type d'une section</h3>
+<pre><code>&lt;section class="philosophy" id="philosophie"&gt;
+  &lt;div class="container"&gt;
+    &lt;div class="section-label"&gt;Vision&lt;/div&gt;          ← petit label au-dessus
+    &lt;h2 class="section-title"&gt;Titre principal&lt;/h2&gt;    ← titre de section
+    &lt;p class="section-text"&gt;Ton texte ici...&lt;/p&gt;      ← paragraphe
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+<div class="tip">
+  <strong>Pour modifier un texte :</strong> ouvre le fichier HTML, cherche la phrase avec Ctrl+F, modifie-la, enregistre. C'est tout.
+</div>
+
+<h3>Classes CSS utiles à connaître</h3>
+<table>
+  <tr><th>Classe</th><th>Rôle</th></tr>
+  <tr><td><code>section-label</code></td><td>Petit mot-clé au-dessus d'un titre ("Vision", "Agenda", "Témoignages"...)</td></tr>
+  <tr><td><code>section-title</code></td><td>Titre principal d'une section (gros, doré)</td></tr>
+  <tr><td><code>section-text</code></td><td>Texte courant sous le titre</td></tr>
+  <tr><td><code>hero-eyebrow</code></td><td>Petit texte au-dessus du titre dans le hero</td></tr>
+  <tr><td><code>hero-title</code></td><td>Grand titre animé du hero (mots séparés en &lt;span&gt;)</td></tr>
+  <tr><td><code>hero-subtitle</code></td><td>Sous-titre du hero</td></tr>
+  <tr><td><code>reveal</code></td><td>Animation au scroll : l'élément apparaît en douceur quand on scrolle</td></tr>
+</table>
+
+<!-- ===== 5. IMAGES ===== -->
+<h2 id="images">5. Modifier / ajouter des images</h2>
+
+<h3>Organisation des images</h3>
+<table>
+  <tr><th>Dossier</th><th>Contenu</th></tr>
+  <tr><td><code>images/index/</code></td><td>Images hero accueil (<code>index-hero-1.jpg</code>, <code>index-hero-2.jpg</code>)</td></tr>
+  <tr><td><code>images/formation/</code></td><td>Photos formation + avatars témoignages (ex: <code>temoignage-laura.jpg</code>)</td></tr>
+  <tr><td><code>images/ecstatic-dance/</code></td><td>Photos page Ecstatic Dance</td></tr>
+  <tr><td><code>images/a-propos/</code></td><td>Portrait Ëotim (<code>apropos-portrait-1.jpg</code>)</td></tr>
+  <tr><td><code>images/partenaires/</code></td><td>Photos des partenaires (<code>partenaires-1.webp</code> à <code>partenaires-4.jpg</code>)</td></tr>
+</table>
+
+<h3>Pour remplacer une image</h3>
+<ol>
+  <li>Place ta nouvelle image dans le bon dossier</li>
+  <li>Donne-lui le même nom que l'ancienne (ou modifie le <code>src</code> dans le HTML)</li>
+  <li>Format recommandé : <strong>JPG ou WebP</strong>, largeur max ~1200px, qualité 80%</li>
+</ol>
+
+<h3>Pour ajouter une image</h3>
+<pre><code>&lt;img src="images/formation/ma-nouvelle-photo.jpg"
+     alt="Description de la photo"
+     loading="lazy"&gt;</code></pre>
+
+<div class="tip">
+  <strong>Toujours mettre <code>loading="lazy"</code></strong> sur les images qui ne sont pas dans le hero (ça optimise le chargement).
+</div>
+
+<!-- ===== 6. TÉMOIGNAGES ===== -->
+<h2 id="temoignages">6. Témoignages</h2>
+
+<h3>Page d'accueil (index.html)</h3>
+<p>L'accueil a un <strong>système de rotation automatique</strong> des témoignages. La liste est dans un bloc <code>&lt;script&gt;</code> en bas de <code>index.html</code> :</p>
+
+<pre><code>const testimonialPool = [
+  {
+    stars: '★★★★★',
+    quote: '"Le texte du témoignage..."',
+    initials: 'LC',         // ← initiales pour l'avatar
+    name: 'Laura C.',       // ← nom affiché
+    role: 'Participante formation'  // ← sous-titre
+  },
+  // ... autres témoignages
+];</code></pre>
+
+<h3>Pour ajouter un témoignage (accueil)</h3>
+<p>Ajoute un nouvel objet dans le tableau <code>testimonialPool</code> :</p>
+<pre><code>{
+  stars: '★★★★★',
+  quote: '"Le texte du nouveau témoignage ici."',
+  initials: 'AB',
+  name: 'Alice B.',
+  role: 'Participante retraite'
+},</code></pre>
+
+<div class="warning">
+  <strong>Attention aux guillemets :</strong> dans le JavaScript, les apostrophes dans le texte doivent être échappées avec <code>\'</code>. Exemple : <code>'j\'ai adoré'</code> et non <code>'j'ai adoré'</code>.
+</div>
+
+<p>Il y a aussi les "big quotes" qui tournent :</p>
+<pre><code>const bigQuotes = [
+  '« Je ne pensais pas être capable… »',
+  '« Ça a changé ma vision de la musique… »',
+  '« Un avant et un après… »',
+];</code></pre>
+
+<h3>Page Formation (formation.html)</h3>
+<p>Les témoignages de la page formation sont directement dans le HTML (pas de rotation JS). Cherche <code>SECTION — TEMOIGNAGES</code> dans le fichier.</p>
+
+<p>Un témoignage type :</p>
+<pre><code>&lt;div class="testimonial-card"&gt;
+  &lt;div class="testimonial-stars"&gt;★★★★★&lt;/div&gt;
+  &lt;p class="testimonial-quote"&gt;"Le texte ici..."&lt;/p&gt;
+  &lt;div class="testimonial-author"&gt;
+    &lt;img class="testimonial-avatar-img"
+         src="images/formation/temoignage-laura.jpg"
+         alt="Laura C."&gt;
+    &lt;div&gt;
+      &lt;div class="testimonial-name"&gt;Laura C.&lt;/div&gt;
+      &lt;div class="testimonial-role"&gt;Participante formation&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<!-- ===== 7. DATES ===== -->
+<h2 id="dates">7. Dates et agenda</h2>
+
+<p>Sur la page d'accueil (<code>index.html</code>), la section "Dates annuelles" contient deux cartes :</p>
+
+<pre><code>&lt;!-- SECTION 5 — PROCHAINES DATES --&gt;
+
+&lt;div class="date-card-badge"&gt;Printemps et Automne&lt;/div&gt;   ← saison
+&lt;div class="date-card-type"&gt;Retraite immersive · 5 jours&lt;/div&gt;  ← format
+&lt;h3 class="date-card-title"&gt;DJing &amp; Ecstatic Dance&lt;/h3&gt;   ← titre
+&lt;p class="date-card-desc"&gt;Description...&lt;/p&gt;              ← description</code></pre>
+
+<div class="tip">
+  <strong>Pour changer une saison ou un format :</strong> modifie directement le texte dans les balises ci-dessus. Si tu veux ajouter des dates précises (ex: "15-20 juin 2026"), remplace le contenu de <code>date-card-badge</code>.
+</div>
+
+<!-- ===== 8. PARTENAIRES ===== -->
+<h2 id="partenaires">8. Partenaires</h2>
+
+<p>Fichier : <code>partenaires.html</code>, section <code>SECTION 2 — INTRO + GRILLE PARTENAIRES</code>.</p>
+
+<h3>Partenaire avec photo</h3>
+<pre><code>&lt;a href="https://templesauvage.fr" target="_blank" rel="noopener"
+   class="partenaire-card partenaire-card--photo reveal"&gt;
+  &lt;h3 class="partenaire-name"&gt;Temple Sauvage&lt;/h3&gt;
+  &lt;p class="partenaire-desc"&gt;Description du partenaire...&lt;/p&gt;
+  &lt;img src="images/partenaires/partenaires-1.webp"
+       alt="Temple Sauvage" class="partenaire-photo" loading="lazy"&gt;
+&lt;/a&gt;</code></pre>
+
+<h3>Partenaire sans photo</h3>
+<pre><code>&lt;div class="partenaire-card reveal"&gt;
+  &lt;div class="partenaire-logo-placeholder"&gt;MI&lt;/div&gt;  ← initiales
+  &lt;h3 class="partenaire-name"&gt;Mission Indigo&lt;/h3&gt;
+  &lt;p class="partenaire-desc"&gt;Description à venir.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+<h3>Pour ajouter un partenaire</h3>
+<ol>
+  <li>Copie un des blocs ci-dessus</li>
+  <li>Colle-le dans la <code>div.partenaires-grid</code></li>
+  <li>Modifie le nom, la description, le lien et l'image</li>
+  <li>Pour un partenaire cliquable, utilise <code>&lt;a&gt;</code>. Sinon <code>&lt;div&gt;</code>.</li>
+</ol>
+
+<!-- ===== 9. FORMULAIRE ===== -->
+<h2 id="formulaire">9. Formulaire de contact</h2>
+
+<p>Il existe <strong>deux formulaires</strong> sur le site :</p>
+
+<table>
+  <tr><th>Page</th><th>Formulaire</th><th>Champs</th></tr>
+  <tr><td><code>index.html</code> + <code>formation.html</code></td><td>Complet</td><td>Prénom, nom, email, téléphone, ville, niveau DJ, niveau espaces, provenance, sujet, motivation (conditionnel), message, newsletter</td></tr>
+  <tr><td><code>contact.html</code></td><td>Simplifié</td><td>Prénom, nom, email, téléphone, sujet, message, newsletter</td></tr>
+</table>
+
+<h3>Où vont les données ?</h3>
+<p>Les formulaires envoient les données à <strong>Systeme.io</strong> via un proxy :</p>
+<ol>
+  <li>D'abord vers <code>/contact.php</code> (si hébergé sur LWS ou serveur PHP)</li>
+  <li>En fallback, vers <code>/.netlify/functions/contact</code> (si hébergé sur Netlify)</li>
+</ol>
+<p>Le contact est créé ou mis à jour dans Systeme.io, et des tags (<code>formsite</code>, <code>newsletter</code>) lui sont assignés.</p>
+
+<h3>Modifier les options du formulaire</h3>
+<p>Pour changer les options d'un menu déroulant (ex: le sujet) :</p>
+<pre><code>&lt;select name="subject" required&gt;
+  &lt;option value="" disabled selected&gt;Sujet&lt;/option&gt;
+  &lt;option value="dj-holistique"&gt;Retraite formation DJ holistique&lt;/option&gt;
+  &lt;option value="danses-48"&gt;D.A.N.S.E.S 48&lt;/option&gt;
+  &lt;!-- Ajoute une option ici si besoin --&gt;
+&lt;/select&gt;</code></pre>
+
+<div class="warning">
+  <strong>Important :</strong> L'attribut <code>value</code> est ce qui est envoyé à Systeme.io. Le texte visible est entre les balises <code>&lt;option&gt;</code>. Si tu ajoutes une option, assure-toi que le <code>value</code> est en minuscules sans accents.
+</div>
+
+<h3>Le champ "motivation" conditionnel</h3>
+<p>Quand le sujet "DJ holistique" est sélectionné, un champ supplémentaire apparaît (échelle de 1 à 10). C'est géré par <code>js/contact.js</code> — pas besoin d'y toucher sauf si tu veux modifier l'échelle.</p>
+
+<!-- ===== 10. FOOTER ===== -->
+<h2 id="footer">10. Footer (pied de page)</h2>
+
+<p>Le footer est <strong>dupliqué dans chaque fichier HTML</strong> (comme la navigation). Cherche <code>&lt;!-- FOOTER --&gt;</code>.</p>
+
+<h3>Éléments modifiables</h3>
+<ul>
+  <li><strong>Liens de navigation :</strong> même liste que le menu principal</li>
+  <li><strong>Liens réseaux sociaux :</strong> modifier les <code>href</code> des icônes (Instagram, Facebook, YouTube, SoundCloud, Mixcloud)</li>
+  <li><strong>Espace élèves :</strong> lien vers <code>https://membres.benjaminbossu.com</code></li>
+  <li><strong>Année copyright :</strong> <code>© 2026 DJing Is A Medicine</code></li>
+  <li><strong>Mentions légales / Politique de confidentialité :</strong> actuellement les liens pointent vers <code>#</code> (à remplir)</li>
+</ul>
+
+<div class="warning">
+  <strong>Rappel :</strong> Toute modification du footer doit être faite dans les <strong>6 fichiers HTML</strong>.
+</div>
+
+<!-- ===== 11. SEO ===== -->
+<h2 id="seo">11. SEO (titres, descriptions)</h2>
+
+<p>Chaque page a ses balises SEO dans le <code>&lt;head&gt;</code> :</p>
+
+<pre><code>&lt;title&gt;Formation DJ Holistique — Niveau Ronde | DJing Is A Medicine&lt;/title&gt;
+&lt;meta name="description" content="Formation DJ Ecstatic Dance : ..."&gt;
+&lt;meta property="og:title" content="Formation DJ Holistique..."&gt;
+&lt;meta property="og:description" content="Retraite immersive de 5 jours..."&gt;</code></pre>
+
+<table>
+  <tr><th>Balise</th><th>Rôle</th><th>Longueur idéale</th></tr>
+  <tr><td><code>&lt;title&gt;</code></td><td>Titre affiché dans l'onglet et sur Google</td><td>50-60 caractères</td></tr>
+  <tr><td><code>meta description</code></td><td>Description sous le titre sur Google</td><td>120-160 caractères</td></tr>
+  <tr><td><code>og:title</code></td><td>Titre quand le lien est partagé (Facebook, WhatsApp...)</td><td>50-60 caractères</td></tr>
+  <tr><td><code>og:description</code></td><td>Description du partage social</td><td>120-160 caractères</td></tr>
+</table>
+
+<!-- ===== 12. CSS ===== -->
+<h2 id="css">12. Couleurs et styles (CSS)</h2>
+
+<h3>Palette de couleurs principale</h3>
+<p>Les couleurs sont définies dans <code>style.css</code>. Voici les principales :</p>
+<table>
+  <tr><th>Variable / valeur</th><th>Couleur</th><th>Usage</th></tr>
+  <tr><td><code>#2A1F30</code></td><td style="background:#2A1F30;width:30px;"></td><td>Fond principal (sections sombres)</td></tr>
+  <tr><td><code>#D5CBC0</code></td><td style="background:#D5CBC0;width:30px;"></td><td>Fond clair (sections opaques)</td></tr>
+  <tr><td><code>#C47A2E</code></td><td style="background:#C47A2E;width:30px;"></td><td>Ambre — accent principal (boutons, liens)</td></tr>
+  <tr><td><code>#E8C872</code></td><td style="background:#E8C872;width:30px;"></td><td>Or — titres, accents lumineux</td></tr>
+  <tr><td><code>#8B3A7A</code></td><td style="background:#8B3A7A;width:30px;"></td><td>Magenta — accents secondaires</td></tr>
+</table>
+
+<h3>Polices</h3>
+<ul>
+  <li><strong>Outfit</strong> (Google Fonts) : texte courant, poids 400 et 600</li>
+  <li><strong>Fredoka</strong> (Google Fonts) : certains titres, poids 600</li>
+  <li><strong>Decalotype Bold</strong> (locale dans <code>fonts/</code>) : titres hero principaux</li>
+</ul>
+
+<h3>Alternance des sections</h3>
+<p>Le site alterne entre deux types de fonds :</p>
+<ul>
+  <li><strong>Transparent / parallax :</strong> fond sombre avec le mandala animé visible derrière</li>
+  <li><strong>Opaque (#D5CBC0) :</strong> fond beige/crème, texte sombre</li>
+</ul>
+<p>Les séparateurs en vague (<code>wave-separator</code>) font la transition entre les deux.</p>
+
+<!-- ===== 13. JS ===== -->
+<h2 id="js">13. JavaScript — ce qu'il faut savoir</h2>
+
+<p>Tu n'as normalement <strong>pas besoin de toucher aux fichiers JS</strong>. Voici quand même ce que chacun fait :</p>
+
+<table>
+  <tr><th>Fichier</th><th>Rôle</th><th>Chargé sur</th></tr>
+  <tr><td><code>js/main.js</code></td><td>Animations au scroll (reveal), menu hamburger mobile, scroll smooth, effet 3D tilt sur les cartes, curseur personnalisé</td><td>Toutes les pages</td></tr>
+  <tr><td><code>js/mandala.js</code></td><td>Mandala animé en fond (canvas), se met en pause quand l'onglet est caché ou hors écran</td><td>Toutes les pages</td></tr>
+  <tr><td><code>js/contact.js</code></td><td>Validation et envoi du formulaire vers Systeme.io, affichage conditionnel du champ motivation</td><td>index, formation, contact</td></tr>
+  <tr><td><code>js/formation-nav.js</code></td><td>Navigation latérale sticky (les points sur le côté qui suivent le scroll)</td><td>formation uniquement</td></tr>
+</table>
+
+<h3>L'attribut <code>reveal</code></h3>
+<p>Tout élément avec la classe <code>reveal</code> apparaîtra en animation quand il entre dans l'écran au scroll. Tu peux ajouter des délais :</p>
+<pre><code>&lt;div class="reveal"&gt;Apparaît en premier&lt;/div&gt;
+&lt;div class="reveal reveal-delay-1"&gt;Apparaît 0.1s après&lt;/div&gt;
+&lt;div class="reveal reveal-delay-2"&gt;Apparaît 0.2s après&lt;/div&gt;</code></pre>
+
+<!-- ===== 14. DEPLOIEMENT ===== -->
+<h2 id="deploiement">14. Déploiement (Netlify)</h2>
+
+<p>Le site est hébergé sur <strong>Netlify</strong>. Le déploiement est automatique :</p>
+
+<ol>
+  <li>Tu modifies tes fichiers</li>
+  <li>Tu fais un <code>git commit</code> + <code>git push</code></li>
+  <li>Netlify détecte le push et déploie automatiquement</li>
+</ol>
+
+<h3>Commandes git de base</h3>
+<pre><code># Voir ce qui a changé
+git status
+
+# Ajouter les fichiers modifiés
+git add index.html formation.html
+
+# Créer un commit
+git commit -m "Mise à jour des textes accueil et formation"
+
+# Envoyer sur le serveur
+git push</code></pre>
+
+<h3>Configuration Netlify</h3>
+<p>Le fichier <code>netlify.toml</code> gère la minification automatique du CSS, JS et la compression des images. Pas besoin d'y toucher.</p>
+
+<!-- ===== 15. NE PAS TOUCHER ===== -->
+<h2 id="ne-pas-toucher">15. Zones à ne pas toucher</h2>
+
+<div class="warning">
+  <strong>Ne modifie pas ces éléments</strong> sauf si tu sais ce que tu fais :
+</div>
+
+<ul>
+  <li><strong>Le mandala SVG</strong> dans le hero de <code>index.html</code> (lignes 42-101) — géométrie sacrée calculée précisément</li>
+  <li><strong>Les wave-separators</strong> — les <code>&lt;svg&gt;</code> avec animations sont calibrés pour les transitions entre sections</li>
+  <li><strong><code>js/mandala.js</code></strong> — l'animation Canvas est optimisée (IntersectionObserver, pause hors écran...)</li>
+  <li><strong><code>js/main.js</code></strong> — les interactions (curseur, tilt 3D, menu) sont connectées entre elles</li>
+  <li><strong><code>contact.php</code></strong> et <strong><code>netlify/functions/contact.mjs</code></strong> — contiennent la clé API Systeme.io</li>
+  <li><strong>L'ordre des <code>&lt;link&gt;</code> et <code>&lt;script&gt;</code></strong> dans le <code>&lt;head&gt;</code> et fin de <code>&lt;body&gt;</code></li>
+  <li><strong>Les attributs <code>id</code></strong> — ils sont utilisés par le JavaScript (ex: <code>id="nav"</code>, <code>id="contactForm"</code>)</li>
+  <li><strong><code>data-magnetic</code></strong> — attribut qui active l'effet magnétique sur les boutons</li>
+  <li><strong><code>class="reveal"</code></strong> — ne pas supprimer si tu veux garder les animations au scroll</li>
+</ul>
+
+<!-- ===== CHECKLIST ===== -->
+<h2>Checklist rapide de mise à jour</h2>
+
+<div class="card">
+  <h3>Je veux modifier un texte</h3>
+  <ol>
+    <li>Ouvrir le bon fichier HTML</li>
+    <li>Ctrl+F pour trouver le texte</li>
+    <li>Modifier, enregistrer</li>
+    <li>git add → commit → push</li>
+  </ol>
+</div>
+
+<div class="card">
+  <h3>Je veux changer une image</h3>
+  <ol>
+    <li>Mettre la nouvelle image dans le bon dossier <code>images/</code></li>
+    <li>Même nom = rien d'autre à faire. Nouveau nom = modifier le <code>src</code> dans le HTML</li>
+    <li>git add → commit → push</li>
+  </ol>
+</div>
+
+<div class="card">
+  <h3>Je veux ajouter un témoignage</h3>
+  <ol>
+    <li><strong>Accueil :</strong> ajouter un objet dans <code>testimonialPool</code> (JS en bas de index.html)</li>
+    <li><strong>Formation :</strong> dupliquer un bloc <code>.testimonial-card</code> dans le HTML</li>
+    <li>Ajouter la photo avatar dans <code>images/formation/</code></li>
+    <li>git add → commit → push</li>
+  </ol>
+</div>
+
+<div class="card">
+  <h3>Je veux ajouter un partenaire</h3>
+  <ol>
+    <li>Copier un bloc <code>.partenaire-card</code> dans <code>partenaires.html</code></li>
+    <li>Modifier nom, description, lien, image</li>
+    <li>Photo dans <code>images/partenaires/</code></li>
+    <li>git add → commit → push</li>
+  </ol>
+</div>
+
+<div class="card">
+  <h3>Je veux modifier le menu</h3>
+  <ol>
+    <li>Modifier le menu desktop ET mobile dans <strong>les 6 fichiers HTML</strong></li>
+    <li>Idem pour le footer si besoin</li>
+    <li>git add → commit → push</li>
+  </ol>
+</div>
+
+<hr style="border-color: var(--border); margin: 3rem 0;">
+<p style="color: var(--muted); text-align: center;">Documentation créée le 14 mars 2026 — Créé par Julien (<a href="https://flowebia.fr">flowebia.fr</a>)</p>
+
+</body>
+</html>

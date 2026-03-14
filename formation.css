@@ -405,11 +405,11 @@
 }
 
 /* ---- Colors ---- */
-.dancer-1 { color: rgba(196, 122, 46, 0.55); }
-.dancer-2 { color: rgba(200, 130, 185, 0.6); }
-.dancer-3 { color: rgba(218, 165, 82, 0.55); }
-.dancer-4 { color: rgba(86, 160, 160, 0.5); }
-.dancer-5 { color: rgba(196, 88, 60, 0.5); }
+.dancer-1 { color: rgba(196, 122, 46, 1); }
+.dancer-2 { color: rgba(200, 130, 185, 1); }
+.dancer-3 { color: rgba(218, 165, 82, 1); }
+.dancer-4 { color: rgba(86, 160, 160, 1); }
+.dancer-5 { color: rgba(196, 88, 60, 1); }
 
 /* ---- Body sway (subtle) ---- */
 .dancer-1 { animation: body-sway 3s ease-in-out infinite; }
@@ -713,9 +713,25 @@
   letter-spacing: 0.02em;
 }
 
+.f-format-photos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+.f-format-photos img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
 @media (max-width: 768px) {
   .f-format-grid {
     grid-template-columns: 1fr;
+  }
+  .f-format-photos {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
