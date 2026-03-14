@@ -132,7 +132,27 @@
 
   <!-- NAV:START -->
   <!-- ==========================================
-     NAVIGATION
+     NAVIGATION — SOURCE UNIQUE pour toutes les pages
+     ==========================================
+
+     Ce fichier est la RÉFÉRENCE pour le menu de navigation.
+     Il est injecté automatiquement dans toutes les pages du site.
+
+     Pour appliquer tes modifications :
+       1. Modifie ce fichier
+       2. Lance la commande : node build.js
+
+     Contenu :
+       - Menu desktop (la balise <nav>)
+       - Menu mobile (la balise <div class="nav-mobile">)
+
+     IMPORTANT :
+       - Si tu ajoutes ou renommes un lien, fais-le aux DEUX endroits
+         (desktop ET mobile) pour qu'ils restent synchronisés.
+       - Tu peux modifier les textes des liens et les href.
+       - Ne change PAS les classes CSS ni les IDs (nav, hamburger,
+         mobileMenu, etc.) — le JavaScript en a besoin.
+
      ========================================== -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
@@ -175,6 +195,8 @@
   </div>
 
   <!-- NAV:END -->
+
+  <main>
 
   <!-- ==========================================
      SECTION 1 — HERO (transparent / parallax)
@@ -220,7 +242,10 @@
         </div>
         <div class="portrait-image reveal reveal-delay-2">
           <div class="portrait-frame">
-            <img src="images/a-propos/apropos-portrait-1.jpg" alt="Ëotim — Benjamin Bossu, DJ et formateur Ecstatic Dance" loading="lazy">
+            <picture>
+              <source srcset="images/a-propos/apropos-portrait-1-600w.webp 350w, images/a-propos/apropos-portrait-1.webp 700w" sizes="(max-width: 768px) 80vw, 350px" type="image/webp">
+              <img src="images/a-propos/apropos-portrait-1.jpg" srcset="images/a-propos/apropos-portrait-1-600w.jpg 350w, images/a-propos/apropos-portrait-1.jpg 700w" sizes="(max-width: 768px) 80vw, 350px" alt="Ëotim — Benjamin Bossu, DJ et formateur Ecstatic Dance" loading="lazy" width="700" height="990">
+            </picture>
             <div class="portrait-shimmer"></div>
           </div>
         </div>
@@ -504,9 +529,29 @@
     </div>
   </section>
 
+  </main>
+
   <!-- FOOTER:START -->
   <!-- ==========================================
-     FOOTER
+     FOOTER — SOURCE UNIQUE pour toutes les pages
+     ==========================================
+
+     Ce fichier est la RÉFÉRENCE pour le pied de page.
+     Il est injecté automatiquement dans toutes les pages du site.
+
+     Pour appliquer tes modifications :
+       1. Modifie ce fichier
+       2. Lance la commande : node build.js
+
+     Ce que tu peux modifier :
+       - Les URLs des réseaux sociaux (Instagram, Facebook, YouTube, etc.)
+       - Les liens de navigation
+       - Le lien "Espace élèves" et "Découvre mon autre univers"
+       - L'année du copyright (actuellement 2026)
+
+     Ne change PAS la structure (classes CSS, balises, IDs)
+     — le style du site en dépend.
+
      ========================================== -->
   <footer class="footer">
     <div class="container">

@@ -136,7 +136,27 @@
 
   <!-- NAV:START -->
   <!-- ==========================================
-     NAVIGATION
+     NAVIGATION — SOURCE UNIQUE pour toutes les pages
+     ==========================================
+
+     Ce fichier est la RÉFÉRENCE pour le menu de navigation.
+     Il est injecté automatiquement dans toutes les pages du site.
+
+     Pour appliquer tes modifications :
+       1. Modifie ce fichier
+       2. Lance la commande : node build.js
+
+     Contenu :
+       - Menu desktop (la balise <nav>)
+       - Menu mobile (la balise <div class="nav-mobile">)
+
+     IMPORTANT :
+       - Si tu ajoutes ou renommes un lien, fais-le aux DEUX endroits
+         (desktop ET mobile) pour qu'ils restent synchronisés.
+       - Tu peux modifier les textes des liens et les href.
+       - Ne change PAS les classes CSS ni les IDs (nav, hamburger,
+         mobileMenu, etc.) — le JavaScript en a besoin.
+
      ========================================== -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
@@ -180,6 +200,8 @@
 
   <!-- NAV:END -->
 
+  <main>
+
   <!-- ==========================================
      SECTION 1 — HERO + FORMULAIRE (transparent / parallax)
      ========================================== -->
@@ -219,21 +241,33 @@
       <div class="newsletter-content">
         <form class="newsletter-form reveal" id="contactForm" novalidate>
           <input type="hidden" name="locale" value="fr">
-          <div class="newsletter-row">
-            <input type="text" class="newsletter-input" placeholder="Ton prénom" name="first_name" required>
-            <input type="text" class="newsletter-input" placeholder="Ton nom" name="last_name" required>
-          </div>
-          <div class="newsletter-row">
-            <input type="email" class="newsletter-input" placeholder="Ton email" name="email" required>
-            <input type="tel" class="newsletter-input" placeholder="Ton téléphone" name="phone" required>
-          </div>
-          <select class="newsletter-input newsletter-select" name="subject" required>
-            <option value="" disabled selected>Sujet</option>
-            <option value="devenir-partenaire">Devenir partenaire</option>
-            <option value="information-generale">Information générale</option>
-          </select>
-          <textarea class="newsletter-input newsletter-textarea" name="messageUser"
-            placeholder="Ton message" rows="4" required></textarea>
+          <fieldset style="border:none;padding:0;margin:0;">
+            <legend class="sr-only">Tes coordonnées</legend>
+            <div class="newsletter-row">
+              <label class="sr-only" for="c-first-name">Ton prénom</label>
+              <input type="text" class="newsletter-input" placeholder="Ton prénom" name="first_name" id="c-first-name" required>
+              <label class="sr-only" for="c-last-name">Ton nom</label>
+              <input type="text" class="newsletter-input" placeholder="Ton nom" name="last_name" id="c-last-name" required>
+            </div>
+            <div class="newsletter-row">
+              <label class="sr-only" for="c-email">Ton email</label>
+              <input type="email" class="newsletter-input" placeholder="Ton email" name="email" id="c-email" required>
+              <label class="sr-only" for="c-phone">Ton téléphone</label>
+              <input type="tel" class="newsletter-input" placeholder="Ton téléphone" name="phone" id="c-phone" required>
+            </div>
+          </fieldset>
+          <fieldset style="border:none;padding:0;margin:0;">
+            <legend class="sr-only">Ton message</legend>
+            <label class="sr-only" for="c-subject">Sujet</label>
+            <select class="newsletter-input newsletter-select" name="subject" id="c-subject" required>
+              <option value="" disabled selected>Sujet</option>
+              <option value="devenir-partenaire">Devenir partenaire</option>
+              <option value="information-generale">Information générale</option>
+            </select>
+            <label class="sr-only" for="c-message">Ton message</label>
+            <textarea class="newsletter-input newsletter-textarea" name="messageUser" id="c-message"
+              placeholder="Ton message" rows="4" required></textarea>
+          </fieldset>
           <label class="newsletter-checkbox-label">
             <input type="checkbox" name="newsletter_chk" value="true" checked>
             <span>Tu es ok pour recevoir la newsletter</span>
@@ -364,9 +398,29 @@
     </div>
   </section>
 
+  </main>
+
   <!-- FOOTER:START -->
   <!-- ==========================================
-     FOOTER
+     FOOTER — SOURCE UNIQUE pour toutes les pages
+     ==========================================
+
+     Ce fichier est la RÉFÉRENCE pour le pied de page.
+     Il est injecté automatiquement dans toutes les pages du site.
+
+     Pour appliquer tes modifications :
+       1. Modifie ce fichier
+       2. Lance la commande : node build.js
+
+     Ce que tu peux modifier :
+       - Les URLs des réseaux sociaux (Instagram, Facebook, YouTube, etc.)
+       - Les liens de navigation
+       - Le lien "Espace élèves" et "Découvre mon autre univers"
+       - L'année du copyright (actuellement 2026)
+
+     Ne change PAS la structure (classes CSS, balises, IDs)
+     — le style du site en dépend.
+
      ========================================== -->
   <footer class="footer">
     <div class="container">

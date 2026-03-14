@@ -100,7 +100,27 @@
 
   <!-- NAV:START -->
   <!-- ==========================================
-     NAVIGATION
+     NAVIGATION — SOURCE UNIQUE pour toutes les pages
+     ==========================================
+
+     Ce fichier est la RÉFÉRENCE pour le menu de navigation.
+     Il est injecté automatiquement dans toutes les pages du site.
+
+     Pour appliquer tes modifications :
+       1. Modifie ce fichier
+       2. Lance la commande : node build.js
+
+     Contenu :
+       - Menu desktop (la balise <nav>)
+       - Menu mobile (la balise <div class="nav-mobile">)
+
+     IMPORTANT :
+       - Si tu ajoutes ou renommes un lien, fais-le aux DEUX endroits
+         (desktop ET mobile) pour qu'ils restent synchronisés.
+       - Tu peux modifier les textes des liens et les href.
+       - Ne change PAS les classes CSS ni les IDs (nav, hamburger,
+         mobileMenu, etc.) — le JavaScript en a besoin.
+
      ========================================== -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
@@ -143,6 +163,8 @@
   </div>
 
   <!-- NAV:END -->
+
+  <main>
 
   <!-- ==========================================
      SECTION 1 — HERO (transparent / parallax)
@@ -193,25 +215,34 @@
         <a href="https://templesauvage.fr" target="_blank" rel="noopener" class="partenaire-card partenaire-card--photo reveal">
           <h3 class="partenaire-name">Temple Sauvage</h3>
           <p class="partenaire-desc">Cacao et délices vibratoires par Roxanne. Stand présent lors des événements et festivals Ecstatic Dance pour accompagner les danseurs avec des boissons au cacao, reconnu pour ses propriétés d'ancrage et d'ouverture.</p>
-          <img src="images/partenaires/partenaires-1.webp" alt="Temple Sauvage" class="partenaire-photo" loading="lazy">
+          <img src="images/partenaires/partenaires-1.webp" alt="Temple Sauvage" class="partenaire-photo" loading="lazy" width="600" height="400">
         </a>
 
         <a href="https://omwater.be" target="_blank" rel="noopener" class="partenaire-card partenaire-card--photo reveal">
           <h3 class="partenaire-name">OmWater</h3>
           <p class="partenaire-desc">Bouteilles d'eau vibrantes, conçues avec intention. Présentes lors des retraites et formations pour accompagner l'hydratation en conscience.</p>
-          <img src="images/partenaires/partenaires-2.jpg" alt="OmWater" class="partenaire-photo" loading="lazy">
+          <picture>
+            <source srcset="images/partenaires/partenaires-2-600w.webp 300w, images/partenaires/partenaires-2.webp 600w" sizes="(max-width: 768px) 100vw, 300px" type="image/webp">
+            <img src="images/partenaires/partenaires-2.jpg" srcset="images/partenaires/partenaires-2-600w.jpg 300w, images/partenaires/partenaires-2.jpg 600w" sizes="(max-width: 768px) 100vw, 300px" alt="OmWater" class="partenaire-photo" loading="lazy" width="600" height="211">
+          </picture>
         </a>
 
         <a href="https://psio.com" target="_blank" rel="noopener" class="partenaire-card partenaire-card--photo reveal">
           <h3 class="partenaire-name">PSIO</h3>
           <p class="partenaire-desc">Lunettes de luminothérapie et relaxation combinées. Utilisées pendant les formations pour favoriser la récupération, la détente profonde et l'intégration des apprentissages.</p>
-          <img src="images/partenaires/partenaires-3.jpg" alt="PSIO" class="partenaire-photo" loading="lazy">
+          <picture>
+            <source srcset="images/partenaires/partenaires-3-600w.webp 300w, images/partenaires/partenaires-3.webp 600w" sizes="(max-width: 768px) 100vw, 300px" type="image/webp">
+            <img src="images/partenaires/partenaires-3.jpg" srcset="images/partenaires/partenaires-3-600w.jpg 300w, images/partenaires/partenaires-3.jpg 600w" sizes="(max-width: 768px) 100vw, 300px" alt="PSIO" class="partenaire-photo" loading="lazy" width="600" height="395">
+          </picture>
         </a>
 
         <a href="https://mixedinkey.com" target="_blank" rel="noopener" class="partenaire-card partenaire-card--photo reveal">
           <h3 class="partenaire-name">Mixed In Key</h3>
           <p class="partenaire-desc">Logiciel de référence pour le mix harmonique, utilisé et recommandé dans les formations DIAM. Permet aux élèves de maîtriser le harmonic mixing dès le début de leur parcours.</p>
-          <img src="images/partenaires/partenaires-4.jpg" alt="Mixed In Key" class="partenaire-photo" loading="lazy">
+          <picture>
+            <source srcset="images/partenaires/partenaires-4-600w.webp 300w, images/partenaires/partenaires-4.webp 600w" sizes="(max-width: 768px) 100vw, 300px" type="image/webp">
+            <img src="images/partenaires/partenaires-4.jpg" srcset="images/partenaires/partenaires-4-600w.jpg 300w, images/partenaires/partenaires-4.jpg 600w" sizes="(max-width: 768px) 100vw, 300px" alt="Mixed In Key" class="partenaire-photo" loading="lazy" width="600" height="382">
+          </picture>
         </a>
 
         <!-- Partenaires sans photo -->
@@ -273,9 +304,29 @@
     </div>
   </section>
 
+  </main>
+
   <!-- FOOTER:START -->
   <!-- ==========================================
-     FOOTER
+     FOOTER — SOURCE UNIQUE pour toutes les pages
+     ==========================================
+
+     Ce fichier est la RÉFÉRENCE pour le pied de page.
+     Il est injecté automatiquement dans toutes les pages du site.
+
+     Pour appliquer tes modifications :
+       1. Modifie ce fichier
+       2. Lance la commande : node build.js
+
+     Ce que tu peux modifier :
+       - Les URLs des réseaux sociaux (Instagram, Facebook, YouTube, etc.)
+       - Les liens de navigation
+       - Le lien "Espace élèves" et "Découvre mon autre univers"
+       - L'année du copyright (actuellement 2026)
+
+     Ne change PAS la structure (classes CSS, balises, IDs)
+     — le style du site en dépend.
+
      ========================================== -->
   <footer class="footer">
     <div class="container">

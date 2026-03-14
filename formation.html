@@ -144,7 +144,27 @@
 
   <!-- NAV:START -->
   <!-- ==========================================
-     NAVIGATION
+     NAVIGATION — SOURCE UNIQUE pour toutes les pages
+     ==========================================
+
+     Ce fichier est la RÉFÉRENCE pour le menu de navigation.
+     Il est injecté automatiquement dans toutes les pages du site.
+
+     Pour appliquer tes modifications :
+       1. Modifie ce fichier
+       2. Lance la commande : node build.js
+
+     Contenu :
+       - Menu desktop (la balise <nav>)
+       - Menu mobile (la balise <div class="nav-mobile">)
+
+     IMPORTANT :
+       - Si tu ajoutes ou renommes un lien, fais-le aux DEUX endroits
+         (desktop ET mobile) pour qu'ils restent synchronisés.
+       - Tu peux modifier les textes des liens et les href.
+       - Ne change PAS les classes CSS ni les IDs (nav, hamburger,
+         mobileMenu, etc.) — le JavaScript en a besoin.
+
      ========================================== -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
@@ -187,6 +207,8 @@
   </div>
 
   <!-- NAV:END -->
+
+  <main>
 
   <!-- ==========================================
      SECTION 1 — HERO FORMATION (dark / transparent)
@@ -393,10 +415,22 @@
       <p class="f-format-bonus reveal reveal-delay-2">✦ Et des bonus et surprises — ce que tu découvriras en chemin ne se liste pas, ça se vit.</p>
 
       <div class="f-format-photos reveal reveal-delay-3">
-        <img src="images/formation/formation-format-1.jpg" alt="Formation DJ en immersion" loading="lazy">
-        <img src="images/formation/formation-format-2.jpg" alt="Groupe en formation DJ holistique" loading="lazy">
-        <img src="images/formation/formation-format-3.jpg" alt="Pratique en retraite formation" loading="lazy">
-        <img src="images/formation/formation-format-4.jpg" alt="Formation Ecstatic Dance en groupe" loading="lazy">
+        <picture>
+          <source srcset="images/formation/formation-format-1-600w.webp 600w, images/formation/formation-format-1.webp 1200w" sizes="(max-width: 768px) 100vw, 50vw" type="image/webp">
+          <img src="images/formation/formation-format-1.jpg" srcset="images/formation/formation-format-1-600w.jpg 600w, images/formation/formation-format-1.jpg 1200w" sizes="(max-width: 768px) 100vw, 50vw" alt="Formation DJ en immersion" loading="lazy" width="1200" height="900">
+        </picture>
+        <picture>
+          <source srcset="images/formation/formation-format-2-600w.webp 600w, images/formation/formation-format-2.webp 1200w" sizes="(max-width: 768px) 100vw, 50vw" type="image/webp">
+          <img src="images/formation/formation-format-2.jpg" srcset="images/formation/formation-format-2-600w.jpg 600w, images/formation/formation-format-2.jpg 1200w" sizes="(max-width: 768px) 100vw, 50vw" alt="Groupe en formation DJ holistique" loading="lazy" width="1200" height="900">
+        </picture>
+        <picture>
+          <source srcset="images/formation/formation-format-3-600w.webp 600w, images/formation/formation-format-3.webp 1200w" sizes="(max-width: 768px) 100vw, 50vw" type="image/webp">
+          <img src="images/formation/formation-format-3.jpg" srcset="images/formation/formation-format-3-600w.jpg 600w, images/formation/formation-format-3.jpg 1200w" sizes="(max-width: 768px) 100vw, 50vw" alt="Pratique en retraite formation" loading="lazy" width="1200" height="900">
+        </picture>
+        <picture>
+          <source srcset="images/formation/formation-format-4-600w.webp 512w, images/formation/formation-format-4.webp 1024w" sizes="(max-width: 768px) 100vw, 50vw" type="image/webp">
+          <img src="images/formation/formation-format-4.jpg" srcset="images/formation/formation-format-4-600w.jpg 512w, images/formation/formation-format-4.jpg 1024w" sizes="(max-width: 768px) 100vw, 50vw" alt="Formation Ecstatic Dance en groupe" loading="lazy" width="1024" height="768">
+        </picture>
       </div>
 
     </div>
@@ -577,7 +611,10 @@
       <div class="pillars">
         <div class="pillar pillar-1 reveal reveal-delay-1">
           <div class="pillar-photo">
-            <img src="images/formation/formation-programme-1.jpg" alt="Technique DJ en formation" loading="lazy">
+            <picture>
+              <source srcset="images/formation/formation-programme-1.webp" type="image/webp">
+              <img src="images/formation/formation-programme-1.jpg" alt="Technique DJ en formation" loading="lazy" width="500" height="500">
+            </picture>
           </div>
           <h3 class="pillar-title">Technique DJ</h3>
           <p class="pillar-text">Maîtriser ton logiciel (Traktor Pro), ton contrôleur, ta bibliothèque musicale. Comprendre les bases du mix, les structures de morceaux, le câblage. Construire des sets qui racontent un voyage.</p>
@@ -585,7 +622,10 @@
         </div>
         <div class="pillar pillar-2 reveal reveal-delay-2">
           <div class="pillar-photo">
-            <img src="images/formation/formation-programme-2.jpg" alt="Posture et présence en Ecstatic Dance" loading="lazy">
+            <picture>
+              <source srcset="images/formation/formation-programme-2-600w.webp 400w, images/formation/formation-programme-2.webp 800w" sizes="(max-width: 768px) 100vw, 400px" type="image/webp">
+              <img src="images/formation/formation-programme-2.jpg" srcset="images/formation/formation-programme-2-600w.jpg 400w, images/formation/formation-programme-2.jpg 800w" sizes="(max-width: 768px) 100vw, 400px" alt="Posture et présence en Ecstatic Dance" loading="lazy" width="800" height="600">
+            </picture>
           </div>
           <h3 class="pillar-title">Posture & Présence</h3>
           <p class="pillar-text">Développer ta capacité à ressentir l'énergie d'un groupe et à ajuster ta musique en conséquence. Méditation, Qi Gong, marches en conscience, exercices de respiration : des pratiques concrètes pour ancrer ta posture de DJ holistique.</p>
@@ -658,7 +698,10 @@
           </div>
         </div>
         <div class="f-mix-photo">
-          <img src="images/formation/temoignage-aurelie.jpg" alt="Aurélie G. (Lysis) — Participante formation" loading="lazy">
+          <picture>
+            <source srcset="images/formation/temoignage-aurelie.webp" type="image/webp">
+            <img src="images/formation/temoignage-aurelie.jpg" alt="Aurélie G. (Lysis) — Participante formation" loading="lazy" width="200" height="200">
+          </picture>
         </div>
       </div>
 
@@ -678,7 +721,10 @@
           </div>
         </div>
         <div class="f-mix-photo">
-          <img src="images/formation/temoignage-loic.jpg" alt="Loïc S. — Participant retraite" loading="lazy">
+          <picture>
+            <source srcset="images/formation/temoignage-loic.webp" type="image/webp">
+            <img src="images/formation/temoignage-loic.jpg" alt="Loïc S. — Participant retraite" loading="lazy" width="200" height="150">
+          </picture>
         </div>
       </div>
 
@@ -698,7 +744,10 @@
           </div>
         </div>
         <div class="f-mix-photo">
-          <img src="images/formation/temoignage-dorine.jpg" alt="Dorine D. — Participante formation" loading="lazy">
+          <picture>
+            <source srcset="images/formation/temoignage-dorine.webp" type="image/webp">
+            <img src="images/formation/temoignage-dorine.jpg" alt="Dorine D. — Participante formation" loading="lazy" width="200" height="200">
+          </picture>
         </div>
       </div>
 
@@ -718,7 +767,10 @@
           </div>
         </div>
         <div class="f-mix-photo">
-          <img src="images/formation/temoignage-leon.jpg" alt="Léon D. — Participant formation" loading="lazy">
+          <picture>
+            <source srcset="images/formation/temoignage-leon.webp" type="image/webp">
+            <img src="images/formation/temoignage-leon.jpg" alt="Léon D. — Participant formation" loading="lazy" width="200" height="174">
+          </picture>
         </div>
       </div>
 
@@ -856,9 +908,29 @@
     </div>
   </section>
 
+  </main>
+
   <!-- FOOTER:START -->
   <!-- ==========================================
-     FOOTER
+     FOOTER — SOURCE UNIQUE pour toutes les pages
+     ==========================================
+
+     Ce fichier est la RÉFÉRENCE pour le pied de page.
+     Il est injecté automatiquement dans toutes les pages du site.
+
+     Pour appliquer tes modifications :
+       1. Modifie ce fichier
+       2. Lance la commande : node build.js
+
+     Ce que tu peux modifier :
+       - Les URLs des réseaux sociaux (Instagram, Facebook, YouTube, etc.)
+       - Les liens de navigation
+       - Le lien "Espace élèves" et "Découvre mon autre univers"
+       - L'année du copyright (actuellement 2026)
+
+     Ne change PAS la structure (classes CSS, balises, IDs)
+     — le style du site en dépend.
+
      ========================================== -->
   <footer class="footer">
     <div class="container">
