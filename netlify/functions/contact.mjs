@@ -41,24 +41,12 @@ export async function handler(event) {
     return { statusCode: 400, headers: jsonHeaders, body: JSON.stringify({ error: 'Email requis' }) };
   }
 
-  // Map form field names to Systeme.io slugs
-  const SLUG_MAP = {
-    first_name: 'first_name',
-    last_name: 'surname',
-    phone_number: 'phone_number',
-    city: 'city',
-    levelDJ: 'level_dj',
-    levelEspaces: 'level_espaces',
-    originUser: 'origin_user',
-    subject: 'subject',
-    motivation_usr: 'motivation_usr',
-    messageUser: 'message_user',
-    newsletter_chk: 'newsletter_chk',
-  };
+  // Slugs identiques à ceux de contact.php (doivent correspondre aux champs custom Systeme.io)
+  const FIELD_KEYS = ['first_name', 'last_name', 'phone_number', 'city', 'levelDJ', 'levelEspaces', 'originUser', 'subject', 'motivation_usr', 'messageUser', 'newsletter_chk'];
 
-  const allFields = Object.entries(SLUG_MAP)
-    .filter(([formKey]) => b[formKey])
-    .map(([formKey, sioSlug]) => ({ slug: sioSlug, value: String(b[formKey]) }));
+  const allFields = FIELD_KEYS
+    .filter(key => b[key])
+    .map(key => ({ slug: key, value: String(b[key]) }));
 
   const payload = { email: b.email, locale: 'fr', fields: allFields };
 
@@ -82,7 +70,7 @@ export async function handler(event) {
     } else {
       // Not a duplicate — real validation error (bad slugs, etc.)
       // Retry with only guaranteed fields (first_name, surname)
-      const safeFields = allFields.filter(f => ['first_name', 'surname'].includes(f.slug));
+      const safeFields = allFields.filter(f => ['first_name', 'last_name'].includes(f.slug));
       const retry = await systeme('POST', '/contacts', { email: b.email, locale: 'fr', fields: safeFields });
       if (retry.status === 201 || retry.status === 200) {
         contact = retry.body;
