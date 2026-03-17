@@ -102,10 +102,11 @@
       return sendToProxy('/.netlify/functions/contact', payload);
     }).then(function () {
       formStatus.textContent = isFullForm
-        ? 'Merci ! Tu vas recevoir la brochure par email.'
+        ? 'Bravo pour ce premier pas. Check tes emails, peut-être le dossier SPAM.'
         : 'Merci ! On te répond très vite.';
       formStatus.classList.add('success');
       contactForm.reset();
+      contactForm.style.display = 'none';
     }).catch(function () {
       formStatus.textContent = 'Erreur de connexion. Verifie ta connexion internet et reessaie.';
       formStatus.classList.add('error');

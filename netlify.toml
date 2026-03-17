@@ -27,3 +27,55 @@
 
 [build.processing.images]
   compress = true
+
+# ---- Pretty URLs (redirects) ----
+[[redirects]]
+  from = "/formation-dj-ecstatic-dance/"
+  to = "/formation.html"
+  status = 200
+
+[[redirects]]
+  from = "/explications-ecstatic-dance/"
+  to = "/ecstatic-dance.html"
+  status = 200
+
+[[redirects]]
+  from = "/eotim-dj-holistique/"
+  to = "/a-propos.html"
+  status = 200
+
+[[redirects]]
+  from = "/partenaires/"
+  to = "/partenaires.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact/"
+  to = "/contact.html"
+  status = 200
+
+# ---- 301 redirects: anciennes URLs .html → nouvelles URLs SEO ----
+[[redirects]]
+  from = "/formation.html"
+  to = "/formation-dj-ecstatic-dance/"
+  status = 301
+
+[[redirects]]
+  from = "/ecstatic-dance.html"
+  to = "/explications-ecstatic-dance/"
+  status = 301
+
+[[redirects]]
+  from = "/a-propos.html"
+  to = "/eotim-dj-holistique/"
+  status = 301
+
+[[redirects]]
+  from = "/partenaires.html"
+  to = "/partenaires/"
+  status = 301
+
+[[redirects]]
+  from = "/contact.html"
+  to = "/contact/"
+  status = 301
