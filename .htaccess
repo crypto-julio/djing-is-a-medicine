@@ -1,0 +1,27 @@
+# ============================================================
+# .HTACCESS — Configuration Apache pour LWS
+# ============================================================
+#
+# Ce fichier permet au serveur Apache (LWS) de gerer les URLs
+# propres (sans .html) et les redirections SEO.
+#
+# Il fait la meme chose que le netlify.toml sur Netlify.
+#
+# NE PAS MODIFIER sans comprendre — demande a Julien.
+# ============================================================
+
+RewriteEngine On
+
+# ---- Pretty URLs : /slug → /slug.html ----
+# Si l'URL ne correspond ni a un fichier ni a un dossier,
+# mais qu'un fichier .html existe avec ce nom, on le sert.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L]
+
+# ---- 301 : anciennes URLs .html → nouvelles URLs SEO ----
+# Google et les anciens liens sont rediriges proprement.
+RewriteRule ^formation\.html$ /formation-dj-ecstatic-dance [R=301,L]
+RewriteRule ^ecstatic-dance\.html$ /explications-ecstatic-dance [R=301,L]
+RewriteRule ^a-propos\.html$ /eotim-dj-holistique [R=301,L]

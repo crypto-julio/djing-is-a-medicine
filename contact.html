@@ -46,8 +46,8 @@
   <meta property="og:description" content="Écris-nous. On te répond personnellement.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://djingisamedicine.com/images/index/index-hero-1.jpg">
-  <meta property="og:url" content="https://djingisamedicine.com/contact/">
-  <link rel="canonical" href="https://djingisamedicine.com/contact/">
+  <meta property="og:url" content="https://djingisamedicine.com/contact">
+  <link rel="canonical" href="https://djingisamedicine.com/contact">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="author" content="Ëotim — Benjamin Bossu">
   <meta name="theme-color" content="#C47A2E">
@@ -63,8 +63,8 @@
     "@graph": [
       {
         "@type": "ContactPage",
-        "@id": "https://djingisamedicine.com/contact/#contactpage",
-        "url": "https://djingisamedicine.com/contact/",
+        "@id": "https://djingisamedicine.com/contact#contactpage",
+        "url": "https://djingisamedicine.com/contact",
         "name": "Contact — DJing Is A Medicine",
         "isPartOf": { "@id": "https://djingisamedicine.com/#website" },
         "inLanguage": "fr"
@@ -123,6 +123,22 @@
   <div class="cursor" id="cursor"></div>
   <div class="cursor-glow" id="cursorGlow"></div>
 
+  <!-- PARALLAX:START -->
+  <!-- ==========================================
+     FOND ANIMÉ — SOURCE UNIQUE pour toutes les pages
+     ==========================================
+
+     Ce fichier est la RÉFÉRENCE pour le fond animé (aurora, mandala, canvas).
+     Il est injecté automatiquement dans toutes les pages du site.
+
+     Pour appliquer tes modifications :
+       1. Modifie ce fichier
+       2. Lance la commande : node build.js
+
+     Ne change PAS la structure — le CSS et le JS en dépendent.
+
+     ========================================== -->
+
   <!-- Fixed parallax background -->
   <div id="parallax-bg">
     <div class="hero-bg"></div>
@@ -132,7 +148,58 @@
       <div class="aurora-blob aurora-blob-3"></div>
     </div>
     <canvas id="sound-waves-canvas"></canvas>
+    <div class="hero-mandala">
+      <svg class="mandala-svg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="200" cy="200" r="198" stroke="rgba(232,200,114,0.1)" stroke-width="0.5" />
+        <circle cx="200" cy="200" r="185" stroke="rgba(232,200,114,0.06)" stroke-width="0.5" />
+        <circle cx="200" cy="200" r="168" stroke="rgba(196,122,46,0.08)" stroke-width="0.5" />
+        <circle cx="200" cy="200" r="148" stroke="rgba(232,200,114,0.06)" stroke-width="0.5" />
+        <g class="mandala-rays" opacity="0.08" stroke="rgba(232,200,114,1)" stroke-width="0.5">
+          <line x1="200" y1="10" x2="200" y2="390" />
+          <line x1="295" y1="27" x2="105" y2="373" />
+          <line x1="365" y1="100" x2="35" y2="300" />
+          <line x1="390" y1="200" x2="10" y2="200" />
+          <line x1="365" y1="300" x2="35" y2="100" />
+          <line x1="295" y1="373" x2="105" y2="27" />
+        </g>
+        <g class="mandala-flower-1" opacity="0.12" stroke="rgba(232,200,114,1)" stroke-width="0.6">
+          <circle cx="200" cy="200" r="55" />
+          <circle cx="200" cy="145" r="55" />
+          <circle cx="247.6" cy="172.5" r="55" />
+          <circle cx="247.6" cy="227.5" r="55" />
+          <circle cx="200" cy="255" r="55" />
+          <circle cx="152.4" cy="227.5" r="55" />
+          <circle cx="152.4" cy="172.5" r="55" />
+        </g>
+        <g class="mandala-flower-2" opacity="0.07" stroke="rgba(196,122,46,1)" stroke-width="0.5">
+          <circle cx="200" cy="90" r="55" />
+          <circle cx="295.3" cy="145" r="55" />
+          <circle cx="295.3" cy="255" r="55" />
+          <circle cx="200" cy="310" r="55" />
+          <circle cx="104.7" cy="255" r="55" />
+          <circle cx="104.7" cy="145" r="55" />
+        </g>
+        <g opacity="0.1" stroke="rgba(232,200,114,1)" stroke-width="0.5">
+          <polygon points="200,128 262.4,236 137.6,236" />
+          <polygon points="200,272 137.6,164 262.4,164" />
+        </g>
+        <circle cx="200" cy="200" r="95" stroke="rgba(232,200,114,0.08)" stroke-width="0.5" />
+        <circle cx="200" cy="200" r="28" stroke="rgba(232,200,114,0.12)" stroke-width="0.6" />
+        <circle cx="200" cy="200" r="8" fill="rgba(232,200,114,0.06)" />
+        <g class="mandala-seed" opacity="0.1" stroke="rgba(232,200,114,1)" stroke-width="0.5">
+          <circle cx="200" cy="200" r="22" />
+          <circle cx="200" cy="178" r="22" />
+          <circle cx="219" cy="189" r="22" />
+          <circle cx="219" cy="211" r="22" />
+          <circle cx="200" cy="222" r="22" />
+          <circle cx="181" cy="211" r="22" />
+          <circle cx="181" cy="189" r="22" />
+        </g>
+      </svg>
+    </div>
   </div>
+
+  <!-- PARALLAX:END -->
 
   <!-- NAV:START -->
   <!-- ==========================================
@@ -162,12 +229,12 @@
     <div class="nav-inner">
       <a href="/" class="nav-logo">DJing Is A Medicine</a>
       <ul class="nav-links">
-        <li><a href="/formation-dj-ecstatic-dance/">Formation</a></li>
-        <li><a href="/explications-ecstatic-dance/">Ecstatic Dance</a></li>
-        <li><a href="/eotim-dj-holistique/">À propos</a></li>
-        <li><a href="/partenaires/">Partenaires</a></li>
-        <li><a href="/contact/">Contact</a></li>
-        <li><a href="/contact/" class="nav-cta" data-magnetic>En savoir plus</a></li>
+        <li><a href="/formation-dj-ecstatic-dance">Formation</a></li>
+        <li><a href="/explications-ecstatic-dance">Ecstatic Dance</a></li>
+        <li><a href="/eotim-dj-holistique">À propos</a></li>
+        <li><a href="/partenaires">Partenaires</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/contact" class="nav-cta" data-magnetic>En savoir plus</a></li>
       </ul>
       <div class="nav-hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -178,13 +245,13 @@
   <div class="nav-mobile" id="mobileMenu">
     <div class="nav-mobile-bg"></div>
     <div class="nav-mobile-content">
-      <a href="/formation-dj-ecstatic-dance/" class="nav-mobile-link" style="--i:0" onclick="closeMobile()">Formation</a>
-      <a href="/explications-ecstatic-dance/" class="nav-mobile-link" style="--i:1" onclick="closeMobile()">Ecstatic Dance</a>
-      <a href="/eotim-dj-holistique/" class="nav-mobile-link" style="--i:2" onclick="closeMobile()">À propos</a>
-      <a href="/partenaires/" class="nav-mobile-link" style="--i:3" onclick="closeMobile()">Partenaires</a>
-      <a href="/contact/" class="nav-mobile-link" style="--i:4" onclick="closeMobile()">Contact</a>
+      <a href="/formation-dj-ecstatic-dance" class="nav-mobile-link" style="--i:0" onclick="closeMobile()">Formation</a>
+      <a href="/explications-ecstatic-dance" class="nav-mobile-link" style="--i:1" onclick="closeMobile()">Ecstatic Dance</a>
+      <a href="/eotim-dj-holistique" class="nav-mobile-link" style="--i:2" onclick="closeMobile()">À propos</a>
+      <a href="/partenaires" class="nav-mobile-link" style="--i:3" onclick="closeMobile()">Partenaires</a>
+      <a href="/contact" class="nav-mobile-link" style="--i:4" onclick="closeMobile()">Contact</a>
       <div class="nav-mobile-divider"></div>
-      <a href="/contact/" class="nav-mobile-cta" style="--i:5" onclick="closeMobile()">
+      <a href="/contact" class="nav-mobile-cta" style="--i:5" onclick="closeMobile()">
         En savoir plus
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
           stroke-linecap="round" stroke-linejoin="round">
@@ -213,9 +280,8 @@
         <span class="word" style="--i:1">question ?</span>
         <span class="word" style="--i:2">Un</span>
         <span class="word" style="--i:3">projet ?</span>
-        <span class="word" style="--i:4">Écris-nous.</span>
       </h1>
-      <p class="hero-subtitle">Que tu sois intéressé·e par la formation, un événement ou un partenariat, on te répond personnellement.</p>
+      <p class="hero-subtitle">Remplis le formulaire ci-dessous.</p>
     </div>
   </section>
 
@@ -239,6 +305,7 @@
   <section class="contact-form-section" id="contact-form">
     <div class="container">
       <div class="newsletter-content">
+        <p class="section-text reveal" style="text-align:center;margin-bottom:2rem;">Que tu sois intéressé·e par un accompagnement, un stage, un événement ou un partenariat, tu recevras une réponse personnalisée.</p>
         <form class="newsletter-form reveal" id="contactForm" novalidate>
           <input type="hidden" name="locale" value="fr">
           <fieldset style="border:none;padding:0;margin:0;">
@@ -270,7 +337,7 @@
           </fieldset>
           <label class="newsletter-checkbox-label">
             <input type="checkbox" name="newsletter_chk" value="true" checked>
-            <span>Tu es ok pour recevoir la newsletter</span>
+            <span>Oui, je veux recevoir la newsletter</span>
           </label>
           <button type="submit" class="newsletter-submit" id="contactSubmit">Envoyer</button>
           <p class="newsletter-form-status" id="formStatus"></p>
@@ -333,6 +400,15 @@
           <span class="social-link-name">YouTube</span>
         </a>
 
+        <a href="https://soundcloud.com/eotimdj" target="_blank" rel="noopener" class="social-link-card">
+          <div class="social-link-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M2 16v-3m3 4V10m3 7V8m3 9V5m3 12V9m3 8v-5m3 5v-7" />
+            </svg>
+          </div>
+          <span class="social-link-name">SoundCloud</span>
+        </a>
+
         <a href="https://www.mixcloud.com/eotim/" target="_blank" rel="noopener" class="social-link-card">
           <div class="social-link-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -343,60 +419,10 @@
           </div>
           <span class="social-link-name">Mixcloud</span>
         </a>
-
-        <a href="https://soundcloud.com/eotimdj" target="_blank" rel="noopener" class="social-link-card">
-          <div class="social-link-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M2 16v-3m3 4V10m3 7V8m3 9V5m3 12V9m3 8v-5m3 5v-7" />
-            </svg>
-          </div>
-          <span class="social-link-name">SoundCloud</span>
-        </a>
       </div>
     </div>
   </section>
 
-  <!-- Wave separator -->
-  <div class="wave-separator" aria-hidden="true">
-    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-      <path fill="#D5CBC0" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z">
-        <animate attributeName="d" dur="8s" repeatCount="indefinite" values="
-        M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z;
-        M0,50 C300,20 600,70 900,30 C1150,10 1350,60 1440,45 L1440,80 L0,80 Z;
-        M0,35 C400,75 750,10 1050,50 C1200,65 1350,35 1440,40 L1440,80 L0,80 Z;
-        M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z
-      " />
-      </path>
-    </svg>
-  </div>
-
-  <!-- ==========================================
-     SECTION — ESPACE ÉLÈVES (bg-night / opaque)
-     ========================================== -->
-  <section class="contact-eleves" id="espace-eleves">
-    <div class="container">
-      <div class="eleves-card reveal">
-        <div class="eleves-icon">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 14l9-5-9-5-9 5 9 5z" />
-            <path d="M12 14l6.16-3.422A12.083 12.083 0 0121 17.5c0 1.5-4.03 3.5-9 3.5s-9-2-9-3.5a12.083 12.083 0 012.84-6.922L12 14z" />
-            <line x1="3" y1="9" x2="3" y2="17" />
-          </svg>
-        </div>
-        <h2 class="eleves-title">Tu es déjà inscrit·e à la formation ?</h2>
-        <p class="eleves-text">Accède à ton espace personnel pour retrouver tes cours, replays et ressources.</p>
-        <a href="https://membres.benjaminbossu.com" target="_blank" rel="noopener" class="eleves-btn" data-magnetic>
-          Connexion espace élèves
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-            stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12" />
-            <polyline points="12 5 19 12 12 19" />
-          </svg>
-        </a>
-      </div>
-    </div>
-  </section>
 
   </main>
 
@@ -460,11 +486,11 @@
         <div class="footer-links">
           <h4>Navigation</h4>
           <ul>
-            <li><a href="/formation-dj-ecstatic-dance/">Formation</a></li>
-            <li><a href="/explications-ecstatic-dance/">Ecstatic Dance</a></li>
-            <li><a href="/eotim-dj-holistique/">À propos</a></li>
-            <li><a href="/partenaires/">Partenaires</a></li>
-            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/formation-dj-ecstatic-dance">Formation</a></li>
+            <li><a href="/explications-ecstatic-dance">Ecstatic Dance</a></li>
+            <li><a href="/eotim-dj-holistique">À propos</a></li>
+            <li><a href="/partenaires">Partenaires</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
         <div class="footer-links">

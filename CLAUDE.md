@@ -23,14 +23,15 @@ Ce script lit `_includes/nav.html` et `_includes/footer.html` puis remplace le c
 ## Architecture
 
 - **Site statique pur** : pas de framework, pas de bundler, pas de npm. HTML + CSS + JS vanilla.
-- **Un fichier CSS par page** : `style.css` (index + styles partagés : variables, nav, footer, curseur), `formation.css`, `ecstatic-dance.css`, `a-propos.css`, `contact.css`, `partenaires.css`.
-- **Pages** : `index.html`, `formation.html`, `ecstatic-dance.html`, `a-propos.html`, `partenaires.html`, `contact.html`, plus les pages légales (`mentions-legales.html`, `politique-confidentialite.html`).
+- **Un fichier CSS par page** : `style.css` (index + styles partagés : variables, nav, footer, curseur), `formation-dj-ecstatic-dance.css`, `explications-ecstatic-dance.css`, `eotim-dj-holistique.css`, `contact.css`, `partenaires.css`.
+- **Pages** : `index.html`, `formation-dj-ecstatic-dance.html`, `explications-ecstatic-dance.html`, `eotim-dj-holistique.html`, `partenaires.html`, `contact.html`, plus les pages légales (`mentions-legales.html`, `politique-confidentialite.html`). Les noms de fichiers correspondent aux slugs SEO ; Netlify `pretty_urls = true` sert `/formation-dj-ecstatic-dance` automatiquement.
 - **JS** (dossier `js/`) :
   - `main.js` — Scroll reveal, comportement nav au scroll, menu mobile, ancres smooth, tilt 3D des cartes, curseur custom + effet magnétique. Chargé sur toutes les pages.
   - `contact.js` — Soumission du formulaire vers l'API Systeme.io via proxy.
   - `formation-nav.js` — Sous-navigation sticky de la page formation.
   - `mandala.js` — Animation SVG mandala sur la page d'accueil.
 - **Flux du formulaire de contact** : `contact.html` → `js/contact.js` → `contact.php` (principal, serveur LWS) → API Systeme.io. Si le PHP échoue, bascule sur `netlify/functions/contact.mjs` (Netlify Function).
+- **Test local** : utiliser `netlify dev` pour simuler les pretty URLs et redirects en local.
 - **Includes partagés** : `_includes/nav.html` et `_includes/footer.html` injectés dans les pages via `build.js`.
 
 ## Déploiement

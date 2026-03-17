@@ -32,7 +32,7 @@
 
   FICHIERS LIÉS :
     - style.css ........... Styles globaux du site
-    - a-propos.css ........ Styles spécifiques à cette page
+    - eotim-dj-holistique.css ........ Styles spécifiques à cette page
     - js/main.js .......... Scripts globaux
   ============================================================
 -->
@@ -51,8 +51,8 @@
     content="DJ depuis les années 90, formateur Ecstatic Dance, facilitateur d'espaces de mouvement libre.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://djingisamedicine.com/images/a-propos/apropos-portrait-1.jpg">
-  <meta property="og:url" content="https://djingisamedicine.com/eotim-dj-holistique/">
-  <link rel="canonical" href="https://djingisamedicine.com/eotim-dj-holistique/">
+  <meta property="og:url" content="https://djingisamedicine.com/eotim-dj-holistique">
+  <link rel="canonical" href="https://djingisamedicine.com/eotim-dj-holistique">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="author" content="Ëotim — Benjamin Bossu">
   <meta name="theme-color" content="#C47A2E">
@@ -68,12 +68,12 @@
     "@graph": [
       {
         "@type": "Person",
-        "@id": "https://djingisamedicine.com/eotim-dj-holistique/#person",
+        "@id": "https://djingisamedicine.com/eotim-dj-holistique#person",
         "name": "Benjamin Bossu",
         "alternateName": "Ëotim",
         "jobTitle": "DJ, formateur, facilitateur Ecstatic Dance",
         "description": "DJ depuis les années 90, formateur Ecstatic Dance, facilitateur d'espaces de mouvement libre.",
-        "url": "https://djingisamedicine.com/eotim-dj-holistique/",
+        "url": "https://djingisamedicine.com/eotim-dj-holistique",
         "image": "https://djingisamedicine.com/images/a-propos/apropos-portrait-1.jpg",
         "worksFor": { "@id": "https://djingisamedicine.com/#organization" },
         "sameAs": [
@@ -86,11 +86,11 @@
       },
       {
         "@type": "WebPage",
-        "@id": "https://djingisamedicine.com/eotim-dj-holistique/#webpage",
-        "url": "https://djingisamedicine.com/eotim-dj-holistique/",
+        "@id": "https://djingisamedicine.com/eotim-dj-holistique#webpage",
+        "url": "https://djingisamedicine.com/eotim-dj-holistique",
         "name": "À propos — Ëotim | DJing Is A Medicine",
         "isPartOf": { "@id": "https://djingisamedicine.com/#website" },
-        "about": { "@id": "https://djingisamedicine.com/eotim-dj-holistique/#person" },
+        "about": { "@id": "https://djingisamedicine.com/eotim-dj-holistique#person" },
         "inLanguage": "fr"
       }
     ]
@@ -105,7 +105,7 @@
     rel="stylesheet">
   <link rel="preload" as="font" href="fonts/Decalotype-Bold.woff2" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="a-propos.css">
+  <link rel="stylesheet" href="eotim-dj-holistique.css">
 </head>
 
 <body>
@@ -119,6 +119,22 @@
   <div class="cursor" id="cursor"></div>
   <div class="cursor-glow" id="cursorGlow"></div>
 
+  <!-- PARALLAX:START -->
+  <!-- ==========================================
+     FOND ANIMÉ — SOURCE UNIQUE pour toutes les pages
+     ==========================================
+
+     Ce fichier est la RÉFÉRENCE pour le fond animé (aurora, mandala, canvas).
+     Il est injecté automatiquement dans toutes les pages du site.
+
+     Pour appliquer tes modifications :
+       1. Modifie ce fichier
+       2. Lance la commande : node build.js
+
+     Ne change PAS la structure — le CSS et le JS en dépendent.
+
+     ========================================== -->
+
   <!-- Fixed parallax background -->
   <div id="parallax-bg">
     <div class="hero-bg"></div>
@@ -128,7 +144,58 @@
       <div class="aurora-blob aurora-blob-3"></div>
     </div>
     <canvas id="sound-waves-canvas"></canvas>
+    <div class="hero-mandala">
+      <svg class="mandala-svg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="200" cy="200" r="198" stroke="rgba(232,200,114,0.1)" stroke-width="0.5" />
+        <circle cx="200" cy="200" r="185" stroke="rgba(232,200,114,0.06)" stroke-width="0.5" />
+        <circle cx="200" cy="200" r="168" stroke="rgba(196,122,46,0.08)" stroke-width="0.5" />
+        <circle cx="200" cy="200" r="148" stroke="rgba(232,200,114,0.06)" stroke-width="0.5" />
+        <g class="mandala-rays" opacity="0.08" stroke="rgba(232,200,114,1)" stroke-width="0.5">
+          <line x1="200" y1="10" x2="200" y2="390" />
+          <line x1="295" y1="27" x2="105" y2="373" />
+          <line x1="365" y1="100" x2="35" y2="300" />
+          <line x1="390" y1="200" x2="10" y2="200" />
+          <line x1="365" y1="300" x2="35" y2="100" />
+          <line x1="295" y1="373" x2="105" y2="27" />
+        </g>
+        <g class="mandala-flower-1" opacity="0.12" stroke="rgba(232,200,114,1)" stroke-width="0.6">
+          <circle cx="200" cy="200" r="55" />
+          <circle cx="200" cy="145" r="55" />
+          <circle cx="247.6" cy="172.5" r="55" />
+          <circle cx="247.6" cy="227.5" r="55" />
+          <circle cx="200" cy="255" r="55" />
+          <circle cx="152.4" cy="227.5" r="55" />
+          <circle cx="152.4" cy="172.5" r="55" />
+        </g>
+        <g class="mandala-flower-2" opacity="0.07" stroke="rgba(196,122,46,1)" stroke-width="0.5">
+          <circle cx="200" cy="90" r="55" />
+          <circle cx="295.3" cy="145" r="55" />
+          <circle cx="295.3" cy="255" r="55" />
+          <circle cx="200" cy="310" r="55" />
+          <circle cx="104.7" cy="255" r="55" />
+          <circle cx="104.7" cy="145" r="55" />
+        </g>
+        <g opacity="0.1" stroke="rgba(232,200,114,1)" stroke-width="0.5">
+          <polygon points="200,128 262.4,236 137.6,236" />
+          <polygon points="200,272 137.6,164 262.4,164" />
+        </g>
+        <circle cx="200" cy="200" r="95" stroke="rgba(232,200,114,0.08)" stroke-width="0.5" />
+        <circle cx="200" cy="200" r="28" stroke="rgba(232,200,114,0.12)" stroke-width="0.6" />
+        <circle cx="200" cy="200" r="8" fill="rgba(232,200,114,0.06)" />
+        <g class="mandala-seed" opacity="0.1" stroke="rgba(232,200,114,1)" stroke-width="0.5">
+          <circle cx="200" cy="200" r="22" />
+          <circle cx="200" cy="178" r="22" />
+          <circle cx="219" cy="189" r="22" />
+          <circle cx="219" cy="211" r="22" />
+          <circle cx="200" cy="222" r="22" />
+          <circle cx="181" cy="211" r="22" />
+          <circle cx="181" cy="189" r="22" />
+        </g>
+      </svg>
+    </div>
   </div>
+
+  <!-- PARALLAX:END -->
 
   <!-- NAV:START -->
   <!-- ==========================================
@@ -158,12 +225,12 @@
     <div class="nav-inner">
       <a href="/" class="nav-logo">DJing Is A Medicine</a>
       <ul class="nav-links">
-        <li><a href="/formation-dj-ecstatic-dance/">Formation</a></li>
-        <li><a href="/explications-ecstatic-dance/">Ecstatic Dance</a></li>
-        <li><a href="/eotim-dj-holistique/">À propos</a></li>
-        <li><a href="/partenaires/">Partenaires</a></li>
-        <li><a href="/contact/">Contact</a></li>
-        <li><a href="/contact/" class="nav-cta" data-magnetic>En savoir plus</a></li>
+        <li><a href="/formation-dj-ecstatic-dance">Formation</a></li>
+        <li><a href="/explications-ecstatic-dance">Ecstatic Dance</a></li>
+        <li><a href="/eotim-dj-holistique">À propos</a></li>
+        <li><a href="/partenaires">Partenaires</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/contact" class="nav-cta" data-magnetic>En savoir plus</a></li>
       </ul>
       <div class="nav-hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -174,13 +241,13 @@
   <div class="nav-mobile" id="mobileMenu">
     <div class="nav-mobile-bg"></div>
     <div class="nav-mobile-content">
-      <a href="/formation-dj-ecstatic-dance/" class="nav-mobile-link" style="--i:0" onclick="closeMobile()">Formation</a>
-      <a href="/explications-ecstatic-dance/" class="nav-mobile-link" style="--i:1" onclick="closeMobile()">Ecstatic Dance</a>
-      <a href="/eotim-dj-holistique/" class="nav-mobile-link" style="--i:2" onclick="closeMobile()">À propos</a>
-      <a href="/partenaires/" class="nav-mobile-link" style="--i:3" onclick="closeMobile()">Partenaires</a>
-      <a href="/contact/" class="nav-mobile-link" style="--i:4" onclick="closeMobile()">Contact</a>
+      <a href="/formation-dj-ecstatic-dance" class="nav-mobile-link" style="--i:0" onclick="closeMobile()">Formation</a>
+      <a href="/explications-ecstatic-dance" class="nav-mobile-link" style="--i:1" onclick="closeMobile()">Ecstatic Dance</a>
+      <a href="/eotim-dj-holistique" class="nav-mobile-link" style="--i:2" onclick="closeMobile()">À propos</a>
+      <a href="/partenaires" class="nav-mobile-link" style="--i:3" onclick="closeMobile()">Partenaires</a>
+      <a href="/contact" class="nav-mobile-link" style="--i:4" onclick="closeMobile()">Contact</a>
       <div class="nav-mobile-divider"></div>
-      <a href="/contact/" class="nav-mobile-cta" style="--i:5" onclick="closeMobile()">
+      <a href="/contact" class="nav-mobile-cta" style="--i:5" onclick="closeMobile()">
         En savoir plus
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
           stroke-linecap="round" stroke-linejoin="round">
@@ -208,10 +275,6 @@
         <span class="word" style="--i:0">Ëotim</span>
       </h1>
       <p class="hero-subtitle">DJ, formateur, facilitateur</p>
-    </div>
-    <div class="hero-scroll">
-      <span>Découvrir</span>
-      <div class="hero-scroll-line"></div>
     </div>
   </section>
 
@@ -591,11 +654,11 @@
         <div class="footer-links">
           <h4>Navigation</h4>
           <ul>
-            <li><a href="/formation-dj-ecstatic-dance/">Formation</a></li>
-            <li><a href="/explications-ecstatic-dance/">Ecstatic Dance</a></li>
-            <li><a href="/eotim-dj-holistique/">À propos</a></li>
-            <li><a href="/partenaires/">Partenaires</a></li>
-            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/formation-dj-ecstatic-dance">Formation</a></li>
+            <li><a href="/explications-ecstatic-dance">Ecstatic Dance</a></li>
+            <li><a href="/eotim-dj-holistique">À propos</a></li>
+            <li><a href="/partenaires">Partenaires</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
         <div class="footer-links">

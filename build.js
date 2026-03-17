@@ -8,8 +8,9 @@
 //   main dans chaque fichier HTML, ce script le fait automatiquement.
 //
 //   Les fichiers "source" se trouvent dans le dossier _includes/ :
-//     - _includes/nav.html    → le menu de navigation
-//     - _includes/footer.html → le pied de page
+//     - _includes/nav.html         → le menu de navigation
+//     - _includes/footer.html      → le pied de page
+//     - _includes/parallax-bg.html → le fond animé (aurora, mandala, canvas)
 //
 // COMMENT L'UTILISER :
 //   1. Modifie le fichier dans _includes/ (nav.html ou footer.html)
@@ -34,9 +35,9 @@ const INCLUDES = path.join(ROOT, '_includes');
 // Fichiers HTML à traiter (toutes les pages du site)
 const pages = [
   'index.html',
-  'formation.html',
-  'ecstatic-dance.html',
-  'a-propos.html',
+  'formation-dj-ecstatic-dance.html',
+  'explications-ecstatic-dance.html',
+  'eotim-dj-holistique.html',
   'partenaires.html',
   'contact.html',
 ];
@@ -45,6 +46,7 @@ const pages = [
 const blocks = {
   NAV: fs.readFileSync(path.join(INCLUDES, 'nav.html'), 'utf8'),
   FOOTER: fs.readFileSync(path.join(INCLUDES, 'footer.html'), 'utf8'),
+  PARALLAX: fs.readFileSync(path.join(INCLUDES, 'parallax-bg.html'), 'utf8'),
 };
 
 let totalReplacements = 0;

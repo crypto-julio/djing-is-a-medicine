@@ -41,8 +41,8 @@
   <meta property="og:description" content="Ils accompagnent l'aventure DJing Is A Medicine.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://djingisamedicine.com/images/index/index-hero-1.jpg">
-  <meta property="og:url" content="https://djingisamedicine.com/partenaires/">
-  <link rel="canonical" href="https://djingisamedicine.com/partenaires/">
+  <meta property="og:url" content="https://djingisamedicine.com/partenaires">
+  <link rel="canonical" href="https://djingisamedicine.com/partenaires">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="author" content="Ëotim — Benjamin Bossu">
   <meta name="theme-color" content="#C47A2E">
@@ -56,8 +56,8 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://djingisamedicine.com/partenaires/#webpage",
-    "url": "https://djingisamedicine.com/partenaires/",
+    "@id": "https://djingisamedicine.com/partenaires#webpage",
+    "url": "https://djingisamedicine.com/partenaires",
     "name": "Partenaires — DJing Is A Medicine",
     "description": "Découvre les partenaires qui accompagnent l'aventure DJing Is A Medicine.",
     "isPartOf": { "@id": "https://djingisamedicine.com/#website" },
@@ -87,6 +87,22 @@
   <div class="cursor" id="cursor"></div>
   <div class="cursor-glow" id="cursorGlow"></div>
 
+  <!-- PARALLAX:START -->
+  <!-- ==========================================
+     FOND ANIMÉ — SOURCE UNIQUE pour toutes les pages
+     ==========================================
+
+     Ce fichier est la RÉFÉRENCE pour le fond animé (aurora, mandala, canvas).
+     Il est injecté automatiquement dans toutes les pages du site.
+
+     Pour appliquer tes modifications :
+       1. Modifie ce fichier
+       2. Lance la commande : node build.js
+
+     Ne change PAS la structure — le CSS et le JS en dépendent.
+
+     ========================================== -->
+
   <!-- Fixed parallax background -->
   <div id="parallax-bg">
     <div class="hero-bg"></div>
@@ -96,7 +112,58 @@
       <div class="aurora-blob aurora-blob-3"></div>
     </div>
     <canvas id="sound-waves-canvas"></canvas>
+    <div class="hero-mandala">
+      <svg class="mandala-svg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="200" cy="200" r="198" stroke="rgba(232,200,114,0.1)" stroke-width="0.5" />
+        <circle cx="200" cy="200" r="185" stroke="rgba(232,200,114,0.06)" stroke-width="0.5" />
+        <circle cx="200" cy="200" r="168" stroke="rgba(196,122,46,0.08)" stroke-width="0.5" />
+        <circle cx="200" cy="200" r="148" stroke="rgba(232,200,114,0.06)" stroke-width="0.5" />
+        <g class="mandala-rays" opacity="0.08" stroke="rgba(232,200,114,1)" stroke-width="0.5">
+          <line x1="200" y1="10" x2="200" y2="390" />
+          <line x1="295" y1="27" x2="105" y2="373" />
+          <line x1="365" y1="100" x2="35" y2="300" />
+          <line x1="390" y1="200" x2="10" y2="200" />
+          <line x1="365" y1="300" x2="35" y2="100" />
+          <line x1="295" y1="373" x2="105" y2="27" />
+        </g>
+        <g class="mandala-flower-1" opacity="0.12" stroke="rgba(232,200,114,1)" stroke-width="0.6">
+          <circle cx="200" cy="200" r="55" />
+          <circle cx="200" cy="145" r="55" />
+          <circle cx="247.6" cy="172.5" r="55" />
+          <circle cx="247.6" cy="227.5" r="55" />
+          <circle cx="200" cy="255" r="55" />
+          <circle cx="152.4" cy="227.5" r="55" />
+          <circle cx="152.4" cy="172.5" r="55" />
+        </g>
+        <g class="mandala-flower-2" opacity="0.07" stroke="rgba(196,122,46,1)" stroke-width="0.5">
+          <circle cx="200" cy="90" r="55" />
+          <circle cx="295.3" cy="145" r="55" />
+          <circle cx="295.3" cy="255" r="55" />
+          <circle cx="200" cy="310" r="55" />
+          <circle cx="104.7" cy="255" r="55" />
+          <circle cx="104.7" cy="145" r="55" />
+        </g>
+        <g opacity="0.1" stroke="rgba(232,200,114,1)" stroke-width="0.5">
+          <polygon points="200,128 262.4,236 137.6,236" />
+          <polygon points="200,272 137.6,164 262.4,164" />
+        </g>
+        <circle cx="200" cy="200" r="95" stroke="rgba(232,200,114,0.08)" stroke-width="0.5" />
+        <circle cx="200" cy="200" r="28" stroke="rgba(232,200,114,0.12)" stroke-width="0.6" />
+        <circle cx="200" cy="200" r="8" fill="rgba(232,200,114,0.06)" />
+        <g class="mandala-seed" opacity="0.1" stroke="rgba(232,200,114,1)" stroke-width="0.5">
+          <circle cx="200" cy="200" r="22" />
+          <circle cx="200" cy="178" r="22" />
+          <circle cx="219" cy="189" r="22" />
+          <circle cx="219" cy="211" r="22" />
+          <circle cx="200" cy="222" r="22" />
+          <circle cx="181" cy="211" r="22" />
+          <circle cx="181" cy="189" r="22" />
+        </g>
+      </svg>
+    </div>
   </div>
+
+  <!-- PARALLAX:END -->
 
   <!-- NAV:START -->
   <!-- ==========================================
@@ -126,12 +193,12 @@
     <div class="nav-inner">
       <a href="/" class="nav-logo">DJing Is A Medicine</a>
       <ul class="nav-links">
-        <li><a href="/formation-dj-ecstatic-dance/">Formation</a></li>
-        <li><a href="/explications-ecstatic-dance/">Ecstatic Dance</a></li>
-        <li><a href="/eotim-dj-holistique/">À propos</a></li>
-        <li><a href="/partenaires/">Partenaires</a></li>
-        <li><a href="/contact/">Contact</a></li>
-        <li><a href="/contact/" class="nav-cta" data-magnetic>En savoir plus</a></li>
+        <li><a href="/formation-dj-ecstatic-dance">Formation</a></li>
+        <li><a href="/explications-ecstatic-dance">Ecstatic Dance</a></li>
+        <li><a href="/eotim-dj-holistique">À propos</a></li>
+        <li><a href="/partenaires">Partenaires</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/contact" class="nav-cta" data-magnetic>En savoir plus</a></li>
       </ul>
       <div class="nav-hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -142,13 +209,13 @@
   <div class="nav-mobile" id="mobileMenu">
     <div class="nav-mobile-bg"></div>
     <div class="nav-mobile-content">
-      <a href="/formation-dj-ecstatic-dance/" class="nav-mobile-link" style="--i:0" onclick="closeMobile()">Formation</a>
-      <a href="/explications-ecstatic-dance/" class="nav-mobile-link" style="--i:1" onclick="closeMobile()">Ecstatic Dance</a>
-      <a href="/eotim-dj-holistique/" class="nav-mobile-link" style="--i:2" onclick="closeMobile()">À propos</a>
-      <a href="/partenaires/" class="nav-mobile-link" style="--i:3" onclick="closeMobile()">Partenaires</a>
-      <a href="/contact/" class="nav-mobile-link" style="--i:4" onclick="closeMobile()">Contact</a>
+      <a href="/formation-dj-ecstatic-dance" class="nav-mobile-link" style="--i:0" onclick="closeMobile()">Formation</a>
+      <a href="/explications-ecstatic-dance" class="nav-mobile-link" style="--i:1" onclick="closeMobile()">Ecstatic Dance</a>
+      <a href="/eotim-dj-holistique" class="nav-mobile-link" style="--i:2" onclick="closeMobile()">À propos</a>
+      <a href="/partenaires" class="nav-mobile-link" style="--i:3" onclick="closeMobile()">Partenaires</a>
+      <a href="/contact" class="nav-mobile-link" style="--i:4" onclick="closeMobile()">Contact</a>
       <div class="nav-mobile-divider"></div>
-      <a href="/contact/" class="nav-mobile-cta" style="--i:5" onclick="closeMobile()">
+      <a href="/contact" class="nav-mobile-cta" style="--i:5" onclick="closeMobile()">
         En savoir plus
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
           stroke-linecap="round" stroke-linejoin="round">
@@ -173,15 +240,10 @@
     <div class="hero-content">
       <div class="hero-eyebrow">Partenaires</div>
       <h1 class="hero-title">
-        <span class="word" style="--i:0">Ils</span>
-        <span class="word" style="--i:1">accompagnent</span>
-        <span class="word" style="--i:2">l'aventure</span>
+        <span class="word" style="--i:0">Alliances</span>
+        <span class="word" style="--i:1">conscientes</span>
       </h1>
-      <p class="hero-subtitle">DJing Is A Medicine s'entoure de partenaires qui partagent une vision commune : créer des espaces de transformation par la musique, le corps et la conscience.</p>
-    </div>
-    <div class="hero-scroll">
-      <span>Découvrir</span>
-      <div class="hero-scroll-line"></div>
+      <p class="hero-subtitle">Chacun à sa manière contribue à enrichir l'expérience des formations et des événements.</p>
     </div>
   </section>
 
@@ -205,26 +267,42 @@
   <section class="partenaires-section" id="grille">
     <div class="container">
       <div class="partenaires-intro reveal">
-        <p>Chacun à sa manière contribue à enrichir l'expérience des formations et des événements.</p>
+        <p>Ce qui m'anime dans chaque collaboration, c'est la résonance et le soutien mutuel. Travailler ensemble n'a de sens que lorsque les valeurs, la vision et la manière d'être au monde s'accordent — et donnent naissance à quelque chose de juste.</p>
+        <p>Les partenaires présenté·es ici incarnent cette approche : accompagner, créer et contribuer depuis un espace d'alignement et de vivant.</p>
+        <p>Les marques que je représente sont choisies avec la même cohérence : leurs valeurs, leur engagement et l'intention qu'elles portent résonnent avec ma démarche et ma manière d'être.</p>
       </div>
 
       <div class="partenaires-grid">
 
+        <!-- Partenaires sans photo -->
+
+        <div class="partenaire-card reveal">
+          <div class="partenaire-logo-placeholder">YB</div>
+          <h3 class="partenaire-name">Yaëlle Bi-Assira</h3>
+          <p class="partenaire-desc">Psycho-énergéticienne. Elle intervient dans l'accompagnement pour accompagner les élèves dans leur processus de transformation.</p>
+        </div>
+
+        <div class="partenaire-card reveal">
+          <div class="partenaire-logo-placeholder">SB</div>
+          <h3 class="partenaire-name">Sandrine</h3>
+          <p class="partenaire-desc">Elle accompagne leaders, entrepreneurs à se reconnecter à leur essentiel grâce à une approche qui unit neurosciences, intuition et travail énergétique.</p>
+        </div>
+
         <!-- Partenaires avec photo -->
+
+        <a href="https://www.omwater.fr" target="_blank" rel="noopener" class="partenaire-card partenaire-card--photo reveal">
+          <h3 class="partenaire-name">OmWater</h3>
+          <p class="partenaire-desc">Bouteilles éco-responsables à fortes valeurs ajoutées. 100% en verre recyclé.</p>
+          <picture>
+            <source srcset="images/partenaires/partenaires-2-600w.webp 300w, images/partenaires/partenaires-2.webp 600w" sizes="(max-width: 768px) 100vw, 300px" type="image/webp">
+            <img src="images/partenaires/partenaires-2.jpg" srcset="images/partenaires/partenaires-2-600w.jpg 300w, images/partenaires/partenaires-2.jpg 600w" sizes="(max-width: 768px) 100vw, 300px" alt="OmWater" class="partenaire-photo" loading="lazy" width="600" height="211">
+          </picture>
+        </a>
 
         <a href="https://templesauvage.fr" target="_blank" rel="noopener" class="partenaire-card partenaire-card--photo reveal">
           <h3 class="partenaire-name">Temple Sauvage</h3>
           <p class="partenaire-desc">Cacao et délices vibratoires par Roxanne. Stand présent lors des événements et festivals Ecstatic Dance pour accompagner les danseurs avec des boissons au cacao, reconnu pour ses propriétés d'ancrage et d'ouverture.</p>
           <img src="images/partenaires/partenaires-1.webp" alt="Temple Sauvage" class="partenaire-photo" loading="lazy" width="600" height="400">
-        </a>
-
-        <a href="https://omwater.be" target="_blank" rel="noopener" class="partenaire-card partenaire-card--photo reveal">
-          <h3 class="partenaire-name">OmWater</h3>
-          <p class="partenaire-desc">Bouteilles d'eau vibrantes, conçues avec intention. Présentes lors des retraites et formations pour accompagner l'hydratation en conscience.</p>
-          <picture>
-            <source srcset="images/partenaires/partenaires-2-600w.webp 300w, images/partenaires/partenaires-2.webp 600w" sizes="(max-width: 768px) 100vw, 300px" type="image/webp">
-            <img src="images/partenaires/partenaires-2.jpg" srcset="images/partenaires/partenaires-2-600w.jpg 300w, images/partenaires/partenaires-2.jpg 600w" sizes="(max-width: 768px) 100vw, 300px" alt="OmWater" class="partenaire-photo" loading="lazy" width="600" height="211">
-          </picture>
         </a>
 
         <a href="https://psio.com" target="_blank" rel="noopener" class="partenaire-card partenaire-card--photo reveal">
@@ -236,34 +314,20 @@
           </picture>
         </a>
 
+        <a href="https://corsairconnect.com/" target="_blank" rel="noopener" class="partenaire-card reveal">
+          <div class="partenaire-logo-placeholder">CG</div>
+          <h3 class="partenaire-name">Corsair Group</h3>
+          <p class="partenaire-desc">Retirer les déchets plastiques avant qu'ils n'atteignent les rivières et l'océan, puis les transformer en ressource grâce au recyclage avancé et aux CSR. Une partie des revenus de DJing Is A Medicine finance cette dépollution.</p>
+        </a>
+
         <a href="https://mixedinkey.com" target="_blank" rel="noopener" class="partenaire-card partenaire-card--photo reveal">
           <h3 class="partenaire-name">Mixed In Key</h3>
-          <p class="partenaire-desc">Logiciel de référence pour le mix harmonique, utilisé et recommandé dans les formations DIAM. Permet aux élèves de maîtriser le harmonic mixing dès le début de leur parcours.</p>
+          <p class="partenaire-desc">Logiciel de référence utilisé et recommandé aux élèves de maîtriser dès le début de leur parcours.</p>
           <picture>
             <source srcset="images/partenaires/partenaires-4-600w.webp 300w, images/partenaires/partenaires-4.webp 600w" sizes="(max-width: 768px) 100vw, 300px" type="image/webp">
             <img src="images/partenaires/partenaires-4.jpg" srcset="images/partenaires/partenaires-4-600w.jpg 300w, images/partenaires/partenaires-4.jpg 600w" sizes="(max-width: 768px) 100vw, 300px" alt="Mixed In Key" class="partenaire-photo" loading="lazy" width="600" height="382">
           </picture>
         </a>
-
-        <!-- Partenaires sans photo -->
-
-        <a href="https://www.resalib.fr/praticien/108608-yaelle-bi-assira-psycho-energeticien-sotteville-les-rouen" target="_blank" rel="noopener" class="partenaire-card reveal">
-          <div class="partenaire-logo-placeholder">YB</div>
-          <h3 class="partenaire-name">Yaëlle Bi-Assira</h3>
-          <p class="partenaire-desc">Psycho-énergéticienne. Elle intervient lors des retraites pour offrir des soins individuels et accompagner les participants dans leur processus de transformation.</p>
-        </a>
-
-        <div class="partenaire-card reveal">
-          <div class="partenaire-logo-placeholder">MI</div>
-          <h3 class="partenaire-name">Mission Indigo</h3>
-          <p class="partenaire-desc">Description à venir — en attente de confirmation par Benjamin.</p>
-        </div>
-
-        <div class="partenaire-card reveal">
-          <div class="partenaire-logo-placeholder">CG</div>
-          <h3 class="partenaire-name">Corsair Group</h3>
-          <p class="partenaire-desc">Description à clarifier avec Benjamin — distributeur PSIO ou partenaire distinct.</p>
-        </div>
 
       </div>
     </div>
@@ -291,8 +355,8 @@
       <div class="partenaires-cta-content reveal">
         <div class="section-label">Rejoins l'aventure</div>
         <h2 class="section-title">Devenir partenaire</h2>
-        <p class="partenaires-cta-text">Tu représentes une marque, un projet ou une pratique alignée avec la philosophie DJing Is A Medicine ? Parlons-en.</p>
-        <a href="contact.html?sujet=devenir-partenaire" class="hero-cta" data-magnetic>
+        <p class="partenaires-cta-text">Tu représentes une marque, un projet ou une pratique alignée avec les valeurs de DJing Is A Medicine ? Parlons-en.</p>
+        <a href="/contact/?sujet=devenir-partenaire" class="hero-cta" data-magnetic>
           Proposer un partenariat
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
             stroke-linecap="round" stroke-linejoin="round">
@@ -366,11 +430,11 @@
         <div class="footer-links">
           <h4>Navigation</h4>
           <ul>
-            <li><a href="/formation-dj-ecstatic-dance/">Formation</a></li>
-            <li><a href="/explications-ecstatic-dance/">Ecstatic Dance</a></li>
-            <li><a href="/eotim-dj-holistique/">À propos</a></li>
-            <li><a href="/partenaires/">Partenaires</a></li>
-            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/formation-dj-ecstatic-dance">Formation</a></li>
+            <li><a href="/explications-ecstatic-dance">Ecstatic Dance</a></li>
+            <li><a href="/eotim-dj-holistique">À propos</a></li>
+            <li><a href="/partenaires">Partenaires</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
         <div class="footer-links">

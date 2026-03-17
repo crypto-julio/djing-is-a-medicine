@@ -125,6 +125,22 @@
   <div class="cursor" id="cursor"></div>
   <div class="cursor-glow" id="cursorGlow"></div>
 
+  <!-- PARALLAX:START -->
+  <!-- ==========================================
+     FOND ANIMÉ — SOURCE UNIQUE pour toutes les pages
+     ==========================================
+
+     Ce fichier est la RÉFÉRENCE pour le fond animé (aurora, mandala, canvas).
+     Il est injecté automatiquement dans toutes les pages du site.
+
+     Pour appliquer tes modifications :
+       1. Modifie ce fichier
+       2. Lance la commande : node build.js
+
+     Ne change PAS la structure — le CSS et le JS en dépendent.
+
+     ========================================== -->
+
   <!-- Fixed parallax background -->
   <div id="parallax-bg">
     <div class="hero-bg"></div>
@@ -136,13 +152,10 @@
     <canvas id="sound-waves-canvas"></canvas>
     <div class="hero-mandala">
       <svg class="mandala-svg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Outer rings -->
         <circle cx="200" cy="200" r="198" stroke="rgba(232,200,114,0.1)" stroke-width="0.5" />
         <circle cx="200" cy="200" r="185" stroke="rgba(232,200,114,0.06)" stroke-width="0.5" />
         <circle cx="200" cy="200" r="168" stroke="rgba(196,122,46,0.08)" stroke-width="0.5" />
         <circle cx="200" cy="200" r="148" stroke="rgba(232,200,114,0.06)" stroke-width="0.5" />
-
-        <!-- Radiating lines — 12 rays at 30° intervals -->
         <g class="mandala-rays" opacity="0.08" stroke="rgba(232,200,114,1)" stroke-width="0.5">
           <line x1="200" y1="10" x2="200" y2="390" />
           <line x1="295" y1="27" x2="105" y2="373" />
@@ -151,8 +164,6 @@
           <line x1="365" y1="300" x2="35" y2="100" />
           <line x1="295" y1="373" x2="105" y2="27" />
         </g>
-
-        <!-- Flower of Life — layer 1 (center + 6 petals) -->
         <g class="mandala-flower-1" opacity="0.12" stroke="rgba(232,200,114,1)" stroke-width="0.6">
           <circle cx="200" cy="200" r="55" />
           <circle cx="200" cy="145" r="55" />
@@ -162,8 +173,6 @@
           <circle cx="152.4" cy="227.5" r="55" />
           <circle cx="152.4" cy="172.5" r="55" />
         </g>
-
-        <!-- Flower of Life — layer 2 (outer 6 petals) -->
         <g class="mandala-flower-2" opacity="0.07" stroke="rgba(196,122,46,1)" stroke-width="0.5">
           <circle cx="200" cy="90" r="55" />
           <circle cx="295.3" cy="145" r="55" />
@@ -172,19 +181,13 @@
           <circle cx="104.7" cy="255" r="55" />
           <circle cx="104.7" cy="145" r="55" />
         </g>
-
-        <!-- Inner hexagram (Star of David) -->
         <g opacity="0.1" stroke="rgba(232,200,114,1)" stroke-width="0.5">
           <polygon points="200,128 262.4,236 137.6,236" />
           <polygon points="200,272 137.6,164 262.4,164" />
         </g>
-
-        <!-- Inner rings -->
         <circle cx="200" cy="200" r="95" stroke="rgba(232,200,114,0.08)" stroke-width="0.5" />
         <circle cx="200" cy="200" r="28" stroke="rgba(232,200,114,0.12)" stroke-width="0.6" />
         <circle cx="200" cy="200" r="8" fill="rgba(232,200,114,0.06)" />
-
-        <!-- Seed of Life (small center flower) -->
         <g class="mandala-seed" opacity="0.1" stroke="rgba(232,200,114,1)" stroke-width="0.5">
           <circle cx="200" cy="200" r="22" />
           <circle cx="200" cy="178" r="22" />
@@ -197,6 +200,8 @@
       </svg>
     </div>
   </div>
+
+  <!-- PARALLAX:END -->
 
   <!-- NAV:START -->
   <!-- ==========================================
@@ -226,12 +231,12 @@
     <div class="nav-inner">
       <a href="/" class="nav-logo">DJing Is A Medicine</a>
       <ul class="nav-links">
-        <li><a href="/formation-dj-ecstatic-dance/">Formation</a></li>
-        <li><a href="/explications-ecstatic-dance/">Ecstatic Dance</a></li>
-        <li><a href="/eotim-dj-holistique/">À propos</a></li>
-        <li><a href="/partenaires/">Partenaires</a></li>
-        <li><a href="/contact/">Contact</a></li>
-        <li><a href="/contact/" class="nav-cta" data-magnetic>En savoir plus</a></li>
+        <li><a href="/formation-dj-ecstatic-dance">Formation</a></li>
+        <li><a href="/explications-ecstatic-dance">Ecstatic Dance</a></li>
+        <li><a href="/eotim-dj-holistique">À propos</a></li>
+        <li><a href="/partenaires">Partenaires</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/contact" class="nav-cta" data-magnetic>En savoir plus</a></li>
       </ul>
       <div class="nav-hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -242,13 +247,13 @@
   <div class="nav-mobile" id="mobileMenu">
     <div class="nav-mobile-bg"></div>
     <div class="nav-mobile-content">
-      <a href="/formation-dj-ecstatic-dance/" class="nav-mobile-link" style="--i:0" onclick="closeMobile()">Formation</a>
-      <a href="/explications-ecstatic-dance/" class="nav-mobile-link" style="--i:1" onclick="closeMobile()">Ecstatic Dance</a>
-      <a href="/eotim-dj-holistique/" class="nav-mobile-link" style="--i:2" onclick="closeMobile()">À propos</a>
-      <a href="/partenaires/" class="nav-mobile-link" style="--i:3" onclick="closeMobile()">Partenaires</a>
-      <a href="/contact/" class="nav-mobile-link" style="--i:4" onclick="closeMobile()">Contact</a>
+      <a href="/formation-dj-ecstatic-dance" class="nav-mobile-link" style="--i:0" onclick="closeMobile()">Formation</a>
+      <a href="/explications-ecstatic-dance" class="nav-mobile-link" style="--i:1" onclick="closeMobile()">Ecstatic Dance</a>
+      <a href="/eotim-dj-holistique" class="nav-mobile-link" style="--i:2" onclick="closeMobile()">À propos</a>
+      <a href="/partenaires" class="nav-mobile-link" style="--i:3" onclick="closeMobile()">Partenaires</a>
+      <a href="/contact" class="nav-mobile-link" style="--i:4" onclick="closeMobile()">Contact</a>
       <div class="nav-mobile-divider"></div>
-      <a href="/contact/" class="nav-mobile-cta" style="--i:5" onclick="closeMobile()">
+      <a href="/contact" class="nav-mobile-cta" style="--i:5" onclick="closeMobile()">
         En savoir plus
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
           stroke-linecap="round" stroke-linejoin="round">
@@ -288,10 +293,6 @@
           <polyline points="12 5 19 12 12 19" />
         </svg>
       </a>
-    </div>
-    <div class="hero-scroll">
-      <span>Découvrir</span>
-      <div class="hero-scroll-line"></div>
     </div>
   </section>
 
@@ -528,7 +529,7 @@
       </div>
 
       <div class="testimonials-footer reveal">
-        <a href="formation.html#temoignages" class="btn-outline">
+        <a href="/formation-dj-ecstatic-dance#temoignages" class="btn-outline">
           Voir d'autres témoignages
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
@@ -569,7 +570,7 @@
       <div class="dates-grid">
         <div class="date-card-wrapper reveal reveal-delay-1">
           <div class="date-card-badge">Printemps et Automne</div>
-          <a href="/formation-dj-ecstatic-dance/" class="date-card date-card-1" style="text-decoration:none;color:inherit;display:block;">
+          <a href="/formation-dj-ecstatic-dance" class="date-card date-card-1" style="text-decoration:none;color:inherit;display:block;">
             <div class="date-card-visual"></div>
           <div class="date-card-body">
             <div class="date-card-type">Retraite immersive · 5 jours</div>
@@ -750,7 +751,7 @@
             placeholder="Ton intention / message" rows="3" required></textarea>
           <label class="newsletter-checkbox-label">
             <input type="checkbox" name="newsletter_chk" value="true" checked>
-            <span>Tu es ok pour recevoir la newsletter</span>
+            <span>Oui, je veux recevoir la newsletter</span>
           </label>
           <button type="submit" class="newsletter-submit" id="contactSubmit">Recevoir la brochure et le replay</button>
           <p class="newsletter-form-status" id="formStatus"></p>
@@ -821,11 +822,11 @@
         <div class="footer-links">
           <h4>Navigation</h4>
           <ul>
-            <li><a href="/formation-dj-ecstatic-dance/">Formation</a></li>
-            <li><a href="/explications-ecstatic-dance/">Ecstatic Dance</a></li>
-            <li><a href="/eotim-dj-holistique/">À propos</a></li>
-            <li><a href="/partenaires/">Partenaires</a></li>
-            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/formation-dj-ecstatic-dance">Formation</a></li>
+            <li><a href="/explications-ecstatic-dance">Ecstatic Dance</a></li>
+            <li><a href="/eotim-dj-holistique">À propos</a></li>
+            <li><a href="/partenaires">Partenaires</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
         <div class="footer-links">
