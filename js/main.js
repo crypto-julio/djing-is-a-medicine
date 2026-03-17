@@ -97,6 +97,7 @@ window.closeMobile = function () {
   hamburger.classList.remove('active');
   mobileMenu.classList.remove('open');
   document.body.style.overflow = '';
+  hamburger.focus();
 };
 
 // ==========================================
@@ -119,6 +120,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
 // ==========================================
 (function () {
   if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   var TILT_MAX = 8;
   var TILT_SELECTOR = '.pillar, .identify-item, .date-card, .testimonial-card, .ed-principe-card, .ed-expr-card, .ed-timeline-content, .f-inclus-card';
@@ -211,7 +213,9 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     }
   });
 
-  // Magnetic effect
+  // Magnetic effect — disabled if user prefers reduced motion
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
   document.querySelectorAll('[data-magnetic]').forEach(function (el) {
     el.addEventListener('mousemove', function (e) {
       var rect = el.getBoundingClientRect();

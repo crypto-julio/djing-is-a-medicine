@@ -108,7 +108,7 @@
       contactForm.reset();
       contactForm.style.display = 'none';
     }).catch(function () {
-      formStatus.textContent = 'Erreur de connexion. Verifie ta connexion internet et reessaie.';
+      formStatus.textContent = 'Erreur de connexion. Vérifie ta connexion internet et réessaie.';
       formStatus.classList.add('error');
     }).finally(function () {
       contactSubmit.disabled = false;

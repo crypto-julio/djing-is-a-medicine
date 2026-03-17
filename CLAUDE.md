@@ -16,9 +16,11 @@ La seule étape de build est un script Node.js qui injecte la nav et le footer p
 node build.js
 ```
 
-Ce script lit `_includes/nav.html` et `_includes/footer.html` puis remplace le contenu entre les marqueurs `<!-- NAV:START -->` / `<!-- NAV:END -->` et `<!-- FOOTER:START -->` / `<!-- FOOTER:END -->` dans chaque page. Aucune dépendance npm.
+Ce script lit les fichiers dans `_includes/` et remplace le contenu entre les marqueurs `<!-- NAME:START -->` / `<!-- NAME:END -->` dans chaque page. Blocs gérés : `NAV`, `FOOTER`, `PARALLAX`. Aucune dépendance npm.
 
-**Ne jamais modifier la nav ou le footer directement dans les pages HTML** — les changements seront écrasés par `build.js`. Toujours modifier `_includes/nav.html` ou `_includes/footer.html`, puis lancer `node build.js`.
+**Ne jamais modifier la nav, le footer ou le parallax directement dans les pages HTML** — les changements seront écrasés par `build.js`. Toujours modifier les fichiers dans `_includes/` (`nav.html`, `footer.html`, `parallax-bg.html`), puis lancer `node build.js`.
+
+**Note** : `build.js` ne traite que les 6 pages principales (pas `mentions-legales.html` ni `politique-confidentialite.html`).
 
 ## Architecture
 
@@ -32,7 +34,7 @@ Ce script lit `_includes/nav.html` et `_includes/footer.html` puis remplace le c
   - `mandala.js` — Animation SVG mandala sur la page d'accueil.
 - **Flux du formulaire de contact** : `contact.html` → `js/contact.js` → `contact.php` (principal, serveur LWS) → API Systeme.io. Si le PHP échoue, bascule sur `netlify/functions/contact.mjs` (Netlify Function).
 - **Test local** : utiliser `netlify dev` pour simuler les pretty URLs et redirects en local.
-- **Includes partagés** : `_includes/nav.html` et `_includes/footer.html` injectés dans les pages via `build.js`.
+- **Includes partagés** : `_includes/nav.html`, `_includes/footer.html` et `_includes/parallax-bg.html` injectés dans les pages via `build.js`.
 
 ## Déploiement
 

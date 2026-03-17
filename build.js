@@ -40,6 +40,8 @@ const pages = [
   'eotim-dj-holistique.html',
   'partenaires.html',
   'contact.html',
+  'mentions-legales.html',
+  'politique-confidentialite.html',
 ];
 
 // Blocs à injecter
