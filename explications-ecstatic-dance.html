@@ -7,25 +7,22 @@
 
   STRUCTURE / SECTIONS (dans l'ordre) :
     1. HERO ................. Titre + accroche
-    2. DEFINITION ........... Qu'est-ce que l'Ecstatic Dance
-    3. PRINCIPES ............ Grille de cartes (principes fondamentaux)
-    4. DEROULE .............. Timeline d'une session type
-    5. GLOBE ................ Animation HTML des danseurs (stick figures)
-    6. EXPRESSIONS .......... Les expressions de la danse
-    7. DEVENIR DJ ED ........ Section pour devenir DJ d'Ecstatic Dance
-    8. FAQ .................. Questions / réponses
-    9. CTA .................. Appel à l'action final
+    2. CONTENU PRINCIPAL .... Qu'est-ce que l'Ecstatic Dance (définition)
+    3. MOUVEMENT MONDIAL .... Carte interactive + chiffres mondiaux
+    4. EXPRESSIONS .......... Les expressions de la danse libre
+    5. PRINCIPES ............ Grille de cartes (principes fondamentaux)
+    6. DÉROULÉ .............. Timeline d'une session type
+    7. ÉCOUTER LES VOYAGES .. Lecteurs audio (exemples de sets)
+    8. CTA FORMATION ........ Appel à l'action vers la formation
 
   CE QUE TU PEUX MODIFIER :
     - Tous les textes (titres, paragraphes, descriptions)
     - Les principes : modifie les cartes (cherche "principle-card")
     - Le déroulé timeline : modifie les étapes (cherche "timeline-item")
-    - La FAQ : modifie les questions/réponses (cherche "faq-item")
+    - Les expressions : modifie les items (cherche "expression-item")
     - Le CTA final : modifie le texte et le lien du bouton
 
   CE QU'IL NE FAUT PAS TOUCHER :
-    - L'animation du globe (les stick figures en HTML/CSS) —
-      c'est du code complexe, toute modif peut tout casser
     - Les wave separators (SVG animés entre les sections)
     - Les marqueurs NAV:START/NAV:END et FOOTER:START/FOOTER:END
       (le menu et le footer sont gérés par _includes/ + build.js)
@@ -94,7 +91,9 @@
   }
   </script>
 
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
