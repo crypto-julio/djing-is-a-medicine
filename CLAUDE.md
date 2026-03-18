@@ -20,13 +20,13 @@ Ce script lit les fichiers dans `_includes/` et remplace le contenu entre les ma
 
 **Ne jamais modifier la nav, le footer ou le parallax directement dans les pages HTML** — les changements seront écrasés par `build.js`. Toujours modifier les fichiers dans `_includes/` (`nav.html`, `footer.html`, `parallax-bg.html`), puis lancer `node build.js`.
 
-**Note** : `build.js` ne traite que les 6 pages principales (pas `mentions-legales.html` ni `politique-confidentialite.html`).
+**Note** : `build.js` traite les 7 pages principales (y compris `mentions-legales.html`).
 
 ## Architecture
 
 - **Site statique pur** : pas de framework, pas de bundler, pas de npm. HTML + CSS + JS vanilla.
 - **Un fichier CSS par page** : `style.css` (index + styles partagés : variables, nav, footer, curseur), `formation-dj-ecstatic-dance.css`, `explications-ecstatic-dance.css`, `eotim-dj-holistique.css`, `contact.css`, `partenaires.css`.
-- **Pages** : `index.html`, `formation-dj-ecstatic-dance.html`, `explications-ecstatic-dance.html`, `eotim-dj-holistique.html`, `partenaires.html`, `contact.html`, plus les pages légales (`mentions-legales.html`, `politique-confidentialite.html`). Les noms de fichiers correspondent aux slugs SEO ; Netlify `pretty_urls = true` sert `/formation-dj-ecstatic-dance` automatiquement.
+- **Pages** : `index.html`, `formation-dj-ecstatic-dance.html`, `explications-ecstatic-dance.html`, `eotim-dj-holistique.html`, `partenaires.html`, `contact.html`, plus la page légale (`mentions-legales.html` — confidentialité et mentions fusionnées). Les noms de fichiers correspondent aux slugs SEO ; Netlify `pretty_urls = true` sert `/formation-dj-ecstatic-dance` automatiquement.
 - **JS** (dossier `js/`) :
   - `main.js` — Scroll reveal, comportement nav au scroll, menu mobile, ancres smooth, tilt 3D des cartes, curseur custom + effet magnétique. Chargé sur toutes les pages.
   - `contact.js` — Soumission du formulaire vers l'API Systeme.io via proxy.

@@ -41,7 +41,6 @@ const pages = [
   'partenaires.html',
   'contact.html',
   'mentions-legales.html',
-  'politique-confidentialite.html',
 ];
 
 // Blocs à injecter

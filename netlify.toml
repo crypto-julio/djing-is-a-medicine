@@ -49,3 +49,13 @@
   from = "/a-propos.html"
   to = "/eotim-dj-holistique"
   status = 301
+
+[[redirects]]
+  from = "/politique-confidentialite"
+  to = "/mentions-legales"
+  status = 301
+
+[[redirects]]
+  from = "/politique-confidentialite.html"
+  to = "/mentions-legales"
+  status = 301
