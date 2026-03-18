@@ -32,74 +32,87 @@ async function systeme(method, path, data, contentType = 'application/json') {
 export async function handler(event) {
   const jsonHeaders = { 'Content-Type': 'application/json' };
 
+  // CORS : autoriser les requêtes depuis le site
+  if (event.httpMethod === 'OPTIONS') {
+    return { statusCode: 204, headers: { ...jsonHeaders, 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type' }, body: '' };
+  }
+
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, headers: jsonHeaders, body: JSON.stringify({ error: 'Method not allowed' }) };
   }
 
-  const b = JSON.parse(event.body || '{}');
+  let b;
+  try {
+    b = JSON.parse(event.body || '{}');
+  } catch (err) {
+    return { statusCode: 400, headers: jsonHeaders, body: JSON.stringify({ error: 'JSON invalide', detail: err.message }) };
+  }
   if (!b.email) {
     return { statusCode: 400, headers: jsonHeaders, body: JSON.stringify({ error: 'Email requis' }) };
   }
 
-  // Slugs identiques à ceux de contact.php (doivent correspondre aux champs custom Systeme.io)
-  const FIELD_KEYS = ['first_name', 'last_name', 'phone_number', 'city', 'levelDJ', 'levelEspaces', 'originUser', 'subject', 'motivation_usr', 'messageUser', 'newsletter_chk'];
+  try {
+    // Slugs identiques à ceux de contact.php (doivent correspondre aux champs custom Systeme.io)
+    const FIELD_KEYS = ['first_name', 'last_name', 'phone_number', 'city', 'levelDJ', 'levelEspaces', 'originUser', 'subject', 'motivation_usr', 'messageUser', 'newsletter_chk'];
 
-  const allFields = FIELD_KEYS
-    .filter(key => b[key])
-    .map(key => ({ slug: key, value: String(b[key]) }));
+    const allFields = FIELD_KEYS
+      .filter(key => b[key])
+      .map(key => ({ slug: key, value: String(b[key]) }));
 
-  const payload = { email: b.email, locale: 'fr', fields: allFields };
+    const payload = { email: b.email, locale: 'fr', fields: allFields };
 
-  // Créer le contact
-  let res = await systeme('POST', '/contacts', payload);
-  let contact = null;
+    // Créer le contact
+    let res = await systeme('POST', '/contacts', payload);
+    let contact = null;
 
-  if (res.status === 201 || res.status === 200) {
-    contact = res.body;
-  } else if (res.status === 422) {
-    // 422 can mean "email already exists" OR "invalid fields"
-    // Check if contact already exists
-    const list = await systeme('GET', `/contacts?email=${encodeURIComponent(b.email)}`);
-    const existing = list.body.items && list.body.items[0];
-    if (existing) {
-      // Contact exists → update with only known-good fields
-      const updatePayload = { locale: 'fr', fields: allFields };
-      const upd = await systeme('PATCH', `/contacts/${existing.id}`, updatePayload, 'application/merge-patch+json');
-      contact = upd.body;
-      if (!contact.id) contact.id = existing.id;
-    } else {
-      // Not a duplicate — real validation error (bad slugs, etc.)
-      // Retry with only guaranteed fields (first_name, surname)
-      const safeFields = allFields.filter(f => ['first_name', 'last_name'].includes(f.slug));
-      const retry = await systeme('POST', '/contacts', { email: b.email, locale: 'fr', fields: safeFields });
-      if (retry.status === 201 || retry.status === 200) {
-        contact = retry.body;
+    if (res.status === 201 || res.status === 200) {
+      contact = res.body;
+    } else if (res.status === 422) {
+      // 422 peut signifier "email déjà existant" OU "champs invalides"
+      const list = await systeme('GET', `/contacts?email=${encodeURIComponent(b.email)}`);
+      const existing = list.body.items && list.body.items[0];
+      if (existing) {
+        // Contact existe → mise à jour
+        const updatePayload = { locale: 'fr', fields: allFields };
+        const upd = await systeme('PATCH', `/contacts/${existing.id}`, updatePayload, 'application/merge-patch+json');
+        contact = upd.body;
+        if (!contact.id) contact.id = existing.id;
       } else {
-        return { statusCode: 502, headers: jsonHeaders, body: JSON.stringify({ error: 'Erreur Systeme.io', detail: res.body, retry: retry.body }) };
+        // Pas un doublon — vraie erreur de validation
+        // Réessai avec seulement les champs garantis
+        const safeFields = allFields.filter(f => ['first_name', 'last_name'].includes(f.slug));
+        const retry = await systeme('POST', '/contacts', { email: b.email, locale: 'fr', fields: safeFields });
+        if (retry.status === 201 || retry.status === 200) {
+          contact = retry.body;
+        } else {
+          return { statusCode: 502, headers: jsonHeaders, body: JSON.stringify({ error: 'Erreur Systeme.io', detail: res.body, retry: retry.body }) };
+        }
+      }
+    } else {
+      return { statusCode: 502, headers: jsonHeaders, body: JSON.stringify({ error: 'Erreur Systeme.io', detail: res.body }) };
+    }
+
+    // Tags
+    if (contact && contact.id) {
+      const tagsToAssign = ['formsite'];
+      if (b.newsletter_chk && b.newsletter_chk !== 'false') tagsToAssign.push('newsletter');
+      if (b.subject === 'dj-holistique') tagsToAssign.push('PDF_formation');
+      else if (b.subject === 'danses-48') tagsToAssign.push('Atelier');
+
+      const tagsRes = await systeme('GET', '/tags');
+      const allTags = tagsRes.body.items || [];
+
+      for (const name of tagsToAssign) {
+        const tag = allTags.find(t => t.name.toLowerCase() === name.toLowerCase());
+        if (tag) {
+          await systeme('POST', `/contacts/${contact.id}/tags`, { tagId: tag.id });
+        }
       }
     }
-  } else {
-    return { statusCode: 502, headers: jsonHeaders, body: JSON.stringify({ error: 'Erreur Systeme.io', detail: res.body }) };
+
+    return { statusCode: 200, headers: jsonHeaders, body: JSON.stringify({ success: true }) };
+  } catch (err) {
+    console.error('Erreur inattendue dans contact.mjs:', err);
+    return { statusCode: 500, headers: jsonHeaders, body: JSON.stringify({ error: 'Erreur serveur', detail: err.message }) };
   }
-
-  // Tags
-  if (contact && contact.id) {
-    const tagsToAssign = ['formsite'];
-    if (b.newsletter_chk && b.newsletter_chk !== 'false') tagsToAssign.push('newsletter');
-    // Tag conditionnel selon le sujet
-    if (b.subject === 'dj-holistique') tagsToAssign.push('PDF_formation');
-    else if (b.subject === 'danses-48') tagsToAssign.push('Atelier');
-
-    const tagsRes = await systeme('GET', '/tags');
-    const allTags = tagsRes.body.items || [];
-
-    for (const name of tagsToAssign) {
-      const tag = allTags.find(t => t.name.toLowerCase() === name.toLowerCase());
-      if (tag) {
-        await systeme('POST', `/contacts/${contact.id}/tags`, { tagId: tag.id });
-      }
-    }
-  }
-
-  return { statusCode: 200, headers: jsonHeaders, body: JSON.stringify({ success: true }) };
 }

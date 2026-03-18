@@ -385,9 +385,27 @@
 
 .ed-expr-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
-  margin-bottom: 3rem;
+  max-width: 900px;
+  margin: 0 auto 3rem;
+}
+
+.ed-expr-highlight {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  padding: 2rem 2.5rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.45);
+  border-left: 3px solid var(--accent-amber, #c47a2e);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-dark, #2a1f14);
+  font-style: italic;
+}
+
+.ed-expr-highlight p {
+  margin: 0;
 }
 
 .ed-expr-img {
@@ -422,17 +440,6 @@
     rgba(255, 255, 255, 0.5);
 }
 
-.ed-expr-silent {
-  background:
-    radial-gradient(ellipse at top left, rgba(30, 160, 200, 0.08), transparent 60%),
-    radial-gradient(ellipse at bottom right, rgba(30, 96, 128, 0.06), transparent 60%),
-    rgba(255, 255, 255, 0.5);
-}
-
-.ed-expr-silent .ed-expr-icon {
-  background: rgba(30, 160, 200, 0.12);
-  color: rgba(30, 160, 200, 1);
-}
 
 .ed-expr-card:hover {
   transform: translateY(-4px);
@@ -594,24 +601,19 @@
 }
 
 .ed-principe-num {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: rgba(196, 122, 46, 0.35);
-  line-height: 1;
-  flex-shrink: 0;
+  display: none;
 }
 
 .ed-principe-icon {
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(139, 58, 122, 0.2);
-  border: 1px solid rgba(196, 104, 178, 0.25);
-  color: #C468B2;
+  color: #ffffff;
   flex-shrink: 0;
   transition: all 0.4s;
 }
@@ -622,9 +624,8 @@
 }
 
 .ed-principe-card:hover .ed-principe-icon {
-  background: rgba(139, 58, 122, 0.35);
-  border-color: rgba(196, 104, 178, 0.5);
-  box-shadow: 0 0 12px rgba(196, 104, 178, 0.25);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 .ed-principe-title {
@@ -932,14 +933,6 @@
 /* ============================================
    RESPONSIVE — Two columns and general
    ============================================ */
-@media (max-width: 1024px) {
-  .ed-expr-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .ed-expr-grid .ed-expr-card:last-child {
-    justify-self: center;
-  }
-}
 
 @media (max-width: 768px) {
   .ed-two-col {

@@ -43,6 +43,9 @@
 .f-pourquoi-text:last-child {
   margin-bottom: 0;
 }
+.f-pourquoi-text strong {
+  font-weight: 600;
+}
 
 .f-pourquoi-highlight {
   padding: 2rem 2.5rem;

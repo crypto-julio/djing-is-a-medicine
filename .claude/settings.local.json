@@ -27,7 +27,25 @@
       "Bash(for f:*)",
       "Bash(do echo:*)",
       "Bash(sed -n '/<!-- NAV:START -->/,/<!-- NAV:END -->/p' \"$f\")",
-      "Bash(done)"
+      "Bash(done)",
+      "Bash(mv formation.html formation-dj-ecstatic-dance.html)",
+      "Bash(mv ecstatic-dance.html explications-ecstatic-dance.html)",
+      "Bash(mv a-propos.html eotim-dj-holistique.html)",
+      "Bash(netlify dev:*)",
+      "Bash(grep:*)",
+      "Bash(python -c \"from PIL import Image; print\\(''Pillow OK''\\)\")",
+      "Bash(python -c \":*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(ls -la /c/Users/ktzgu/Desktop/djing-is-a-medicine/images/Logo*)",
+      "Bash(while read:*)",
+      "Bash(do fullpath=\"/c/Users/ktzgu/Desktop/djing-is-a-medicine/$ref\" if ! test -f \"$fullpath\")",
+      "Bash(then echo:*)",
+      "WebFetch(domain:www.benjaminbossu.com)",
+      "Bash(netstat -ano)",
+      "Bash(convert --version)",
+      "Bash(npx --yes sharp-cli --version)",
+      "Bash(npx sharp-cli:*)"
     ]
   }
 }
