@@ -237,7 +237,7 @@
       <ul class="nav-links">
         <li><a href="/formation-dj-ecstatic-dance">Formation</a></li>
         <li><a href="/explications-ecstatic-dance">Ecstatic Dance</a></li>
-        <li><a href="/eotim-dj-holistique">À propos</a></li>
+        <li><a href="/eotim-dj-holistique">Qui je suis</a></li>
         <li><a href="/partenaires">Partenaires</a></li>
         <li><a href="/contact">Contact</a></li>
         <li><a href="/formation-dj-ecstatic-dance#contact" class="nav-cta" data-magnetic>En savoir plus</a></li>
@@ -253,7 +253,7 @@
     <div class="nav-mobile-content">
       <a href="/formation-dj-ecstatic-dance" class="nav-mobile-link" style="--i:0" onclick="closeMobile()">Formation</a>
       <a href="/explications-ecstatic-dance" class="nav-mobile-link" style="--i:1" onclick="closeMobile()">Ecstatic Dance</a>
-      <a href="/eotim-dj-holistique" class="nav-mobile-link" style="--i:2" onclick="closeMobile()">À propos</a>
+      <a href="/eotim-dj-holistique" class="nav-mobile-link" style="--i:2" onclick="closeMobile()">Qui je suis</a>
       <a href="/partenaires" class="nav-mobile-link" style="--i:3" onclick="closeMobile()">Partenaires</a>
       <a href="/contact" class="nav-mobile-link" style="--i:4" onclick="closeMobile()">Contact</a>
       <div class="nav-mobile-divider"></div>
@@ -313,6 +313,13 @@
       <div class="newsletter-content">
         <p class="section-text reveal" style="text-align:center;margin-bottom:2rem;">Que tu sois intéressé·e par un accompagnement, un stage, un événement ou un partenariat, tu recevras une réponse personnalisée.</p>
         <!-- FORM_CONTACT:START -->
+<!--
+  INCLUDE : Formulaire de contact (version courte)
+  Utilisé sur : contact.html, partenaires.html
+  Champs : prénom, nom, email, téléphone, sujet, message, newsletter
+  Injecté par build.js entre les marqueurs FORM_CONTACT:START / FORM_CONTACT:END
+  Les options du <select> sujet sont modifiables.
+-->
         <form class="newsletter-form reveal" id="contactForm" novalidate>
           <input type="hidden" name="locale" value="fr">
           <fieldset style="border:none;padding:0;margin:0;">

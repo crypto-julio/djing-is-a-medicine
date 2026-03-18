@@ -239,7 +239,7 @@
       <ul class="nav-links">
         <li><a href="/formation-dj-ecstatic-dance">Formation</a></li>
         <li><a href="/explications-ecstatic-dance">Ecstatic Dance</a></li>
-        <li><a href="/eotim-dj-holistique">À propos</a></li>
+        <li><a href="/eotim-dj-holistique">Qui je suis</a></li>
         <li><a href="/partenaires">Partenaires</a></li>
         <li><a href="/contact">Contact</a></li>
         <li><a href="/formation-dj-ecstatic-dance#contact" class="nav-cta" data-magnetic>En savoir plus</a></li>
@@ -255,7 +255,7 @@
     <div class="nav-mobile-content">
       <a href="/formation-dj-ecstatic-dance" class="nav-mobile-link" style="--i:0" onclick="closeMobile()">Formation</a>
       <a href="/explications-ecstatic-dance" class="nav-mobile-link" style="--i:1" onclick="closeMobile()">Ecstatic Dance</a>
-      <a href="/eotim-dj-holistique" class="nav-mobile-link" style="--i:2" onclick="closeMobile()">À propos</a>
+      <a href="/eotim-dj-holistique" class="nav-mobile-link" style="--i:2" onclick="closeMobile()">Qui je suis</a>
       <a href="/partenaires" class="nav-mobile-link" style="--i:3" onclick="closeMobile()">Partenaires</a>
       <a href="/contact" class="nav-mobile-link" style="--i:4" onclick="closeMobile()">Contact</a>
       <div class="nav-mobile-divider"></div>
@@ -679,6 +679,14 @@
         </div>
 
         <!-- FORM_FORMATION:START -->
+<!--
+  INCLUDE : Formulaire de pré-inscription formation (version complète)
+  Utilisé sur : index.html, formation-dj-ecstatic-dance.html
+  Champs : prénom, nom, email, téléphone, ville, niveau DJ, niveau espaces,
+           origine, sujet, motivation (1-10), intention/message, newsletter
+  Injecté par build.js entre les marqueurs FORM_FORMATION:START / FORM_FORMATION:END
+  Les options des <select> et le texte du bouton sont modifiables.
+-->
         <form class="newsletter-form reveal reveal-delay-3" id="contactForm" novalidate>
           <input type="hidden" name="locale" value="fr">
           <fieldset style="border:none;padding:0;margin:0;">
