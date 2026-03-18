@@ -52,14 +52,20 @@ export async function handler(event) {
   }
 
   try {
-    // Slugs identiques à ceux de contact.php (doivent correspondre aux champs custom Systeme.io)
-    const FIELD_KEYS = ['first_name', 'last_name', 'phone_number', 'city', 'levelDJ', 'levelEspaces', 'originUser', 'subject', 'motivation_usr', 'messageUser', 'newsletter_chk'];
+    // Champs custom Systeme.io (slugs vérifiés via GET /contact_fields)
+    // IMPORTANT : first_name, surname et phone_number sont des champs natifs
+    // du contact, pas des champs custom dans "fields"
+    const CUSTOM_FIELD_KEYS = ['city', 'levelDJ', 'levelEspaces', 'originUser', 'subject', 'motivation_usr', 'messageUser', 'newsletter_chk'];
 
-    const allFields = FIELD_KEYS
+    const allFields = CUSTOM_FIELD_KEYS
       .filter(key => b[key])
       .map(key => ({ slug: key, value: String(b[key]) }));
 
     const payload = { email: b.email, locale: 'fr', fields: allFields };
+    // Champs natifs du contact Systeme.io
+    if (b.first_name) payload.firstName = b.first_name;
+    if (b.last_name) payload.surname = b.last_name;
+    if (b.phone_number) payload.phoneNumber = b.phone_number;
 
     // Créer le contact
     let res = await systeme('POST', '/contacts', payload);
@@ -74,14 +80,19 @@ export async function handler(event) {
       if (existing) {
         // Contact existe → mise à jour
         const updatePayload = { locale: 'fr', fields: allFields };
+        if (b.first_name) updatePayload.firstName = b.first_name;
+        if (b.last_name) updatePayload.surname = b.last_name;
+        if (b.phone_number) updatePayload.phoneNumber = b.phone_number;
         const upd = await systeme('PATCH', `/contacts/${existing.id}`, updatePayload, 'application/merge-patch+json');
         contact = upd.body;
         if (!contact.id) contact.id = existing.id;
       } else {
         // Pas un doublon — vraie erreur de validation
-        // Réessai avec seulement les champs garantis
-        const safeFields = allFields.filter(f => ['first_name', 'last_name'].includes(f.slug));
-        const retry = await systeme('POST', '/contacts', { email: b.email, locale: 'fr', fields: safeFields });
+        // Réessai sans champs custom
+        const retryPayload = { email: b.email, locale: 'fr', fields: [] };
+        if (b.first_name) retryPayload.firstName = b.first_name;
+        if (b.last_name) retryPayload.surname = b.last_name;
+        const retry = await systeme('POST', '/contacts', retryPayload);
         if (retry.status === 201 || retry.status === 200) {
           contact = retry.body;
         } else {
