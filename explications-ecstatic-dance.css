@@ -404,6 +404,8 @@
   overflow: hidden;
   transform-style: preserve-3d;
   transition: all 0.5s var(--ease-flow);
+  display: flex;
+  flex-direction: column;
 }
 
 .ed-expr-celebration {
@@ -472,6 +474,7 @@
   color: var(--text-secondary);
   line-height: 1.7;
   padding: 0 2rem 2rem;
+  flex: 1;
 }
 
 .ed-expr-note {
@@ -484,6 +487,10 @@
   max-width: 750px;
   margin: 0 auto 3rem;
   text-align: center;
+}
+
+.ed-hybrides .section-text + .section-text {
+  margin-top: 1.5rem;
 }
 
 .ed-integrative {
@@ -930,9 +937,7 @@
     grid-template-columns: 1fr 1fr;
   }
   .ed-expr-grid .ed-expr-card:last-child {
-    grid-column: 1 / -1;
-    max-width: 500px;
-    margin: 0 auto;
+    justify-self: center;
   }
 }
 

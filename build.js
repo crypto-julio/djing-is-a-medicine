@@ -49,6 +49,8 @@ const blocks = {
   NAV: fs.readFileSync(path.join(INCLUDES, 'nav.html'), 'utf8'),
   FOOTER: fs.readFileSync(path.join(INCLUDES, 'footer.html'), 'utf8'),
   PARALLAX: fs.readFileSync(path.join(INCLUDES, 'parallax-bg.html'), 'utf8'),
+  FORM_FORMATION: fs.readFileSync(path.join(INCLUDES, 'form-formation.html'), 'utf8'),
+  FORM_CONTACT: fs.readFileSync(path.join(INCLUDES, 'form-contact.html'), 'utf8'),
 };
 
 let totalReplacements = 0;
