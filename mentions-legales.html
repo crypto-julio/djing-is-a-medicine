@@ -212,8 +212,11 @@
 
     <!-- ===== 10. COOKIES ===== -->
 
-    <h2>10. Cookies</h2>
-    <p>Ce site n'utilise pas de cookies de traçage publicitaire ni d'outils d'analyse tiers. Seuls des cookies techniques strictement nécessaires au fonctionnement du site peuvent être utilisés.</p>
+    <h2 id="cookies">10. Cookies</h2>
+    <p>Ce site utilise <strong>Google Analytics</strong>, un outil de mesure d'audience fourni par Google, qui dépose des cookies sur votre navigateur afin de collecter des données statistiques anonymisées (pages visitées, durée de visite, origine géographique approximative). Ces données nous aident à améliorer le site.</p>
+    <p>Conformément aux recommandations de la CNIL, ces cookies ne sont déposés <strong>qu'après votre consentement explicite</strong>, recueilli via le bandeau affiché lors de votre première visite. Vous pouvez modifier votre choix à tout moment en supprimant vos données de navigation ou en utilisant le bouton ci-dessous.</p>
+    <p><button type="button" onclick="localStorage.removeItem('djiam_cookie_consent');location.reload();" style="padding:.6rem 1.2rem;border-radius:6px;border:1px solid #C47A2E;background:transparent;color:#C47A2E;font-family:inherit;font-weight:600;cursor:pointer;">Réinitialiser mon choix cookies</button></p>
+    <p>Aucun cookie publicitaire n'est utilisé sur ce site. Seuls des cookies techniques strictement nécessaires au fonctionnement du site peuvent être utilisés sans consentement.</p>
 
     <!-- ===== 11. RÉCLAMATION ===== -->
 
@@ -323,6 +326,7 @@
       </div>
     </div>
   </footer>
+  <script src="/js/cookies.js" defer></script>
 
   <!-- FOOTER:END -->
 
