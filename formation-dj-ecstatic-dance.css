@@ -788,6 +788,31 @@
   margin: 0 auto 4rem;
 }
 
+/* Cartes programme : moins larges sur desktop, côte à côte sur tablette */
+.f-programme .pillars {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.f-programme .pillar-photo {
+  height: auto;
+  aspect-ratio: 4 / 3;
+}
+@media (max-width: 768px) {
+  .f-programme .pillars {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .f-programme .pillar-photo {
+    aspect-ratio: 3 / 2;
+  }
+}
+@media (max-width: 540px) {
+  .f-programme .pillars {
+    grid-template-columns: 1fr;
+  }
+}
+
 .f-pillars-note {
   text-align: center;
   max-width: 800px;
