@@ -45,7 +45,9 @@
       "Bash(netstat -ano)",
       "Bash(convert --version)",
       "Bash(npx --yes sharp-cli --version)",
-      "Bash(npx sharp-cli:*)"
+      "Bash(npx sharp-cli:*)",
+      "Bash(curl -s -X POST https://djing-is-a-medicine.netlify.app/.netlify/functions/contact -H \"Content-Type: application/json\" -d '{\"\"email\"\":\"\"test@test.com\"\",\"\"first_name\"\":\"\"Test\"\",\"\"last_name\"\":\"\"Test\"\",\"\"phone_number\"\":\"\"0600000000\"\",\"\"subject\"\":\"\"dj-holistique\"\",\"\"messageUser\"\":\"\"Test\"\",\"\"motivationDJ\"\":\"\"curious\"\"}')",
+      "WebFetch(domain:soundcloud.com)"
     ]
   }
 }

@@ -582,18 +582,12 @@
 
         <div class="ed-expr-grid">
           <div class="ed-expr-card ed-expr-celebration">
-            <picture>
-              <source srcset="images/ecstatic-dance/ecstatic-1.webp" type="image/webp">
-              <img class="ed-expr-img" src="images/ecstatic-dance/ecstatic-1.jpg" alt="Clubbing conscient" loading="lazy" width="800" height="446">
-            </picture>
+            <img class="ed-expr-img" src="images/ecstatic-dance/ecstatic-1.jpg" alt="Clubbing conscient" loading="lazy" width="800" height="446">
             <h3 class="ed-expr-title">Clubbing conscient</h3>
             <p class="ed-expr-text">Une proposition festive et accessible, dans un cadre plus flexible. La musique y est moins variée, portée davantage vers la célébration que vers le voyage intérieur, et peut s'affranchir d'une structure de vague. Un espace de joie et de célébration collective.</p>
           </div>
           <div class="ed-expr-card ed-expr-profondeur">
-            <picture>
-              <source srcset="images/ecstatic-dance/ecstatic-2.webp" type="image/webp">
-              <img class="ed-expr-img" src="images/ecstatic-dance/ecstatic-2.jpg" alt="Espace de profondeur" loading="lazy" width="800" height="446">
-            </picture>
+            <img class="ed-expr-img" src="images/ecstatic-dance/ecstatic-2.jpg" alt="Espace de profondeur" loading="lazy" width="800" height="446">
             <h3 class="ed-expr-title">Espace de profondeur</h3>
             <p class="ed-expr-text">Soutenu par une ou plusieurs vagues musicales, il permet d'accueillir toutes les émotions et tous les processus intérieurs. Le cadre est exigeant pour celles et ceux qui le portent, et plus sécurisant pour les participant&middot;es. La musique, très variée, invite à traverser un large spectre d'états pour permettre un véritable voyage de soi.</p>
           </div>
@@ -884,25 +878,63 @@
     </div>
   </section>
 
-  <!-- Wave separator (double wave — top & bottom animated) -->
+  <!-- Wave separator (déroulé bg-night → silent transparent) -->
   <div class="wave-separator" aria-hidden="true">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-      <!-- Bordure du haut -->
-      <path fill="#D5CBC0" d="M0,20 C240,0 480,40 720,20 C960,0 1200,40 1440,20 L1440,0 L0,0 Z">
+      <path fill="#D5CBC0" d="M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z">
         <animate attributeName="d" dur="10s" repeatCount="indefinite" values="
-        M0,20 C240,0 480,40 720,20 C960,0 1200,40 1440,20 L1440,0 L0,0 Z;
-        M0,15 C300,35 540,5 780,25 C1020,35 1260,8 1440,18 L1440,0 L0,0 Z;
-        M0,25 C200,3 440,38 680,18 C920,3 1160,35 1440,22 L1440,0 L0,0 Z;
-        M0,20 C240,0 480,40 720,20 C960,0 1200,40 1440,20 L1440,0 L0,0 Z
+        M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z;
+        M0,30 C300,70 540,10 780,50 C1020,70 1260,15 1440,35 L1440,0 L0,0 Z;
+        M0,50 C200,5 440,75 680,35 C920,5 1160,70 1440,45 L1440,0 L0,0 Z;
+        M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,0 L0,0 Z
       " />
       </path>
-      <!-- Bordure du bas -->
-      <path fill="#D5CBC0" d="M0,60 C240,80 480,40 720,60 C960,80 1200,40 1440,60 L1440,80 L0,80 Z">
+    </svg>
+  </div>
+
+  <!-- ==========================================
+     SECTION 4 — SILENT ECSTATIC DANCE
+     ========================================== -->
+  <section class="ed-silent" id="silent">
+    <div class="container">
+      <div class="ed-silent-header reveal">
+        <div class="section-label">Variante</div>
+        <h2 class="section-title">Silent Ecstatic Dance</h2>
+        <p class="section-text" style="max-width:700px;margin:0 auto 3rem;">Une variante de l'Ecstatic Dance où les participant&middot;es portent des casques audio sans fil (HF). Le son est transmis directement dans les oreilles — ce qui ouvre des possibilités uniques.</p>
+      </div>
+
+      <div class="ed-silent-card reveal">
+        <div class="ed-silent-card-img">
+          <img src="images/ecstatic-dance/ecstatic-3.jpg" alt="Silent Ecstatic Dance en pleine nature" loading="lazy" width="800" height="446">
+        </div>
+        <div class="ed-silent-card-content">
+          <h3 class="ed-silent-subtitle">Le concept</h3>
+          <p class="ed-silent-text">Danser en pleine nature, pieds dans l'herbe ou le sable, face à un panorama de montagne ou au bord d'une cascade, avec une portée de plusieurs centaines de mètres autour du point d'émission. De l'extérieur, on voit des corps danser en silence. De l'intérieur, c'est un voyage musical intime et immersif, amplifié par l'environnement naturel.</p>
+
+          <h3 class="ed-silent-subtitle" style="margin-top:1.5rem;">Les formats</h3>
+          <ul class="ed-silent-list">
+            <li>DJ set en live sur batterie.</li>
+            <li>Session pré-enregistrée.</li>
+            <li>Expériences en pleine nature : plage, rivière, montagne, forêt.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ed-silent-closing reveal">
+        <p>La Silent Ecstatic Dance — ou <strong>SilentStatic</strong> — rend l'expérience accessible là où le son amplifié serait impossible ou inadapté. Elle ouvre aussi une dimension d'intimité singulière : chacun&middot;e dans sa propre bulle sonore, tout en partageant l'espace physique avec le groupe.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave separator (silent transparent → écoute bg-night) -->
+  <div class="wave-separator" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#D5CBC0" d="M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z">
         <animate attributeName="d" dur="9s" repeatCount="indefinite" values="
-        M0,60 C240,80 480,40 720,60 C960,80 1200,40 1440,60 L1440,80 L0,80 Z;
-        M0,65 C300,45 540,75 780,55 C1020,45 1260,72 1440,62 L1440,80 L0,80 Z;
-        M0,55 C200,77 440,42 680,62 C920,77 1160,45 1440,58 L1440,80 L0,80 Z;
-        M0,60 C240,80 480,40 720,60 C960,80 1200,40 1440,60 L1440,80 L0,80 Z
+        M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z;
+        M0,40 C220,15 400,70 600,35 C780,10 950,65 1120,45 C1280,30 1380,55 1440,40 L1440,80 L0,80 Z;
+        M0,55 C150,75 330,25 500,55 C680,75 860,15 1040,45 C1220,62 1360,38 1440,50 L1440,80 L0,80 Z;
+        M0,50 C180,80 360,20 540,50 C720,80 900,10 1080,40 C1200,58 1320,48 1440,50 L1440,80 L0,80 Z
       " />
       </path>
     </svg>

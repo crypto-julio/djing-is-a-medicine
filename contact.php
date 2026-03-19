@@ -96,16 +96,13 @@ if ($res['status'] === 201 || $res['status'] === 200) {
 
 // ── Tags ───────────────────────────────────────────────────────────────────
 if (!empty($contact['id'])) {
-    $tagsToAssign = ['formsite'];
-    if (!empty($body['newsletter_chk']) && $body['newsletter_chk'] !== 'false') {
-        $tagsToAssign[] = 'newsletter';
-    }
+    $tagsToAssign = [];
     // Tag conditionnel selon le sujet
     if (!empty($body['subject'])) {
         if ($body['subject'] === 'dj-holistique') {
-            $tagsToAssign[] = 'PDF_formation';
+            $tagsToAssign[] = 'InterestRonde';
         } elseif ($body['subject'] === 'danses-48') {
-            $tagsToAssign[] = 'Atelier';
+            $tagsToAssign[] = 'Danses48';
         }
     }
 

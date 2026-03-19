@@ -216,7 +216,7 @@
    SECTION 3 — CHRONOLOGIE (transparent / parallax)
    ============================================ */
 .about-timeline {
-  padding: 6rem 0;
+  padding: 4rem 0;
   background: transparent;
   position: relative;
   z-index: 1;
@@ -233,13 +233,13 @@
   position: relative;
   max-width: 900px;
   margin: 0 auto;
-  padding: 3rem 0;
+  padding: 2rem 0;
 }
 
 /* Titre de section au-dessus */
 .timeline-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .timeline-header .section-label {
@@ -288,7 +288,7 @@
 .timeline-item {
   position: relative;
   width: 50%;
-  padding-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
   opacity: 0;
   transform: translateY(30px);
   filter: blur(3px);
@@ -364,7 +364,7 @@
 
 /* Card content */
 .timeline-content {
-  padding: 1.25rem 1.5rem;
+  padding: 0.9rem 1.2rem;
   border-radius: 16px;
   background: rgba(20, 12, 28, 0.7);
   border: 1px solid rgba(196, 122, 46, 0.25);
@@ -417,7 +417,7 @@
 .timeline-date {
   display: inline-block;
   font-family: var(--font-display);
-  font-size: 1.7rem;
+  font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -427,9 +427,9 @@
 }
 
 .timeline-content p {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.85);
-  line-height: 1.65;
+  line-height: 1.5;
   margin: 0;
 }
 

@@ -105,10 +105,9 @@ export async function handler(event) {
 
     // Tags
     if (contact && contact.id) {
-      const tagsToAssign = ['formsite'];
-      if (b.newsletter_chk && b.newsletter_chk !== 'false') tagsToAssign.push('newsletter');
-      if (b.subject === 'dj-holistique') tagsToAssign.push('PDF_formation');
-      else if (b.subject === 'danses-48') tagsToAssign.push('Atelier');
+      const tagsToAssign = [];
+      if (b.subject === 'dj-holistique') tagsToAssign.push('InterestRonde');
+      else if (b.subject === 'danses-48') tagsToAssign.push('Danses48');
 
       const tagsRes = await systeme('GET', '/tags');
       const allTags = tagsRes.body.items || [];

@@ -807,6 +807,122 @@
 }
 
 /* ============================================
+   SECTION 4 — SILENT ECSTATIC DANCE
+   ============================================ */
+.ed-silent {
+  position: relative;
+  z-index: 1;
+  padding: 6rem 0;
+}
+
+.ed-silent-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.ed-silent-header .section-title,
+.ed-silent-header .section-text {
+  color: #fff;
+}
+
+.ed-silent-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 960px;
+  margin: 0 auto 3rem;
+  background: rgba(213, 203, 192, 0.85);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+}
+
+.ed-silent-card-img {
+  position: relative;
+}
+
+.ed-silent-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ed-silent-card-content {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ed-silent-subtitle {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.ed-silent-text {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+.ed-silent-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ed-silent-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+.ed-silent-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-amber);
+}
+
+.ed-silent-closing {
+  max-width: 750px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem 2.5rem;
+  background: rgba(213, 203, 192, 0.85);
+  border-radius: 16px;
+  border-left: 3px solid var(--accent-amber);
+  backdrop-filter: blur(12px);
+}
+
+.ed-silent-closing p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .ed-silent-card {
+    grid-template-columns: 1fr;
+  }
+
+  .ed-silent-card-img img {
+    max-height: 250px;
+  }
+}
+
+/* ============================================
    SECTION 5 — ÉCOUTER (bg-night)
    ============================================ */
 .ed-ecoute {
