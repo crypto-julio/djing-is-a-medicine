@@ -60,19 +60,17 @@
 
     // Outer rings (amber) — counter-clockwise
     ctx.save(); ctx.rotate(-angle);
-    ctx.shadowBlur = 25 * GLOW; ctx.shadowColor = rgba(AMBER, 0.35);
-    ctx.strokeStyle = rgba(AMBER, 0.18); ctx.lineWidth = 3;
+    ctx.strokeStyle = rgba(AMBER, 0.22); ctx.lineWidth = 4;
     circle(0, 0, R * 0.97);
-    ctx.lineWidth = 2; ctx.strokeStyle = rgba(AMBER, 0.1);
+    ctx.lineWidth = 2.5; ctx.strokeStyle = rgba(AMBER, 0.12);
     circle(0, 0, R * 0.91);
-    ctx.strokeStyle = rgba(GOLD, 0.08); circle(0, 0, R * 0.83);
-    ctx.strokeStyle = rgba(AMBER, 0.06); circle(0, 0, R * 0.73);
+    ctx.strokeStyle = rgba(GOLD, 0.1); circle(0, 0, R * 0.83);
+    ctx.strokeStyle = rgba(AMBER, 0.08); circle(0, 0, R * 0.73);
     ctx.restore();
 
     // 12 Rays (gold) — clockwise
     ctx.save(); ctx.rotate(angle * 2);
-    ctx.shadowBlur = 15 * GLOW; ctx.shadowColor = rgba(GOLD, 0.25);
-    ctx.strokeStyle = rgba(GOLD, 0.1); ctx.lineWidth = 2;
+    ctx.strokeStyle = rgba(GOLD, 0.12); ctx.lineWidth = 2;
     var rayN = isMobile ? 6 : 12;
     for (var i = 0; i < rayN; i++) {
       var a = (i / rayN) * Math.PI * 2;
@@ -82,8 +80,7 @@
 
     // Flower of Life layer 2 (magenta) — counter-clockwise
     ctx.save(); ctx.rotate(-angle * 1.5);
-    ctx.shadowBlur = 22 * GLOW; ctx.shadowColor = rgba(MAGENTA, 0.3);
-    ctx.strokeStyle = rgba(MAGENTA, 0.15); ctx.lineWidth = 3;
+    ctx.strokeStyle = rgba(MAGENTA, 0.18); ctx.lineWidth = 3.5;
     var d2 = unit * 2 * breath;
     for (var i = 0; i < 6; i++) {
       var a = (i / 6) * Math.PI * 2;
@@ -93,8 +90,7 @@
 
     // Flower of Life layer 1 (teal) — clockwise
     ctx.save(); ctx.rotate(angle * 3);
-    ctx.shadowBlur = 22 * GLOW; ctx.shadowColor = rgba(TEAL, 0.35);
-    ctx.strokeStyle = rgba(TEAL, 0.18); ctx.lineWidth = 3.5;
+    ctx.strokeStyle = rgba(TEAL, 0.22); ctx.lineWidth = 4;
     var bigUnit = unit * 1.4;
     var d1 = bigUnit * breath;
     circle(0, 0, bigUnit);
@@ -106,15 +102,13 @@
 
     // Inner ring (violet) — counter-clockwise
     ctx.save(); ctx.rotate(-angle * 2);
-    ctx.shadowBlur = 15 * GLOW; ctx.shadowColor = rgba(VIOLET, 0.25);
-    ctx.strokeStyle = rgba(VIOLET, 0.12); ctx.lineWidth = 2.5;
+    ctx.strokeStyle = rgba(VIOLET, 0.15); ctx.lineWidth = 3;
     circle(0, 0, R * 0.47);
     ctx.restore();
 
     // Seed of Life (fuchsia) — counter-clockwise (opposite to teal)
     ctx.save(); ctx.rotate(-angle * 4);
-    ctx.shadowBlur = 20 * GLOW; ctx.shadowColor = rgba(FUCHSIA, 0.35);
-    ctx.strokeStyle = rgba(FUCHSIA, 0.16); ctx.lineWidth = 2.5;
+    ctx.strokeStyle = rgba(FUCHSIA, 0.2); ctx.lineWidth = 3;
     var sR = unit * 0.4 * breath;
     circle(0, 0, sR);
     for (var i = 0; i < 6; i++) {
@@ -124,15 +118,12 @@
     ctx.restore();
 
     // Inner ring + center dot
-    ctx.shadowBlur = 12 * GLOW; ctx.shadowColor = rgba(GOLD, 0.3);
-    ctx.strokeStyle = rgba(GOLD, 0.12); ctx.lineWidth = 2;
+    ctx.strokeStyle = rgba(GOLD, 0.15); ctx.lineWidth = 2.5;
     circle(0, 0, unit * 0.5);
-    ctx.shadowBlur = 30 * GLOW; ctx.shadowColor = rgba(FUCHSIA, 0.45);
-    ctx.fillStyle = rgba(FUCHSIA, 0.1);
+    ctx.fillStyle = rgba(FUCHSIA, 0.12);
     ctx.beginPath(); ctx.arc(0, 0, R * 0.02, 0, Math.PI * 2); ctx.fill();
 
     ctx.restore();
-    ctx.shadowBlur = 0;
   }
 
   // --- IntersectionObserver: pause when canvas parent is off-screen ---
