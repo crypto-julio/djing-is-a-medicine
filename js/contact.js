@@ -101,21 +101,37 @@
     sendToProxy('/contact.php', payload).catch(function () {
       return sendToProxy('/.netlify/functions/contact', payload);
     }).then(function () {
-      // Cacher le formulaire, les cartes rewards, le sous-titre et le disclaimer
+      // Cacher le formulaire et tous les éléments de la section
       contactForm.reset();
       contactForm.style.display = 'none';
-      var rewards = document.querySelector('.rewards');
-      var nlText = document.querySelector('.newsletter-text');
-      var nlDisclaimer = document.querySelector('.newsletter-disclaimer');
-      if (rewards) rewards.style.display = 'none';
-      if (nlText) nlText.style.display = 'none';
+      var nlContent = document.querySelector('.newsletter-content');
+      var nlDisclaimer = nlContent && nlContent.querySelector('.newsletter-disclaimer');
       if (nlDisclaimer) nlDisclaimer.style.display = 'none';
 
-      // Afficher le message de succès
-      formStatus.innerHTML = isFullForm
+      if (isFullForm) {
+        // Pages formation / index : masquer label, titre, sous-titre, rewards
+        var rewards = nlContent && nlContent.querySelector('.rewards');
+        var nlText = nlContent && nlContent.querySelector('.newsletter-text');
+        var nlLabel = nlContent && nlContent.querySelector('.section-label');
+        var nlTitle = nlContent && nlContent.querySelector('.newsletter-title');
+        if (rewards) rewards.style.display = 'none';
+        if (nlText) nlText.style.display = 'none';
+        if (nlLabel) nlLabel.style.display = 'none';
+        if (nlTitle) nlTitle.style.display = 'none';
+      } else {
+        // Page contact : masquer le paragraphe d'intro
+        var introText = nlContent && nlContent.querySelector('.section-text');
+        if (introText) introText.style.display = 'none';
+      }
+
+      // Afficher le message de succès (hors du form caché)
+      var successMsg = document.createElement('div');
+      successMsg.className = 'newsletter-form-status success success-big';
+      successMsg.setAttribute('role', 'alert');
+      successMsg.innerHTML = isFullForm
         ? '<span class="success-emoji">&#10024;</span>Bravo pour ce premier pas !<br>Check tes emails, peut-être dans le dossier SPAM.'
-        : '<span class="success-emoji">&#10024;</span>Merci ! On te répond très vite.';
-      formStatus.classList.add('success', 'success-big');
+        : '<span class="success-emoji">&#10024;</span>Merci !<br>On te répond très vite.';
+      if (nlContent) nlContent.appendChild(successMsg);
     }).catch(function () {
       formStatus.textContent = 'Erreur de connexion. Vérifie ta connexion internet et réessaie.';
       formStatus.classList.add('error');

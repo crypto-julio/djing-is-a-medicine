@@ -8,6 +8,10 @@
 # NE PAS MODIFIER — demande à Julien.
 # ============================================================
 
+[build]
+  command = "node build.js"
+  publish = "."
+
 [functions]
   directory = "netlify/functions"
 

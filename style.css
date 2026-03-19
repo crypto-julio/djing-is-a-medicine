@@ -2000,22 +2000,31 @@ img { max-width: 100%; display: block; }
   min-height: 1.2em;
 }
 .newsletter-form-status.success {
-  color: #4ade80;
+  color: #3a2a1a;
   font-size: 1.3rem;
   font-weight: 600;
   text-align: center;
   margin-top: 2rem;
-  line-height: 1.6;
+  line-height: 1.8;
 }
 .newsletter-form-status.success-big {
-  font-size: 1.8rem;
-  margin-top: 3rem;
-  padding: 2rem 1rem;
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+  padding: 3rem 2.5rem;
+  background: linear-gradient(135deg, rgba(196, 122, 46, 0.12) 0%, rgba(232, 200, 114, 0.10) 100%);
+  border: 1.5px solid rgba(196, 122, 46, 0.25);
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 24px rgba(196, 122, 46, 0.10), 0 1px 4px rgba(0,0,0,0.04);
+  animation: successFadeIn 0.6s ease-out;
 }
 .newsletter-form-status.success-big .success-emoji {
   display: block;
-  font-size: 2.5rem;
-  margin-bottom: 0.8rem;
+  font-size: 3.5rem;
+  margin-bottom: 1.2rem;
+}
+@keyframes successFadeIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 .newsletter-form-status.error {
   color: #f87171;
