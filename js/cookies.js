@@ -79,7 +79,7 @@
     banner.innerHTML =
       '<div class="cookie-banner-inner">' +
         '<p class="cookie-banner-text">' +
-          'Ce site utilise des cookies pour mesurer son audience (Google Analytics). ' +
+          'Ce site utilise des cookies. ' +
           'Aucun cookie publicitaire n\'est utilisé. ' +
           '<a href="/mentions-legales#cookies">En savoir plus</a>' +
         '</p>' +
