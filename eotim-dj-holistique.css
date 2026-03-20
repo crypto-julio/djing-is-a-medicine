@@ -717,20 +717,20 @@
   padding: 2.5rem 2rem;
   border-radius: 20px;
   background:
-    radial-gradient(ellipse at 30% 50%, rgba(107, 45, 91, 0.1), transparent 60%),
-    rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+    radial-gradient(ellipse at 30% 50%, rgba(107, 45, 91, 0.08), transparent 60%),
+    rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .podcast-mention p {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(60, 40, 20, 0.75);
   line-height: 1.7;
   margin: 0;
 }
 
 .podcast-mention em {
-  color: #F5F0E8;
+  color: #3C2814;
   font-weight: 500;
 }
 

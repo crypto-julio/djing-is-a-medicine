@@ -1726,11 +1726,15 @@ img { max-width: 100%; display: block; }
   max-width: 85%;
   opacity: 0.9;
 }
+.date-card-2:hover {
+  border-color: rgba(120, 80, 200, 0.4);
+  box-shadow: 0 12px 40px rgba(80, 40, 160, 0.25);
+}
 .date-card-2 .date-card-visual {
   background-image:
-    radial-gradient(circle at 75% 30%, rgba(30, 96, 128, 0.25), transparent 50%),
-    radial-gradient(circle at 25% 60%, rgba(107, 45, 91, 0.2), transparent 50%),
-    linear-gradient(135deg, rgba(27, 75, 107, 0.15) 0%, rgba(30, 96, 128, 0.1) 40%, rgba(139, 58, 122, 0.15) 100%),
+    radial-gradient(circle at 75% 30%, rgba(80, 120, 220, 0.3), transparent 50%),
+    radial-gradient(circle at 25% 60%, rgba(140, 70, 200, 0.25), transparent 50%),
+    linear-gradient(135deg, rgba(60, 100, 200, 0.2) 0%, rgba(100, 60, 180, 0.15) 40%, rgba(150, 80, 210, 0.2) 100%),
     url('images/index/index-hero-2.jpg');
 }
 .date-card-visual::after {
@@ -1799,11 +1803,24 @@ img { max-width: 100%; display: block; }
 .date-card-2 .date-card-body {
   padding: 1.5rem 2rem 2rem;
 }
+.date-card-2 .date-card-type {
+  color: rgba(160, 140, 255, 0.95);
+}
 .date-card-2 .date-card-title {
   font-size: 1.25rem;
+  color: rgba(190, 180, 255, 1);
 }
 .date-card-2 .date-card-desc {
   font-size: 0.85rem;
+}
+.date-card-2 .date-card-cta {
+  color: rgba(160, 140, 255, 0.95);
+}
+.date-card-2 .date-card-cta:hover {
+  color: rgba(190, 170, 255, 1);
+}
+.date-card-wrapper:has(.date-card-2) .date-card-badge {
+  background: rgba(100, 60, 180, 0.9);
 }
 
 .dates-note {

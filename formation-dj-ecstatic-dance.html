@@ -906,6 +906,16 @@
         <h2 class="newsletter-title reveal reveal-delay-1">Envie d'en savoir plus ?</h2>
         <p class="newsletter-text reveal reveal-delay-2">Remplis le formulaire et reçois sans engagement :</p>
 
+        <!-- FORM_FORMATION:START -->
+<!--
+  INCLUDE : Rewards + Formulaire de pré-inscription formation (version complète)
+  Utilisé sur : index.html, formation-dj-ecstatic-dance.html
+  Contient : les reward-cards (brochure PDF + vidéo de démarrage) puis le formulaire.
+  Champs : prénom, nom, email, téléphone, ville, niveau DJ, niveau espaces,
+           origine, sujet, motivation (1-10), intention/message, newsletter
+  Injecté par build.js entre les marqueurs FORM_FORMATION:START / FORM_FORMATION:END
+  Les options des <select> et le texte du bouton sont modifiables.
+-->
         <div class="rewards reveal reveal-delay-2">
           <div class="reward-card">
             <div class="reward-icon">
@@ -938,15 +948,6 @@
           </div>
         </div>
 
-        <!-- FORM_FORMATION:START -->
-<!--
-  INCLUDE : Formulaire de pré-inscription formation (version complète)
-  Utilisé sur : index.html, formation-dj-ecstatic-dance.html
-  Champs : prénom, nom, email, téléphone, ville, niveau DJ, niveau espaces,
-           origine, sujet, motivation (1-10), intention/message, newsletter
-  Injecté par build.js entre les marqueurs FORM_FORMATION:START / FORM_FORMATION:END
-  Les options des <select> et le texte du bouton sont modifiables.
--->
         <form class="newsletter-form reveal reveal-delay-3" id="contactForm" novalidate>
           <input type="hidden" name="locale" value="fr">
           <fieldset style="border:none;padding:0;margin:0;">
@@ -1110,7 +1111,7 @@
           </ul>
         </div>
         <div class="footer-links">
-          <h4>Espace élèves</h4>
+          <h4>Autres liens</h4>
           <ul>
             <li><a href="https://app.djingisamedicine.com/fr/login" target="_blank" rel="noopener">Connexion espace élèves</a></li>
             <li><a href="https://www.benjaminbossu.com/?utm_source=Djiamofficiel&utm_medium=intern&utm_campaign=ronde_avril_2026&utm_content=link" target="_blank" rel="noopener">Découvre mon autre univers →</a></li>
