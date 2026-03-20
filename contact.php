@@ -54,22 +54,31 @@ function systeme(string $method, string $path, array $data = [], string $content
 }
 
 // ── Construire les champs ──────────────────────────────────────────────────
-// Champs custom Systeme.io (slugs vérifiés via GET /contact_fields)
-// first_name, surname et phone_number sont des champs NATIFS du contact
+// Tous les champs passent dans le tableau "fields" avec leur slug Systeme.io
+// (testé via l'API : les propriétés natives firstName/surname/phoneNumber
+//  ne fonctionnent pas de manière fiable, seuls les slugs dans fields marchent)
+$fieldMap = [
+    'first_name'   => 'first_name',
+    'last_name'    => 'surname',
+    'phone_number' => 'phone_number',
+    'city'         => 'city',
+    'levelDJ'      => 'levelDJ',
+    'levelEspaces' => 'levelEspaces',
+    'originUser'   => 'originUser',
+    'subject'      => 'subject',
+    'motivation_usr' => 'motivation_usr',
+    'messageUser'  => 'messageUser',
+    'newsletter_chk' => 'newsletter_chk',
+];
 $fields = [];
-$customFieldKeys = ['city', 'levelDJ', 'levelEspaces', 'originUser', 'subject', 'motivation_usr', 'messageUser', 'newsletter_chk'];
-foreach ($customFieldKeys as $key) {
-    if (isset($body[$key])) {
-        $fields[] = ['slug' => $key, 'value' => (string) $body[$key]];
+foreach ($fieldMap as $bodyKey => $slug) {
+    if (!empty($body[$bodyKey])) {
+        $fields[] = ['slug' => $slug, 'value' => (string) $body[$bodyKey]];
     }
 }
 
 // ── Créer ou mettre à jour le contact ─────────────────────────────────────
 $payload = ['email' => $body['email'], 'locale' => 'fr', 'fields' => $fields];
-// Champs natifs du contact Systeme.io
-if (!empty($body['first_name']))   $payload['firstName']   = $body['first_name'];
-if (!empty($body['last_name']))    $payload['surname']     = $body['last_name'];
-if (!empty($body['phone_number'])) $payload['phoneNumber'] = $body['phone_number'];
 $res = systeme('POST', '/contacts', $payload);
 
 $contact = null;
@@ -81,9 +90,6 @@ if ($res['status'] === 201 || $res['status'] === 200) {
     $existing = $list['body']['items'][0] ?? null;
     if ($existing) {
         $updatePayload = ['locale' => 'fr', 'fields' => $fields];
-        if (!empty($body['first_name']))   $updatePayload['firstName']   = $body['first_name'];
-        if (!empty($body['last_name']))    $updatePayload['surname']     = $body['last_name'];
-        if (!empty($body['phone_number'])) $updatePayload['phoneNumber'] = $body['phone_number'];
         $upd = systeme('PATCH', '/contacts/' . $existing['id'], $updatePayload, 'application/merge-patch+json');
         $contact = $upd['body'];
         if (empty($contact['id'])) $contact['id'] = $existing['id'];
