@@ -984,6 +984,23 @@
   </script>
 
   <script src="js/contact.js" defer></script>
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var sujet = params.get('sujet');
+      if (sujet) {
+        var select = document.querySelector('select[name="subject"]');
+        if (select) {
+          for (var i = 0; i < select.options.length; i++) {
+            if (select.options[i].value === sujet) {
+              select.selectedIndex = i;
+              break;
+            }
+          }
+        }
+      }
+    })();
+  </script>
   <script>document.body.classList.add('loaded')</script>
 </body>
 
