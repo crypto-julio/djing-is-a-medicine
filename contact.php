@@ -7,12 +7,11 @@
   CE FICHIER :
     - Reçoit les données du formulaire (contact.html → js/contact.js → ici)
     - Crée ou met à jour un contact dans Systeme.io via l'API
-    - Assigne des tags automatiquement (formsite, newsletter, PDF_formation, Atelier)
+    - Assigne des tags automatiquement
 
   HÉBERGEMENT :
-    - Ce fichier tourne sur un serveur PHP (LWS)
-    - C'est le endpoint PRINCIPAL du formulaire
-    - Si ce serveur tombe, js/contact.js bascule sur contact.mjs (Netlify)
+    - Ce fichier tourne sur le serveur PHP (LWS)
+    - Utilise file_get_contents (pas besoin de curl)
 
   NE PAS MODIFIER sans comprendre l'API Systeme.io.
   ============================================================
@@ -38,18 +37,45 @@ if (!$body || empty($body['email'])) {
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 function systeme(string $method, string $path, array $data = [], string $contentType = 'application/json'): array {
-    $ch = curl_init(SYSTEME_API . $path);
-    $headers = ['X-API-Key: ' . SYSTEME_API_KEY, 'Content-Type: ' . $contentType];
-    curl_setopt_array($ch, [
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_CUSTOMREQUEST  => $method,
-        CURLOPT_HTTPHEADER     => $headers,
-        CURLOPT_POSTFIELDS     => $method !== 'GET' ? json_encode($data) : null,
-        CURLOPT_TIMEOUT        => 10,
-    ]);
-    $resp   = curl_exec($ch);
-    $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
+    $url = SYSTEME_API . $path;
+    $headers = "X-API-Key: " . SYSTEME_API_KEY . "\r\n" .
+               "Content-Type: " . $contentType . "\r\n";
+
+    $opts = [
+        'http' => [
+            'method'        => $method,
+            'header'        => $headers,
+            'timeout'       => 10,
+            'ignore_errors' => true,
+        ],
+        'ssl' => [
+            'verify_peer'      => true,
+            'verify_peer_name' => true,
+        ],
+    ];
+
+    if ($method !== 'GET' && !empty($data)) {
+        $opts['http']['content'] = json_encode($data);
+    }
+
+    $context = stream_context_create($opts);
+    $resp = @file_get_contents($url, false, $context);
+
+    // Si la requête a échoué (réseau, SSL, timeout)
+    if ($resp === false) {
+        return ['status' => 0, 'body' => ['error' => 'Connexion impossible vers Systeme.io']];
+    }
+
+    // Extraire le code HTTP depuis $http_response_header
+    $status = 0;
+    if (isset($http_response_header) && is_array($http_response_header)) {
+        foreach ($http_response_header as $header) {
+            if (preg_match('/^HTTP\/\S+\s+(\d{3})/', $header, $m)) {
+                $status = (int) $m[1];
+            }
+        }
+    }
+
     return ['status' => $status, 'body' => json_decode($resp, true) ?? []];
 }
 
@@ -96,22 +122,32 @@ if ($res['status'] === 201 || $res['status'] === 200) {
     }
 } else {
     http_response_code(502);
-    echo json_encode(['error' => 'Erreur Systeme.io', 'detail' => $res['body']]);
+    echo json_encode(['error' => 'Erreur Systeme.io', 'status' => $res['status'], 'detail' => $res['body']]);
+    exit;
+}
+
+// Vérifier que le contact a bien un id valide
+if (empty($contact['id'])) {
+    http_response_code(502);
+    echo json_encode(['error' => 'Contact non créé — id manquant', 'detail' => $contact]);
     exit;
 }
 
 // ── Tags ───────────────────────────────────────────────────────────────────
-if (!empty($contact['id'])) {
-    $tagsToAssign = [];
-    // Tag conditionnel selon le sujet
-    if (!empty($body['subject'])) {
-        if ($body['subject'] === 'dj-holistique') {
-            $tagsToAssign[] = 'InterestRonde';
-        } elseif ($body['subject'] === 'danses-48') {
-            $tagsToAssign[] = 'Danses48';
-        }
+$tagsToAssign = [];
+if (!empty($body['subject'])) {
+    if ($body['subject'] === 'dj-holistique') {
+        $tagsToAssign[] = 'InterestRonde';
+    } elseif ($body['subject'] === 'danses-48') {
+        $tagsToAssign[] = 'Danses48';
+    } elseif ($body['subject'] === 'devenir-partenaire') {
+        $tagsToAssign[] = 'DevenirPartenaire';
+    } elseif ($body['subject'] === 'information-generale') {
+        $tagsToAssign[] = 'InfoGenerale';
     }
+}
 
+if (!empty($tagsToAssign)) {
     $allTags = systeme('GET', '/tags');
     foreach ($tagsToAssign as $name) {
         foreach ($allTags['body']['items'] ?? [] as $t) {
@@ -124,4 +160,4 @@ if (!empty($contact['id'])) {
 }
 
 http_response_code(200);
-echo json_encode(['success' => true]);
+echo json_encode(['success' => true, 'contactId' => $contact['id']]);

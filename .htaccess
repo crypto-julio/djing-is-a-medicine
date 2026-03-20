@@ -5,7 +5,7 @@
 # Ce fichier permet au serveur Apache (LWS) de gerer les URLs
 # propres (sans .html) et les redirections SEO.
 #
-# Il fait la meme chose que le netlify.toml sur Netlify.
+# Il gere les URLs propres (sans .html) et les redirections SEO.
 #
 # NE PAS MODIFIER sans comprendre — demande a Julien.
 # ============================================================
@@ -25,3 +25,58 @@ RewriteRule ^(.+)$ $1.html [L]
 RewriteRule ^formation\.html$ /formation-dj-ecstatic-dance [R=301,L]
 RewriteRule ^ecstatic-dance\.html$ /explications-ecstatic-dance [R=301,L]
 RewriteRule ^a-propos\.html$ /eotim-dj-holistique [R=301,L]
+
+# ---- Compression Gzip ----
+<IfModule mod_deflate.c>
+AddType x-font/woff .woff
+AddType x-font/ttf .ttf
+AddOutputFilterByType DEFLATE image/svg+xml
+AddOutputFilterByType DEFLATE text/plain
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/xml
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE text/javascript
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/x-javascript
+AddOutputFilterByType DEFLATE application/x-font-ttf
+AddOutputFilterByType DEFLATE x-font/ttf
+AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+AddOutputFilterByType DEFLATE font/opentype font/ttf font/eot font/otf
+</IfModule>
+
+# ---- Cache navigateur (Expires) ----
+<IfModule mod_expires.c>
+AddType application/font-woff2 .woff2
+AddType application/x-font-opentype .otf
+ExpiresActive On
+ExpiresDefault A0
+ExpiresByType video/webm A10368000
+ExpiresByType video/ogg A10368000
+ExpiresByType video/mp4 A10368000
+ExpiresByType image/avif A10368000
+ExpiresByType image/webp A10368000
+ExpiresByType image/gif A10368000
+ExpiresByType image/png A10368000
+ExpiresByType image/jpg A10368000
+ExpiresByType image/jpeg A10368000
+ExpiresByType image/ico A10368000
+ExpiresByType image/svg+xml A10368000
+ExpiresByType text/css A10368000
+ExpiresByType text/javascript A10368000
+ExpiresByType application/javascript A10368000
+ExpiresByType application/x-javascript A10368000
+ExpiresByType application/font-woff2 A10368000
+ExpiresByType application/x-font-opentype A10368000
+ExpiresByType application/x-font-truetype A10368000
+</IfModule>
+
+# ---- Headers de performance ----
+<IfModule mod_headers.c>
+Header set Cache-Control "max-age=10368000, public"
+Header unset ETag
+Header set Connection keep-alive
+FileETag None
+</IfModule>

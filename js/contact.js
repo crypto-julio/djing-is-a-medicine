@@ -3,8 +3,7 @@
 // ==========================================
 //
 // Ce fichier gère la soumission du formulaire de contact.
-// Il envoie les données d'abord via contact.php (hébergement LWS),
-// et si ça échoue, il utilise une fonction Netlify en secours.
+// Il envoie les données via contact.php (hébergement LWS).
 //
 // NE PAS MODIFIER ce fichier — il est technique et fragile.
 // En cas de besoin, demande à Julien.
@@ -35,9 +34,10 @@
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
     }).then(function (res) {
+      if (!res.ok) throw new Error('server');
       var ct = res.headers.get('Content-Type') || '';
-      if (res.ok && ct.includes('application/json')) return true;
-      throw new Error('Proxy error');
+      if (!ct.includes('application/json')) throw new Error('server');
+      return true;
     });
   }
 
@@ -120,9 +120,7 @@
     if (data.originUser) payload.originUser = data.originUser;
     if (data.motivationDJ) payload.motivation_usr = data.motivationDJ;
 
-    sendToProxy('/contact.php', payload).catch(function () {
-      return sendToProxy('/.netlify/functions/contact', payload);
-    }).then(function () {
+    sendToProxy('/contact.php', payload).then(function () {
       // Cacher le formulaire et tous les éléments de la section
       contactForm.reset();
       contactForm.style.display = 'none';
@@ -154,8 +152,10 @@
         ? '<span class="success-emoji">&#10024;</span>Bravo pour ce premier pas !<br>Check tes emails, peut-être dans le dossier SPAM.'
         : '<span class="success-emoji">&#10024;</span>Merci !<br>On te répond très vite.';
       if (nlContent) nlContent.appendChild(successMsg);
-    }).catch(function () {
-      formStatus.textContent = 'Erreur de connexion. Vérifie ta connexion internet et réessaie.';
+    }).catch(function (err) {
+      formStatus.textContent = err.message === 'server'
+        ? 'Erreur serveur. Réessaie dans quelques instants ou contacte-nous directement.'
+        : 'Erreur de connexion. Vérifie ta connexion internet et réessaie.';
       formStatus.classList.add('error');
     }).finally(function () {
       contactSubmit.disabled = false;

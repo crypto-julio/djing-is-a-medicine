@@ -63,52 +63,53 @@
 
 <pre><code>djing-is-a-medicine/
 │
-├── index.html                  ← Page d'accueil
-├── formation.html              ← Page Formation DJ Holistique
-├── ecstatic-dance.html         ← Page Ecstatic Dance (guide complet)
-├── a-propos.html               ← Page À propos (bio Ëotim)
-├── partenaires.html            ← Page Partenaires
-├── contact.html                ← Page Contact (formulaire simplifié)
-├── mentions-legales.html       ← Confidentialité et mentions légales (page unique)
+├── index.html                         ← Page d'accueil
+├── formation-dj-ecstatic-dance.html   ← Page Formation DJ Holistique
+├── explications-ecstatic-dance.html   ← Page Ecstatic Dance (guide complet)
+├── eotim-dj-holistique.html           ← Page Qui je suis (bio Ëotim)
+├── partenaires.html                   ← Page Partenaires
+├── contact.html                       ← Page Contact (formulaire simplifié)
+├── mentions-legales.html              ← Confidentialité et mentions légales
 │
-├── _includes/                  ← SOURCE DE VÉRITÉ pour nav et footer
-│   ├── nav.html                ← Menu unique (desktop + mobile)
-│   └── footer.html             ← Footer unique (liens, réseaux, copyright)
+├── _includes/                         ← SOURCE DE VÉRITÉ pour nav, footer, formulaires, fond
+│   ├── nav.html                       ← Menu unique (desktop + mobile)
+│   ├── footer.html                    ← Footer unique (liens, réseaux, copyright)
+│   ├── parallax-bg.html               ← Fond animé (aurora, mandala, canvas)
+│   ├── form-formation.html            ← Formulaire complet (index + formation)
+│   └── form-contact.html              ← Formulaire simplifié (contact)
 │
-├── build.js                    ← Script qui injecte nav/footer dans les 6 pages
+├── build.js                           ← Script qui injecte les blocs dans les 7 pages
 │
-├── style.css                   ← CSS principal (partagé par toutes les pages)
-├── formation.css               ← CSS spécifique à formation.html
-├── ecstatic-dance.css          ← CSS spécifique à ecstatic-dance.html
-├── a-propos.css                ← CSS spécifique à a-propos.html
-├── partenaires.css             ← CSS spécifique à partenaires.html
-├── contact.css                 ← CSS spécifique à contact.html
+├── style.css                          ← CSS principal (partagé par toutes les pages)
+├── formation-dj-ecstatic-dance.css    ← CSS spécifique à la page formation
+├── explications-ecstatic-dance.css    ← CSS spécifique à la page Ecstatic Dance
+├── eotim-dj-holistique.css            ← CSS spécifique à la page Qui je suis
+├── partenaires.css                    ← CSS spécifique à partenaires.html
+├── contact.css                        ← CSS spécifique à contact.html
 │
 ├── js/
-│   ├── main.js                 ← Animations, menu, curseur (toutes pages)
-│   ├── mandala.js              ← Animation mandala canvas (toutes pages)
-│   ├── contact.js              ← Logique d'envoi du formulaire
-│   └── formation-nav.js        ← Navigation latérale (page formation)
+│   ├── main.js                        ← Animations, menu, curseur (toutes pages)
+│   ├── mandala.js                     ← Animation mandala canvas (toutes pages)
+│   ├── contact.js                     ← Logique d'envoi du formulaire
+│   ├── cookies.js                     ← Bannière cookies
+│   └── formation-nav.js               ← Navigation latérale (page formation)
 │
 ├── fonts/
-│   └── Decalotype-Bold.*       ← Police personnalisée
+│   └── Decalotype-Bold.*              ← Police personnalisée
 │
 ├── images/
-│   ├── index/                  ← Images de la page d'accueil
-│   ├── formation/              ← Images formation + avatars témoignages
-│   ├── ecstatic-dance/         ← Images page Ecstatic Dance
-│   ├── a-propos/               ← Portrait de Benjamin
-│   └── partenaires/            ← Photos des partenaires
+│   ├── index/                         ← Images de la page d'accueil
+│   ├── formation/                     ← Images formation + avatars témoignages
+│   ├── ecstatic-dance/                ← Images page Ecstatic Dance
+│   ├── a-propos/                      ← Portrait de Benjamin
+│   └── partenaires/                   ← Logos et photos des partenaires
 │
-├── favicon.svg                 ← Icône du site (onglet navigateur)
-├── contact.php                 ← Proxy vers Systeme.io (hébergement LWS)
-├── netlify/functions/
-│   └── contact.mjs             ← Même proxy mais pour Netlify (fallback)
-│
-└── netlify.toml                ← Configuration déploiement Netlify</code></pre>
+├── favicon.svg                        ← Icône du site (onglet navigateur)
+├── contact.php                        ← Proxy vers Systeme.io (hébergement LWS)
+└── .htaccess                          ← Configuration Apache (URLs propres, redirections)</code></pre>
 
 <div class="tip">
-  <strong>Règle simple :</strong> chaque page HTML a son fichier CSS du même nom + charge <code>style.css</code> (le CSS commun). Le menu et le footer sont gérés par le système <code>_includes/</code> + <code>build.js</code>.
+  <strong>Règle simple :</strong> chaque page HTML a son fichier CSS du même nom + charge <code>style.css</code> (le CSS commun). Le menu, le footer, le fond animé et les formulaires sont gérés par le système <code>_includes/</code> + <code>build.js</code>.
 </div>
 
 <!-- ===== 2. PAGES ===== -->
@@ -116,23 +117,24 @@
 
 <table>
   <tr><th>Page</th><th>Fichiers</th><th>Contenu principal</th></tr>
-  <tr><td><strong>Accueil</strong></td><td><code>index.html</code> + <code>style.css</code></td><td>Hero, philosophie (2 piliers), "Pour qui", témoignages (rotation auto), dates, formulaire newsletter</td></tr>
-  <tr><td><strong>Formation</strong></td><td><code>formation.html</code> + <code>formation.css</code></td><td>Programme détaillé, formats (retraite + D.A.N.S.E.S 48), inclus/exclus, témoignages, FAQ, formulaire</td></tr>
-  <tr><td><strong>Ecstatic Dance</strong></td><td><code>ecstatic-dance.html</code> + <code>ecstatic-dance.css</code></td><td>Guide complet ED : définition, principes, déroulé, globe des danseurs, devenir DJ ED</td></tr>
-  <tr><td><strong>À propos</strong></td><td><code>a-propos.html</code> + <code>a-propos.css</code></td><td>Bio de Benjamin/Ëotim, chronologie, vision, liens réseaux/musique</td></tr>
+  <tr><td><strong>Accueil</strong></td><td><code>index.html</code> + <code>style.css</code></td><td>Hero, philosophie (2 piliers), "Pour qui", témoignages (rotation auto), dates, formulaire</td></tr>
+  <tr><td><strong>Formation</strong></td><td><code>formation-dj-ecstatic-dance.html</code> + <code>formation-dj-ecstatic-dance.css</code></td><td>Programme détaillé, formats (retraite + D.A.N.S.E.S 48), inclus/exclus, témoignages, FAQ, formulaire</td></tr>
+  <tr><td><strong>Ecstatic Dance</strong></td><td><code>explications-ecstatic-dance.html</code> + <code>explications-ecstatic-dance.css</code></td><td>Guide complet ED : définition, principes, déroulé, expressions, silent ED, devenir DJ ED</td></tr>
+  <tr><td><strong>Qui je suis</strong></td><td><code>eotim-dj-holistique.html</code> + <code>eotim-dj-holistique.css</code></td><td>Bio de Benjamin/Ëotim, chronologie, vision, liens réseaux/musique</td></tr>
   <tr><td><strong>Partenaires</strong></td><td><code>partenaires.html</code> + <code>partenaires.css</code></td><td>Grille de partenaires (avec/sans photo), CTA devenir partenaire</td></tr>
   <tr><td><strong>Contact</strong></td><td><code>contact.html</code> + <code>contact.css</code></td><td>Formulaire simple, réseaux sociaux, lien espace élèves</td></tr>
+  <tr><td><strong>Mentions légales</strong></td><td><code>mentions-legales.html</code></td><td>Mentions légales et politique de confidentialité</td></tr>
 </table>
 
 <!-- ===== 3. NAVIGATION ET FOOTER ===== -->
 <h2 id="navigation">3. Navigation et footer (menu)</h2>
 
 <div class="card">
-  <strong>Le menu et le footer sont gérés depuis un seul endroit.</strong> Plus besoin de modifier 6 fichiers — tu modifies un seul fichier, tu lances le script, et toutes les pages sont mises à jour.
+  <strong>Le menu, le footer, le fond animé et les formulaires sont gérés depuis un seul endroit.</strong> Plus besoin de modifier 7 fichiers — tu modifies un seul fichier source dans <code>_includes/</code>, tu lances le script, et toutes les pages sont mises à jour.
 </div>
 
 <h3>Comment ça marche</h3>
-<p>Le menu vit dans <code>_includes/nav.html</code> et le footer dans <code>_includes/footer.html</code>. Ces deux fichiers sont la <strong>source de vérité unique</strong>. Le script <code>build.js</code> injecte leur contenu dans les 6 pages HTML du site.</p>
+<p>Le menu vit dans <code>_includes/nav.html</code>, le footer dans <code>_includes/footer.html</code>, le fond animé dans <code>_includes/parallax-bg.html</code>, et les formulaires dans <code>_includes/form-formation.html</code> et <code>_includes/form-contact.html</code>. Ces fichiers sont la <strong>source de vérité unique</strong>. Le script <code>build.js</code> injecte leur contenu dans les 7 pages HTML du site.</p>
 
 <h3>Pour modifier le menu ou le footer</h3>
 <ol>
@@ -146,15 +148,16 @@
 node build.js
 
 # Résultat :
-#   OK    index.html (2 bloc(s) mis à jour)
-#   OK    formation.html (2 bloc(s) mis à jour)
-#   OK    ecstatic-dance.html (2 bloc(s) mis à jour)
-#   OK    a-propos.html (2 bloc(s) mis à jour)
-#   OK    partenaires.html (2 bloc(s) mis à jour)
-#   OK    contact.html (2 bloc(s) mis à jour)</code></pre>
+#   OK    index.html (4 bloc(s) mis à jour)
+#   OK    formation-dj-ecstatic-dance.html (4 bloc(s) mis à jour)
+#   OK    explications-ecstatic-dance.html (3 bloc(s) mis à jour)
+#   OK    eotim-dj-holistique.html (3 bloc(s) mis à jour)
+#   OK    partenaires.html (3 bloc(s) mis à jour)
+#   OK    contact.html (4 bloc(s) mis à jour)
+#   OK    mentions-legales.html (2 bloc(s) mis à jour)</code></pre>
 
 <div class="warning">
-  <strong>Ne modifie JAMAIS le menu ou le footer directement dans les fichiers HTML des pages</strong> (index.html, formation.html, etc.). Tes changements seraient écrasés au prochain <code>node build.js</code>. Modifie toujours dans <code>_includes/</code>.
+  <strong>Ne modifie JAMAIS le menu, le footer, le fond animé ou les formulaires directement dans les fichiers HTML des pages</strong> (index.html, formation-dj-ecstatic-dance.html, etc.). Tes changements seraient écrasés au prochain <code>node build.js</code>. Modifie toujours dans <code>_includes/</code>.
 </div>
 
 <h3>Structure du menu (<code>_includes/nav.html</code>)</h3>
@@ -162,15 +165,16 @@ node build.js
 <pre><code>&lt;!-- 1. Menu desktop --&gt;
 &lt;nav class="nav" id="nav"&gt;
   &lt;ul class="nav-links"&gt;
-    &lt;li&gt;&lt;a href="formation.html"&gt;Formation&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="ecstatic-dance.html"&gt;Ecstatic Dance&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/formation-dj-ecstatic-dance.html"&gt;Formation&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/explications-ecstatic-dance.html"&gt;Ecstatic Dance&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/eotim-dj-holistique.html"&gt;Qui je suis&lt;/a&gt;&lt;/li&gt;
     ...
   &lt;/ul&gt;
 &lt;/nav&gt;
 
 &lt;!-- 2. Menu mobile (juste en dessous) --&gt;
 &lt;div class="nav-mobile" id="mobileMenu"&gt;
-  &lt;a href="formation.html" class="nav-mobile-link"&gt;Formation&lt;/a&gt;
+  &lt;a href="/formation-dj-ecstatic-dance.html" class="nav-mobile-link"&gt;Formation&lt;/a&gt;
   ...
 &lt;/div&gt;</code></pre>
 
@@ -182,17 +186,20 @@ node build.js
 <ul>
   <li><strong>Liens de navigation :</strong> même liste que le menu principal</li>
   <li><strong>Liens réseaux sociaux :</strong> Instagram, Facebook, YouTube, SoundCloud, Mixcloud</li>
-  <li><strong>Espace élèves :</strong> lien vers <code>https://membres.benjaminbossu.com</code></li>
+  <li><strong>Espace élèves :</strong> lien vers <code>https://app.djingisamedicine.com</code></li>
+  <li><strong>Autre univers :</strong> lien vers <code>https://www.benjaminbossu.com</code></li>
   <li><strong>Année copyright :</strong> <code>© 2026 DJing Is A Medicine</code></li>
-  <li><strong>Mentions légales &amp; Confidentialité :</strong> lien vers <code>mentions-legales.html</code> (page unique)</li>
+  <li><strong>Mentions légales &amp; Confidentialité :</strong> lien vers <code>mentions-legales.html</code></li>
 </ul>
 
 <h3>Comment le build.js fonctionne (pour info)</h3>
-<p>Dans chaque fichier HTML, le menu est entouré de marqueurs :</p>
-<pre><code>&lt;!-- NAV:START --&gt;
-  ... le menu est ici ...
-&lt;!-- NAV:END --&gt;</code></pre>
-<p>Le script remplace tout ce qui est entre <code>NAV:START</code> et <code>NAV:END</code> par le contenu de <code>_includes/nav.html</code>. Pareil pour <code>FOOTER:START</code> / <code>FOOTER:END</code>.</p>
+<p>Dans chaque fichier HTML, les blocs injectés sont entourés de marqueurs :</p>
+<pre><code>&lt;!-- NAV:START --&gt;     ...  &lt;!-- NAV:END --&gt;
+&lt;!-- FOOTER:START --&gt;  ...  &lt;!-- FOOTER:END --&gt;
+&lt;!-- PARALLAX:START --&gt; ... &lt;!-- PARALLAX:END --&gt;
+&lt;!-- FORM_FORMATION:START --&gt; ... &lt;!-- FORM_FORMATION:END --&gt;
+&lt;!-- FORM_CONTACT:START --&gt;  ... &lt;!-- FORM_CONTACT:END --&gt;</code></pre>
+<p>Le script remplace tout ce qui est entre ces marqueurs par le contenu du fichier source correspondant dans <code>_includes/</code>.</p>
 
 <!-- ===== 4. TEXTES ===== -->
 <h2 id="textes">4. Modifier les textes</h2>
@@ -238,7 +245,7 @@ node build.js
   <tr><td><code>images/formation/</code></td><td>Photos formation + avatars témoignages (ex: <code>temoignage-laura.jpg</code>)</td></tr>
   <tr><td><code>images/ecstatic-dance/</code></td><td>Photos page Ecstatic Dance</td></tr>
   <tr><td><code>images/a-propos/</code></td><td>Portrait Ëotim (<code>apropos-portrait-1.jpg</code>)</td></tr>
-  <tr><td><code>images/partenaires/</code></td><td>Photos des partenaires (<code>partenaires-1.webp</code> à <code>partenaires-4.jpg</code>)</td></tr>
+  <tr><td><code>images/partenaires/</code></td><td>Photos et logos des partenaires (ex. <code>logo-omwater.jpg</code>, <code>mixed-in-key-logiciel-dj.jpg</code>)</td></tr>
 </table>
 
 <h3>Pour remplacer une image</h3>
@@ -295,7 +302,7 @@ node build.js
   '« Un avant et un après… »',
 ];</code></pre>
 
-<h3>Page Formation (formation.html)</h3>
+<h3>Page Formation (formation-dj-ecstatic-dance.html)</h3>
 <p>Les témoignages de la page formation sont directement dans le HTML (pas de rotation JS). Cherche <code>SECTION — TEMOIGNAGES</code> dans le fichier.</p>
 
 <p>Un témoignage type :</p>
@@ -339,8 +346,9 @@ node build.js
    class="partenaire-card partenaire-card--photo reveal"&gt;
   &lt;h3 class="partenaire-name"&gt;Temple Sauvage&lt;/h3&gt;
   &lt;p class="partenaire-desc"&gt;Description du partenaire...&lt;/p&gt;
-  &lt;img src="images/partenaires/partenaires-1.webp"
-       alt="Temple Sauvage" class="partenaire-photo" loading="lazy"&gt;
+  &lt;img src="images/partenaires/logo-temple-sauvage.png"
+       alt="Temple Sauvage — cacao cérémoniel et boissons vibratoires"
+       class="partenaire-photo" loading="lazy"&gt;
 &lt;/a&gt;</code></pre>
 
 <h3>Partenaire sans photo</h3>
@@ -364,18 +372,21 @@ node build.js
 <p>Il existe <strong>deux formulaires</strong> sur le site :</p>
 
 <table>
-  <tr><th>Page</th><th>Formulaire</th><th>Champs</th></tr>
-  <tr><td><code>index.html</code> + <code>formation.html</code></td><td>Complet</td><td>Prénom, nom, email, téléphone, ville, niveau DJ, niveau espaces, provenance, sujet, motivation (conditionnel), message, newsletter</td></tr>
-  <tr><td><code>contact.html</code></td><td>Simplifié</td><td>Prénom, nom, email, téléphone, sujet, message, newsletter</td></tr>
+  <tr><th>Page</th><th>Source</th><th>Formulaire</th></tr>
+  <tr><td><code>index.html</code> + <code>formation-dj-ecstatic-dance.html</code></td><td><code>_includes/form-formation.html</code></td><td>Complet (prénom, nom, email, téléphone, ville, niveaux, sujet, motivation, message, newsletter)</td></tr>
+  <tr><td><code>contact.html</code></td><td><code>_includes/form-contact.html</code></td><td>Simplifié (prénom, nom, email, téléphone, sujet, message, newsletter)</td></tr>
 </table>
+
+<div class="warning">
+  <strong>Les formulaires sont gérés par <code>_includes/</code>.</strong> Modifie le fichier source, puis lance <code>node build.js</code>. Ne modifie pas directement dans les pages HTML.
+</div>
 
 <h3>Où vont les données ?</h3>
 <p>Les formulaires envoient les données à <strong>Systeme.io</strong> via un proxy :</p>
 <ol>
-  <li>D'abord vers <code>/contact.php</code> (sur LWS, serveur PHP)</li>
-  <li>En fallback, vers <code>/.netlify/functions/contact</code> (sur Netlify)</li>
+  <li>Vers <code>/contact.php</code> (sur LWS, serveur PHP)</li>
 </ol>
-<p>Le contact est créé ou mis à jour dans Systeme.io, et des tags (<code>formsite</code>, <code>newsletter</code>) lui sont assignés.</p>
+<p>Le contact est créé ou mis à jour dans Systeme.io, et des tags lui sont assignés.</p>
 
 <h3>Modifier les options du formulaire</h3>
 <p>Pour changer les options d'un menu déroulant (ex: le sujet) :</p>
@@ -402,7 +413,7 @@ node build.js
 &lt;meta name="description" content="Formation DJ Ecstatic Dance : ..."&gt;
 &lt;meta property="og:title" content="Formation DJ Holistique..."&gt;
 &lt;meta property="og:description" content="Retraite immersive de 5 jours..."&gt;
-&lt;meta property="og:image" content="https://djingisamedicine.com/images/index/index-hero-1.jpg"&gt;</code></pre>
+&lt;meta property="og:image" content="https://www.djingisamedicine.com/images/index/index-hero-1.jpg"&gt;</code></pre>
 
 <table>
   <tr><th>Balise</th><th>Rôle</th><th>Longueur idéale</th></tr>
@@ -453,10 +464,11 @@ node build.js
 
 <table>
   <tr><th>Fichier</th><th>Rôle</th><th>Chargé sur</th></tr>
-  <tr><td><code>js/main.js</code></td><td>Animations au scroll (reveal), menu hamburger mobile, scroll smooth, effet 3D tilt sur les cartes, curseur personnalisé</td><td>Toutes les pages</td></tr>
-  <tr><td><code>js/mandala.js</code></td><td>Mandala animé en fond (canvas), se met en pause quand l'onglet est caché ou hors écran</td><td>Toutes les pages</td></tr>
-  <tr><td><code>js/contact.js</code></td><td>Validation et envoi du formulaire vers Systeme.io, affichage conditionnel du champ motivation</td><td>index, formation, contact</td></tr>
-  <tr><td><code>js/formation-nav.js</code></td><td>Navigation latérale sticky (les points sur le côté qui suivent le scroll)</td><td>formation uniquement</td></tr>
+  <tr><td><code>js/main.js</code></td><td>Animations au scroll (reveal), menu hamburger mobile, scroll smooth, effet 3D tilt, curseur personnalisé</td><td>Toutes les pages</td></tr>
+  <tr><td><code>js/mandala.js</code></td><td>Mandala animé en fond (canvas), pause auto quand l'onglet est caché</td><td>Toutes les pages</td></tr>
+  <tr><td><code>js/contact.js</code></td><td>Validation et envoi du formulaire, captcha mathématique, champ motivation conditionnel</td><td>index, formation, contact</td></tr>
+  <tr><td><code>js/cookies.js</code></td><td>Bannière de consentement cookies</td><td>Toutes les pages (via footer)</td></tr>
+  <tr><td><code>js/formation-nav.js</code></td><td>Navigation latérale sticky (points sur le côté)</td><td>formation uniquement</td></tr>
 </table>
 
 <h3>L'attribut <code>reveal</code></h3>
@@ -470,15 +482,14 @@ node build.js
 
 <h3>Hébergement</h3>
 <ul>
-  <li><strong>LWS</strong> : hébergement principal de Benjamin (PHP + fichiers statiques)</li>
-  <li><strong>Netlify</strong> : maquette de démo (déploiement automatique depuis GitHub)</li>
+  <li><strong>LWS</strong> : hébergement de Benjamin (PHP + fichiers statiques)</li>
 </ul>
 
 <h3>Workflow de mise à jour</h3>
 <ol>
   <li>Modifier les fichiers (textes dans le HTML, ou menu/footer dans <code>_includes/</code>)</li>
   <li>Si menu/footer modifié : lancer <code>node build.js</code></li>
-  <li>Uploader les fichiers sur LWS (FTP) ou push sur GitHub pour Netlify</li>
+  <li>Uploader les fichiers sur LWS (FTP)</li>
 </ol>
 
 <h3>Commandes git de base</h3>
@@ -486,12 +497,12 @@ node build.js
 git status
 
 # Ajouter les fichiers modifiés
-git add index.html formation.html
+git add index.html formation-dj-ecstatic-dance.html
 
 # Créer un commit
 git commit -m "Mise à jour des textes accueil et formation"
 
-# Envoyer sur le serveur (Netlify se déploie automatiquement)
+# Envoyer sur le dépôt
 git push</code></pre>
 
 <!-- ===== 14. NE PAS TOUCHER ===== -->
@@ -504,11 +515,11 @@ git push</code></pre>
 <ul>
   <li><strong>Le mandala SVG</strong> dans le hero de <code>index.html</code> — géométrie sacrée calculée précisément</li>
   <li><strong>Les wave-separators</strong> — les <code>&lt;svg&gt;</code> avec animations sont calibrés pour les transitions entre sections</li>
-  <li><strong>Les marqueurs <code>&lt;!-- NAV:START --&gt;</code> / <code>&lt;!-- NAV:END --&gt;</code></strong> et <code>&lt;!-- FOOTER:START --&gt;</code> / <code>&lt;!-- FOOTER:END --&gt;</code> — utilisés par <code>build.js</code></li>
+  <li><strong>Les marqueurs <code>&lt;!-- ...:START --&gt;</code> / <code>&lt;!-- ...:END --&gt;</code></strong> (NAV, FOOTER, PARALLAX, FORM_FORMATION, FORM_CONTACT) — utilisés par <code>build.js</code></li>
   <li><strong><code>build.js</code></strong> — le script de build, ne pas modifier sauf pour ajouter une page</li>
   <li><strong><code>js/mandala.js</code></strong> — l'animation Canvas est optimisée (IntersectionObserver, pause hors écran...)</li>
   <li><strong><code>js/main.js</code></strong> — les interactions (curseur, tilt 3D, menu) sont connectées entre elles</li>
-  <li><strong><code>contact.php</code></strong> et <strong><code>netlify/functions/contact.mjs</code></strong> — contiennent la clé API Systeme.io</li>
+  <li><strong><code>contact.php</code></strong> — contient la clé API Systeme.io</li>
   <li><strong>L'ordre des <code>&lt;link&gt;</code> et <code>&lt;script&gt;</code></strong> dans le <code>&lt;head&gt;</code> et fin de <code>&lt;body&gt;</code></li>
   <li><strong>Les attributs <code>id</code></strong> — ils sont utilisés par le JavaScript (ex: <code>id="nav"</code>, <code>id="contactForm"</code>)</li>
   <li><strong><code>data-magnetic</code></strong> — attribut qui active l'effet magnétique sur les boutons</li>
@@ -558,16 +569,16 @@ git push</code></pre>
 </div>
 
 <div class="card">
-  <h3>Je veux modifier le menu ou le footer</h3>
+  <h3>Je veux modifier le menu, le footer ou un formulaire</h3>
   <ol>
-    <li>Modifier <code>_includes/nav.html</code> (menu) ou <code>_includes/footer.html</code> (footer)</li>
+    <li>Modifier le fichier source dans <code>_includes/</code></li>
     <li>Lancer <code>node build.js</code></li>
     <li>Upload FTP ou git push</li>
   </ol>
 </div>
 
 <hr style="border-color: var(--border); margin: 3rem 0;">
-<p style="color: var(--muted); text-align: center;">Documentation mise à jour le 14 mars 2026 — Créé par Julien (<a href="https://flowebia.fr">flowebia.fr</a>)</p>
+<p style="color: var(--muted); text-align: center;">Documentation mise à jour le 20 mars 2026 — Créé par Julien (<a href="https://flowebia.fr">flowebia.fr</a>)</p>
 
 </body>
 </html>
