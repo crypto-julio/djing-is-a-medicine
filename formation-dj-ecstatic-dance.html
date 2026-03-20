@@ -1028,6 +1028,10 @@
             <input type="checkbox" name="newsletter_chk" value="true" checked>
             <span>Oui, je veux recevoir la newsletter</span>
           </label>
+          <div class="captcha-row">
+            <span class="captcha-question" id="captchaQuestion"></span>
+            <input type="number" class="newsletter-input captcha-input" name="captcha" id="captchaInput" placeholder="?" required autocomplete="off">
+          </div>
           <button type="submit" class="newsletter-submit" id="contactSubmit">Recevoir la brochure et le replay</button>
           <p class="newsletter-form-status" id="formStatus" role="alert" aria-live="polite"></p>
         </form>

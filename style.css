@@ -1057,15 +1057,15 @@ img { max-width: 100%; display: block; }
 .pillar-2 {
   margin-top: 0;
   background:
-    radial-gradient(ellipse at top right, rgba(30, 96, 128, 0.2), transparent 65%),
-    radial-gradient(ellipse at bottom left, rgba(27, 75, 107, 0.06), transparent 50%),
-    linear-gradient(160deg, rgba(30, 96, 128, 0.12) 0%, rgba(42, 107, 138, 0.05) 50%, #FFFFFF 100%);
+    radial-gradient(ellipse at top right, rgba(120, 50, 180, 0.2), transparent 65%),
+    radial-gradient(ellipse at bottom left, rgba(90, 30, 150, 0.06), transparent 50%),
+    linear-gradient(160deg, rgba(120, 50, 180, 0.12) 0%, rgba(160, 80, 220, 0.05) 50%, #FFFFFF 100%);
 }
 .pillar-2::before {
   background:
-    radial-gradient(ellipse at top right, rgba(30, 96, 128, 0.28), transparent 65%),
-    radial-gradient(ellipse at bottom left, rgba(27, 75, 107, 0.1), transparent 50%),
-    linear-gradient(160deg, rgba(30, 96, 128, 0.18) 0%, rgba(42, 107, 138, 0.08) 50%, #FFFFFF 100%);
+    radial-gradient(ellipse at top right, rgba(120, 50, 180, 0.28), transparent 65%),
+    radial-gradient(ellipse at bottom left, rgba(90, 30, 150, 0.1), transparent 50%),
+    linear-gradient(160deg, rgba(120, 50, 180, 0.18) 0%, rgba(160, 80, 220, 0.08) 50%, #FFFFFF 100%);
 }
 
 .pillar-photo {
@@ -1093,7 +1093,7 @@ img { max-width: 100%; display: block; }
   color: var(--accent-amber);
 }
 .pillar-2 .pillar-icon {
-  color: var(--accent-teal);
+  color: #7832b4;
 }
 
 .pillar-title {
@@ -1113,7 +1113,7 @@ img { max-width: 100%; display: block; }
   margin-bottom: 1.25rem;
   padding: 0 2.5rem;
 }
-.pillar-2 .pillar-subtitle { color: var(--accent-teal); }
+.pillar-2 .pillar-subtitle { color: #7832b4; }
 .pillar-text {
   font-size: 0.95rem;
   color: var(--text-secondary);
@@ -1129,7 +1129,7 @@ img { max-width: 100%; display: block; }
   text-transform: uppercase;
   padding: 0 2.5rem;
 }
-.pillar-2 .pillar-duration { color: var(--accent-teal); }
+.pillar-2 .pillar-duration { color: #7832b4; }
 
 /* Accent bar at bottom of cards */
 .pillar-accent {
@@ -1151,7 +1151,7 @@ img { max-width: 100%; display: block; }
   background: linear-gradient(90deg, transparent, var(--accent-amber), transparent);
 }
 .pillar-2 .pillar-accent {
-  background: linear-gradient(90deg, transparent, var(--accent-teal), transparent);
+  background: linear-gradient(90deg, transparent, #7832b4, transparent);
 }
 
 /* Quote band */
@@ -2051,6 +2051,28 @@ img { max-width: 100%; display: block; }
   opacity: 0.7;
   cursor: not-allowed;
   transform: none;
+}
+.captcha-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.8rem 0;
+}
+.captcha-question {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+.captcha-input {
+  max-width: 80px;
+  text-align: center;
+  -moz-appearance: textfield;
+}
+.captcha-input::-webkit-inner-spin-button,
+.captcha-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .newsletter-submit {

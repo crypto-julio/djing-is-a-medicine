@@ -16,6 +16,19 @@
   var formStatus = document.getElementById('formStatus');
   if (!contactForm) return;
 
+  // ── Captcha math ──────────────────────────────────────────────────────
+  var captchaQuestion = document.getElementById('captchaQuestion');
+  var captchaInput = document.getElementById('captchaInput');
+  var captchaAnswer = 0;
+
+  function generateCaptcha() {
+    var a = Math.floor(Math.random() * 10) + 1;
+    var b = Math.floor(Math.random() * 10) + 1;
+    captchaAnswer = a + b;
+    if (captchaQuestion) captchaQuestion.textContent = a + ' + ' + b + ' = ';
+  }
+  generateCaptcha();
+
   function sendToProxy(url, payload) {
     return fetch(url, {
       method: 'POST',
@@ -76,6 +89,15 @@
     if (data.subject === 'dj-holistique' && !data.motivationDJ) {
       formStatus.textContent = "Merci d'indiquer ton degré de motivation.";
       formStatus.classList.add('error');
+      return;
+    }
+
+    // Vérification captcha
+    if (parseInt(data.captcha, 10) !== captchaAnswer) {
+      formStatus.textContent = 'Mauvaise réponse au calcul. Réessaie !';
+      formStatus.classList.add('error');
+      generateCaptcha();
+      if (captchaInput) captchaInput.value = '';
       return;
     }
 
