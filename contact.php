@@ -134,16 +134,15 @@ if (empty($contact['id'])) {
 }
 
 // ── Tags ───────────────────────────────────────────────────────────────────
-$tagsToAssign = [];
+$tagsToAssign = ['formsite'];
+if (!empty($body['newsletter_chk']) && $body['newsletter_chk'] !== 'false') {
+    $tagsToAssign[] = 'newsletter';
+}
 if (!empty($body['subject'])) {
     if ($body['subject'] === 'dj-holistique') {
         $tagsToAssign[] = 'InterestRonde';
     } elseif ($body['subject'] === 'danses-48') {
         $tagsToAssign[] = 'Danses48';
-    } elseif ($body['subject'] === 'devenir-partenaire') {
-        $tagsToAssign[] = 'DevenirPartenaire';
-    } elseif ($body['subject'] === 'information-generale') {
-        $tagsToAssign[] = 'InfoGenerale';
     }
 }
 
