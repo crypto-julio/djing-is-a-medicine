@@ -12,6 +12,10 @@
 
 RewriteEngine On
 
+# ---- Forcer www (eviter doublons analytics) ----
+RewriteCond %{HTTP_HOST} ^djingisamedicine\.com$ [NC]
+RewriteRule ^(.*)$ https://www.djingisamedicine.com/$1 [R=301,L]
+
 # ---- Pretty URLs : /slug → /slug.html ----
 # Si l'URL ne correspond ni a un fichier ni a un dossier,
 # mais qu'un fichier .html existe avec ce nom, on le sert.
